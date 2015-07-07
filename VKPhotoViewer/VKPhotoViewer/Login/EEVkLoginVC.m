@@ -11,6 +11,7 @@
 
 @interface EEVkLoginVC ()
 - (NSString *) stringBetween :(NSString*) start andString:(NSString*) end innerString:(NSString*)str;
+- (void) getUserAthorizationData :(UIWebView*) WebView;
 @end
 
 @implementation EEVkLoginVC
@@ -58,24 +59,20 @@
     return lresult;
 }
 
-#pragma mark - UIWebView delegates
-
-
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"URL - %@", webView.request.URL.absoluteString);
+- (void)getUserAthorizationData:(UIWebView *)wView {
+    NSLog(@"URL - %@", wView.request.URL.absoluteString);
     
-    if([webView.request.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound){
+    if([wView.request.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound){
         
-        NSString *laccessToken = [self stringBetween:@"access_token=" andString:@"&" innerString:[[[webView request]URL]absoluteString]];
-        NSString *ltokenLifeTime = [self stringBetween:@"expires_in=" andString:@"&" innerString:[[[webView request]URL]absoluteString]];
-        NSArray *luserArray = [[[[webView request]URL]absoluteString] componentsSeparatedByString:@"&user_id="];
+        NSString *laccessToken = [self stringBetween:@"access_token=" andString:@"&" innerString:[[[wView request]URL]absoluteString]];
+        NSString *ltokenLifeTime = [self stringBetween:@"expires_in=" andString:@"&" innerString:[[[wView request]URL]absoluteString]];
+        NSArray *luserArray = [[[[wView request]URL]absoluteString] componentsSeparatedByString:@"&user_id="];
         NSString *luserID = [luserArray lastObject];
         
         NSLog(@"token:%@",laccessToken);
         NSLog(@"expires_in:%@",ltokenLifeTime);
         NSLog(@"user_id:%@",luserID);
-
+        
         
         if (luserID) {
             [[NSUserDefaults standardUserDefaults] setObject:luserID forKey:@"vkUserId"];
@@ -94,6 +91,17 @@
     } else if([vkLoginWebView.request.URL.absoluteString rangeOfString:@"error"].location != NSNotFound) {
         NSLog(@"error: %@", vkLoginWebView.request.URL.absoluteString);
     }
+
+}
+
+#pragma mark - UIWebView delegates
+
+
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    
+    [self getUserAthorizationData:webView];
     
     [indicator stopAnimating];
     [indicator setHidden:YES];
