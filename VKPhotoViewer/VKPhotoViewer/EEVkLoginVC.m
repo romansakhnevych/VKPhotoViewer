@@ -18,7 +18,8 @@
 @synthesize vkLoginWebView;
 @synthesize indicator;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [indicator startAnimating];
     
@@ -34,6 +35,30 @@
     [vkLoginWebView loadRequest:[NSURLRequest requestWithURL:lauthUrl]];
 }
 
+- (NSString*)stringBetween:(NSString *)start andString:(NSString *)end innerString:(NSString *)str
+{
+    NSScanner *lscanner = [NSScanner scannerWithString:str];
+    [lscanner setCharactersToBeSkipped:nil];
+    [lscanner scanUpToString:start intoString:NULL];
+    if([lscanner scanString:start intoString:NULL]){
+        NSString *lresult = nil;
+        if([lscanner scanUpToString:end intoString:&lresult]){
+            return lresult;
+        }
+    }
+    
+    return nil;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+   // if([vkLoginWebView.request.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound){
+        
+       // NSString *accessToken = [self]
+        
+    //}
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

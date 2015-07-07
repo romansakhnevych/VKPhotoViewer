@@ -17,4 +17,6 @@
 @property (nonatomic,retain) IBOutlet UIWebView *vkLoginWebView;
 @property (nonatomic,retain) IBOutlet UIActivityIndicatorView *indicator;
 
+- (NSString *) stringBetween :(NSString*) start andString:(NSString*) end innerString:(NSString*)str;
+
 @end
