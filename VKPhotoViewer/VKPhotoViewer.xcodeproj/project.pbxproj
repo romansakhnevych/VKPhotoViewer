@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84C1A4191B4BD10D00D5F5C0 /* EEVkLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1A4181B4BD10D00D5F5C0 /* EEVkLoginVC.m */; };
 		84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BC1B4BCF3E00959DF2 /* main.m */; };
 		84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */; };
-		84C1C3C31B4BCF3E00959DF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3C21B4BCF3E00959DF2 /* ViewController.m */; };
 		84C1C3C61B4BCF3E00959DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C41B4BCF3E00959DF2 /* Main.storyboard */; };
 		84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */; };
 		84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */; };
@@ -27,13 +27,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84C1A4171B4BD10D00D5F5C0 /* EEVkLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEVkLoginVC.h; sourceTree = "<group>"; };
+		84C1A4181B4BD10D00D5F5C0 /* EEVkLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEVkLoginVC.m; sourceTree = "<group>"; };
+		84C1A41A1B4BD3F700D5F5C0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84C1C3B71B4BCF3E00959DF2 /* VKPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3BB1B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C1C3BC1B4BCF3E00959DF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84C1C3C11B4BCF3E00959DF2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84C1C3C21B4BCF3E00959DF2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84C1C3C51B4BCF3E00959DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84C1C3CA1B4BCF3E00959DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,12 +84,13 @@
 			children = (
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
-				84C1C3C11B4BCF3E00959DF2 /* ViewController.h */,
-				84C1C3C21B4BCF3E00959DF2 /* ViewController.m */,
+				84C1A4171B4BD10D00D5F5C0 /* EEVkLoginVC.h */,
+				84C1A4181B4BD10D00D5F5C0 /* EEVkLoginVC.m */,
 				84C1C3C41B4BCF3E00959DF2 /* Main.storyboard */,
 				84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */,
 				84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */,
 				84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */,
+				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
 			);
 			path = VKPhotoViewer;
 			sourceTree = "<group>";
@@ -219,9 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C1C3C31B4BCF3E00959DF2 /* ViewController.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,
+				84C1A4191B4BD10D00D5F5C0 /* EEVkLoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +414,7 @@
 				84C1C3DC1B4BCF3E00959DF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84C1C3DD1B4BCF3E00959DF2 /* Build configuration list for PBXNativeTarget "VKPhotoViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +423,7 @@
 				84C1C3DF1B4BCF3E00959DF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
