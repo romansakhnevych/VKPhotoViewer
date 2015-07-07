@@ -4,6 +4,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="EiQ-CT-k7N">
+            <objects>
+                <navigationController id="9Xd-38-3Es" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XXc-Vx-BN5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zg7-B5-j9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-206.5" y="346.5"/>
+        </scene>
         <!--Vk LoginVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>

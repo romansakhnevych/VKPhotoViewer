@@ -8,6 +8,7 @@
 
 #ifndef VKPhotoViewer_Constants_h
 #define VKPhotoViewer_Constants_h
+
 #define APP_ID @"4980008"
 #define SCOPE @"friends,photos"
 #define REDIRECT_URI @"https://oauth.vk.com/blank.html"

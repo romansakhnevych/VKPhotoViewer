@@ -10,7 +10,7 @@
 #import "Constants.h"
 
 @interface EEVkLoginVC ()
-
+- (NSString *) stringBetween :(NSString*) start andString:(NSString*) end innerString:(NSString*)str;
 @end
 
 @implementation EEVkLoginVC
@@ -52,11 +52,35 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-   // if([vkLoginWebView.request.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound){
+    if([vkLoginWebView.request.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound){
         
-       // NSString *accessToken = [self]
+        NSString *laccessToken = [self stringBetween:@"access_token=" andString:@"&" innerString:[[[webView request]URL]absoluteString]];
+        NSString *ltokenLifeTime = [self stringBetween:@"expires_in=" andString:@"&" innerString:[[[webView request]URL]absoluteString]];
+        NSArray *luserArray = [[[[webView request]URL]absoluteString] componentsSeparatedByString:@"&user_id="];
+        NSString *luserID = [luserArray lastObject];
+        NSLog(@"token:%@",laccessToken);
+        NSLog(@"expires_in:%@",ltokenLifeTime);
+        NSLog(@"user_id:%@",luserID);
         
-    //}
+        
+        if(luserID){
+            [[NSUserDefaults standardUserDefaults] setObject:luserID forKey:@"vkUserId"];
+        }
+        if(ltokenLifeTime){
+            [[NSUserDefaults standardUserDefaults] setObject:ltokenLifeTime forKey:@"vkTokenLifeTime"];
+        }
+        if(laccessToken){
+            [[NSUserDefaults standardUserDefaults] setObject:laccessToken forKey:@"vkAccessToken"];
+        }
+        
+        NSLog(@"vkLoginWebView response: %@",[[[vkLoginWebView request]URL]absoluteString]);
+    }
+    else if([vkLoginWebView.request.URL.absoluteString rangeOfString:@"error"].location != NSNotFound){
+        NSLog(@"error: %@", vkLoginWebView.request.URL.absoluteString);
+    }
+    
+    [indicator stopAnimating];
+    [indicator setHidden:YES];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -64,14 +88,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
