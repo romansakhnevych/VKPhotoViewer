@@ -10,4 +10,20 @@
 
 @implementation EEUserAuthorization
 
+@synthesize accessToken;
+@synthesize tokenLifeTime;
+@synthesize userId;
+
+static EEUserAuthorization *sharedUserAuthorizationData = NULL;
+
++ (EEUserAuthorization *)sharedUserAuthorizationData{
+    if(!sharedUserAuthorizationData||sharedUserAuthorizationData == NULL){
+        
+        sharedUserAuthorizationData = [EEUserAuthorization new];
+    }
+    
+    return sharedUserAuthorizationData;
+}
+
+
 @end

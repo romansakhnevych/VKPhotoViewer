@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -19,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zg7-B5-j9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-384.5" y="346.5"/>
+            <point key="canvasLocation" x="-838.5" y="346.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ust-zA-7KV">
@@ -33,24 +34,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAl-lp-8qz">
-                                <rect key="frame" x="156" y="452" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAl-lp-8qz">
+                                <rect key="frame" x="43" y="603" width="289" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="VK Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="269" y="270" width="62" height="30"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="169" y="404" width="62" height="30"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="369" y="283" width="62" height="30"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="169" y="578" width="62" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="uOQ-i9-I9q"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="vAl-lp-8qz" secondAttribute="trailing" constant="27" id="Gvp-Bh-q5n"/>
+                            <constraint firstItem="vAl-lp-8qz" firstAttribute="leading" secondItem="MMP-Q0-Vgt" secondAttribute="leadingMargin" constant="27" id="H4E-h1-Yv1"/>
+                            <constraint firstItem="vAl-lp-8qz" firstAttribute="leading" secondItem="MMP-Q0-Vgt" secondAttribute="leadingMargin" constant="27" id="a52-aK-v3m"/>
+                            <constraint firstItem="vAl-lp-8qz" firstAttribute="centerX" secondItem="MMP-Q0-Vgt" secondAttribute="centerX" id="jvU-QE-L5w"/>
+                            <constraint firstItem="0OU-Ul-mMM" firstAttribute="top" secondItem="vAl-lp-8qz" secondAttribute="bottom" constant="34" id="zjc-q2-GiC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HBs-AR-8cl"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xb-GJ-jDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21.5" y="346.5"/>
+            <point key="canvasLocation" x="-186.5" y="346.5"/>
         </scene>
         <!--Vk LoginVC-->
         <scene sceneID="ufC-wZ-h7g">
@@ -64,21 +85,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-al-CvQ">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-al-CvQ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="380"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="585"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="20" width="401" height="380"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="800" height="380"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="780"/>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="8oG-wn-oP8"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Imj-fa-erT">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Imj-fa-erT">
                                 <rect key="frame" x="177" y="324" width="20" height="20"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="290" y="200" width="20" height="20"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="303" width="20" height="20"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="200" width="20" height="20"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="390" y="200" width="20" height="20"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="400" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RfN-al-CvQ" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Gw9-Cp-2dh"/>
+                            <constraint firstItem="Imj-fa-erT" firstAttribute="centerY" secondItem="RfN-al-CvQ" secondAttribute="centerY" constant="-9.5" id="I0G-uj-OPa"/>
+                            <constraint firstItem="RfN-al-CvQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MTe-cP-oTL"/>
+                            <constraint firstItem="RfN-al-CvQ" firstAttribute="centerX" secondItem="Imj-fa-erT" secondAttribute="centerX" id="OQZ-cH-LEg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RfN-al-CvQ" secondAttribute="trailing" constant="-16" id="U9X-Rx-Uau"/>
+                            <constraint firstItem="RfN-al-CvQ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="cPP-4Q-h3i"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FCy-zu-6sY"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="indicator" destination="Imj-fa-erT" id="YMG-Zp-EPo"/>
                         <outlet property="view" destination="kh9-bI-dsS" id="U3M-Wo-Zn9"/>
@@ -87,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468.5" y="346.5"/>
+            <point key="canvasLocation" x="483.75" y="345.75"/>
         </scene>
     </scenes>
 </document>

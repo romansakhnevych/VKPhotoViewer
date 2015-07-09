@@ -15,4 +15,8 @@
 #define DISPLAY @"mobile"
 #define API_VERSION @"5.34"
 
+#define USER_ID_KEY @"vkUserId"
+#define TOKEN_LIFE_TIME_KEY @"vkTokenLifeTime"
+#define ACCESS_TOKEN_KEY @"vkAccessToken"
+
 #endif

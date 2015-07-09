@@ -10,14 +10,15 @@
 
 @interface EEUserAuthorization : NSObject{
     NSString *_accessToken;
-    NSString *_userID;
+    NSString *_userId;
     NSString *_tokenLifeTime;
 }
 
 @property (nonatomic,retain) NSString *accessToken;
-@property (nonatomic,retain) NSString *userID;
+@property (nonatomic,retain) NSString *userId;
 @property (nonatomic,retain) NSString *tokenLifeTime;
 
++ (EEUserAuthorization*) sharedUserAuthorizationData;
 
 
 @end

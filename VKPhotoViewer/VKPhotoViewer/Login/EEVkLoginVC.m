@@ -73,15 +73,15 @@
         NSLog(@"expires_in:%@",ltokenLifeTime);
         NSLog(@"user_id:%@",luserID);
         
-        
+        		
         if (luserID) {
-            [[NSUserDefaults standardUserDefaults] setObject:luserID forKey:@"vkUserId"];
+            [[NSUserDefaults standardUserDefaults] setObject:luserID forKey:[NSString stringWithFormat:@"%@",USER_ID_KEY]];
         }
         if (ltokenLifeTime) {
-            [[NSUserDefaults standardUserDefaults] setObject:ltokenLifeTime forKey:@"vkTokenLifeTime"];
+            [[NSUserDefaults standardUserDefaults] setObject:ltokenLifeTime forKey:[NSString stringWithFormat:@"%@",TOKEN_LIFE_TIME_KEY]];
         }
         if (laccessToken) {
-            [[NSUserDefaults standardUserDefaults] setObject:laccessToken forKey:@"vkAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:laccessToken forKey:[NSString stringWithFormat:@"%@",ACCESS_TOKEN_KEY]];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         
