@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -15,9 +16,19 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]] == YES){
+    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITableViewController *lTable = (UITableViewController *)[lStoryboard instantiateViewControllerWithIdentifier:@"tableViewCon"];
+    [(UINavigationController *)self.window.rootViewController pushViewController:lTable animated:NO];
+    //-------------
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]];
+    //-------------
+
+    }
     
     return YES;
 }

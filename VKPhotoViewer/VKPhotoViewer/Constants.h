@@ -18,5 +18,6 @@
 #define USER_ID_KEY @"vkUserId"
 #define TOKEN_LIFE_TIME_KEY @"vkTokenLifeTime"
 #define ACCESS_TOKEN_KEY @"vkAccessToken"
+#define AUTH_COMPLITED_KEY @"authComplited"
 
 #endif

@@ -7,6 +7,7 @@
 //
 
 #import "EEUserAuthorization.h"
+#import "Constants.h"
 
 @implementation EEUserAuthorization
 
@@ -24,6 +25,23 @@ static EEUserAuthorization *sharedUserAuthorizationData = NULL;
     
     return sharedUserAuthorizationData;
 }
+
+- (void) setUserAuthorizationData{
+    
+    if (!accessToken||accessToken == nil){
+        
+        accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY];
+    }
+    if (!userId||userId == nil){
+        
+        userId = [[NSUserDefaults standardUserDefaults]objectForKey:USER_ID_KEY];
+    }
+    if (!tokenLifeTime||tokenLifeTime == nil){
+        
+        tokenLifeTime = [[NSUserDefaults standardUserDefaults]objectForKey:TOKEN_LIFE_TIME_KEY];
+    }
+}
+
 
 
 @end

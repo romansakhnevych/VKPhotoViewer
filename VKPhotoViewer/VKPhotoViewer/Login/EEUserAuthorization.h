@@ -19,6 +19,8 @@
 @property (nonatomic,retain) NSString *tokenLifeTime;
 
 + (EEUserAuthorization*) sharedUserAuthorizationData;
+- (void)setUserAuthorizationData;
+
 
 
 @end

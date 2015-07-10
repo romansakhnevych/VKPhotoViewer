@@ -8,6 +8,7 @@
 
 #import "EEVkLoginVC.h"
 #import "Constants.h"
+#import "EEUserAuthorization.h"
 
 @interface EEVkLoginVC ()
 - (NSString *) stringBetween :(NSString*) start andString:(NSString*) end innerString:(NSString*)str;
@@ -21,6 +22,9 @@
 
 - (void)viewDidLoad
 {
+    //---------------
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]];
+    //---------------
     [super viewDidLoad];
     [indicator startAnimating];
     [[self navigationController]setNavigationBarHidden:YES];
@@ -83,8 +87,21 @@
         if (laccessToken) {
             [[NSUserDefaults standardUserDefaults] setObject:laccessToken forKey:[NSString stringWithFormat:@"%@",ACCESS_TOKEN_KEY]];
         }
+        //------
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]];
+        //------
         [[NSUserDefaults standardUserDefaults] synchronize];
+
+     
+       //-------
         
+        if([[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]] == YES){
+            UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITableViewController *lTable = (UITableViewController *)[lStoryboard instantiateViewControllerWithIdentifier:@"tableViewCon"];
+            [self.navigationController pushViewController:lTable animated:NO];
+        }
+
+        //------
         
         NSLog(@"vkLoginWebView response: %@",[[[vkLoginWebView request]URL]absoluteString]);
         
@@ -102,9 +119,12 @@
     
     
     [self getUserAthorizationData:webView];
+    [[EEUserAuthorization sharedUserAuthorizationData]setUserAuthorizationData];
     
     [indicator stopAnimating];
     [indicator setHidden:YES];
+    
+    
 }
 
 @end
