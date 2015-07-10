@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8431BA231B4C101700A3A25B /* EEUserAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431BA221B4C101700A3A25B /* EEUserAuthorization.m */; };
 		84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BC1B4BCF3E00959DF2 /* main.m */; };
 		84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */; };
 		84C1C3C61B4BCF3E00959DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C41B4BCF3E00959DF2 /* Main.storyboard */; };
@@ -28,8 +27,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8431BA211B4C101700A3A25B /* EEUserAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEUserAuthorization.h; sourceTree = "<group>"; };
-		8431BA221B4C101700A3A25B /* EEUserAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEUserAuthorization.m; sourceTree = "<group>"; };
 		84C1A41A1B4BD3F700D5F5C0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84C1C3B71B4BCF3E00959DF2 /* VKPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3BB1B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +82,7 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				84FE9B4E1B4FBC260067062D /* FriendsList */,
 				84C3C3791B4C03CC00E62F6D /* Login */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
@@ -126,12 +124,17 @@
 		84C3C3791B4C03CC00E62F6D /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8431BA211B4C101700A3A25B /* EEUserAuthorization.h */,
-				8431BA221B4C101700A3A25B /* EEUserAuthorization.m */,
 				84C3C37A1B4C03CC00E62F6D /* EEVkLoginVC.h */,
 				84C3C37B1B4C03CC00E62F6D /* EEVkLoginVC.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		84FE9B4E1B4FBC260067062D /* FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FriendsList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +239,6 @@
 			files = (
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,
-				8431BA231B4C101700A3A25B /* EEUserAuthorization.m in Sources */,
 				84C3C37C1B4C03CC00E62F6D /* EEVkLoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

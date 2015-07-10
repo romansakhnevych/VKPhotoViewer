@@ -20,16 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]] == YES){
-    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITableViewController *lTable = (UITableViewController *)[lStoryboard instantiateViewControllerWithIdentifier:@"tableViewCon"];
-    [(UINavigationController *)self.window.rootViewController pushViewController:lTable animated:NO];
-    //-------------
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:[NSString stringWithFormat:@"%@",AUTH_COMPLITED_KEY]];
-    //-------------
-
-    }
-    
+        
     return YES;
 }
 

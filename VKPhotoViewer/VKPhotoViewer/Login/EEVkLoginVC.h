@@ -17,6 +17,7 @@
 @property (nonatomic,retain) IBOutlet UIWebView *vkLoginWebView;
 @property (nonatomic,retain) IBOutlet UIActivityIndicatorView *indicator;
 
+- (IBAction)cancelBtnTap:(id)sender;
 
 
 @end
