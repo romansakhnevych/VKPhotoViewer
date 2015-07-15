@@ -10,4 +10,10 @@
 
 @interface EEFriends : NSObject
 
+@property (nonatomic, retain)NSString *firstName;
+@property (nonatomic, retain)NSString *lastName;
+@property (nonatomic, retain)NSString *userId;
+
+- (NSString *)getFullName;
+
 @end

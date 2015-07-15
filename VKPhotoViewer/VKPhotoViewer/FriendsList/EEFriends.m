@@ -10,4 +10,8 @@
 
 @implementation EEFriends
 
+- (NSString *)getFullName{
+    return [NSString stringWithFormat:@"%@ %@",_firstName,_lastName];
+}
+
 @end

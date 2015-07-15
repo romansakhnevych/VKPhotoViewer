@@ -15,9 +15,13 @@
 #define DISPLAY @"mobile"
 #define API_VERSION @"5.34"
 
-#define USER_ID_KEY @"vkUserId"
-#define TOKEN_LIFE_TIME_KEY @"vkTokenLifeTime"
-#define ACCESS_TOKEN_KEY @"vkAccessToken"
+#define USER_ID_KEY @"user_id"
+#define TOKEN_LIFE_TIME_KEY @"expires_in"
+#define ACCESS_TOKEN_KEY @"access_token"
 #define AUTH_COMPLITED_KEY @"authComplited"
+
+#define ORDER @"name"
+#define FIELDS @"nickname"
+#define NAME_CASE @"nom"
 
 #endif

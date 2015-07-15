@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803A1B53F8CC00698242 /* EEMainVC.m */; };
+		8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803D1B53FE2E00698242 /* EEFriendsListVC.m */; };
+		848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F31B552A7C00998DA8 /* EEFriends.m */; };
+		848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */; };
+		848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6FB1B556B8100998DA8 /* EERequests.m */; };
 		84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BC1B4BCF3E00959DF2 /* main.m */; };
 		84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */; };
 		84C1C3C61B4BCF3E00959DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C41B4BCF3E00959DF2 /* Main.storyboard */; };
@@ -27,6 +32,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		848980391B53F8CC00698242 /* EEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMainVC.h; sourceTree = "<group>"; };
+		8489803A1B53F8CC00698242 /* EEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEMainVC.m; sourceTree = "<group>"; };
+		8489803C1B53FE2E00698242 /* EEFriendsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsListVC.h; path = FriendsList/EEFriendsListVC.h; sourceTree = "<group>"; };
+		8489803D1B53FE2E00698242 /* EEFriendsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriendsListVC.m; path = FriendsList/EEFriendsListVC.m; sourceTree = "<group>"; };
+		848CD6F21B552A7C00998DA8 /* EEFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriends.h; path = FriendsList/EEFriends.h; sourceTree = "<group>"; };
+		848CD6F31B552A7C00998DA8 /* EEFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriends.m; path = FriendsList/EEFriends.m; sourceTree = "<group>"; };
+		848CD6F61B555F7E00998DA8 /* EEResponseBilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEResponseBilder.h; path = ResponseBilder/EEResponseBilder.h; sourceTree = "<group>"; };
+		848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEResponseBilder.m; path = ResponseBilder/EEResponseBilder.m; sourceTree = "<group>"; };
+		848CD6FA1B556B8100998DA8 /* EERequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EERequests.h; path = Requests/EERequests.h; sourceTree = "<group>"; };
+		848CD6FB1B556B8100998DA8 /* EERequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EERequests.m; path = Requests/EERequests.m; sourceTree = "<group>"; };
 		84C1A41A1B4BD3F700D5F5C0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84C1C3B71B4BCF3E00959DF2 /* VKPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3BB1B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		848CD6F51B555F0300998DA8 /* ResponseBilder */ = {
+			isa = PBXGroup;
+			children = (
+				848CD6F61B555F7E00998DA8 /* EEResponseBilder.h */,
+				848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */,
+			);
+			name = ResponseBilder;
+			sourceTree = "<group>";
+		};
+		848CD6F91B556B3200998DA8 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				848CD6FA1B556B8100998DA8 /* EERequests.h */,
+				848CD6FB1B556B8100998DA8 /* EERequests.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
 		84C1C3AE1B4BCF3E00959DF2 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +115,12 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				84FE9B4E1B4FBC260067062D /* FriendsList */,
-				84C3C3791B4C03CC00E62F6D /* Login */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				848CD6F91B556B3200998DA8 /* Requests */,
+				848CD6F51B555F0300998DA8 /* ResponseBilder */,
+				84FE9B4E1B4FBC260067062D /* FriendsList */,
+				84C3C3791B4C03CC00E62F6D /* Login */,
 				84C1C3C41B4BCF3E00959DF2 /* Main.storyboard */,
 				84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */,
 				84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */,
@@ -126,6 +161,8 @@
 			children = (
 				84C3C37A1B4C03CC00E62F6D /* EEVkLoginVC.h */,
 				84C3C37B1B4C03CC00E62F6D /* EEVkLoginVC.m */,
+				848980391B53F8CC00698242 /* EEMainVC.h */,
+				8489803A1B53F8CC00698242 /* EEMainVC.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -133,6 +170,10 @@
 		84FE9B4E1B4FBC260067062D /* FriendsList */ = {
 			isa = PBXGroup;
 			children = (
+				8489803C1B53FE2E00698242 /* EEFriendsListVC.h */,
+				8489803D1B53FE2E00698242 /* EEFriendsListVC.m */,
+				848CD6F21B552A7C00998DA8 /* EEFriends.h */,
+				848CD6F31B552A7C00998DA8 /* EEFriends.m */,
 			);
 			name = FriendsList;
 			sourceTree = "<group>";
@@ -237,7 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */,
+				848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
+				8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */,
+				848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */,
+				848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,
 				84C3C37C1B4C03CC00E62F6D /* EEVkLoginVC.m in Sources */,
 			);

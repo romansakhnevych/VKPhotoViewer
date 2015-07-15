@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+static NSMutableURLRequest* _request;
 @interface EERequests : NSObject
+
++ (NSMutableURLRequest *)friendsGetRequestWithOffset:(int)offset;
++ (NSMutableURLRequest *)loginRequest;
 
 @end

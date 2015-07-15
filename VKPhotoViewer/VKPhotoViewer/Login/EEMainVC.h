@@ -10,4 +10,6 @@
 
 @interface EEMainVC : UIViewController
 
+@property (nonatomic) BOOL authComplite;
+
 @end

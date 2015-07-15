@@ -8,24 +8,24 @@
         <!--Navigation Controller-->
         <scene sceneID="EiQ-CT-k7N">
             <objects>
-                <navigationController storyboardIdentifier="navigation" id="9Xd-38-3Es" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" navigationBarHidden="YES" id="9Xd-38-3Es" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XXc-Vx-BN5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="uiY-un-2BE" kind="relationship" relationship="rootViewController" id="UZX-dn-6L7"/>
+                        <segue destination="B6o-sO-ubM" kind="relationship" relationship="rootViewController" id="Cgw-ZZ-f0Y"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zg7-B5-j9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-838.5" y="346.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friends ListVC-->
         <scene sceneID="xeN-Kl-Eju">
             <objects>
-                <tableViewController storyboardIdentifier="tableView" id="B6o-sO-ubM" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableView" id="B6o-sO-ubM" customClass="EEFriendsListVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PPX-4W-iyp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,16 +43,17 @@
                             <outlet property="delegate" destination="B6o-sO-ubM" id="2eo-Ke-U8H"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="25C-Of-Fiu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5D-Af-uWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838.5" y="1082.5"/>
+            <point key="canvasLocation" x="-838.5" y="1174.5"/>
         </scene>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="ust-zA-7KV">
             <objects>
-                <viewController id="uiY-un-2BE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="uiY-un-2BE" customClass="EEMainVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Au-nQ-cZp"/>
                         <viewControllerLayoutGuide type="bottom" id="0OU-Ul-mMM"/>
@@ -95,6 +96,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HBs-AR-8cl"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xb-GJ-jDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,6 +117,14 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-al-CvQ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="603" id="HTv-Ro-1U8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HTv-Ro-1U8"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="20" width="600" height="380"/>
                                 </variation>
@@ -153,9 +163,12 @@
                                 </variation>
                             </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-Rt-TOy">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ZWy-5K-AiG"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="aBT-2S-izK">
+                                    <navigationItem id="aBT-2S-izK">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="jUd-JB-rEY">
                                             <connections>
                                                 <action selector="cancelBtnTap:" destination="vXZ-lx-hvc" id="izp-Fv-Tpj"/>

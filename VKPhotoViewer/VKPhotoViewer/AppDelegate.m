@@ -19,8 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSObject *lToken = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
     
+    if (lToken == nil){
         
+        UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+        UINavigationController *lNavigation = (UINavigationController *)self.window.rootViewController;
+        [lNavigation pushViewController:lViewController animated:NO];
+        
+    }
+    
     return YES;
 }
 
@@ -44,6 +53,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
 }
 
 @end

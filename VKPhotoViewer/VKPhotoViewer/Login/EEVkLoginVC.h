@@ -9,15 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EEVkLoginVC : UIViewController <UIWebViewDelegate>
-{
-    UIWebView *_vkLoginWebView;
-    UIActivityIndicatorView *_indicator;
-}
-
-@property (nonatomic,retain) IBOutlet UIWebView *vkLoginWebView;
-@property (nonatomic,retain) IBOutlet UIActivityIndicatorView *indicator;
+@property (nonatomic, retain) IBOutlet UIWebView *vkLoginWebView;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *indicator;
 
 - (IBAction)cancelBtnTap:(id)sender;
-
 
 @end

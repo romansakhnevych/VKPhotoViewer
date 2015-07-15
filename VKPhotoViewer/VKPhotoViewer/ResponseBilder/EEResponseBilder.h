@@ -10,4 +10,8 @@
 
 @interface EEResponseBilder : NSObject
 
+
+
++ (NSMutableArray *)getFriendsFromDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEFriendsListVC : UITableViewController
+@interface EEFriendsListVC : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,retain) NSMutableArray *friendsList;
+@property (nonatomic)BOOL endOfList;
+@property (nonatomic) int count;
 @end
