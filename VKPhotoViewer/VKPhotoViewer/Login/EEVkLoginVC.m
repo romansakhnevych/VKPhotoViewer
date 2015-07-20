@@ -26,6 +26,7 @@
     [_indicator startAnimating];
     [[self navigationController]setNavigationBarHidden:YES];
     
+    
     if(!_vkLoginWebView){
         self.vkLoginWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
         _vkLoginWebView.delegate = self;

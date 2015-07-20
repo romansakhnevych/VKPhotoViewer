@@ -11,14 +11,8 @@
 
 @implementation EERequests
 
-+ (NSMutableURLRequest *)friendsGetRequestWithOffset:(int)offset{
-    
-    _request = [[NSMutableURLRequest alloc] init];
-    
-    NSString *lFriendsGetString = [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&order=%@&count=30&offset=%d&fields=%@&name_case=%@&lang=ua",[[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY],ORDER,offset,FIELDS,NAME_CASE];
-    _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:lFriendsGetString]cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-    
-    return _request;
++ (NSString *)friendsGetRequestWithOffset:(NSInteger)offset count:(NSInteger)count {
+    return [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&order=%@&count=%li&offset=%li&fields=%@&name_case=%@&lang=ua&version=5.8",[[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY], ORDER, (long)count, (long)offset, FIELDS, NAME_CASE];
 }
 
 + (NSMutableURLRequest *)loginRequest{

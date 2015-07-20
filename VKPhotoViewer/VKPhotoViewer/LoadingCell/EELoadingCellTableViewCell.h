@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EELoadingCellTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

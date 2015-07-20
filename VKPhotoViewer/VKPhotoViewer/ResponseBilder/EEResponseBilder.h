@@ -12,6 +12,6 @@
 
 
 
-+ (NSMutableArray *)getFriendsFromDictionary:(NSDictionary *)dictionary;
++ (NSMutableArray *)getFriendsFromArray:(NSArray *)array;
 
 @end

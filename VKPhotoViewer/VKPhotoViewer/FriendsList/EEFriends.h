@@ -13,7 +13,9 @@
 @property (nonatomic, retain)NSString *firstName;
 @property (nonatomic, retain)NSString *lastName;
 @property (nonatomic, retain)NSString *userId;
+@property (nonatomic, retain)NSString *photoLink;
 
 - (NSString *)getFullName;
+- (NSURL *)getPhoto;
 
 @end

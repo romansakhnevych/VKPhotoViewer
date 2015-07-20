@@ -11,7 +11,9 @@
 @implementation EEFriendsListCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    [_photo.layer setCornerRadius:_photo.frame.size.width/2];
+    _photo.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

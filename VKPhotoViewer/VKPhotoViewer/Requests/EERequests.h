@@ -10,7 +10,7 @@
 static NSMutableURLRequest* _request;
 @interface EERequests : NSObject
 
-+ (NSMutableURLRequest *)friendsGetRequestWithOffset:(int)offset;
++ (NSString *)friendsGetRequestWithOffset:(NSInteger)offset count:(NSInteger)count;
 + (NSMutableURLRequest *)loginRequest;
 
 @end

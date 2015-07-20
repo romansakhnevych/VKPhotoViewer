@@ -11,6 +11,10 @@
 #import "EEFriends.h"
 #import "EEResponseBilder.h"
 #import "EERequests.h"
+#import "EELoadingCellTableViewCell.h"
+#import "EEFriendsListCell.h"
+
+
 
 @interface EEFriendsListVC ()
 
@@ -21,14 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _friendsList = [[NSMutableArray alloc] init];
-    _count = 0;
+    _count = 30;
+    _offset = 0;
+    [self updateDataWithCount:_count Offset:_offset];
     [self.navigationController setNavigationBarHidden:NO];
+    self.navigationItem.title = @"Friends";
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
-    
-    [self loadFirendsWithOffset];
-   
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -43,78 +49,57 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     
     return [_friendsList count];
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *lNib;
+    if ([indexPath row] == [tableView numberOfRowsInSection:0]-1 && _loadedFriendsCount == _count) {
+       
+        [self updateDataWithCount:_count Offset:_offset];
+        
+        static NSString * CellId = @"LoadingCell";
+        EELoadingCellTableViewCell *lLastCell = (EELoadingCellTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellId];
+        
+        if(lLastCell == nil){
+            lNib = [[NSBundle mainBundle] loadNibNamed:@"LoadingCell" owner:self options:nil];
+            lLastCell = [lNib objectAtIndex:0];
+        }
+        
+        [lLastCell.spinner startAnimating];
     
-    if ([indexPath row] == [tableView numberOfRowsInSection:0]-1) {
-        
-        [self loadFirendsWithOffset];
-        
+        return lLastCell;
     }
-    
     
     static NSString *CellIdentifier=@"Cell1";
+    EEFriendsListCell *lCell = (EEFriendsListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell==nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if(lCell==nil){
+        lNib = [[NSBundle mainBundle] loadNibNamed:@"FriendsListCell" owner:self options:nil];
+        lCell = [lNib objectAtIndex:0];
     }
-    cell.backgroundColor=self.view.backgroundColor;
+    
     EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [lUser getFullName];
+    lCell.fullName.text = [lUser getFullName];
    
-    
-    return cell;
-    
-    
+    return lCell;
 }
 
 
 
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
-
-- (void)loadFirendsWithOffset{
-    if(_endOfList == NO){
-    NSMutableURLRequest *lRequest = [EERequests friendsGetRequestWithOffset:_count];
-    
-    [NSURLConnection sendAsynchronousRequest:lRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        if ([data length] > 0 && connectionError == nil){
-            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if ([str isEqualToString:@"{\"response\":[]}"]){
-                _endOfList = YES;
-            }
-            NSLog(@"FIREND -- %@",str);
-             NSDictionary *lJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            [_friendsList addObjectsFromArray:[EEResponseBilder getFriendsFromDictionary:lJson]];
-            [self.tableView reloadData];
-            
-        }
-        _count+=30;
-    }];
-    
-    }
-
-}
+#pragma mark - Private methods
 
 - (void)Logout{
+    
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+    
     [self.navigationController pushViewController:lViewController animated:YES];
     NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    
     for (NSHTTPCookie *cookie in [lStorage cookies]) {
         [lStorage deleteCookie:cookie];
     }
@@ -123,6 +108,25 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_ID_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)updateDataWithCount:(NSInteger)count Offset:(NSInteger)offset{
+    
+    [[EEAppManager sharedAppManager] getFriendsWithCount:count offset:offset completionSuccess:^(id responseObject) {
+        if ([responseObject isKindOfClass:[NSMutableArray class]]) {
+            [_friendsList addObjectsFromArray:responseObject];
+            _loadedFriendsCount = [responseObject count];
+            _offset+=30;
+        } else {
+            NSLog(@"error");
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    } completionFailure:^(NSError *error) {
+        NSLog(@"error - %@",error);
+    }];
+
 }
 
 @end

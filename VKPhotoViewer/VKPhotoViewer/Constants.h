@@ -21,7 +21,7 @@
 #define AUTH_COMPLITED_KEY @"authComplited"
 
 #define ORDER @"name"
-#define FIELDS @"nickname"
+#define FIELDS @"nickname,photo_100"
 #define NAME_CASE @"nom"
 
 #endif

@@ -13,5 +13,8 @@
 - (NSString *)getFullName{
     return [NSString stringWithFormat:@"%@ %@",_firstName,_lastName];
 }
-
+- (NSURL *)getPhoto{
+    
+    return [NSURL URLWithString:_photoLink];
+}
 @end
