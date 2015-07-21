@@ -24,4 +24,19 @@
     return _request;
 }
 
++ (NSMutableURLRequest *)getPhotoRequestByLink:(NSString *)link{
+    
+    return [NSMutableURLRequest requestWithURL:[NSURL URLWithString:link]];
+    
+}
+
++ (NSMutableURLRequest *)getUserInfoRequestWithId:(NSString *)ID{
+    
+    _request = [[NSMutableURLRequest alloc] init];
+    
+    NSString *lGetInfo = [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&version = 5.8",ID,FIELDS_FOR_USER,NAME_CASE];
+    _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:lGetInfo]];
+    return _request;
+}
+
 @end

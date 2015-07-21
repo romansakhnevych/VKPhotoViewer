@@ -84,6 +84,12 @@
     
     EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
     lCell.fullName.text = [lUser getFullName];
+    [[EEAppManager sharedAppManager] getUsersMainPhoto:lUser.photoLink completion:^(UIImage *image) {
+        lCell.photo.image = image;
+    }];
+    
+    lCell.detailButton.tag = indexPath.row;
+    [lCell.detailButton addTarget:self action:@selector(detailButtonClicked) forControlEvents:UIControlEventTouchUpInside];
    
     return lCell;
 }
@@ -128,5 +134,7 @@
     }];
 
 }
+
+- (void)detailButtonClicked
 
 @end

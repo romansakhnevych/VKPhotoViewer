@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="20" rowHeight="71" id="bZb-XZ-RzL" customClass="EEFriendsListCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="20" reuseIdentifier="Cell1" rowHeight="71" id="bZb-XZ-RzL" customClass="EEFriendsListCell">
             <rect key="frame" x="0.0" y="0.0" width="365" height="71"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bZb-XZ-RzL" id="xxM-Ft-DS9">
@@ -31,7 +31,7 @@
                 <outlet property="fullName" destination="Irl-qB-NiE" id="bB9-pn-iKe"/>
                 <outlet property="photo" destination="d2T-MM-kio" id="qmq-JC-DVM"/>
             </connections>
-            <point key="canvasLocation" x="695.5" y="672.5"/>
+            <point key="canvasLocation" x="806.5" y="665.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -10,6 +10,8 @@
 #import "EERequests.h"
 #import "EEResponseBilder.h"
 #import "AFHTTPSessionManager.h"
+#import "AFHTTPRequestOperation.h"
+
 
 @implementation EEAppManager
 
@@ -37,6 +39,34 @@ static EEAppManager *sharedAppManager = NULL;
         success(lFriendsList);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
         failure(error);
+    }];
+}
+
+- (void)getUsersMainPhoto:(NSString *)photoLink completion:(void (^)(UIImage *image))imageSet{
+    
+    AFHTTPRequestOperation *lRequest = [[AFHTTPRequestOperation alloc] initWithRequest:[EERequests getPhotoRequestByLink:photoLink]];
+    lRequest.responseSerializer = [AFImageResponseSerializer serializer];
+    [lRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        imageSet(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error - %@",error);
+    }];
+    [lRequest start];
+}
+
+- (void)getUserInfoWithId:(NSString *)ID{
+    
+    NSString *lUserInfoUrl = @"https://api.vk.com/method/users.get?user_id=205387401&fields=counters,home_town,photo_200_orig&name_case=nom&version%20=%205.8";
+    AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
+    lManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [lManager GET:lUserInfoUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary *dict = [responseObject objectForKey:@"response"];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        return;
     }];
 }
 

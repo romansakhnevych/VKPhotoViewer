@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface EEAppManager : NSObject
 
 @property (nonatomic,retain)NSMutableArray *friendsList;
+@property (nonatomic,retain)NSString *currentUserid;
+@property (nonatomic,retain)NSString *userName;
+@property (nonatomic,retain)NSString *age;
+@property (nonatomic,retain)NSString *homeTown;
 
 + (EEAppManager *)sharedAppManager;
  
@@ -18,5 +23,9 @@
                      offset:(NSUInteger)offset
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure;
+
+- (void)getUsersMainPhoto:(NSString *)photoLink completion: (void (^)(UIImage *image))imageSet;
+
+- (void)getUserInfoWithId:(NSString *)ID;
 
 @end

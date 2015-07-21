@@ -12,5 +12,7 @@ static NSMutableURLRequest* _request;
 
 + (NSString *)friendsGetRequestWithOffset:(NSInteger)offset count:(NSInteger)count;
 + (NSMutableURLRequest *)loginRequest;
++ (NSMutableURLRequest *)getPhotoRequestByLink:(NSString *)link;
++ (NSMutableURLRequest *)getUserInfoRequestWithId:(NSString *)ID;
 
 @end
