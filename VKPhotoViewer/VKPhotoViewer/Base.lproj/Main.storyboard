@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="-838.5" y="1174.5"/>
         </scene>
-        <!--View Controller-->
+        <!--User DetailVC-->
         <scene sceneID="LOm-Xr-VFv">
             <objects>
-                <viewController id="W2B-Pc-yZN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userDetail" id="W2B-Pc-yZN" customClass="EEUserDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t14-94-W8j"/>
                         <viewControllerLayoutGuide type="bottom" id="fwP-rb-fxM"/>
@@ -61,13 +61,28 @@
                     <view key="view" contentMode="scaleToFill" id="MQe-t4-jQf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-h2-GKN">
+                                <rect key="frame" x="16" y="82" width="135" height="135"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Surname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyV-As-0Qp">
+                                <rect key="frame" x="159" y="101" width="193" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="fullName" destination="pyV-As-0Qp" id="gzk-sh-HMb"/>
+                        <outlet property="mainPhoto" destination="cOo-h2-GKN" id="g2n-oK-FOn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I05-YP-02q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186.5" y="1174.5"/>
+            <point key="canvasLocation" x="-186.5" y="1129.5"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="ust-zA-7KV">

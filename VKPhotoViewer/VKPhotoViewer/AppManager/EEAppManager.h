@@ -15,7 +15,10 @@
 @property (nonatomic,retain)NSString *currentUserid;
 @property (nonatomic,retain)NSString *userName;
 @property (nonatomic,retain)NSString *age;
-@property (nonatomic,retain)NSString *homeTown;
+@property (nonatomic,retain)NSString *city;
+@property (nonatomic,retain)NSString *photosCount;
+@property (nonatomic,retain)NSString *albumsCount;
+@property (nonatomic,retain)NSString *mainPhotoLink;
 
 + (EEAppManager *)sharedAppManager;
  

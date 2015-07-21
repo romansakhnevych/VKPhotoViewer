@@ -24,7 +24,7 @@
 #define FIELDS @"nickname,photo_100"
 #define NAME_CASE @"nom"
 
-#define FIELDS_FOR_USER @"counters,home_town,photo_200_orig"
+#define FIELDS_FOR_USER @"counters,city,photo_200_orig"
 
 
 #endif
