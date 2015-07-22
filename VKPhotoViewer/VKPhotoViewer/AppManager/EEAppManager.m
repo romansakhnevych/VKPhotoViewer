@@ -17,14 +17,16 @@
 @implementation EEAppManager
 
 
-static EEAppManager *sharedAppManager = NULL;
+
 
 + (EEAppManager *)sharedAppManager{
+   
+    static dispatch_once_t once;
+    static id sharedAppManager;
     
-    if (!sharedAppManager || sharedAppManager == NULL){
-        sharedAppManager = [EEAppManager new];
-    }
-    
+    dispatch_once(&once, ^{
+        sharedAppManager = [[self alloc] init];
+    });
     return sharedAppManager;
 }
 
@@ -57,28 +59,29 @@ static EEAppManager *sharedAppManager = NULL;
     [lRequest start];
 }
 
-- (void)getUserInfoWithId:(NSString *)ID{
+- (void)getDetailForUser:(EEFriends *)friend{
     
-    NSString *lUserInfoUrl = [EERequests getUserInfoRequestWithId:ID];
+    NSString *lDetailUrl = [EERequests getUserInfoRequestWithId:friend.userId];
     AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
     lManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [lManager GET:lUserInfoUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [lManager GET:lDetailUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObjet) {
         
-        
-        NSArray *lDetailsArray = [responseObject objectForKey:@"response"];
-        [lDetailsArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            _userName = [NSString stringWithFormat:@"%@ %@",[obj objectForKey:@"first_name"],[obj objectForKey:@"last_name"]];
-        
-            _mainPhotoLink = [obj objectForKey:@"photo_200_orig"];
-            _photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
-            _albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
-        }];
-        
-        
+        NSArray *lUserDetailResponse = [responseObjet objectForKey:@"response"];
+        [lUserDetailResponse enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            EEFriends *user = [[EEFriends alloc] init];
+            friend.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
+            friend.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
+            friend.cityId = [obj objectForKey:@"city"];
+                    }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        return;
+        NSLog(@"%@",error);
     }];
+    
+    _currentFriend = friend;
+
+    
 }
+
 
 @end

@@ -17,8 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Detail";
    [_mainPhoto.layer setCornerRadius:_mainPhoto.frame.size.width/2];
     _mainPhoto.layer.masksToBounds = YES;
+    _fullName.text = [[[EEAppManager sharedAppManager] currentFriend] getFullName];
+    NSString *lPhotoLink = [[EEAppManager sharedAppManager] currentFriend].bigPhotoLink;
+    [[EEAppManager sharedAppManager] getUsersMainPhoto:lPhotoLink completion:^(UIImage *image) {
+        _mainPhoto.image = image;
+    }];
+       
+    
     
 }
 
@@ -27,14 +35,36 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    [[EEAppManager sharedAppManager] getUsersMainPhoto:[[EEAppManager sharedAppManager] mainPhotoLink] completion:^(UIImage *image) {
-        _mainPhoto.image = image;
-    }];
-    _fullName.text = [[EEAppManager sharedAppManager] userName];
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    
+    return 6;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier=@"Cell1";
+    UITableViewCell *lCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(lCell==nil){
+        
+        lCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
+        
+    }
+    
+    
+    
+    return lCell;
+}
+
 /*
 #pragma mark - Navigation
 

@@ -7,7 +7,7 @@
 //
 
 #import "EEResponseBilder.h"
-#import "EEFriends.h"
+
 
 @implementation EEResponseBilder
 
@@ -21,7 +21,9 @@
             lUser.firstName = [NSString stringWithFormat:@"%@",[obj objectForKey:@"first_name"]];
             lUser.lastName = [NSString stringWithFormat:@"%@",[obj objectForKey:@"last_name"]];
             lUser.userId = [NSString stringWithFormat:@"%@",[obj objectForKey:@"user_id"]];
-        lUser.photoLink = [NSString stringWithFormat:@"%@",[obj objectForKey:@"photo_100"]];
+        lUser.smallPhotoLink = [NSString stringWithFormat:@"%@",[obj objectForKey:@"photo_100"]];
+        lUser.bigPhotoLink = [NSString stringWithFormat:@"%@",[obj objectForKey:@"photo_200_orig"]];
+        
             [lArrayFriends addObject:lUser];
             
         }];
@@ -29,4 +31,8 @@
     return lArrayFriends;
 }
 
+    
+     
 @end
+
+

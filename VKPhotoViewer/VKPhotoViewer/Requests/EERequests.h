@@ -14,5 +14,6 @@ static NSMutableURLRequest* _request;
 + (NSMutableURLRequest *)loginRequest;
 + (NSMutableURLRequest *)getPhotoRequestByLink:(NSString *)link;
 + (NSString *)getUserInfoRequestWithId:(NSString *)ID;
++ (NSString *)getCityRequestById:(NSString *)Id;
 
 @end

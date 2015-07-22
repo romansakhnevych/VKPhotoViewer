@@ -13,7 +13,13 @@
 @property (nonatomic, retain)NSString *firstName;
 @property (nonatomic, retain)NSString *lastName;
 @property (nonatomic, retain)NSString *userId;
-@property (nonatomic, retain)NSString *photoLink;
+@property (nonatomic, retain)NSString *smallPhotoLink;
+@property (nonatomic, retain)NSString *bigPhotoLink;
+@property (nonatomic, retain)NSString *photosCount;
+@property (nonatomic, retain)NSString *albumsCount;
+@property (nonatomic, retain)NSString *city;
+@property (nonatomic, retain)NSString *cityId;
+
 
 - (NSString *)getFullName;
 - (NSURL *)getPhoto;

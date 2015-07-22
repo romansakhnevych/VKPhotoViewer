@@ -8,17 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "EEFriends.h"
 
 @interface EEAppManager : NSObject
 
 @property (nonatomic,retain)NSMutableArray *friendsList;
-@property (nonatomic,retain)NSString *currentUserid;
-@property (nonatomic,retain)NSString *userName;
-@property (nonatomic,retain)NSString *age;
-@property (nonatomic,retain)NSString *city;
-@property (nonatomic,retain)NSString *photosCount;
-@property (nonatomic,retain)NSString *albumsCount;
-@property (nonatomic,retain)NSString *mainPhotoLink;
+@property (nonatomic,retain)EEFriends *currentFriend;
+
 
 + (EEAppManager *)sharedAppManager;
  
@@ -29,6 +25,6 @@
 
 - (void)getUsersMainPhoto:(NSString *)photoLink completion: (void (^)(UIImage *image))imageSet;
 
-- (void)getUserInfoWithId:(NSString *)ID;
+-(void)getDetailForUser:(EEFriends *)friend ;
 
 @end

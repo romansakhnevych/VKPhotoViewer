@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEUserDetailVC : UIViewController
+@interface EEUserDetailVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *fullName;
+@property (weak, nonatomic) IBOutlet UILabel *city;
 
 @end

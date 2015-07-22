@@ -15,6 +15,6 @@
 }
 - (NSURL *)getPhoto{
     
-    return [NSURL URLWithString:_photoLink];
+    return [NSURL URLWithString:_smallPhotoLink];
 }
 @end

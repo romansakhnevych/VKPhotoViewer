@@ -232,9 +232,9 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				84682E511B5EA06800FDED8D /* UserDetail */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				84682E511B5EA06800FDED8D /* UserDetail */,
 				84734D6E1B5D100800EB1834 /* AppManager */,
 				84BABF021B593DD9003F3057 /* AFNetworking */,
 				84A4A0BE1B57C3F200B7AD38 /* CustomCells */,

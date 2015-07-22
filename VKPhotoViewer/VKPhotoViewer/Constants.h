@@ -21,10 +21,10 @@
 #define AUTH_COMPLITED_KEY @"authComplited"
 
 #define ORDER @"name"
-#define FIELDS @"nickname,photo_100"
+#define FIELDS @"nickname,photo_100,city,photo_200_orig"
 #define NAME_CASE @"nom"
 
-#define FIELDS_FOR_USER @"counters,city,photo_200_orig"
+#define FIELDS_FOR_USER @"counters,city"
 
 
 #endif

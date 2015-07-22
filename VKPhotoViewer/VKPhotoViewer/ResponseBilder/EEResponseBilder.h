@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EEFriends.h"
 
 @interface EEResponseBilder : NSObject
 
 
 
 + (NSMutableArray *)getFriendsFromArray:(NSArray *)array;
+
 
 @end
