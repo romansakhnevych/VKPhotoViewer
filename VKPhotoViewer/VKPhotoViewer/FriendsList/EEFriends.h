@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface EEFriends : NSObject
 
 @property (nonatomic, retain)NSString *firstName;
@@ -15,13 +16,15 @@
 @property (nonatomic, retain)NSString *userId;
 @property (nonatomic, retain)NSString *smallPhotoLink;
 @property (nonatomic, retain)NSString *bigPhotoLink;
-@property (nonatomic, retain)NSString *photosCount;
-@property (nonatomic, retain)NSString *albumsCount;
+@property (nonatomic, retain)NSNumber *photosCount;
+@property (nonatomic, retain)NSNumber *albumsCount;
 @property (nonatomic, retain)NSString *city;
-@property (nonatomic, retain)NSString *cityId;
+@property (nonatomic, retain)NSString *country;
 
 
 - (NSString *)getFullName;
-- (NSURL *)getPhoto;
+- (NSString *)getPhotosCount;
+- (NSString *)getAlbumsCount;
+
 
 @end

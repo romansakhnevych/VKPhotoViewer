@@ -13,6 +13,7 @@
 #import "EERequests.h"
 #import "EELoadingCellTableViewCell.h"
 #import "EEFriendsListCell.h"
+#import "UIImageView+AFNetworking.h"
 
 
 
@@ -84,23 +85,22 @@
     
     EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
     lCell.fullName.text = [lUser getFullName];
-    [[EEAppManager sharedAppManager] getUsersMainPhoto:lUser.smallPhotoLink completion:^(UIImage *image) {
-        lCell.photo.image = image;
-    }];
+ 
+        NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:lUser.smallPhotoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
+    [lCell.photo setImageWithURLRequest:lRequest placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:nil failure:nil];
     
-    lCell.detailButton.tag = indexPath.row;
-   
-   
+    
+    
     return lCell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     
-    [[EEAppManager sharedAppManager] getDetailForUser:[_friendsList objectAtIndex:indexPath.row]];
+    [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
+    
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"userDetail"];
     [[self navigationController] pushViewController:lViewController animated:YES];
-
 }
 
 #pragma mark - Private methods

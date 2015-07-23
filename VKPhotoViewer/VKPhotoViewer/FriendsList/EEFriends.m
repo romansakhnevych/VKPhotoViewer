@@ -7,14 +7,28 @@
 //
 
 #import "EEFriends.h"
+#import "EERequests.h"
+#import "AFHTTPSessionManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation EEFriends
 
 - (NSString *)getFullName{
     return [NSString stringWithFormat:@"%@ %@",_firstName,_lastName];
 }
-- (NSURL *)getPhoto{
-    
-    return [NSURL URLWithString:_smallPhotoLink];
+
+- (NSString *)getPhotosCount{
+    NSInteger lPhotosCount = _photosCount.intValue;
+    NSString *lPhotosCountString = [NSString stringWithFormat:@"%lu",(long)lPhotosCount];
+    return lPhotosCountString;
 }
+
+- (NSString *)getAlbumsCount{
+    NSInteger lAlbumsCount = _albumsCount.intValue;
+    NSString *lAlbumCountString = [NSString stringWithFormat:@"%lu",(long)lAlbumsCount];
+    return lAlbumCountString;
+}
+
+
+
 @end

@@ -23,8 +23,12 @@
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure;
 
-- (void)getUsersMainPhoto:(NSString *)photoLink completion: (void (^)(UIImage *image))imageSet;
 
--(void)getDetailForUser:(EEFriends *)friend ;
+
+- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
+       completionFailure:(void (^)(NSError * error))failure;
+
+
+- (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image))setImage;
 
 @end

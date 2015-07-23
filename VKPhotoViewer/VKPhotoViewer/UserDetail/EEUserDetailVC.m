@@ -20,14 +20,26 @@
     self.navigationItem.title = @"Detail";
    [_mainPhoto.layer setCornerRadius:_mainPhoto.frame.size.width/2];
     _mainPhoto.layer.masksToBounds = YES;
-    _fullName.text = [[[EEAppManager sharedAppManager] currentFriend] getFullName];
-    NSString *lPhotoLink = [[EEAppManager sharedAppManager] currentFriend].bigPhotoLink;
-    [[EEAppManager sharedAppManager] getUsersMainPhoto:lPhotoLink completion:^(UIImage *image) {
-        _mainPhoto.image = image;
+    
+    [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
+            _fullName.text = [lUser getFullName];
+           
+            
+//            [[EEAppManager sharedAppManager] getUsersMainPhoto:lPhotoLink completion:^(UIImage *image) {
+//                _mainPhoto.image = image;
+//            }];
+            
+            _city.text = [NSString stringWithFormat:@"from %@, %@",lUser.city,lUser.country];
+        });
+        
+    } completionFailure:^(NSError *error) {
+        
     }];
-       
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -13,6 +13,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "Constants.h"
 
+#import "UIImageView+AFNetworking.h"
 
 @implementation EEAppManager
 
@@ -45,43 +46,44 @@
     }];
 }
 
-- (void)getUsersMainPhoto:(NSString *)photoLink completion:(void (^)(UIImage *image))imageSet{
-    
-    AFHTTPRequestOperation *lRequest = [[AFHTTPRequestOperation alloc] initWithRequest:[EERequests getPhotoRequestByLink:photoLink]];
-    lRequest.responseSerializer = [AFImageResponseSerializer serializer];
-    [lRequest setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        imageSet(responseObject);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error - %@",error);
-    }];
-    [lRequest start];
-}
 
-- (void)getDetailForUser:(EEFriends *)friend{
+
+- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success completionFailure:(void (^)(NSError * error))failure {
     
-    NSString *lDetailUrl = [EERequests getUserInfoRequestWithId:friend.userId];
+    NSString *lDetailUrl = [EERequests getUserInfoRequestWithId:_currentFriend.userId];
     AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
     lManager.requestSerializer = [AFJSONRequestSerializer serializer];
     [lManager GET:lDetailUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObjet) {
         
         NSArray *lUserDetailResponse = [responseObjet objectForKey:@"response"];
         [lUserDetailResponse enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            EEFriends *user = [[EEFriends alloc] init];
-            friend.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
-            friend.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
-            friend.cityId = [obj objectForKey:@"city"];
+            
+            _currentFriend.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
+            _currentFriend.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
+            _currentFriend.city = [[obj objectForKey:@"city"] objectForKey:@"title"];
+            _currentFriend.country = [[obj objectForKey:@"country"] objectForKey:@"title"];
                     }];
         
+        success(YES, _currentFriend);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);
+        failure(error);
     }];
-    
-    _currentFriend = friend;
-
-    
 }
 
+- (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image))setImage{
+    
+    NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:photoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
+    
+    
+    UIImageView *lImageView = [[UIImageView alloc] init];
+    [lImageView setImageWithURLRequest:lRequest
+                      placeholderImage:[UIImage imageNamed:@"placeholder_png.jpg"]
+                               success:^(NSURLRequest * request, NSHTTPURLResponse *response, UIImage *image) {
+        setImage(image);
+    }
+                               failure:nil];
+    
+}
 
 @end
