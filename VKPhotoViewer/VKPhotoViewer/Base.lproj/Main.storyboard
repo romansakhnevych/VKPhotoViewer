@@ -70,7 +70,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="from City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-0w-pcx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-0w-pcx">
                                 <rect key="frame" x="16" y="298" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,6 +80,15 @@
                                 <rect key="frame" x="0.0" y="327" width="375" height="299"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPb-He-xdt">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8hg-C3-xz4">
+                                        <rect key="frame" x="177" y="302" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -87,7 +96,9 @@
                     <connections>
                         <outlet property="city" destination="b1X-0w-pcx" id="3et-sG-Gwv"/>
                         <outlet property="fullName" destination="pyV-As-0Qp" id="gzk-sh-HMb"/>
+                        <outlet property="loadingView" destination="LPb-He-xdt" id="bUS-Ib-Gp0"/>
                         <outlet property="mainPhoto" destination="cOo-h2-GKN" id="g2n-oK-FOn"/>
+                        <outlet property="spinner" destination="8hg-C3-xz4" id="Erw-Nz-6UX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I05-YP-02q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,6 +255,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="483.5" y="345.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6g1-q4-Xpl">
+            <objects>
+                <viewController id="Xk1-b9-N8R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bBd-gj-nU2"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Qr-Mh-SSF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AD1-ic-25o">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DS2-Yh-gS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

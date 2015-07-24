@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "EEFriends.h"
+#import "EGOCache.h"
 
 @interface EEAppManager : NSObject
 
-@property (nonatomic,retain)NSMutableArray *friendsList;
-@property (nonatomic,retain)EEFriends *currentFriend;
 
+@property (nonatomic,retain)EEFriends *currentFriend;
+@property (nonatomic,retain)EGOCache *cache;
 
 + (EEAppManager *)sharedAppManager;
  
@@ -23,12 +24,9 @@
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure;
 
-
-
 - (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
-       completionFailure:(void (^)(NSError * error))failure;
+                            completionFailure:(void (^)(NSError * error))failure;
 
-
-- (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image))setImage;
+- (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image,BOOL animated))setImage;
 
 @end

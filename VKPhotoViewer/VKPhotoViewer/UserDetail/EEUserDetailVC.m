@@ -18,28 +18,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Detail";
+    [_spinner startAnimating];
+    
    [_mainPhoto.layer setCornerRadius:_mainPhoto.frame.size.width/2];
     _mainPhoto.layer.masksToBounds = YES;
     
     [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
-            _fullName.text = [lUser getFullName];
-           
-            
-//            [[EEAppManager sharedAppManager] getUsersMainPhoto:lPhotoLink completion:^(UIImage *image) {
-//                _mainPhoto.image = image;
-//            }];
-            
-            _city.text = [NSString stringWithFormat:@"from %@, %@",lUser.city,lUser.country];
-        });
+       dispatch_async(dispatch_get_main_queue(), ^{
+         
+           if (friendModel.city&&friendModel.country){
+            _city.text = [NSString stringWithFormat:@"from %@, %@",friendModel.city,friendModel.country];
+           }
+           else if (friendModel.city){
+               _city.text = [NSString stringWithFormat:@"from %@",friendModel.city];
+           }
+           else if (friendModel.country){
+               _city.text = [NSString stringWithFormat:@"from %@",friendModel.country];
+           }
+           else{
+               _city.text = @"";
+           }
+           [_spinner stopAnimating];
+           [_spinner setHidden:YES];
+           [_loadingView setHidden:YES];
+
+       });
         
     } completionFailure:^(NSError *error) {
         
     }];
-
+    EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
+    _fullName.text = [lUser getFullName];
+    [[EEAppManager sharedAppManager] getPhotoByLink:lUser.bigPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
+        _mainPhoto.image = image;
+            }];
+    
+    
+ 
 }
 
 - (void)didReceiveMemoryWarning {

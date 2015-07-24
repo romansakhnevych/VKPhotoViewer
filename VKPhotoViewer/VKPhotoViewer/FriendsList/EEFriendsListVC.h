@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EEAppManager.h"
+#import "EGOCache.h"
 
 @interface EEFriendsListVC : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 

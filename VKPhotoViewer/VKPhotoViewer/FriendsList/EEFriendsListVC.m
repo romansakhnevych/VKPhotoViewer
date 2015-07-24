@@ -13,7 +13,7 @@
 #import "EERequests.h"
 #import "EELoadingCellTableViewCell.h"
 #import "EEFriendsListCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "AFHTTPRequestOperation.h"
 
 
 
@@ -56,6 +56,7 @@
 }
 
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *lNib;
     if ([indexPath row] == [tableView numberOfRowsInSection:0]-1 && _loadedFriendsCount == _count) {
@@ -85,11 +86,19 @@
     
     EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
     lCell.fullName.text = [lUser getFullName];
- 
-        NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:lUser.smallPhotoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
-    [lCell.photo setImageWithURLRequest:lRequest placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:nil failure:nil];
     
-    
+    lCell.photo.image = [UIImage imageNamed:@"placeholder.png"];
+    [[EEAppManager sharedAppManager] getPhotoByLink:lUser.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
+        if (animated){
+            [UIView transitionWithView:lCell.photo duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            lCell.photo.image = image;
+            } completion:nil];
+
+        }
+        else{
+            lCell.photo.image = image;
+        }
+    }];
     
     return lCell;
 }

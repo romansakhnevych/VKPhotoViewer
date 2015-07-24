@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *fullName;
 @property (weak, nonatomic) IBOutlet UILabel *city;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

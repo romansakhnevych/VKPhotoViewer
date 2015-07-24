@@ -31,6 +31,18 @@
     return lArrayFriends;
 }
 
++ (EEFriends *)getDetailFromArray:(NSArray *)array forUser:(EEFriends *)user{
+    
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        user.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
+        user.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
+        user.city = [[obj objectForKey:@"city"] objectForKey:@"title"];
+        user.country = [[obj objectForKey:@"country"] objectForKey:@"title"];
+    }];
+    
+    return user;
+}
     
      
 @end

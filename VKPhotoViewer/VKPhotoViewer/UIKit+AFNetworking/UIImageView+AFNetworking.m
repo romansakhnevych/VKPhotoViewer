@@ -22,6 +22,7 @@
 #import "UIImageView+AFNetworking.h"
 
 #import <objc/runtime.h>
+#import <QuartzCore/QuartzCore.h>
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
@@ -129,9 +130,19 @@
     UIImage *cachedImage = [[[self class] sharedImageCache] cachedImageForRequest:urlRequest];
     if (cachedImage) {
         if (success) {
-            success(nil, nil, cachedImage);
+            
+                
+               success(nil, nil, cachedImage);
+                
+   
+
+            
         } else {
+            
+            
             self.image = cachedImage;
+            
+         
         }
 
         self.af_imageRequestOperation = nil;
@@ -149,7 +160,12 @@
                 if (success) {
                     success(urlRequest, operation.response, responseObject);
                 } else if (responseObject) {
-                    strongSelf.image = responseObject;
+                    
+                   
+                      strongSelf.image = responseObject;
+                 
+                    
+                    
                 }
 
                 if (operation == strongSelf.af_imageRequestOperation){

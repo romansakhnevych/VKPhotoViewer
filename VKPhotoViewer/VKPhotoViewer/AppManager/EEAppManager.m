@@ -13,7 +13,6 @@
 #import "AFHTTPRequestOperation.h"
 #import "Constants.h"
 
-#import "UIImageView+AFNetworking.h"
 
 @implementation EEAppManager
 
@@ -31,8 +30,11 @@
     return sharedAppManager;
 }
 
-- (void)getFriendsWithCount:(NSUInteger)count offset:(NSUInteger)offset completionSuccess:(void (^)(id responseObject))success completionFailure:(void (^)(NSError * error))failure {
-    _friendsList = [[NSMutableArray alloc] init];
+- (void)getFriendsWithCount:(NSUInteger)count
+                     offset:(NSUInteger)offset
+          completionSuccess:(void (^)(id responseObject))success
+          completionFailure:(void (^)(NSError * error))failure {
+    
     NSString *lGetFriendsURL = [EERequests friendsGetRequestWithOffset:offset count:count];
     AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
     lManager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -48,22 +50,17 @@
 
 
 
-- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success completionFailure:(void (^)(NSError * error))failure {
+- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
+                            completionFailure:(void (^)(NSError * error))failure {
     
-    NSString *lDetailUrl = [EERequests getUserInfoRequestWithId:_currentFriend.userId];
+    NSString *lDetailRequestString = [EERequests getUserInfoRequestWithId:_currentFriend.userId];
+    
     AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
     lManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [lManager GET:lDetailUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObjet) {
+    [lManager GET:lDetailRequestString parameters:nil success:^(NSURLSessionDataTask *task, id responseObjet) {
         
         NSArray *lUserDetailResponse = [responseObjet objectForKey:@"response"];
-        [lUserDetailResponse enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            
-            _currentFriend.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
-            _currentFriend.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
-            _currentFriend.city = [[obj objectForKey:@"city"] objectForKey:@"title"];
-            _currentFriend.country = [[obj objectForKey:@"country"] objectForKey:@"title"];
-                    }];
-        
+        _currentFriend = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:_currentFriend];
         success(YES, _currentFriend);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);
@@ -71,19 +68,30 @@
     }];
 }
 
-- (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image))setImage{
+- (void)getPhotoByLink:(NSString *)photoLink
+        withCompletion:(void (^)(UIImage *image, BOOL animated))setImage{
     
-    NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:photoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
-    
-    
-    UIImageView *lImageView = [[UIImageView alloc] init];
-    [lImageView setImageWithURLRequest:lRequest
-                      placeholderImage:[UIImage imageNamed:@"placeholder_png.jpg"]
-                               success:^(NSURLRequest * request, NSHTTPURLResponse *response, UIImage *image) {
-        setImage(image);
+    _cache = [[EGOCache alloc] init];
+    if([_cache imageForKey:photoLink]){
+        setImage([_cache imageForKey:photoLink],NO);
     }
-                               failure:nil];
-    
+    else{
+        
+        NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:photoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
+        
+        AFHTTPRequestOperation *lOperation = [[AFHTTPRequestOperation alloc] initWithRequest:lRequest];
+        lOperation.responseSerializer = [AFImageResponseSerializer serializer];
+        [lOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [_cache setImage:responseObject forKey:photoLink];
+            setImage(responseObject,YES);
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+        }];
+        [lOperation start];
+    }
+     
 }
 
 @end
