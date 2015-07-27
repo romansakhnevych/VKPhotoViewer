@@ -8,6 +8,7 @@
 
 #import "EEUserDetailVC.h"
 #import "EEAppManager.h"
+#import "UIImage+StackBlur.h"
 
 @interface EEUserDetailVC ()
 
@@ -22,6 +23,10 @@
     
    [_mainPhoto.layer setCornerRadius:_mainPhoto.frame.size.width/2];
     _mainPhoto.layer.masksToBounds = YES;
+    _mainPhoto.layer.borderColor = [UIColor whiteColor].CGColor;
+    _mainPhoto.layer.borderWidth = 2;
+    
+   
     
     [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
         
@@ -39,6 +44,9 @@
            else{
                _city.text = @"";
            }
+           
+           _albumsCountLabel.text = [friendModel getAlbumsCount];
+           _photosCountLabel.text = [friendModel getPhotosCount];
            [_spinner stopAnimating];
            [_spinner setHidden:YES];
            [_loadingView setHidden:YES];
@@ -51,7 +59,11 @@
     EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
     _fullName.text = [lUser getFullName];
     [[EEAppManager sharedAppManager] getPhotoByLink:lUser.bigPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
+        [image normalize];
         _mainPhoto.image = image;
+        _backgroundPhoto.image = [image stackBlur:8];
+        
+        
             }];
     
     

@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *city;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPhoto;
+@property (weak, nonatomic) IBOutlet UILabel *albumsCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *photosCountLabel;
 
 @end

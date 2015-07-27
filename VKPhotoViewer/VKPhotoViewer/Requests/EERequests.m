@@ -35,9 +35,5 @@
     return [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&v=5.8",ID,FIELDS_FOR_USER,NAME_CASE];
 }
 
-+(NSString *)getCityRequestById:(NSString *)Id{
-    
-    return [NSString stringWithFormat:@"https://api.vk.com/method/database.getCitiesById?city_ids=%@&lang=en_US&version=%@",Id,API_VERSION];
-}
 
 @end

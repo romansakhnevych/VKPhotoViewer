@@ -19,6 +19,7 @@
 		847CBBA71B6131EB00E82E4D /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CBB9F1B6131EB00E82E4D /* UIWebView+AFNetworking.m */; };
 		847CBBAB1B61518700E82E4D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CBBAA1B61518700E82E4D /* placeholder.png */; };
 		8485C9D31B6263A700B5ECE5 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8485C9D21B6263A700B5ECE5 /* EGOCache.m */; };
+		8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8488DF361B6644220026F40C /* UIImage+StackBlur.m */; };
 		8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803A1B53F8CC00698242 /* EEMainVC.m */; };
 		8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803D1B53FE2E00698242 /* EEFriendsListVC.m */; };
 		848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F31B552A7C00998DA8 /* EEFriends.m */; };
@@ -81,6 +82,8 @@
 		847CBBAA1B61518700E82E4D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		8485C9D11B6263A700B5ECE5 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = EGOCache/EGOCache.h; sourceTree = "<group>"; };
 		8485C9D21B6263A700B5ECE5 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = EGOCache/EGOCache.m; sourceTree = "<group>"; };
+		8488DF351B6644220026F40C /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+StackBlur.h"; path = "StackBluri/UIImage+StackBlur.h"; sourceTree = "<group>"; };
+		8488DF361B6644220026F40C /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+StackBlur.m"; path = "StackBluri/UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		848980391B53F8CC00698242 /* EEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMainVC.h; sourceTree = "<group>"; };
 		8489803A1B53F8CC00698242 /* EEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEMainVC.m; sourceTree = "<group>"; };
 		8489803C1B53FE2E00698242 /* EEFriendsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsListVC.h; path = FriendsList/EEFriendsListVC.h; sourceTree = "<group>"; };
@@ -201,6 +204,15 @@
 			name = EGOCache;
 			sourceTree = "<group>";
 		};
+		8488DF341B6643FC0026F40C /* StackBluri */ = {
+			isa = PBXGroup;
+			children = (
+				8488DF351B6644220026F40C /* UIImage+StackBlur.h */,
+				8488DF361B6644220026F40C /* UIImage+StackBlur.m */,
+			);
+			name = StackBluri;
+			sourceTree = "<group>";
+		};
 		848CD6F51B555F0300998DA8 /* ResponseBilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,7 @@
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				8488DF341B6643FC0026F40C /* StackBluri */,
 				8485C9D01B62638B00B5ECE5 /* EGOCache */,
 				847CBB8E1B6131EB00E82E4D /* UIKit+AFNetworking */,
 				84682E511B5EA06800FDED8D /* UserDetail */,
@@ -476,6 +489,7 @@
 				84A4A0BD1B57C3E800B7AD38 /* EELoadingCellTableViewCell.m in Sources */,
 				84BABF171B593DF7003F3057 /* AFHTTPRequestOperationManager.m in Sources */,
 				848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */,
+				8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */,
 				847CBBA11B6131EB00E82E4D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				84A4A0CB1B57F61800B7AD38 /* EEFriendsListCell.m in Sources */,
 				847CBBA61B6131EB00E82E4D /* UIRefreshControl+AFNetworking.m in Sources */,
