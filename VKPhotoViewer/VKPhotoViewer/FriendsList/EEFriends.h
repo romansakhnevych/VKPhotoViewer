@@ -20,11 +20,19 @@
 @property (nonatomic, retain)NSNumber *albumsCount;
 @property (nonatomic, retain)NSString *city;
 @property (nonatomic, retain)NSString *country;
-
+@property (nonatomic, retain)NSNumber *sex;
+@property (nonatomic, retain)NSString *domain;
+@property (nonatomic, retain)NSString *occupation;
+@property (nonatomic, retain)NSString *nickname;
+@property (nonatomic, retain)NSString *status;
+@property (nonatomic, retain)NSString *site;
+@property (nonatomic, retain)NSString *birthdayDate;
 
 - (NSString *)getFullName;
 - (NSString *)getPhotosCount;
 - (NSString *)getAlbumsCount;
+- (NSString *)getSex;
+
 
 
 @end

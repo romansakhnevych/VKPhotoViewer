@@ -9,6 +9,8 @@
 #import "EEUserDetailVC.h"
 #import "EEAppManager.h"
 #import "UIImage+StackBlur.h"
+#import "EEUserDetailCell.h"
+
 
 @interface EEUserDetailVC ()
 
@@ -61,7 +63,7 @@
     [[EEAppManager sharedAppManager] getPhotoByLink:lUser.bigPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
         [image normalize];
         _mainPhoto.image = image;
-        _backgroundPhoto.image = [image stackBlur:8];
+        _backgroundPhoto.image = [image stackBlur:6];
         
         
             }];
@@ -91,16 +93,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier=@"Cell1";
-    UITableViewCell *lCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier=@"UserDetailCell";
+   EEUserDetailCell *lCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(lCell==nil){
         
-        lCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
+        NSArray *lNib = [[NSBundle mainBundle] loadNibNamed:@"UserDetailCell" owner:self options:nil];
+        lCell = [lNib objectAtIndex:0];
         
     }
     
-    
+   
     
     return lCell;
 }

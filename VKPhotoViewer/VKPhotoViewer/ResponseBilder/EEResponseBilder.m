@@ -39,6 +39,14 @@
         user.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
         user.city = [[obj objectForKey:@"city"] objectForKey:@"title"];
         user.country = [[obj objectForKey:@"country"] objectForKey:@"title"];
+        user.sex = [obj objectForKey:@"sex"];
+        user.domain = [obj objectForKey:@"domain"];
+        user.site = [obj objectForKey:@"site"];
+        user.birthdayDate = [obj objectForKey:@"bdate"];
+        user.status = [obj objectForKey:@"status"];
+        user.occupation = [obj objectForKey:@"occupation"];
+        
+        
     }];
     
     return user;

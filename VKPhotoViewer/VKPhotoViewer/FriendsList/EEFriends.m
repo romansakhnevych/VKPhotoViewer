@@ -29,6 +29,24 @@
     return lAlbumCountString;
 }
 
+- (NSString *)getSex{
+    NSString *lSex;
+    NSInteger lSexId = _sex.intValue;
+    switch (lSexId) {
+        case 1:
+            lSex = @"femail";
+            break;
+        case 2:
+            lSex = @"mail";
+            
+        default:
+            break;
+    }
+    
+    return lSex;
+}
+
+
 
 
 @end
