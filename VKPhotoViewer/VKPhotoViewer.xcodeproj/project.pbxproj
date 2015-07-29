@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8443EC791B68E92B00D80741 /* Gender-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8443EC781B68E92B00D80741 /* Gender-50.png */; };
 		84682E541B5EA0A500FDED8D /* EEUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84682E531B5EA0A500FDED8D /* EEUserDetailVC.m */; };
 		84734D711B5D103100EB1834 /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84734D701B5D103100EB1834 /* EEAppManager.m */; };
 		847CBBA01B6131EB00E82E4D /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CBB901B6131EB00E82E4D /* AFNetworkActivityIndicatorManager.m */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8443EC781B68E92B00D80741 /* Gender-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gender-50.png"; sourceTree = "<group>"; };
 		84682E521B5EA0A500FDED8D /* EEUserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEUserDetailVC.h; path = UserDetail/EEUserDetailVC.h; sourceTree = "<group>"; };
 		84682E531B5EA0A500FDED8D /* EEUserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEUserDetailVC.m; path = UserDetail/EEUserDetailVC.m; sourceTree = "<group>"; };
 		84734D6F1B5D103100EB1834 /* EEAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAppManager.h; path = AppManager/EEAppManager.h; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				8443EC781B68E92B00D80741 /* Gender-50.png */,
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
@@ -481,6 +484,7 @@
 				847CBBAB1B61518700E82E4D /* placeholder.png in Resources */,
 				8482C4321B67CA9B00329D62 /* UserDetailCell.xib in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
+				8443EC791B68E92B00D80741 /* Gender-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

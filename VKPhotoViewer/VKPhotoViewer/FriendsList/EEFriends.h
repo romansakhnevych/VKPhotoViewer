@@ -32,7 +32,8 @@
 - (NSString *)getPhotosCount;
 - (NSString *)getAlbumsCount;
 - (NSString *)getSex;
-
-
+- (NSString *)getLocation;
+- (NSDictionary *)getDetails;
+- (NSString *)getBirthDay;
 
 @end

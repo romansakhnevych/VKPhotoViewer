@@ -83,15 +83,17 @@
         lNib = [[NSBundle mainBundle] loadNibNamed:@"FriendsListCell" owner:self options:nil];
         lCell = [lNib objectAtIndex:0];
     }
-    
+    lCell.photo.image = [UIImage imageNamed:@"placeholder.png"];
     EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
     lCell.fullName.text = [lUser getFullName];
     
-    lCell.photo.image = [UIImage imageNamed:@"placeholder.png"];
+    
     [[EEAppManager sharedAppManager] getPhotoByLink:lUser.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
         if (animated){
             [UIView transitionWithView:lCell.photo duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                
             lCell.photo.image = image;
+                
             } completion:nil];
 
         }

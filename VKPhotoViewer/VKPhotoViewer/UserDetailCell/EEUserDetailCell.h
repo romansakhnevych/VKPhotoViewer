@@ -10,6 +10,6 @@
 
 @interface EEUserDetailCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLable;
-@property (weak, nonatomic) IBOutlet UILabel *textLable;
+@property (weak, nonatomic) IBOutlet UILabel *mainTextLable;
 
 @end

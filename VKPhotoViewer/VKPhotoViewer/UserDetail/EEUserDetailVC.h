@@ -18,5 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *albumsCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *photosCountLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, retain)NSDictionary *details;
+@property (nonatomic, retain)NSArray *keys;
+
 
 @end

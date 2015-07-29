@@ -62,7 +62,9 @@
         NSArray *lUserDetailResponse = [responseObjet objectForKey:@"response"];
         _currentFriend = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:_currentFriend];
         success(YES, _currentFriend);
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
         NSLog(@"%@",error);
         failure(error);
     }];
@@ -82,6 +84,7 @@
         AFHTTPRequestOperation *lOperation = [[AFHTTPRequestOperation alloc] initWithRequest:lRequest];
         lOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [lOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
             [_cache setImage:responseObject forKey:photoLink];
             setImage(responseObject,YES);
             

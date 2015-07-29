@@ -44,8 +44,7 @@
         user.site = [obj objectForKey:@"site"];
         user.birthdayDate = [obj objectForKey:@"bdate"];
         user.status = [obj objectForKey:@"status"];
-        user.occupation = [obj objectForKey:@"occupation"];
-        
+        user.occupation = [[obj objectForKey:@"occupation"] objectForKey:@"name"];
         
     }];
     
