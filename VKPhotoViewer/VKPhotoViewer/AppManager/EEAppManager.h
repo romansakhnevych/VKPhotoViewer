@@ -29,4 +29,10 @@
 
 - (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image,BOOL animated))setImage;
 
+- (void)getAlbumsWithCount:(NSUInteger)count
+                     offset:(NSUInteger)offset
+                         Id:(NSString *)userId
+          completionSuccess:(void (^)(id responseObject))success
+          completionFailure:(void (^)(NSError * error))failure;
+
 @end

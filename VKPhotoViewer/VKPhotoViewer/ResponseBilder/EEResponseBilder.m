@@ -7,6 +7,7 @@
 //
 
 #import "EEResponseBilder.h"
+#import "EEAlbum.h"
 
 
 @implementation EEResponseBilder
@@ -50,7 +51,26 @@
     
     return user;
 }
+
++ (NSMutableArray *)getAlbumsFromArray:(NSArray *)array{
     
+    NSMutableArray *lAlbumsList = [NSMutableArray new];
+    
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        EEAlbum *lAlbum = [[EEAlbum alloc] init];
+        
+        NSArray *lSizeArray = [obj objectForKey:@"sizes"];
+        
+        lAlbum.albumID = [obj objectForKey:@"id"];
+        lAlbum.albumTitle = [obj objectForKey:@"title"];
+        lAlbum.albumDescription = [obj objectForKey:@"description"];
+        lAlbum.albumThumbLink = [[lSizeArray objectAtIndex:2] objectForKey:@"src"];
+        lAlbum.size = [obj objectForKey:@"size"];
+        
+        [lAlbumsList addObject:lAlbum];
+    }];
+    return lAlbumsList;
+}
      
 @end
 

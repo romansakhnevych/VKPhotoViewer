@@ -35,5 +35,9 @@
     return [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&v=5.8",ID,FIELDS_FOR_USER,NAME_CASE];
 }
 
++ (NSString *)getAlbumsRequestWithOffset:(NSInteger)offset count:(NSInteger)count byId:(NSString *)userId{
+    
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.getAlbums?owner_id=%@&offset=%lu&count=%lu&need_system=1&need_covers=1&photo_sizes=1&v=%@",userId,(long)offset,(long)count,API_VERSION];
+}
 
 @end

@@ -114,6 +114,16 @@
     [[self navigationController] pushViewController:lViewController animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
+
+    
+    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
+    [[self navigationController] pushViewController:lViewController animated:YES];
+}
+
 #pragma mark - Private methods
 
 - (void)Logout{

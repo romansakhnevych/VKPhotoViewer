@@ -97,4 +97,24 @@
      
 }
 
+- (void)getAlbumsWithCount:(NSUInteger)count
+                    offset:(NSUInteger)offset
+                        Id:(NSString *)userId
+         completionSuccess:(void (^)(id))success
+         completionFailure:(void (^)(NSError *))failure{
+    
+    NSString *lAlbumsGetUrl = [EERequests getAlbumsRequestWithOffset:offset count:count byId:userId];
+    
+    AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
+    lManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [lManager GET:lAlbumsGetUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *lArray = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
+        NSMutableArray *lAlbums = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getAlbumsFromArray:lArray]];
+        success(lAlbums);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

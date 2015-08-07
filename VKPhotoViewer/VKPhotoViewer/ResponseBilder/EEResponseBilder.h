@@ -15,5 +15,6 @@
 
 + (NSMutableArray *)getFriendsFromArray:(NSArray *)array;
 + (EEFriends *)getDetailFromArray:(NSArray *)array forUser:(EEFriends *)user;
++ (NSMutableArray *)getAlbumsFromArray:(NSArray *)array;
 
 @end
