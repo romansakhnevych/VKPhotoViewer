@@ -15,5 +15,5 @@ static NSMutableURLRequest* _request;
 + (NSMutableURLRequest *)getPhotoRequestByLink:(NSString *)link;
 + (NSString *)getUserInfoRequestWithId:(NSString *)ID;
 + (NSString *)getAlbumsRequestWithOffset:(NSInteger)offset count:(NSInteger)count byId:(NSString *)userID;
-
++ (NSString *)getPhotosRequestWithOffset:(NSInteger)offset count:(NSInteger)count fromAlbum:(NSString *)albumId forUser:(NSString *)userId;
 @end

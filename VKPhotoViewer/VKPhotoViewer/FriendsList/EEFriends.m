@@ -9,7 +9,7 @@
 #import "EEFriends.h"
 #import "EERequests.h"
 #import "AFHTTPSessionManager.h"
-#import "UIImageView+AFNetworking.h"
+
 
 @implementation EEFriends
 

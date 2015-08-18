@@ -129,7 +129,7 @@
 - (BOOL)hnk_fetchImageForFetcher:(id<HNKFetcher>)fetcher success:(void (^)(UIImage *image))successBlock failure:(void (^)(NSError *error))failureBlock
 {
     HNKCacheFormat *format = self.hnk_cacheFormat;
-    __block BOOL animated = NO;
+    __block BOOL animated = YES;
     __weak __typeof__(self) weakSelf = self;
     const BOOL didSetImage = [[HNKCache sharedCache] fetchImageForFetcher:fetcher formatName:format.name success:^(UIImage *image) {
         __typeof__(weakSelf) strongSelf = weakSelf;

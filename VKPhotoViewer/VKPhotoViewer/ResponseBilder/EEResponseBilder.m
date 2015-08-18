@@ -8,6 +8,7 @@
 
 #import "EEResponseBilder.h"
 #import "EEAlbum.h"
+#import "EEPhoto.h"
 
 
 @implementation EEResponseBilder
@@ -70,6 +71,31 @@
         [lAlbumsList addObject:lAlbum];
     }];
     return lAlbumsList;
+}
+
++ (NSMutableArray *)getPhotosFromArray:(NSArray *)array{
+    
+    NSMutableArray *lPhotosList = [NSMutableArray new];
+    
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        EEPhoto *lPhoto = [[EEPhoto alloc] init];
+        NSNumber *lPhotoId = [obj objectForKey:@"id"];
+        lPhoto.photoId = [NSString stringWithFormat:@"%u",lPhotoId.intValue];
+        lPhoto.xsPhotoLink = [obj objectForKey:@"photo_75"];
+        lPhoto.sPhotoLink = [obj objectForKey:@"photo_130"];
+        lPhoto.mPhotoLink = [obj objectForKey:@"photo_604"];
+        lPhoto.lPhotoLink = [obj objectForKey:@"photo_807"];
+        lPhoto.xlPhotoLink = [obj objectForKey:@"photo_1280"];
+        lPhoto.xxlPhotoLink = [obj objectForKey:@"photo_2560"];
+        lPhoto.likesCount = [[obj objectForKey:@"likes"] objectForKey:@"count"];
+        lPhoto.commentsCount = [[obj objectForKey:@"comments"] objectForKey:@"count"];
+        lPhoto.photoHeight = [obj objectForKey:@"height"];
+        lPhoto.photoWidth = [obj objectForKey:@"width"];
+        
+        [lPhotosList addObject:lPhoto];
+    }];
+    
+    return lPhotosList;
 }
      
 @end

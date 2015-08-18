@@ -14,6 +14,7 @@
 #import "Constants.h"
 
 
+
 @implementation EEAppManager
 
 
@@ -74,7 +75,7 @@
         withCompletion:(void (^)(UIImage *image, BOOL animated))setImage{
     
     _cache = [[EGOCache alloc] init];
-    if([_cache imageForKey:photoLink]){
+    if([_cache imageForKey:photoLink] != nil){
         setImage([_cache imageForKey:photoLink],NO);
     }
     else{
@@ -94,7 +95,8 @@
         }];
         [lOperation start];
     }
-     
+ 
+    
 }
 
 - (void)getAlbumsWithCount:(NSUInteger)count
@@ -112,6 +114,27 @@
         NSArray *lArray = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
         NSMutableArray *lAlbums = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getAlbumsFromArray:lArray]];
         success(lAlbums);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (void)getPhotosWithCount:(NSUInteger)count
+                    offset:(NSUInteger)offset
+                 fromAlbum:(NSString *)albumId
+                   forUser:(NSString *)userId
+         completionSuccess:(void (^)(id responseObject))success
+         completionFailure:(void (^)(NSError * error))failure{
+    
+    NSString *lPhotosGetUrl = [EERequests getPhotosRequestWithOffset:offset count:count fromAlbum:albumId forUser:userId];
+    
+    AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
+    lManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [lManager GET:lPhotosGetUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *lArray = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
+        NSMutableArray *lPhotos = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getPhotosFromArray:lArray]];
+        success(lPhotos);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];

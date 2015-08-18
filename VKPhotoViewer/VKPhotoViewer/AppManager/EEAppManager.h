@@ -9,12 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "EEFriends.h"
+#import "EEAlbum.h"
 #import "EGOCache.h"
+#import "EEPhoto.h"
 
 @interface EEAppManager : NSObject
 
 
 @property (nonatomic,retain)EEFriends *currentFriend;
+@property (nonatomic,retain)EEAlbum *currentAlbum;
+@property (nonatomic,retain)EEPhoto *currentPhoto;
+@property (nonatomic,retain)NSMutableArray *allPhotos;
+@property (nonatomic)NSInteger currentPhotoIndex;
 @property (nonatomic,retain)EGOCache *cache;
 
 + (EEAppManager *)sharedAppManager;
@@ -34,5 +40,12 @@
                          Id:(NSString *)userId
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure;
+
+- (void)getPhotosWithCount:(NSUInteger)count
+                    offset:(NSUInteger)offset
+                 fromAlbum:(NSString *)albumId
+                   forUser:(NSString *)userId
+         completionSuccess:(void (^)(id responseObject))success
+         completionFailure:(void (^)(NSError * error))failure;
 
 @end

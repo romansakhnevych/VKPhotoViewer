@@ -9,13 +9,25 @@
 /* Begin PBXBuildFile section */
 		84682E541B5EA0A500FDED8D /* EEUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84682E531B5EA0A500FDED8D /* EEUserDetailVC.m */; };
 		84734D711B5D103100EB1834 /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84734D701B5D103100EB1834 /* EEAppManager.m */; };
+		8474C2BC1B7B6685008F43BE /* EEPhotoGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8474C2BB1B7B6685008F43BE /* EEPhotoGalleryVC.m */; };
 		847CBBAB1B61518700E82E4D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CBBAA1B61518700E82E4D /* placeholder.png */; };
+		848124331B7902D3007AD455 /* HNKCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 848124241B7902D3007AD455 /* HNKCache.m */; };
+		848124341B7902D3007AD455 /* HNKDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 848124261B7902D3007AD455 /* HNKDiskCache.m */; };
+		848124351B7902D3007AD455 /* HNKDiskFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 848124281B7902D3007AD455 /* HNKDiskFetcher.m */; };
+		848124361B7902D3007AD455 /* HNKNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481242A1B7902D3007AD455 /* HNKNetworkFetcher.m */; };
+		848124371B7902D3007AD455 /* HNKSimpleFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481242C1B7902D3007AD455 /* HNKSimpleFetcher.m */; };
+		848124381B7902D3007AD455 /* UIButton+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481242E1B7902D3007AD455 /* UIButton+Haneke.m */; };
+		848124391B7902D3007AD455 /* UIImageView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848124301B7902D3007AD455 /* UIImageView+Haneke.m */; };
+		8481243A1B7902D3007AD455 /* UIView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848124321B7902D3007AD455 /* UIView+Haneke.m */; };
 		8482C4321B67CA9B00329D62 /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482C4311B67CA9B00329D62 /* UserDetailCell.xib */; };
 		8482C4351B67CACE00329D62 /* EEUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482C4341B67CACE00329D62 /* EEUserDetailCell.m */; };
 		8485C9D31B6263A700B5ECE5 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8485C9D21B6263A700B5ECE5 /* EGOCache.m */; };
+		8487A54A1B7A292F0026F9BE /* EEPhotoBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */; };
 		8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8488DF361B6644220026F40C /* UIImage+StackBlur.m */; };
 		8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803A1B53F8CC00698242 /* EEMainVC.m */; };
 		8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803D1B53FE2E00698242 /* EEFriendsListVC.m */; };
+		848BEA7B1B7DFAD900174EB2 /* EEGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BEA7A1B7DFAD900174EB2 /* EEGalleryCell.m */; };
+		848BEA7D1B7DFDCF00174EB2 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848BEA7C1B7DFDCF00174EB2 /* GalleryCell.xib */; };
 		848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F31B552A7C00998DA8 /* EEFriends.m */; };
 		848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */; };
 		848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6FB1B556B8100998DA8 /* EERequests.m */; };
@@ -63,18 +75,42 @@
 		84682E531B5EA0A500FDED8D /* EEUserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEUserDetailVC.m; path = UserDetail/EEUserDetailVC.m; sourceTree = "<group>"; };
 		84734D6F1B5D103100EB1834 /* EEAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAppManager.h; path = AppManager/EEAppManager.h; sourceTree = "<group>"; };
 		84734D701B5D103100EB1834 /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = AppManager/EEAppManager.m; sourceTree = "<group>"; };
+		8474C2BA1B7B6685008F43BE /* EEPhotoGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEPhotoGalleryVC.h; path = PhotoGalleryVC/EEPhotoGalleryVC.h; sourceTree = "<group>"; };
+		8474C2BB1B7B6685008F43BE /* EEPhotoGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEPhotoGalleryVC.m; path = PhotoGalleryVC/EEPhotoGalleryVC.m; sourceTree = "<group>"; };
 		847CBBAA1B61518700E82E4D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		848124221B7902D3007AD455 /* Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haneke.h; sourceTree = "<group>"; };
+		848124231B7902D3007AD455 /* HNKCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKCache.h; sourceTree = "<group>"; };
+		848124241B7902D3007AD455 /* HNKCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKCache.m; sourceTree = "<group>"; };
+		848124251B7902D3007AD455 /* HNKDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKDiskCache.h; sourceTree = "<group>"; };
+		848124261B7902D3007AD455 /* HNKDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDiskCache.m; sourceTree = "<group>"; };
+		848124271B7902D3007AD455 /* HNKDiskFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKDiskFetcher.h; sourceTree = "<group>"; };
+		848124281B7902D3007AD455 /* HNKDiskFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDiskFetcher.m; sourceTree = "<group>"; };
+		848124291B7902D3007AD455 /* HNKNetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKNetworkFetcher.h; sourceTree = "<group>"; };
+		8481242A1B7902D3007AD455 /* HNKNetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKNetworkFetcher.m; sourceTree = "<group>"; };
+		8481242B1B7902D3007AD455 /* HNKSimpleFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKSimpleFetcher.h; sourceTree = "<group>"; };
+		8481242C1B7902D3007AD455 /* HNKSimpleFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKSimpleFetcher.m; sourceTree = "<group>"; };
+		8481242D1B7902D3007AD455 /* UIButton+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Haneke.h"; sourceTree = "<group>"; };
+		8481242E1B7902D3007AD455 /* UIButton+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Haneke.m"; sourceTree = "<group>"; };
+		8481242F1B7902D3007AD455 /* UIImageView+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Haneke.h"; sourceTree = "<group>"; };
+		848124301B7902D3007AD455 /* UIImageView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Haneke.m"; sourceTree = "<group>"; };
+		848124311B7902D3007AD455 /* UIView+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Haneke.h"; sourceTree = "<group>"; };
+		848124321B7902D3007AD455 /* UIView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Haneke.m"; sourceTree = "<group>"; };
 		8482C4311B67CA9B00329D62 /* UserDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailCell.xib; path = UserDetailCell/UserDetailCell.xib; sourceTree = "<group>"; };
 		8482C4331B67CACE00329D62 /* EEUserDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEUserDetailCell.h; path = UserDetailCell/EEUserDetailCell.h; sourceTree = "<group>"; };
 		8482C4341B67CACE00329D62 /* EEUserDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEUserDetailCell.m; path = UserDetailCell/EEUserDetailCell.m; sourceTree = "<group>"; };
 		8485C9D11B6263A700B5ECE5 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = EGOCache/EGOCache.h; sourceTree = "<group>"; };
 		8485C9D21B6263A700B5ECE5 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = EGOCache/EGOCache.m; sourceTree = "<group>"; };
+		8487A5481B7A292F0026F9BE /* EEPhotoBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEPhotoBrowserVC.h; path = PhotoBrowserVC/EEPhotoBrowserVC.h; sourceTree = "<group>"; };
+		8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEPhotoBrowserVC.m; path = PhotoBrowserVC/EEPhotoBrowserVC.m; sourceTree = "<group>"; };
 		8488DF351B6644220026F40C /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+StackBlur.h"; path = "StackBluri/UIImage+StackBlur.h"; sourceTree = "<group>"; };
 		8488DF361B6644220026F40C /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+StackBlur.m"; path = "StackBluri/UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		848980391B53F8CC00698242 /* EEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMainVC.h; sourceTree = "<group>"; };
 		8489803A1B53F8CC00698242 /* EEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEMainVC.m; sourceTree = "<group>"; };
 		8489803C1B53FE2E00698242 /* EEFriendsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsListVC.h; path = FriendsList/EEFriendsListVC.h; sourceTree = "<group>"; };
 		8489803D1B53FE2E00698242 /* EEFriendsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriendsListVC.m; path = FriendsList/EEFriendsListVC.m; sourceTree = "<group>"; };
+		848BEA791B7DFAD900174EB2 /* EEGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEGalleryCell.h; path = GalleryCell/EEGalleryCell.h; sourceTree = "<group>"; };
+		848BEA7A1B7DFAD900174EB2 /* EEGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEGalleryCell.m; path = GalleryCell/EEGalleryCell.m; sourceTree = "<group>"; };
+		848BEA7C1B7DFDCF00174EB2 /* GalleryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GalleryCell.xib; path = GalleryCell/GalleryCell.xib; sourceTree = "<group>"; };
 		848CD6F21B552A7C00998DA8 /* EEFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriends.h; path = FriendsList/EEFriends.h; sourceTree = "<group>"; };
 		848CD6F31B552A7C00998DA8 /* EEFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriends.m; path = FriendsList/EEFriends.m; sourceTree = "<group>"; };
 		848CD6F61B555F7E00998DA8 /* EEResponseBilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEResponseBilder.h; path = ResponseBilder/EEResponseBilder.h; sourceTree = "<group>"; };
@@ -171,6 +207,39 @@
 			name = AppManager;
 			sourceTree = "<group>";
 		};
+		8474C2B91B7B6630008F43BE /* PhotoGalleryVC */ = {
+			isa = PBXGroup;
+			children = (
+				8474C2BA1B7B6685008F43BE /* EEPhotoGalleryVC.h */,
+				8474C2BB1B7B6685008F43BE /* EEPhotoGalleryVC.m */,
+			);
+			name = PhotoGalleryVC;
+			sourceTree = "<group>";
+		};
+		848124211B7902D3007AD455 /* Haneke */ = {
+			isa = PBXGroup;
+			children = (
+				848124221B7902D3007AD455 /* Haneke.h */,
+				848124231B7902D3007AD455 /* HNKCache.h */,
+				848124241B7902D3007AD455 /* HNKCache.m */,
+				848124251B7902D3007AD455 /* HNKDiskCache.h */,
+				848124261B7902D3007AD455 /* HNKDiskCache.m */,
+				848124271B7902D3007AD455 /* HNKDiskFetcher.h */,
+				848124281B7902D3007AD455 /* HNKDiskFetcher.m */,
+				848124291B7902D3007AD455 /* HNKNetworkFetcher.h */,
+				8481242A1B7902D3007AD455 /* HNKNetworkFetcher.m */,
+				8481242B1B7902D3007AD455 /* HNKSimpleFetcher.h */,
+				8481242C1B7902D3007AD455 /* HNKSimpleFetcher.m */,
+				8481242D1B7902D3007AD455 /* UIButton+Haneke.h */,
+				8481242E1B7902D3007AD455 /* UIButton+Haneke.m */,
+				8481242F1B7902D3007AD455 /* UIImageView+Haneke.h */,
+				848124301B7902D3007AD455 /* UIImageView+Haneke.m */,
+				848124311B7902D3007AD455 /* UIView+Haneke.h */,
+				848124321B7902D3007AD455 /* UIView+Haneke.m */,
+			);
+			path = Haneke;
+			sourceTree = "<group>";
+		};
 		8482C4301B67CA3400329D62 /* UserDatailCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +259,15 @@
 			name = EGOCache;
 			sourceTree = "<group>";
 		};
+		8487A5471B7A28DE0026F9BE /* PhotoBrowserVC */ = {
+			isa = PBXGroup;
+			children = (
+				8487A5481B7A292F0026F9BE /* EEPhotoBrowserVC.h */,
+				8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */,
+			);
+			name = PhotoBrowserVC;
+			sourceTree = "<group>";
+		};
 		8488DF341B6643FC0026F40C /* StackBluri */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +275,16 @@
 				8488DF361B6644220026F40C /* UIImage+StackBlur.m */,
 			);
 			name = StackBluri;
+			sourceTree = "<group>";
+		};
+		848BEA781B7DFA8E00174EB2 /* GalleryCell */ = {
+			isa = PBXGroup;
+			children = (
+				848BEA791B7DFAD900174EB2 /* EEGalleryCell.h */,
+				848BEA7A1B7DFAD900174EB2 /* EEGalleryCell.m */,
+				848BEA7C1B7DFDCF00174EB2 /* GalleryCell.xib */,
+			);
+			name = GalleryCell;
 			sourceTree = "<group>";
 		};
 		848CD6F51B555F0300998DA8 /* ResponseBilder */ = {
@@ -275,6 +363,7 @@
 		849F3BAC1B750CAC007078F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8487A5471B7A28DE0026F9BE /* PhotoBrowserVC */,
 				849F3BAB1B750A7C007078F7 /* FriendsVC */,
 				84682E511B5EA06800FDED8D /* UserDetailVC */,
 				84C3C3791B4C03CC00E62F6D /* LoginVC */,
@@ -306,6 +395,7 @@
 		84A4A0BE1B57C3F200B7AD38 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				848BEA781B7DFA8E00174EB2 /* GalleryCell */,
 				849F3BA61B750930007078F7 /* PhotoCell */,
 				849F3B911B74D62A007078F7 /* AlbumCell */,
 				8482C4301B67CA3400329D62 /* UserDatailCell */,
@@ -382,9 +472,11 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				8474C2B91B7B6630008F43BE /* PhotoGalleryVC */,
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				848124211B7902D3007AD455 /* Haneke */,
 				849F3BAD1B750D89007078F7 /* Models */,
 				8488DF341B6643FC0026F40C /* StackBluri */,
 				84A4A0BE1B57C3F200B7AD38 /* CustomCells */,
@@ -531,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C1C3C61B4BCF3E00959DF2 /* Main.storyboard in Resources */,
+				848BEA7D1B7DFDCF00174EB2 /* GalleryCell.xib in Resources */,
 				84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */,
 				84A4A0C01B57C46300B7AD38 /* LoadingCell.xib in Resources */,
 				84A4A0CD1B57F64400B7AD38 /* FriendsListCell.xib in Resources */,
@@ -555,14 +648,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848124371B7902D3007AD455 /* HNKSimpleFetcher.m in Sources */,
+				848BEA7B1B7DFAD900174EB2 /* EEGalleryCell.m in Sources */,
 				849F3B961B74D6B3007078F7 /* EEAlbumCell.m in Sources */,
 				84BABF1B1B593DF7003F3057 /* AFURLConnectionOperation.m in Sources */,
 				8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */,
 				84BABF1A1B593DF7003F3057 /* AFSecurityPolicy.m in Sources */,
+				848124361B7902D3007AD455 /* HNKNetworkFetcher.m in Sources */,
 				84A4A0BD1B57C3E800B7AD38 /* EELoadingCellTableViewCell.m in Sources */,
 				84BABF171B593DF7003F3057 /* AFHTTPRequestOperationManager.m in Sources */,
 				848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */,
+				848124391B7902D3007AD455 /* UIImageView+Haneke.m in Sources */,
 				8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */,
+				848124381B7902D3007AD455 /* UIButton+Haneke.m in Sources */,
 				8482C4351B67CACE00329D62 /* EEUserDetailCell.m in Sources */,
 				84A4A0CB1B57F61800B7AD38 /* EEFriendsListCell.m in Sources */,
 				84734D711B5D103100EB1834 /* EEAppManager.m in Sources */,
@@ -570,16 +668,22 @@
 				8485C9D31B6263A700B5ECE5 /* EGOCache.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				849F3B9A1B74F6F6007078F7 /* EEPhotosVC.m in Sources */,
+				848124341B7902D3007AD455 /* HNKDiskCache.m in Sources */,
 				8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */,
 				848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */,
 				84BABF1E1B593DF7003F3057 /* AFURLSessionManager.m in Sources */,
 				849F3BAA1B750959007078F7 /* EEPhotoCell.m in Sources */,
+				8481243A1B7902D3007AD455 /* UIView+Haneke.m in Sources */,
 				84BABF1D1B593DF7003F3057 /* AFURLResponseSerialization.m in Sources */,
+				8474C2BC1B7B6685008F43BE /* EEPhotoGalleryVC.m in Sources */,
 				848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */,
+				848124351B7902D3007AD455 /* HNKDiskFetcher.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,
 				849F3BB11B750DEC007078F7 /* EEPhoto.m in Sources */,
 				84BABF1C1B593DF7003F3057 /* AFURLRequestSerialization.m in Sources */,
 				84BABF191B593DF7003F3057 /* AFNetworkReachabilityManager.m in Sources */,
+				848124331B7902D3007AD455 /* HNKCache.m in Sources */,
+				8487A54A1B7A292F0026F9BE /* EEPhotoBrowserVC.m in Sources */,
 				84C3C37C1B4C03CC00E62F6D /* EEVkLoginVC.m in Sources */,
 				84BABF161B593DF7003F3057 /* AFHTTPRequestOperation.m in Sources */,
 				849F3B8C1B74C150007078F7 /* EEAlbum.m in Sources */,

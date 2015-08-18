@@ -14,7 +14,7 @@
 @property (nonatomic,retain)NSMutableArray *albumsList;
 @property (nonatomic)NSInteger offset;
 @property (nonatomic)NSInteger count;
-@property (nonatomic)NSInteger loadedlbumsCount;
+@property (nonatomic)NSInteger loadedAlbumsCount;
 @property (nonatomic,retain)EEFriends *user;
 
 @end

@@ -9,5 +9,4 @@
 #import "EEPhotoCell.h"
 
 @implementation EEPhotoCell
-
 @end

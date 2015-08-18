@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEAlbum.h"
 
-@interface EEPhotoGalleryVC : UIViewController
+@interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
+@property (nonatomic, retain) NSMutableArray *allPhotos;
+@property (nonatomic)NSInteger index;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,retain) EEAlbum *album;
 
 @end

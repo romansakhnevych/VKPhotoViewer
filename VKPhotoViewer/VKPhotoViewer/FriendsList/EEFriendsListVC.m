@@ -76,7 +76,7 @@
         return lLastCell;
     }
     
-    static NSString *CellIdentifier=@"Cell1";
+    static NSString *CellIdentifier=@"FriendsCell";
     EEFriendsListCell *lCell = (EEFriendsListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(lCell==nil){

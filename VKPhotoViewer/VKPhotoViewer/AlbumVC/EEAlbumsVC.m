@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *lNib;
-    if (indexPath.row == [tableView numberOfRowsInSection:0]-1 && _loadedlbumsCount == _count){
+    if (indexPath.row == [tableView numberOfRowsInSection:0]-1 && _loadedAlbumsCount == _count){
         
         [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
         
@@ -98,7 +98,7 @@
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"photosView"];
     [[self navigationController] pushViewController:lViewController animated:YES];
-    
+    [EEAppManager sharedAppManager].currentAlbum = [_albumsList objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Private mathods
@@ -108,7 +108,7 @@
     [[EEAppManager sharedAppManager] getAlbumsWithCount:count offset:offset Id:userId completionSuccess:^(id responseObject) {
         if([responseObject isKindOfClass:[NSMutableArray class]]){
             [_albumsList addObjectsFromArray:responseObject];
-            _loadedlbumsCount = [responseObject count];
+            _loadedAlbumsCount = [responseObject count];
             _offset+=4;
         }else{
             NSLog(@"Error");

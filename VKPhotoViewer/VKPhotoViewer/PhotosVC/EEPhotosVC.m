@@ -8,6 +8,10 @@
 
 #import "EEPhotosVC.h"
 #import "EEPhotoCell.h"
+#import "EEAppManager.h"
+#import "EEPhoto.h"
+#import "UIImageView+Haneke.h"
+#import "EEPhotoBrowserVC.h"
 
 
 @interface EEPhotosVC ()
@@ -16,35 +20,23 @@
 
 @implementation EEPhotosVC
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"PhotoCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Photos";
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
-}
+    _photosList = [[NSMutableArray alloc] init];
+    _count = 60;
+    _offset = 0;
+    _user = [[EEAppManager sharedAppManager] currentFriend];
+    _album = [[EEAppManager sharedAppManager] currentAlbum];
+    self.navigationItem.title = _album.albumTitle;
+    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+   }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -55,45 +47,77 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 50;
+    return [_photosList count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row == [collectionView numberOfItemsInSection:0]-1 && _loadedPhotosCount == _count){
+        [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
+    }
+    
     EEPhotoCell *lCell = (EEPhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    lCell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
+//    lCell.layer.shouldRasterize = YES;
+//    lCell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//    lCell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
+    EEPhoto *lPhoto = [_photosList objectAtIndex:indexPath.row];
+    
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"placeholder"]];
+    
+//    [[EEAppManager sharedAppManager] getPhotoByLink:lPhoto.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
+//        
+//        
+//        if (animated){
+//            [UIView transitionWithView:lCell.imageView duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//                
+//                lCell.imageView.image = image;
+//                
+//            } completion:nil];
+//            
+//        }
+//        else{
+//            lCell.imageView.image = image;
+//        }
+//
+//    }];
+    
         return lCell;
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+    [[self navigationController] pushViewController:lViewController animated:YES];
+    [EEAppManager sharedAppManager].currentPhotoIndex = indexPath.row;
+    [EEAppManager sharedAppManager].allPhotos = _photosList;
+    [EEAppManager sharedAppManager].currentPhoto = [_photosList objectAtIndex:indexPath.row];
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
+
+#pragma mark - Private Methods
+
+- (void)updateDataWithCount:(NSInteger)count
+                     Offset:(NSInteger)offset
+                    AlbumId:(NSString *)albumId
+                     UserId:(NSString *)userId{
+    
+    [[EEAppManager sharedAppManager] getPhotosWithCount:count offset:offset fromAlbum:albumId forUser:userId completionSuccess:^(id responseObject) {
+        if ([responseObject isKindOfClass:[NSMutableArray class]]){
+            [_photosList addObjectsFromArray:responseObject];
+            _loadedPhotosCount = [responseObject count];
+            _offset+=60;
+        }else{
+            NSLog(@"error");
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    } completionFailure:^(NSError *error) {
+        NSLog(@"error - %@",error);
+    }];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
+
+
 
 @end
