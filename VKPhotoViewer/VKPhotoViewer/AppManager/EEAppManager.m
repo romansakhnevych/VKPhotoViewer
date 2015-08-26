@@ -13,12 +13,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "Constants.h"
 
-
-
 @implementation EEAppManager
-
-
-
 
 + (EEAppManager *)sharedAppManager{
    
@@ -40,7 +35,7 @@
     AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
     lManager.requestSerializer = [AFJSONRequestSerializer serializer];
     [lManager GET:lGetFriendsURL parameters:nil success:^(NSURLSessionDataTask * task, id responseObject) {
-        NSLog(@"%@",responseObject);
+        DLog(@"DEBUG - %@",responseObject);
         NSArray *lArray = [responseObject objectForKey:@"response"];
         NSMutableArray *lFriendsList = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getFriendsFromArray:lArray]];
         success(lFriendsList);
@@ -48,8 +43,6 @@
         failure(error);
     }];
 }
-
-
 
 - (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
                             completionFailure:(void (^)(NSError * error))failure {
@@ -72,13 +65,13 @@
 }
 
 - (void)getPhotoByLink:(NSString *)photoLink
-        withCompletion:(void (^)(UIImage *image, BOOL animated))setImage{
+        withCompletion:(void (^)(UIImage *image, BOOL animated))setImage {
     
     _cache = [[EGOCache alloc] init];
-    if([_cache imageForKey:photoLink] != nil){
+    if([_cache imageForKey:photoLink] != nil) {
         setImage([_cache imageForKey:photoLink],NO);
-    }
-    else{
+        
+    } else{
         
         NSMutableURLRequest *lRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:photoLink] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
         
@@ -95,15 +88,13 @@
         }];
         [lOperation start];
     }
- 
-    
 }
 
 - (void)getAlbumsWithCount:(NSUInteger)count
                     offset:(NSUInteger)offset
                         Id:(NSString *)userId
          completionSuccess:(void (^)(id))success
-         completionFailure:(void (^)(NSError *))failure{
+         completionFailure:(void (^)(NSError *))failure {
     
     NSString *lAlbumsGetUrl = [EERequests getAlbumsRequestWithOffset:offset count:count byId:userId];
     

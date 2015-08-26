@@ -22,7 +22,6 @@
 		8482C4321B67CA9B00329D62 /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482C4311B67CA9B00329D62 /* UserDetailCell.xib */; };
 		8482C4351B67CACE00329D62 /* EEUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482C4341B67CACE00329D62 /* EEUserDetailCell.m */; };
 		8485C9D31B6263A700B5ECE5 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8485C9D21B6263A700B5ECE5 /* EGOCache.m */; };
-		8487A54A1B7A292F0026F9BE /* EEPhotoBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */; };
 		8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8488DF361B6644220026F40C /* UIImage+StackBlur.m */; };
 		8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803A1B53F8CC00698242 /* EEMainVC.m */; };
 		8489803E1B53FE2E00698242 /* EEFriendsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489803D1B53FE2E00698242 /* EEFriendsListVC.m */; };
@@ -31,6 +30,8 @@
 		848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F31B552A7C00998DA8 /* EEFriends.m */; };
 		848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */; };
 		848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6FB1B556B8100998DA8 /* EERequests.m */; };
+		8490AC881B874F9D00DA9885 /* Comments-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490AC871B874F9D00DA9885 /* Comments-25.png */; };
+		8490AC8A1B87512700DA9885 /* Like-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490AC891B87512700DA9885 /* Like-25.png */; };
 		849F3B8C1B74C150007078F7 /* EEAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3B8B1B74C150007078F7 /* EEAlbum.m */; };
 		849F3B901B74C9A2007078F7 /* EEAlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3B8F1B74C9A2007078F7 /* EEAlbumsVC.m */; };
 		849F3B931B74D661007078F7 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849F3B921B74D661007078F7 /* AlbumCell.xib */; };
@@ -100,8 +101,6 @@
 		8482C4341B67CACE00329D62 /* EEUserDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEUserDetailCell.m; path = UserDetailCell/EEUserDetailCell.m; sourceTree = "<group>"; };
 		8485C9D11B6263A700B5ECE5 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = EGOCache/EGOCache.h; sourceTree = "<group>"; };
 		8485C9D21B6263A700B5ECE5 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = EGOCache/EGOCache.m; sourceTree = "<group>"; };
-		8487A5481B7A292F0026F9BE /* EEPhotoBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEPhotoBrowserVC.h; path = PhotoBrowserVC/EEPhotoBrowserVC.h; sourceTree = "<group>"; };
-		8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEPhotoBrowserVC.m; path = PhotoBrowserVC/EEPhotoBrowserVC.m; sourceTree = "<group>"; };
 		8488DF351B6644220026F40C /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+StackBlur.h"; path = "StackBluri/UIImage+StackBlur.h"; sourceTree = "<group>"; };
 		8488DF361B6644220026F40C /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+StackBlur.m"; path = "StackBluri/UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		848980391B53F8CC00698242 /* EEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMainVC.h; sourceTree = "<group>"; };
@@ -117,6 +116,8 @@
 		848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEResponseBilder.m; path = ResponseBilder/EEResponseBilder.m; sourceTree = "<group>"; };
 		848CD6FA1B556B8100998DA8 /* EERequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EERequests.h; path = Requests/EERequests.h; sourceTree = "<group>"; };
 		848CD6FB1B556B8100998DA8 /* EERequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EERequests.m; path = Requests/EERequests.m; sourceTree = "<group>"; };
+		8490AC871B874F9D00DA9885 /* Comments-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comments-25.png"; sourceTree = "<group>"; };
+		8490AC891B87512700DA9885 /* Like-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Like-25.png"; sourceTree = "<group>"; };
 		849F3B8A1B74C150007078F7 /* EEAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAlbum.h; path = Album/EEAlbum.h; sourceTree = "<group>"; };
 		849F3B8B1B74C150007078F7 /* EEAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAlbum.m; path = Album/EEAlbum.m; sourceTree = "<group>"; };
 		849F3B8E1B74C9A2007078F7 /* EEAlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAlbumsVC.h; path = AlbumVC/EEAlbumsVC.h; sourceTree = "<group>"; };
@@ -259,15 +260,6 @@
 			name = EGOCache;
 			sourceTree = "<group>";
 		};
-		8487A5471B7A28DE0026F9BE /* PhotoBrowserVC */ = {
-			isa = PBXGroup;
-			children = (
-				8487A5481B7A292F0026F9BE /* EEPhotoBrowserVC.h */,
-				8487A5491B7A292F0026F9BE /* EEPhotoBrowserVC.m */,
-			);
-			name = PhotoBrowserVC;
-			sourceTree = "<group>";
-		};
 		8488DF341B6643FC0026F40C /* StackBluri */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,7 +355,7 @@
 		849F3BAC1B750CAC007078F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8487A5471B7A28DE0026F9BE /* PhotoBrowserVC */,
+				8474C2B91B7B6630008F43BE /* PhotoGalleryVC */,
 				849F3BAB1B750A7C007078F7 /* FriendsVC */,
 				84682E511B5EA06800FDED8D /* UserDetailVC */,
 				84C3C3791B4C03CC00E62F6D /* LoginVC */,
@@ -472,8 +464,9 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				8474C2B91B7B6630008F43BE /* PhotoGalleryVC */,
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
+				8490AC891B87512700DA9885 /* Like-25.png */,
+				8490AC871B874F9D00DA9885 /* Comments-25.png */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
 				848124211B7902D3007AD455 /* Haneke */,
@@ -629,7 +622,9 @@
 				84A4A0CD1B57F64400B7AD38 /* FriendsListCell.xib in Resources */,
 				849F3B931B74D661007078F7 /* AlbumCell.xib in Resources */,
 				847CBBAB1B61518700E82E4D /* placeholder.png in Resources */,
+				8490AC8A1B87512700DA9885 /* Like-25.png in Resources */,
 				8482C4321B67CA9B00329D62 /* UserDetailCell.xib in Resources */,
+				8490AC881B874F9D00DA9885 /* Comments-25.png in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,7 +678,6 @@
 				84BABF1C1B593DF7003F3057 /* AFURLRequestSerialization.m in Sources */,
 				84BABF191B593DF7003F3057 /* AFNetworkReachabilityManager.m in Sources */,
 				848124331B7902D3007AD455 /* HNKCache.m in Sources */,
-				8487A54A1B7A292F0026F9BE /* EEPhotoBrowserVC.m in Sources */,
 				84C3C37C1B4C03CC00E62F6D /* EEVkLoginVC.m in Sources */,
 				84BABF161B593DF7003F3057 /* AFHTTPRequestOperation.m in Sources */,
 				849F3B8C1B74C150007078F7 /* EEAlbum.m in Sources */,
@@ -810,9 +804,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -821,9 +818,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -18,19 +18,21 @@
                         <subviews>
                             <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9BG-A1-JVa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="lag-pU-rec" appends="YES" id="XvK-Tz-o8U"/>
                                 </connections>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9BG-A1-JVa" firstAttribute="top" secondItem="MVT-x9-wmW" secondAttribute="top" id="44a-bs-lGa"/>
-                            <constraint firstItem="9BG-A1-JVa" firstAttribute="centerY" secondItem="MVT-x9-wmW" secondAttribute="centerY" id="9bv-hR-csC"/>
-                            <constraint firstItem="9BG-A1-JVa" firstAttribute="leading" secondItem="MVT-x9-wmW" secondAttribute="leading" id="CSn-Ae-R62"/>
-                            <constraint firstAttribute="trailing" secondItem="9BG-A1-JVa" secondAttribute="trailing" id="JJm-bR-YUF"/>
-                            <constraint firstItem="9BG-A1-JVa" firstAttribute="centerX" secondItem="MVT-x9-wmW" secondAttribute="centerX" id="apf-UC-DEj"/>
-                            <constraint firstAttribute="bottom" secondItem="9BG-A1-JVa" secondAttribute="bottom" id="tMZ-9e-TSO"/>
+                            <constraint firstItem="9BG-A1-JVa" firstAttribute="leading" secondItem="MVT-x9-wmW" secondAttribute="leading" id="4QH-Dk-0cc"/>
+                            <constraint firstAttribute="bottom" secondItem="9BG-A1-JVa" secondAttribute="bottom" id="Yfp-d4-mwg"/>
+                            <constraint firstItem="9BG-A1-JVa" firstAttribute="centerX" secondItem="MVT-x9-wmW" secondAttribute="centerX" id="fF0-1U-I7w"/>
+                            <constraint firstItem="9BG-A1-JVa" firstAttribute="top" secondItem="MVT-x9-wmW" secondAttribute="top" id="jM8-AZ-M5D"/>
+                            <constraint firstItem="9BG-A1-JVa" firstAttribute="centerY" secondItem="MVT-x9-wmW" secondAttribute="centerY" id="tU2-dG-fYV"/>
+                            <constraint firstAttribute="trailing" secondItem="9BG-A1-JVa" secondAttribute="trailing" id="wFp-bg-M3C"/>
                         </constraints>
                     </scrollView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-Yu-lg4">
@@ -40,12 +42,12 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="MVT-x9-wmW" firstAttribute="leading" secondItem="G7h-xN-ZM0" secondAttribute="leading" id="1kA-HT-mzO"/>
-                <constraint firstItem="MVT-x9-wmW" firstAttribute="centerX" secondItem="5lL-Yu-lg4" secondAttribute="centerX" id="MJ2-rH-XXl"/>
-                <constraint firstAttribute="trailing" secondItem="MVT-x9-wmW" secondAttribute="trailing" id="XVD-6o-dZf"/>
-                <constraint firstItem="MVT-x9-wmW" firstAttribute="top" secondItem="G7h-xN-ZM0" secondAttribute="top" id="ZD2-CD-k5k"/>
-                <constraint firstItem="5lL-Yu-lg4" firstAttribute="top" secondItem="G7h-xN-ZM0" secondAttribute="top" constant="324" id="dG6-Ub-6Wz"/>
-                <constraint firstAttribute="bottom" secondItem="MVT-x9-wmW" secondAttribute="bottom" id="hFM-7G-vTH"/>
+                <constraint firstAttribute="trailing" secondItem="MVT-x9-wmW" secondAttribute="trailing" id="PUC-51-ArY"/>
+                <constraint firstItem="5lL-Yu-lg4" firstAttribute="centerX" secondItem="MVT-x9-wmW" secondAttribute="centerX" id="XNo-ws-O9X"/>
+                <constraint firstItem="MVT-x9-wmW" firstAttribute="leading" secondItem="G7h-xN-ZM0" secondAttribute="leading" id="Yh5-dO-2J2"/>
+                <constraint firstItem="5lL-Yu-lg4" firstAttribute="top" secondItem="G7h-xN-ZM0" secondAttribute="top" constant="324" id="bnH-XO-Xsq"/>
+                <constraint firstAttribute="bottom" secondItem="MVT-x9-wmW" secondAttribute="bottom" id="tnz-D3-74o"/>
+                <constraint firstItem="MVT-x9-wmW" firstAttribute="top" secondItem="G7h-xN-ZM0" secondAttribute="top" id="wVb-5e-VlT"/>
             </constraints>
             <size key="customSize" width="376" height="448"/>
             <connections>

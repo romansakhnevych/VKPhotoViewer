@@ -12,6 +12,7 @@
 @interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
 @property (nonatomic)NSInteger index;
+@property (nonatomic)NSInteger indexForNavBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,retain) EEAlbum *album;
 

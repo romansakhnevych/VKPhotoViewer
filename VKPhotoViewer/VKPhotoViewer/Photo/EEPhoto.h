@@ -23,6 +23,7 @@
 @property (nonatomic,retain)NSString *photoHeight;
 
 
-
+- (NSString *)getLikesCount;
+- (NSString *)getCommentsCount;
 
 @end

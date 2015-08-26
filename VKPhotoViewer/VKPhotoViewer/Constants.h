@@ -29,4 +29,10 @@
 
 #define safeModulo(x,y) ((y + x % y) % y)
 
+#ifdef DEBUG
+#define DLog(s, ...) NSLog(s, ##__VA_ARGS__)
+#else
+#define DLog(s, ...)
+#endif
+
 #endif

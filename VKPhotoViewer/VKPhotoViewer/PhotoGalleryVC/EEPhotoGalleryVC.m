@@ -26,6 +26,7 @@ static NSString *CelID = @"GalleryCell";
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
     [self setupCollectionView];
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_index+1,[_album getAlbumSize]];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -49,24 +50,22 @@ static NSString *CelID = @"GalleryCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
     
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
-   
-    
-    
+    _indexForNavBar = indexPath.row;
    dispatch_async(dispatch_get_main_queue(), ^{
         [self setPhotoAtIndex:indexPath.row withCompletion:^(UIImage *image) {
             lCell.imageView.image = image;
             [lCell.spinner stopAnimating];
+            
         }];
    });
     
     
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",indexPath.row+1,[_album getAlbumSize]];
+    
     return lCell;
 }
 //
@@ -84,11 +83,22 @@ static NSString *CelID = @"GalleryCell";
 //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
 //}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+   
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    EEPhoto *lPhoto = [_allPhotos objectAtIndex:_indexForNavBar];
+    [EEAppManager sharedAppManager].currentPhoto = lPhoto;
+     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
-
 
 
 - (void)setupCollectionView{

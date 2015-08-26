@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="B6o-sO-ubM" kind="relationship" relationship="rootViewController" id="Cgw-ZZ-f0Y"/>
+                        <segue destination="dQH-E3-2Km" kind="relationship" relationship="rootViewController" id="Aqi-yZ-AQq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zg7-B5-j9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,24 +23,77 @@
             <point key="canvasLocation" x="-838.5" y="346.5"/>
         </scene>
         <!--Friends ListVC-->
-        <scene sceneID="xeN-Kl-Eju">
+        <scene sceneID="tjX-e7-E5o">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y5D-Af-uWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="tableView" id="B6o-sO-ubM" customClass="EEFriendsListVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="PPX-4W-iyp">
+                <viewController id="dQH-E3-2Km" customClass="EEFriendsListVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FXV-xA-fva"/>
+                        <viewControllerLayoutGuide type="bottom" id="RDc-2L-8Ct"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fgZ-Aw-I3A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-x2-4f1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dQH-E3-2Km" id="xjM-9Z-ySq"/>
+                                    <outlet property="delegate" destination="dQH-E3-2Km" id="GMS-Ar-dYF"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="X36-YI-i5Q">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dQH-E3-2Km" id="hg7-TJ-aE3"/>
+                                </connections>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4P-jM-GmV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="jlQ-TD-iml"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Friends" id="YTh-Zi-GFK">
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" id="R3T-VA-Ygq"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="B6o-sO-ubM" id="Eaz-Of-CSG"/>
-                            <outlet property="delegate" destination="B6o-sO-ubM" id="2eo-Ke-U8H"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="25C-Of-Fiu"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
+                        <constraints>
+                            <constraint firstItem="SEH-x2-4f1" firstAttribute="leading" secondItem="fgZ-Aw-I3A" secondAttribute="leadingMargin" constant="-16" id="4WT-6F-atU"/>
+                            <constraint firstItem="X36-YI-i5Q" firstAttribute="leading" secondItem="fgZ-Aw-I3A" secondAttribute="leadingMargin" constant="-16" id="BIR-px-te6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SEH-x2-4f1" secondAttribute="trailing" constant="-16" id="DLd-Do-iLF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X36-YI-i5Q" secondAttribute="trailing" constant="-16" id="OWU-aC-RnO"/>
+                            <constraint firstItem="SEH-x2-4f1" firstAttribute="top" secondItem="FXV-xA-fva" secondAttribute="bottom" constant="44" id="UZt-L1-hed"/>
+                            <constraint firstItem="X36-YI-i5Q" firstAttribute="top" secondItem="FXV-xA-fva" secondAttribute="bottom" constant="44" id="V1t-Pn-KGN"/>
+                            <constraint firstItem="X36-YI-i5Q" firstAttribute="top" secondItem="k4P-jM-GmV" secondAttribute="bottom" id="VjM-e0-DMd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k4P-jM-GmV" secondAttribute="trailing" constant="-16" id="du0-Ef-0co"/>
+                            <constraint firstItem="k4P-jM-GmV" firstAttribute="leading" secondItem="fgZ-Aw-I3A" secondAttribute="leadingMargin" constant="-16" id="qsQ-HD-KbA"/>
+                            <constraint firstItem="RDc-2L-8Ct" firstAttribute="top" secondItem="SEH-x2-4f1" secondAttribute="bottom" id="vVB-7m-GKn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9GV-A9-BKQ"/>
+                    <connections>
+                        <outlet property="searchBar" destination="X36-YI-i5Q" id="Jyq-8Q-iBV"/>
+                        <outlet property="searchDisplayController" destination="ScW-eR-28Q" id="7ka-Aq-pPK"/>
+                        <outlet property="tableView" destination="SEH-x2-4f1" id="Rm3-7d-nZd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-jq-2gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ScW-eR-28Q">
+                    <connections>
+                        <outlet property="delegate" destination="dQH-E3-2Km" id="F38-Md-Jrn"/>
+                        <outlet property="searchBar" destination="X36-YI-i5Q" id="qC9-N3-7wi"/>
+                        <outlet property="searchContentsController" destination="dQH-E3-2Km" id="Vq2-0j-sNC"/>
+                        <outlet property="searchResultsDataSource" destination="dQH-E3-2Km" id="kGl-8A-asH"/>
+                        <outlet property="searchResultsDelegate" destination="dQH-E3-2Km" id="H0D-fG-cYH"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-838.5" y="1174.5"/>
+            <point key="canvasLocation" x="-838.5" y="1179.5"/>
         </scene>
         <!--User DetailVC-->
         <scene sceneID="LOm-Xr-VFv">
@@ -444,7 +497,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OYu-LX-71O">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.47956806140000002" green="1" blue="0.1846779211" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rWy-Ac-ava">
                                     <size key="itemSize" width="375" height="667"/>

@@ -26,6 +26,7 @@
     _offset = 0;
     _user = [EEAppManager sharedAppManager].currentFriend;
     [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {

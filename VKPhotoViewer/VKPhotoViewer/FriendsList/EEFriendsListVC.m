@@ -25,15 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _friendsList = [[NSMutableArray alloc] init];
     _count = 30;
     _offset = 0;
     [self updateDataWithCount:_count Offset:_offset];
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationItem.title = @"Friends";
+    
+ }
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
-
+- (void)viewWillAppear:(BOOL)animated{
+       [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +60,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *lNib;
+   
     if ([indexPath row] == [tableView numberOfRowsInSection:0]-1 && _loadedFriendsCount == _count) {
        
         [self updateDataWithCount:_count Offset:_offset];
@@ -121,8 +123,22 @@
     
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self navigationController] pushViewController:lViewController animated:YES];
 }
+
+#pragma mark - UIScrollView delegat
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    
+    _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y - 3, _searchBar.frame.size.width, _searchBar.frame.size.height);
+    
+    CGPoint lContentOffet = scrollView.contentOffset;
+    NSLog(@"content offset --- %@",NSStringFromCGPoint(lContentOffet));
+    
+}
+
+
 
 #pragma mark - Private methods
 
@@ -163,6 +179,10 @@
 
 }
 
+#pragma mark - IBActions
 
-
+- (IBAction)logoutTap:(id)sender {
+    
+    [self Logout];
+}
 @end

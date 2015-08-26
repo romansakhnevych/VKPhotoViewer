@@ -29,6 +29,7 @@
     _mainPhoto.layer.masksToBounds = YES;
     _mainPhoto.layer.borderColor = [UIColor whiteColor].CGColor;
     _mainPhoto.layer.borderWidth = 2;
+    [self.navigationController setNavigationBarHidden:NO];
     
     
    

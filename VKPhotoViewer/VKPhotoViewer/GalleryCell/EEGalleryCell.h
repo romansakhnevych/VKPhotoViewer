@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "EEPhoto.h"
 
-@interface EEGalleryCell : UICollectionViewCell <UIScrollViewDelegate>
+@interface EEGalleryCell : UICollectionViewCell <UIScrollViewDelegate>{
+    BOOL isZooming;
+    
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIScrollView *zoomScrollView;
 @property (nonatomic, retain) EEPhoto *photo;
+
 - (IBAction)doubleTapHandle:(UITapGestureRecognizer *)sender;
+
 
 @end

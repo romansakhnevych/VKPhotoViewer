@@ -11,7 +11,7 @@
 #import "EEAppManager.h"
 #import "EEPhoto.h"
 #import "UIImageView+Haneke.h"
-#import "EEPhotoBrowserVC.h"
+
 
 
 @interface EEPhotosVC ()
