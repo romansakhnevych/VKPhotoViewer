@@ -10,8 +10,6 @@
 #import "Constants.h"
 #import "EERequests.h"
 
-
-
 @interface EEVkLoginVC ()
 - (BOOL)getUserAthorizationData:(NSURL *)requestUrlString;
 - (void)vkLoginCancel;
@@ -26,14 +24,12 @@
     [_indicator startAnimating];
     [[self navigationController]setNavigationBarHidden:YES];
     
-    
     if(!_vkLoginWebView){
         self.vkLoginWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
         _vkLoginWebView.delegate = self;
         _vkLoginWebView.scalesPageToFit = YES;
         [self.view addSubview:_vkLoginWebView];
     }
-    
 
     NSURLRequest *lRequest = (NSURLRequest *)[EERequests loginRequest];
     [_vkLoginWebView loadRequest:lRequest];
@@ -99,7 +95,6 @@
 
 - (void)saveLoginObject:(id)value forKey:(id)key {
     [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
-
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -113,7 +108,6 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     BOOL lResult = YES;
-
     
     if([self connectedToInternet]){
     
@@ -135,8 +129,6 @@
 
 - (IBAction)cancelBtnTap:(id)sender {
     [self vkLoginCancel];
-    
 }
-
 
 @end

@@ -131,4 +131,16 @@
     }];
 }
 
+- (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
+                                        completionFailure:(void (^)(NSError * error))failure{
+    AFHTTPSessionManager *lManager = [AFHTTPSessionManager manager];
+    lManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [lManager GET:[EERequests addLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:nil success:^ (NSURLSessionDataTask *task , id responseObject ) {
+        success(responseObject);
+    } failure:^ (NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
+
 @end

@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     _album = [[EEAppManager sharedAppManager] currentAlbum];
     self.navigationItem.title = _album.albumTitle;
     [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
-    }
+        }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -93,6 +93,10 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     [EEAppManager sharedAppManager].currentPhoto = [_photosList objectAtIndex:indexPath.row];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return CGSizeMake(self.view.frame.size.width / 4, self.view.frame.size.width / 4);
+}
 
 #pragma mark - Private Methods
 

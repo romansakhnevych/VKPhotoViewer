@@ -21,6 +21,7 @@
 @property (nonatomic,retain)NSNumber *commentsCount;
 @property (nonatomic,retain)NSString *photoWidth;
 @property (nonatomic,retain)NSString *photoHeight;
+@property (nonatomic,retain)NSNumber *isLiked;
 
 
 - (NSString *)getLikesCount;

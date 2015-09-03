@@ -10,15 +10,20 @@
 #import "EEAppManager.h"
 #import "EGOCache.h"
 
-@interface EEFriendsListVC : UIViewController <UITableViewDelegate,UITableViewDataSource, UIScrollViewDelegate>
+@interface EEFriendsListVC : UIViewController <UITableViewDelegate,UITableViewDataSource, UIScrollViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (nonatomic,retain) NSMutableArray *friendsList;
+@property (strong, nonatomic)NSMutableArray *searchResult;
+
 @property (nonatomic) NSInteger offset;
 @property (nonatomic) NSInteger count;
 @property (nonatomic) NSInteger loadedFriendsCount;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)logoutTap:(id)sender;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewVerticalSpace;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (strong, nonatomic)UISearchController *searchController;
+
+- (IBAction)logoutTap:(id)sender;
 
 @end

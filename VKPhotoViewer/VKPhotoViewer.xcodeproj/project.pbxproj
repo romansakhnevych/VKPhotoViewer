@@ -30,7 +30,6 @@
 		848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F31B552A7C00998DA8 /* EEFriends.m */; };
 		848CD6F81B555F7E00998DA8 /* EEResponseBilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */; };
 		848CD6FC1B556B8100998DA8 /* EERequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848CD6FB1B556B8100998DA8 /* EERequests.m */; };
-		8490AC881B874F9D00DA9885 /* Comments-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490AC871B874F9D00DA9885 /* Comments-25.png */; };
 		8490AC8A1B87512700DA9885 /* Like-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490AC891B87512700DA9885 /* Like-25.png */; };
 		849F3B8C1B74C150007078F7 /* EEAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3B8B1B74C150007078F7 /* EEAlbum.m */; };
 		849F3B901B74C9A2007078F7 /* EEAlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3B8F1B74C9A2007078F7 /* EEAlbumsVC.m */; };
@@ -39,6 +38,9 @@
 		849F3B9A1B74F6F6007078F7 /* EEPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3B991B74F6F6007078F7 /* EEPhotosVC.m */; };
 		849F3BAA1B750959007078F7 /* EEPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3BA91B750959007078F7 /* EEPhotoCell.m */; };
 		849F3BB11B750DEC007078F7 /* EEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F3BB01B750DEC007078F7 /* EEPhoto.m */; };
+		84A339E31B986859005C080A /* EECustomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A339E21B986859005C080A /* EECustomToolBar.m */; };
+		84A339F11B987658005C080A /* Share-25-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A339F01B987658005C080A /* Share-25-2.png */; };
+		84A339F31B9876D5005C080A /* Like Filled-25-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A339F21B9876D5005C080A /* Like Filled-25-2.png */; };
 		84A4A0BD1B57C3E800B7AD38 /* EELoadingCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0BC1B57C3E800B7AD38 /* EELoadingCellTableViewCell.m */; };
 		84A4A0C01B57C46300B7AD38 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A0BF1B57C46300B7AD38 /* LoadingCell.xib */; };
 		84A4A0CB1B57F61800B7AD38 /* EEFriendsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0CA1B57F61800B7AD38 /* EEFriendsListCell.m */; };
@@ -116,7 +118,6 @@
 		848CD6F71B555F7E00998DA8 /* EEResponseBilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEResponseBilder.m; path = ResponseBilder/EEResponseBilder.m; sourceTree = "<group>"; };
 		848CD6FA1B556B8100998DA8 /* EERequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EERequests.h; path = Requests/EERequests.h; sourceTree = "<group>"; };
 		848CD6FB1B556B8100998DA8 /* EERequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EERequests.m; path = Requests/EERequests.m; sourceTree = "<group>"; };
-		8490AC871B874F9D00DA9885 /* Comments-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comments-25.png"; sourceTree = "<group>"; };
 		8490AC891B87512700DA9885 /* Like-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Like-25.png"; sourceTree = "<group>"; };
 		849F3B8A1B74C150007078F7 /* EEAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAlbum.h; path = Album/EEAlbum.h; sourceTree = "<group>"; };
 		849F3B8B1B74C150007078F7 /* EEAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAlbum.m; path = Album/EEAlbum.m; sourceTree = "<group>"; };
@@ -131,6 +132,10 @@
 		849F3BA91B750959007078F7 /* EEPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEPhotoCell.m; path = PhotoCell/EEPhotoCell.m; sourceTree = "<group>"; };
 		849F3BAF1B750DEC007078F7 /* EEPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEPhoto.h; path = Photo/EEPhoto.h; sourceTree = "<group>"; };
 		849F3BB01B750DEC007078F7 /* EEPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEPhoto.m; path = Photo/EEPhoto.m; sourceTree = "<group>"; };
+		84A339E11B986859005C080A /* EECustomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECustomToolBar.h; path = CustomToolBar/EECustomToolBar.h; sourceTree = "<group>"; };
+		84A339E21B986859005C080A /* EECustomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECustomToolBar.m; path = CustomToolBar/EECustomToolBar.m; sourceTree = "<group>"; };
+		84A339F01B987658005C080A /* Share-25-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share-25-2.png"; sourceTree = "<group>"; };
+		84A339F21B9876D5005C080A /* Like Filled-25-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Like Filled-25-2.png"; sourceTree = "<group>"; };
 		84A4A0BB1B57C3E800B7AD38 /* EELoadingCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EELoadingCellTableViewCell.h; path = LoadingCell/EELoadingCellTableViewCell.h; sourceTree = "<group>"; };
 		84A4A0BC1B57C3E800B7AD38 /* EELoadingCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EELoadingCellTableViewCell.m; path = LoadingCell/EELoadingCellTableViewCell.m; sourceTree = "<group>"; };
 		84A4A0BF1B57C46300B7AD38 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingCell.xib; path = LoadingCell/LoadingCell.xib; sourceTree = "<group>"; };
@@ -355,6 +360,8 @@
 		849F3BAC1B750CAC007078F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84A339E01B9866CC005C080A /* CustomToolBar */,
+				84A4A0BE1B57C3F200B7AD38 /* CustomCells */,
 				8474C2B91B7B6630008F43BE /* PhotoGalleryVC */,
 				849F3BAB1B750A7C007078F7 /* FriendsVC */,
 				84682E511B5EA06800FDED8D /* UserDetailVC */,
@@ -382,6 +389,15 @@
 				849F3BB01B750DEC007078F7 /* EEPhoto.m */,
 			);
 			name = Photo;
+			sourceTree = "<group>";
+		};
+		84A339E01B9866CC005C080A /* CustomToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				84A339E11B986859005C080A /* EECustomToolBar.h */,
+				84A339E21B986859005C080A /* EECustomToolBar.m */,
+			);
+			name = CustomToolBar;
 			sourceTree = "<group>";
 		};
 		84A4A0BE1B57C3F200B7AD38 /* CustomCells */ = {
@@ -415,6 +431,13 @@
 				84A4A0CC1B57F64400B7AD38 /* FriendsListCell.xib */,
 			);
 			name = FriendsListCell;
+			sourceTree = "<group>";
+		};
+		84AF32C21B97964C00FB81C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		84BABF021B593DD9003F3057 /* AFNetworking */ = {
@@ -464,15 +487,16 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				84AF32C21B97964C00FB81C1 /* Utils */,
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
+				84A339F21B9876D5005C080A /* Like Filled-25-2.png */,
+				84A339F01B987658005C080A /* Share-25-2.png */,
 				8490AC891B87512700DA9885 /* Like-25.png */,
-				8490AC871B874F9D00DA9885 /* Comments-25.png */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
 				848124211B7902D3007AD455 /* Haneke */,
 				849F3BAD1B750D89007078F7 /* Models */,
 				8488DF341B6643FC0026F40C /* StackBluri */,
-				84A4A0BE1B57C3F200B7AD38 /* CustomCells */,
 				84BABF021B593DD9003F3057 /* AFNetworking */,
 				84734D6E1B5D100800EB1834 /* AppManager */,
 				849F3BAC1B750CAC007078F7 /* ViewControllers */,
@@ -619,13 +643,14 @@
 				848BEA7D1B7DFDCF00174EB2 /* GalleryCell.xib in Resources */,
 				84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */,
 				84A4A0C01B57C46300B7AD38 /* LoadingCell.xib in Resources */,
+				84A339F31B9876D5005C080A /* Like Filled-25-2.png in Resources */,
 				84A4A0CD1B57F64400B7AD38 /* FriendsListCell.xib in Resources */,
 				849F3B931B74D661007078F7 /* AlbumCell.xib in Resources */,
 				847CBBAB1B61518700E82E4D /* placeholder.png in Resources */,
 				8490AC8A1B87512700DA9885 /* Like-25.png in Resources */,
 				8482C4321B67CA9B00329D62 /* UserDetailCell.xib in Resources */,
-				8490AC881B874F9D00DA9885 /* Comments-25.png in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
+				84A339F11B987658005C080A /* Share-25-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +687,7 @@
 				84682E541B5EA0A500FDED8D /* EEUserDetailVC.m in Sources */,
 				8485C9D31B6263A700B5ECE5 /* EGOCache.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
+				84A339E31B986859005C080A /* EECustomToolBar.m in Sources */,
 				849F3B9A1B74F6F6007078F7 /* EEPhotosVC.m in Sources */,
 				848124341B7902D3007AD455 /* HNKDiskCache.m in Sources */,
 				8489803B1B53F8CC00698242 /* EEMainVC.m in Sources */,
@@ -807,6 +833,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";
@@ -820,6 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Volodymyr Shevchyk (M43AJU8B7V)";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";

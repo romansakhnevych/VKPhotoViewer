@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EEAlbum.h"
+#import "EEPhoto.h"
+
 
 @interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
@@ -15,5 +17,12 @@
 @property (nonatomic)NSInteger indexForNavBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,retain) EEAlbum *album;
+@property (weak, nonatomic) IBOutlet UILabel *likesCountLbl;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (nonatomic, retain)UIImage *image;
+
+- (IBAction)likeBtnTaped:(id)sender;
+- (IBAction)shareBtnTaped:(id)sender;
+
 
 @end

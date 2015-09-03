@@ -36,13 +36,10 @@
     
     [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
        dispatch_async(dispatch_get_main_queue(), ^{
-         
+           
            _city.text = [friendModel getLocation];
            _albumsCountLabel.text = [friendModel getAlbumsCount];
            _photosCountLabel.text = [friendModel getPhotosCount];
-           
-           
-           
            _details = [friendModel getDetails];
            _keys = [_details allKeys];
            [self.tableView reloadData];

@@ -15,10 +15,8 @@
 #import "EEFriendsListCell.h"
 #import "AFHTTPRequestOperation.h"
 
-
-
 @interface EEFriendsListVC ()
-
+@property (nonatomic)CGFloat lastOffset;
 @end
 
 @implementation EEFriendsListVC
@@ -27,14 +25,21 @@
     [super viewDidLoad];
     
     _friendsList = [[NSMutableArray alloc] init];
+    _searchResult = [[NSMutableArray alloc] init];
     _count = 30;
     _offset = 0;
     [self updateDataWithCount:_count Offset:_offset];
+    [_tableView setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater = self;
+    _searchController.dimsBackgroundDuringPresentation = NO;
+    [_searchController.searchBar sizeToFit];
     
- }
+    _tableView.tableHeaderView = _searchController.searchBar;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
-       [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,24 +50,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    if (_searchController.active) {
+        return [_searchResult count];
+    } else {
+         return [_friendsList count];
+    }
     
-    return [_friendsList count];
 }
 
-
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *lNib;
-   
+    
     if ([indexPath row] == [tableView numberOfRowsInSection:0]-1 && _loadedFriendsCount == _count) {
-       
+        
         [self updateDataWithCount:_count Offset:_offset];
         
         static NSString * CellId = @"LoadingCell";
@@ -74,11 +78,11 @@
         }
         
         [lLastCell.spinner startAnimating];
-    
+        
         return lLastCell;
     }
     
-    static NSString *CellIdentifier=@"FriendsCell";
+    static NSString *CellIdentifier = @"FriendsCell";
     EEFriendsListCell *lCell = (EEFriendsListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(lCell==nil){
@@ -86,7 +90,12 @@
         lCell = [lNib objectAtIndex:0];
     }
     lCell.photo.image = [UIImage imageNamed:@"placeholder.png"];
-    EEFriends *lUser = [_friendsList objectAtIndex:indexPath.row];
+    EEFriends *lUser;
+    if (_searchController.active) {
+        lUser = [_searchResult objectAtIndex:indexPath.row];
+    } else {
+    lUser = [_friendsList objectAtIndex:indexPath.row];
+    }
     lCell.fullName.text = [lUser getFullName];
     
     
@@ -94,10 +103,10 @@
         if (animated){
             [UIView transitionWithView:lCell.photo duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
                 
-            lCell.photo.image = image;
+                lCell.photo.image = image;
                 
             } completion:nil];
-
+            
         }
         else{
             lCell.photo.image = image;
@@ -108,19 +117,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    
+    if (_searchController.active) {
+        [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
+    } else {
     [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
-    
+    }
+    [_searchController setActive:NO];
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"userDetail"];
     [[self navigationController] pushViewController:lViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
- 
-    [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
-
     
+    if (_searchController.active) {
+        [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
+    } else {
+    [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
+    }
+    [_searchController setActive:NO];
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -129,21 +144,34 @@
 
 #pragma mark - UIScrollView delegat
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    
-    _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y - 3, _searchBar.frame.size.width, _searchBar.frame.size.height);
-    
-    CGPoint lContentOffet = scrollView.contentOffset;
-    NSLog(@"content offset --- %@",NSStringFromCGPoint(lContentOffet));
-    
+//    
+//    if (isBeginning) {
+//        
+//       if (self.lastOffset > scrollView.contentOffset.y){
+//        _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y + 8, _searchBar.frame.size.width, _searchBar.frame.size.height);
+//        if (_searchBar.frame.origin.y > _navigationBar.frame.size.height) {
+//            _searchBar.frame = CGRectMake(_searchBar.frame.origin.x, _navigationBar.frame.size.height, _searchBar.frame.size.width, _searchBar.frame.size.height);
+//        }
+//    } else if(self.lastOffset < scrollView.contentOffset.y){
+//        _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y - 8, _searchBar.frame.size.width, _searchBar.frame.size.height);
+//        if (_searchBar.frame.origin.y < _navigationBar.frame.origin.y) {
+//            _searchBar.frame = CGRectMake(_searchBar.frame.origin.x, _navigationBar.frame.origin.y, _searchBar.frame.size.width, _searchBar.frame.size.height);
+//        }
+//        
+//    }
+//     self.lastOffset = scrollView.contentOffset.y;
+//    }
 }
 
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self filterFriendsForTerm:_searchController.searchBar.text];
+}
 
 
 #pragma mark - Private methods
 
-- (void)Logout{
-    
+- (void)Logout {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
     
@@ -176,13 +204,24 @@
     } completionFailure:^(NSError *error) {
         NSLog(@"error - %@",error);
     }];
+    
+}
 
+
+
+- (void)filterFriendsForTerm:(NSString *)term{
+    [_searchResult removeAllObjects];
+    NSPredicate *lFirstNamePredicate = [NSPredicate predicateWithFormat:@"self.firstName beginswith[cd]%@",term];
+    NSPredicate *lLastNamePredicate = [NSPredicate predicateWithFormat:@"self.lastName beginswith[cd]%@",term];
+    NSPredicate *lFullNamePredicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[lFirstNamePredicate,lLastNamePredicate]];
+   [_searchResult addObjectsFromArray:[_friendsList filteredArrayUsingPredicate:lFullNamePredicate]];
+    
+    [_tableView reloadData];
 }
 
 #pragma mark - IBActions
 
 - (IBAction)logoutTap:(id)sender {
-    
     [self Logout];
 }
 @end

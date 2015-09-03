@@ -13,7 +13,7 @@
 
 + (NSString *)friendsGetRequestWithOffset:(NSInteger)offset
                                     count:(NSInteger)count {
-    return [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&order=%@&count=%li&offset=%li&fields=%@&name_case=%@&lang=ua&version=5.8",[[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY], ORDER, (long)count, (long)offset, FIELDS, NAME_CASE];
+    return [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&order=%@&count=%li&offset=%li&fields=%@&name_case=%@&lang=ua&access_token=%@&version=5.8",[[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY], ORDER, (long)count, (long)offset, FIELDS, NAME_CASE,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
 }
 
 + (NSMutableURLRequest *)loginRequest{
@@ -33,14 +33,14 @@
 
 + (NSString *)getUserInfoRequestWithId:(NSString *)ID{
     
-    return [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&v=5.8",ID,FIELDS_FOR_USER,NAME_CASE];
+    return [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&access_token=%@&v=5.8",ID,FIELDS_FOR_USER,NAME_CASE,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
 }
 
 + (NSString *)getAlbumsRequestWithOffset:(NSInteger)offset
                                    count:(NSInteger)count
                                     byId:(NSString *)userId{
     
-    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.getAlbums?owner_id=%@&offset=%lu&count=%lu&need_system=1&need_covers=1&photo_sizes=1&v=%@",userId,(long)offset,(long)count,API_VERSION];
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.getAlbums?owner_id=%@&offset=%lu&count=%lu&need_system=1&need_covers=1&photo_sizes=1&access_token=%@&v=%@",userId,(long)offset,(long)count,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
 }
 
 + (NSString *)getPhotosRequestWithOffset:(NSInteger)offset
@@ -48,7 +48,13 @@
                         fromAlbum:(NSString *)albumId
                           forUser:(NSString *)userId{
     
-    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.get?owner_id=%@&album_id=%@&rev=1&extended=1&offset=%lu&count=%lu&v=%@",userId,albumId,(long)offset,count,API_VERSION];
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.get?owner_id=%@&album_id=%@&rev=1&extended=1&offset=%lu&count=%lu&access_token=%@&v=%@",userId,albumId,(long)offset,count,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
 }
+
++ (NSString *)addLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId{
+    
+    return [NSString stringWithFormat:@"https://api.vk.com/method/likes.add?type=photo&owner_id=%@&item_id=%@&access_token=%@&v=%@",ownerId,itemId,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
+
 
 @end

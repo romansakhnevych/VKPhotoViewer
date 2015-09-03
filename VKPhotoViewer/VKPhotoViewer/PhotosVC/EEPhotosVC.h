@@ -11,7 +11,7 @@
 #import "EEAlbum.h"
 
 
-@interface EEPhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface EEPhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,retain)NSMutableArray *photosList;
 @property (nonatomic)NSInteger count;

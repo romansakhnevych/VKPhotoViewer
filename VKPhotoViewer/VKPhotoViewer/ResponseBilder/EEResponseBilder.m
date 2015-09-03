@@ -88,9 +88,11 @@
         lPhoto.xlPhotoLink = [obj objectForKey:@"photo_1280"];
         lPhoto.xxlPhotoLink = [obj objectForKey:@"photo_2560"];
         lPhoto.likesCount = [[obj objectForKey:@"likes"] objectForKey:@"count"];
+        lPhoto.isLiked = [[obj objectForKey:@"likes"] objectForKey:@"user_likes"];
         lPhoto.commentsCount = [[obj objectForKey:@"comments"] objectForKey:@"count"];
         lPhoto.photoHeight = [obj objectForKey:@"height"];
         lPhoto.photoWidth = [obj objectForKey:@"width"];
+        
         
         [lPhotosList addObject:lPhoto];
     }];

@@ -12,6 +12,7 @@
 #import "EEGalleryCell.h"
 
 
+
 @interface EEPhotoGalleryVC ()
 
 @end
@@ -27,6 +28,7 @@ static NSString *CelID = @"GalleryCell";
     _album = [EEAppManager sharedAppManager].currentAlbum;
     [self setupCollectionView];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_index+1,[_album getAlbumSize]];
+
 }
 
 - (void)viewDidLayoutSubviews {
@@ -56,9 +58,11 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
     _indexForNavBar = indexPath.row;
+   
    dispatch_async(dispatch_get_main_queue(), ^{
         [self setPhotoAtIndex:indexPath.row withCompletion:^(UIImage *image) {
-            lCell.imageView.image = image;
+            _image = image;
+            lCell.imageView.image = image;;
             [lCell.spinner stopAnimating];
             
         }];
@@ -93,6 +97,8 @@ static NSString *CelID = @"GalleryCell";
     EEPhoto *lPhoto = [_allPhotos objectAtIndex:_indexForNavBar];
     [EEAppManager sharedAppManager].currentPhoto = lPhoto;
      self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
+   
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,4 +160,23 @@ static NSString *CelID = @"GalleryCell";
 
 
 
+- (IBAction)shareBtnTaped:(id)sender {
+    NSArray *sharedItems = [[NSArray alloc] initWithObjects:_image, nil];
+    UIActivityViewController *lActivityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharedItems applicationActivities:nil];
+    
+    lActivityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:lActivityViewController animated:YES completion:nil];
+    
+    
+}
+- (IBAction)likeBtnTaped:(id)sender {
+    [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
+        NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
+        _likesCountLbl.text = [NSString stringWithFormat:@"%i",lLikesCount];
+        _likeBtn.imageView.image = [UIImage imageNamed:@"Like Filled-25-2.png"];
+    } completionFailure:^(NSError *error) {
+        
+    }];
+}
 @end
