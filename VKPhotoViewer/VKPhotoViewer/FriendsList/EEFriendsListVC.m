@@ -14,6 +14,7 @@
 #import "EELoadingCellTableViewCell.h"
 #import "EEFriendsListCell.h"
 #import "AFHTTPRequestOperation.h"
+#import "UIImageView+Haneke.h"
 
 @interface EEFriendsListVC ()
 @property (nonatomic)CGFloat lastOffset;
@@ -98,20 +99,7 @@
     }
     lCell.fullName.text = [lUser getFullName];
     
-    
-    [[EEAppManager sharedAppManager] getPhotoByLink:lUser.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
-        if (animated){
-            [UIView transitionWithView:lCell.photo duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                
-                lCell.photo.image = image;
-                
-            } completion:nil];
-            
-        }
-        else{
-            lCell.photo.image = image;
-        }
-    }];
+    [lCell.photo hnk_setImageFromURL:[NSURL URLWithString:lUser.smallPhotoLink]];
     
     return lCell;
 }

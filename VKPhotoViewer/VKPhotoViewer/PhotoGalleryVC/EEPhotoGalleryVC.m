@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "EEAppManager.h"
 #import "EEGalleryCell.h"
+#import "UIImageView+Haneke.h"
 
 
 
@@ -28,7 +29,7 @@ static NSString *CelID = @"GalleryCell";
     _album = [EEAppManager sharedAppManager].currentAlbum;
     [self setupCollectionView];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_index+1,[_album getAlbumSize]];
-
+    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -58,15 +59,9 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
     _indexForNavBar = indexPath.row;
-   
-   dispatch_async(dispatch_get_main_queue(), ^{
-        [self setPhotoAtIndex:indexPath.row withCompletion:^(UIImage *image) {
-            _image = image;
-            lCell.imageView.image = image;;
-            [lCell.spinner stopAnimating];
-            
-        }];
-   });
+    
+        [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]]];
+        [lCell.spinner stopAnimating];
     
     
     
@@ -77,7 +72,7 @@ static NSString *CelID = @"GalleryCell";
 //    *targetContentOffset = scrollView.contentOffset;
 //    float pageWidth = (float)self.collectionView.bounds.size.width;
 //    int minSpace = 20;
-//    
+//
 //    int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5;
 //    if (cellToSwipe < 0) {
 //        cellToSwipe = 0;
@@ -89,20 +84,20 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
-   
+    
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     EEPhoto *lPhoto = [_allPhotos objectAtIndex:_indexForNavBar];
     [EEAppManager sharedAppManager].currentPhoto = lPhoto;
-     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
-   
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
+    
     
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
 
@@ -119,7 +114,7 @@ static NSString *CelID = @"GalleryCell";
     [self.collectionView setCollectionViewLayout:lFlowLayout];
 }
 
-- (void)setPhotoAtIndex:(NSInteger)index withCompletion:(void (^)(UIImage *image))succsess{
+- (NSString *)setPhotoAtIndex:(NSInteger)index {
     NSString *lLink;
     EEPhoto *lPhoto = [[EEPhoto alloc] init];
     lPhoto = [_allPhotos objectAtIndex:index];
@@ -146,16 +141,7 @@ static NSString *CelID = @"GalleryCell";
         lNoPhoto = YES;
     }
     
-    [[EEAppManager sharedAppManager] getPhotoByLink:lLink withCompletion:^(UIImage *image, BOOL animated) {
-        if (!lNoPhoto){
-           succsess(image);
-        }else{
-            succsess([UIImage imageNamed:@"placeholder.png"]);
-        }
-        
-        
-    }];
-    
+    return lLink;
 }
 
 

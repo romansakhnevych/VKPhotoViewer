@@ -11,6 +11,7 @@
 #import "EELoadingCellTableViewCell.h"
 #import "EEAlbumCell.h"
 #import "EEAlbum.h"
+#import "UIImageView+Haneke.h"
 
 @interface EEAlbumsVC ()
 
@@ -75,22 +76,7 @@
     EEAlbum *lAlbum = [_albumsList objectAtIndex:indexPath.row];
     lCell.albumTitle.text = lAlbum.albumTitle;
     lCell.albumSize.text = [lAlbum getAlbumSize];
-
-    [[EEAppManager sharedAppManager] getPhotoByLink:lAlbum.albumThumbLink withCompletion:^(UIImage *image, BOOL animated) {
-        if (animated){
-            [UIView transitionWithView:lCell.albumCover duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                
-                lCell.albumCover.image = image;
-                
-            } completion:nil];
-            
-        }
-        else{
-            lCell.albumCover.image = image;
-        }
-
-    }];
-    
+    [lCell.albumCover hnk_setImageFromURL:[NSURL URLWithString:lAlbum.albumThumbLink]];
     return lCell;
 }
 
