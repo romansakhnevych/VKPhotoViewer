@@ -45,6 +45,7 @@
 		84A4A0C01B57C46300B7AD38 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A0BF1B57C46300B7AD38 /* LoadingCell.xib */; };
 		84A4A0CB1B57F61800B7AD38 /* EEFriendsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0CA1B57F61800B7AD38 /* EEFriendsListCell.m */; };
 		84A4A0CD1B57F64400B7AD38 /* FriendsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A0CC1B57F64400B7AD38 /* FriendsListCell.xib */; };
+		84B178FF1B9F0E5000225A95 /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B178FE1B9F0E5000225A95 /* EENetworkManager.m */; };
 		84BABF161B593DF7003F3057 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BABF041B593DF7003F3057 /* AFHTTPRequestOperation.m */; };
 		84BABF171B593DF7003F3057 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BABF061B593DF7003F3057 /* AFHTTPRequestOperationManager.m */; };
 		84BABF181B593DF7003F3057 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BABF081B593DF7003F3057 /* AFHTTPSessionManager.m */; };
@@ -142,6 +143,8 @@
 		84A4A0C91B57F61800B7AD38 /* EEFriendsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsListCell.h; path = FriendsListCell/EEFriendsListCell.h; sourceTree = "<group>"; };
 		84A4A0CA1B57F61800B7AD38 /* EEFriendsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriendsListCell.m; path = FriendsListCell/EEFriendsListCell.m; sourceTree = "<group>"; };
 		84A4A0CC1B57F64400B7AD38 /* FriendsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsListCell.xib; path = FriendsListCell/FriendsListCell.xib; sourceTree = "<group>"; };
+		84B178FD1B9F0E5000225A95 /* EENetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EENetworkManager.h; path = NetworkManager/EENetworkManager.h; sourceTree = "<group>"; };
+		84B178FE1B9F0E5000225A95 /* EENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EENetworkManager.m; path = NetworkManager/EENetworkManager.m; sourceTree = "<group>"; };
 		84BABF031B593DF7003F3057 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		84BABF041B593DF7003F3057 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		84BABF051B593DF7003F3057 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -440,6 +443,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		84B178FC1B9F0E0600225A95 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				84B178FD1B9F0E5000225A95 /* EENetworkManager.h */,
+				84B178FE1B9F0E5000225A95 /* EENetworkManager.m */,
+			);
+			name = NetworkManager;
+			sourceTree = "<group>";
+		};
 		84BABF021B593DD9003F3057 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +499,7 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				84B178FC1B9F0E0600225A95 /* NetworkManager */,
 				84AF32C21B97964C00FB81C1 /* Utils */,
 				847CBBAA1B61518700E82E4D /* placeholder.png */,
 				84A339F21B9876D5005C080A /* Like Filled-25-2.png */,
@@ -680,6 +693,7 @@
 				848CD6F41B552A7C00998DA8 /* EEFriends.m in Sources */,
 				848124391B7902D3007AD455 /* UIImageView+Haneke.m in Sources */,
 				8488DF371B6644220026F40C /* UIImage+StackBlur.m in Sources */,
+				84B178FF1B9F0E5000225A95 /* EENetworkManager.m in Sources */,
 				848124381B7902D3007AD455 /* UIButton+Haneke.m in Sources */,
 				8482C4351B67CACE00329D62 /* EEUserDetailCell.m in Sources */,
 				84A4A0CB1B57F61800B7AD38 /* EEFriendsListCell.m in Sources */,

@@ -26,6 +26,14 @@
     return lCommentsString;
 }
 
+- (BOOL)isLiked{
+    BOOL lIsLiked = NO;
+    if (_Liked.integerValue == 1) {
+        lIsLiked = YES;
+    }
+    return lIsLiked;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"Object %@", @{
                               @"photoId" : _photoId,

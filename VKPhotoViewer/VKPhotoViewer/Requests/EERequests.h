@@ -17,4 +17,5 @@ static NSMutableURLRequest* _request;
 + (NSString *)getAlbumsRequestWithOffset:(NSInteger)offset count:(NSInteger)count byId:(NSString *)userID;
 + (NSString *)getPhotosRequestWithOffset:(NSInteger)offset count:(NSInteger)count fromAlbum:(NSString *)albumId forUser:(NSString *)userId;
 + (NSString *)addLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId;
++ (NSString *)deleteLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId;
 @end

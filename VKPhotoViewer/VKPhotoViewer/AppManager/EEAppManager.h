@@ -51,4 +51,7 @@
 - (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
                                         completionFailure:(void (^)(NSError * error))failure;
 
+- (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
+                                        completionFailure:(void (^)(NSError * error))failure;
+
 @end

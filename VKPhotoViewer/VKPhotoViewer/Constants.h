@@ -19,6 +19,7 @@
 #define TOKEN_LIFE_TIME_KEY @"expires_in"
 #define ACCESS_TOKEN_KEY @"access_token"
 #define AUTH_COMPLITED_KEY @"authComplited"
+#define BASE_URL @"https://api.vk.com/method/"
 
 #define ORDER @"name"
 #define FIELDS @"nickname,photo_100,photo_200_orig,bdate"

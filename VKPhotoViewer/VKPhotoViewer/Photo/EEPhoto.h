@@ -10,21 +10,22 @@
 
 @interface EEPhoto : NSObject
 
-@property (nonatomic,retain)NSString *photoId;
-@property (nonatomic,retain)NSString *xsPhotoLink;
-@property (nonatomic,retain)NSString *sPhotoLink;
-@property (nonatomic,retain)NSString *mPhotoLink;
-@property (nonatomic,retain)NSString *lPhotoLink;
-@property (nonatomic,retain)NSString *xlPhotoLink;
-@property (nonatomic,retain)NSString *xxlPhotoLink;
+@property (nonatomic,copy)NSString *photoId;
+@property (nonatomic,copy)NSString *xsPhotoLink;
+@property (nonatomic,copy)NSString *sPhotoLink;
+@property (nonatomic,copy)NSString *mPhotoLink;
+@property (nonatomic,copy)NSString *lPhotoLink;
+@property (nonatomic,copy)NSString *xlPhotoLink;
+@property (nonatomic,copy)NSString *xxlPhotoLink;
 @property (nonatomic,retain)NSNumber *likesCount;
 @property (nonatomic,retain)NSNumber *commentsCount;
-@property (nonatomic,retain)NSString *photoWidth;
-@property (nonatomic,retain)NSString *photoHeight;
-@property (nonatomic,retain)NSNumber *isLiked;
+@property (nonatomic,copy)NSString *photoWidth;
+@property (nonatomic,copy)NSString *photoHeight;
+@property (nonatomic,retain)NSNumber *Liked;
 
 
 - (NSString *)getLikesCount;
 - (NSString *)getCommentsCount;
+- (BOOL)isLiked;
 
 @end

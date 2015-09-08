@@ -56,5 +56,10 @@
     return [NSString stringWithFormat:@"https://api.vk.com/method/likes.add?type=photo&owner_id=%@&item_id=%@&access_token=%@&v=%@",ownerId,itemId,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
 }
 
++ (NSString *)deleteLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId{
+    
+    return [NSString stringWithFormat:@"https://api.vk.com/method/likes.delete?type=photo&owner_id=%@&item_id=%@&access_token=%@&v=%@",ownerId,itemId,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
+
 
 @end

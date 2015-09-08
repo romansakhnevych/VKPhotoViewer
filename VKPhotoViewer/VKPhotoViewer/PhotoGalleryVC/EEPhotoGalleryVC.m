@@ -29,12 +29,18 @@ static NSString *CelID = @"GalleryCell";
     _album = [EEAppManager sharedAppManager].currentAlbum;
     [self setupCollectionView];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_index+1,[_album getAlbumSize]];
+   
+    if ([[_allPhotos objectAtIndex:_index] isLiked]) {
+        _likeBtn.imageView.image = [UIImage imageNamed:@"Like Filled-25-2.png"];
+    } else {
+         _likeBtn.imageView.image = [UIImage imageNamed:@"Like-25.png"];
+    }
+    _likesCountLbl.text = [[_allPhotos objectAtIndex:_index] getLikesCount];
     
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
     NSIndexPath *lIndexPath = [NSIndexPath indexPathForItem:_index inSection:0];
     [_collectionView scrollToItemAtIndexPath:lIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
@@ -59,16 +65,15 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
     _indexForNavBar = indexPath.row;
-    
         [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]]];
         [lCell.spinner stopAnimating];
-    
-    
-    
+
     return lCell;
 }
-//
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
+
 //    *targetContentOffset = scrollView.contentOffset;
 //    float pageWidth = (float)self.collectionView.bounds.size.width;
 //    int minSpace = 20;
@@ -80,20 +85,21 @@ static NSString *CelID = @"GalleryCell";
 //        cellToSwipe = (int)self.allPhotos.count - 1;
 //    }
 //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-//}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
-    
 }
 
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+    _index = _indexForNavBar;
     EEPhoto *lPhoto = [_allPhotos objectAtIndex:_indexForNavBar];
     [EEAppManager sharedAppManager].currentPhoto = lPhoto;
     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
-    
-    
+    if ([[_allPhotos objectAtIndex:_index] isLiked]) {
+        _likeBtn.imageView.image = [UIImage imageNamed:@"Like Filled-25-2.png"];
+    } else {
+        _likeBtn.imageView.image = [UIImage imageNamed:@"Like-25.png"];
+    }
+
+    _likesCountLbl.text = [lPhoto getLikesCount];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -145,7 +151,6 @@ static NSString *CelID = @"GalleryCell";
 }
 
 
-
 - (IBAction)shareBtnTaped:(id)sender {
     NSArray *sharedItems = [[NSArray alloc] initWithObjects:_image, nil];
     UIActivityViewController *lActivityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharedItems applicationActivities:nil];
@@ -157,12 +162,27 @@ static NSString *CelID = @"GalleryCell";
     
 }
 - (IBAction)likeBtnTaped:(id)sender {
+    if ([[EEAppManager sharedAppManager].currentPhoto isLiked]) {
+        [[EEAppManager sharedAppManager] deleteLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
+            NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
+            _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
+            _likeBtn.imageView.image = [UIImage imageNamed:@"Like-25.png"];
+            [EEAppManager sharedAppManager].currentPhoto.Liked = [NSNumber numberWithInt:0];
+            [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
+        } completionFailure:^(NSError *error) {
+            
+        }];
+    } else {
     [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
         NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
-        _likesCountLbl.text = [NSString stringWithFormat:@"%i",lLikesCount];
+        _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
         _likeBtn.imageView.image = [UIImage imageNamed:@"Like Filled-25-2.png"];
+        [EEAppManager sharedAppManager].currentPhoto.Liked = [NSNumber numberWithInt:1];
+        [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
+
     } completionFailure:^(NSError *error) {
         
     }];
+    }
 }
 @end
