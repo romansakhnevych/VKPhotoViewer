@@ -52,6 +52,7 @@
 		847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29B11BA04D2600612D6A /* UserDetailCell.xib */; };
 		847D29DD1BA04D3400612D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D29DC1BA04D3400612D6A /* Main.storyboard */; };
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
+		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
 		84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BC1B4BCF3E00959DF2 /* main.m */; };
 		84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */; };
 		84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */; };
@@ -156,6 +157,8 @@
 		847D29DC1BA04D3400612D6A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		847D29DE1BA04D5F00612D6A /* EEAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAppManager.h; path = Communications/AppManager/EEAppManager.h; sourceTree = "<group>"; };
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
+		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
+		847D29E31BA07B6F00612D6A /* EECaptchaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECaptchaVC.m; path = CaptchaVC/EECaptchaVC.m; sourceTree = "<group>"; };
 		84C1A41A1B4BD3F700D5F5C0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84C1C3B71B4BCF3E00959DF2 /* VKPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3BB1B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 		847D29861BA04D2600612D6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				847D29E11BA07B2900612D6A /* CaptchaVC */,
 				847D29DC1BA04D3400612D6A /* Main.storyboard */,
 				847D29871BA04D2600612D6A /* AlbumVC */,
 				847D298E1BA04D2600612D6A /* FriendsListVC */,
@@ -482,6 +486,15 @@
 				847D29B11BA04D2600612D6A /* UserDetailCell.xib */,
 			);
 			path = UserDetailCell;
+			sourceTree = "<group>";
+		};
+		847D29E11BA07B2900612D6A /* CaptchaVC */ = {
+			isa = PBXGroup;
+			children = (
+				847D29E21BA07B6F00612D6A /* EECaptchaVC.h */,
+				847D29E31BA07B6F00612D6A /* EECaptchaVC.m */,
+			);
+			name = CaptchaVC;
 			sourceTree = "<group>";
 		};
 		84C1C3AE1B4BCF3E00959DF2 = {
@@ -667,6 +680,7 @@
 				847D29CB1BA04D2600612D6A /* EEAlbumCell.m in Sources */,
 				847D29C11BA04D2600612D6A /* UIButton+Haneke.m in Sources */,
 				847D29B71BA04D2600612D6A /* AFURLConnectionOperation.m in Sources */,
+				847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */,
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,

@@ -293,6 +293,48 @@
             </objects>
             <point key="canvasLocation" x="1001.5" y="1174.5"/>
         </scene>
+        <!--CaptchaVC-->
+        <scene sceneID="5GI-ka-uFc">
+            <objects>
+                <viewController storyboardIdentifier="CaptchaVC" id="THl-cW-gqf" customClass="EECaptchaVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QM6-LT-WGC"/>
+                        <viewControllerLayoutGuide type="bottom" id="KqR-D7-4jM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UYj-rM-Ogu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIB-c5-IES">
+                                <rect key="frame" x="0.0" y="77" width="375" height="264"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4t-VE-ZDp">
+                                <rect key="frame" x="44" y="378" width="286" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-1S-Tdd">
+                                <rect key="frame" x="164" y="416" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPressed:" destination="THl-cW-gqf" eventType="touchUpInside" id="hpR-kf-bNn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="captchaImageView" destination="jIB-c5-IES" id="BQt-AU-XcB"/>
+                        <outlet property="textField" destination="T4t-VE-ZDp" id="t3Q-9m-LQ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xH-YE-33C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1475.5" y="1179.5"/>
+        </scene>
         <!--MainVC-->
         <scene sceneID="ust-zA-7KV">
             <objects>
@@ -589,7 +631,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Like" width="12" height="12"/>
+        <image name="Like" width="25" height="25"/>
         <image name="Share" width="25" height="25"/>
     </resources>
 </document>

@@ -28,6 +28,7 @@
         UINavigationController *lNavigation = (UINavigationController *)self.window.rootViewController;
         [lNavigation pushViewController:lViewController animated:NO];
         
+        
     }
     
     return YES;
