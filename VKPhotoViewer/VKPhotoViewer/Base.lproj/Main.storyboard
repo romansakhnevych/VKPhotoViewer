@@ -539,14 +539,14 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-dH-dh2">
                                         <rect key="frame" x="323" y="0.0" width="44" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" image="Like-25.png"/>
+                                        <state key="normal" image="Like"/>
                                         <connections>
                                             <action selector="likeBtnTaped:" destination="7bx-uV-2xQ" eventType="touchUpInside" id="m85-ry-5Hj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0q-LO-5ko">
                                         <rect key="frame" x="8" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="Share-25-2.png"/>
+                                        <state key="normal" image="Share"/>
                                         <connections>
                                             <action selector="shareBtnTaped:" destination="7bx-uV-2xQ" eventType="touchUpInside" id="hwI-ez-7Jo"/>
                                         </connections>
@@ -589,7 +589,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Like-25.png" width="25" height="25"/>
-        <image name="Share-25-2.png" width="25" height="25"/>
+        <image name="Like" width="12" height="12"/>
+        <image name="Share" width="25" height="25"/>
     </resources>
 </document>
