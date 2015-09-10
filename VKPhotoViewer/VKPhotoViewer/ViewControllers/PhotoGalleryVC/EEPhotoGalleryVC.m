@@ -171,7 +171,7 @@ static NSString *CelID = @"GalleryCell";
             [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
         } completionFailure:^(NSError *error) {
             
-        }];
+        }captcha:nil];
     } else {
     [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
         NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
@@ -182,7 +182,7 @@ static NSString *CelID = @"GalleryCell";
 
     } completionFailure:^(NSError *error) {
         
-    }];
+    }captcha:nil];
     }
 }
 @end

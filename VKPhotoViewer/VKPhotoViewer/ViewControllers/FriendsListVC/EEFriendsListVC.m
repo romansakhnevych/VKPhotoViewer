@@ -27,9 +27,6 @@
     
     _friendsList = [[NSMutableArray alloc] init];
     _searchResult = [[NSMutableArray alloc] init];
-    _count = 30;
-    _offset = 0;
-    [self updateDataWithCount:_count Offset:_offset];
     [_tableView setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
@@ -40,7 +37,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    if(!_friendsList ||! _friendsList.count) {
+        [self updateTableView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,10 +159,21 @@
 
 
 #pragma mark - Private methods
+- (void)updateTableView {
+    
+    _count = 30;
+    _offset = 0;
+    [self updateDataWithCount:_count Offset:_offset];
+    
+}
 
 - (void)Logout {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+    
+    [self.friendsList removeAllObjects];
+    [self.searchResult removeAllObjects];
+    [self.tableView reloadData];
     
     [self.navigationController pushViewController:lViewController animated:YES];
     NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
