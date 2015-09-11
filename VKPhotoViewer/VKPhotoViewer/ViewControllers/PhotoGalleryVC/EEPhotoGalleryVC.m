@@ -24,24 +24,23 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _index = [EEAppManager sharedAppManager].currentPhotoIndex;
+    _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
     [self setupCollectionView];
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_index+1,[_album getAlbumSize]];
-   
-    if ([[_allPhotos objectAtIndex:_index] isLiked]) {
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_currentIndex+1,[_album getAlbumSize]];
+    
+    if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {
-         _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
+        _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
     }
-    _likesCountLbl.text = [[_allPhotos objectAtIndex:_index] getLikesCount];
-    
+    _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    NSIndexPath *lIndexPath = [NSIndexPath indexPathForItem:_index inSection:0];
+    NSIndexPath *lIndexPath = [NSIndexPath indexPathForItem:_currentIndex inSection:0];
     [_collectionView scrollToItemAtIndexPath:lIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 
@@ -64,7 +63,7 @@ static NSString *CelID = @"GalleryCell";
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
-    _indexForNavBar = indexPath.row;
+    _newIndex = indexPath.row;
         [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]]];
         [lCell.spinner stopAnimating];
 
@@ -88,18 +87,25 @@ static NSString *CelID = @"GalleryCell";
 }
 
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    _index = _indexForNavBar;
-    EEPhoto *lPhoto = [_allPhotos objectAtIndex:_indexForNavBar];
-    [EEAppManager sharedAppManager].currentPhoto = lPhoto;
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_indexForNavBar+1,[_album getAlbumSize]];
-    if ([[_allPhotos objectAtIndex:_index] isLiked]) {
-        _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
-    } else {
-        _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
+-(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row != _newIndex) {
+        if (_newIndex > _currentIndex) {
+            _currentIndex++;
+        } else {
+            _currentIndex--;
+        }
+        EEPhoto *lPhoto = [_allPhotos objectAtIndex:_currentIndex];
+        [EEAppManager sharedAppManager].currentPhoto = lPhoto;
+        self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[_album getAlbumSize]];
+        if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
+            _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
+        } else {
+            _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
+        }
+        
+        _likesCountLbl.text = [lPhoto getLikesCount];
+        
     }
-
-    _likesCountLbl.text = [lPhoto getLikesCount];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

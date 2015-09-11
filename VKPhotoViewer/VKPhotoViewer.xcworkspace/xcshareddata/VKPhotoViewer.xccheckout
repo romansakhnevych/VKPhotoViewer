@@ -10,31 +10,31 @@
 	<string>VKPhotoViewer</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5E6BB2BAE4349666DA58A6EDC9A140C491CA82BE</key>
-		<string>https://github.com/Vmdk/VKViewerFinalProjectTemporaryGit.git</string>
+		<key>13D11257BC907712A7BB1C94C702574FF337110B</key>
+		<string>https://github.com/lireck/VKPhotoViewer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VKPhotoViewer.xcworkspace</string>
+	<string>VKPhotoViewer/VKPhotoViewer.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5E6BB2BAE4349666DA58A6EDC9A140C491CA82BE</key>
-		<string>..</string>
+		<key>13D11257BC907712A7BB1C94C702574FF337110B</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Vmdk/VKViewerFinalProjectTemporaryGit.git</string>
+	<string>https://github.com/lireck/VKPhotoViewer.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5E6BB2BAE4349666DA58A6EDC9A140C491CA82BE</string>
+	<string>13D11257BC907712A7BB1C94C702574FF337110B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5E6BB2BAE4349666DA58A6EDC9A140C491CA82BE</string>
+			<string>13D11257BC907712A7BB1C94C702574FF337110B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Temporary%20iOS%20Final%20project</string>
+			<string>FinalProject</string>
 		</dict>
 	</array>
 </dict>
