@@ -19,6 +19,8 @@
 @property (nonatomic,retain)EEFriends *currentFriend;
 @property (nonatomic,retain)EEAlbum *currentAlbum;
 @property (nonatomic,retain)EEPhoto *currentPhoto;
+@property (nonatomic,copy)NSString *captchaSid;
+@property (nonatomic,copy)NSString *captchaImageLink;
 @property (nonatomic,retain)NSMutableArray *allPhotos;
 @property (nonatomic)NSInteger currentPhotoIndex;
 @property (nonatomic,retain)EGOCache *cache;
@@ -49,9 +51,11 @@
          completionFailure:(void (^)(NSError * error))failure;
 
 - (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure;
+                                        completionFailure:(void (^)(NSError * error))failure
+                                                  captcha:(NSDictionary *)captcha;
 
 - (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure;
+                                           completionFailure:(void (^)(NSError * error))failure
+                                                     captcha:(NSDictionary *)captcha;
 
 @end

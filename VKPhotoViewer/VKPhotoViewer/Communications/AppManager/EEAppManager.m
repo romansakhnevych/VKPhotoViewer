@@ -13,6 +13,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "Constants.h"
 #import "EENetworkManager.h"
+#import "AppDelegate.h"
 
 @implementation EEAppManager
 
@@ -117,9 +118,17 @@
 }
 
 - (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure{
+                                        completionFailure:(void (^)(NSError * error))failure
+                                                  captcha:(NSDictionary *)captcha{
     EENetworkManager *lManager = [EENetworkManager sharedManager];
-    [lManager GET:[EERequests addLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+    [lManager GET:[EERequests addLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        BOOL Captcha = CAPTCHA_NEEDED(responseObject);
+        if (Captcha) {
+            [EEAppManager sharedAppManager].captchaSid = [[responseObject objectForKey:@"error"] objectForKey:@"captcha_sid"];
+            [EEAppManager sharedAppManager].captchaImageLink = [[responseObject objectForKey:@"error"] objectForKey:@"captcha_img"];
+            PRESENT_VIEW_CONTROLLER(@"CaptchaVC");
+        }
         success(responseObject);
     } failure:^ (NSURLSessionDataTask *task, NSError *error ) {
         failure(error);
@@ -127,14 +136,24 @@
 }
 
 - (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                           completionFailure:(void (^)(NSError * error))failure{
+                                           completionFailure:(void (^)(NSError * error))failure
+                                                     captcha:(NSDictionary *)captcha{
     EENetworkManager *lManager = [EENetworkManager sharedManager];
-    [lManager GET:[EERequests deleteLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+    [lManager GET:[EERequests deleteLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
+        BOOL Captcha = CAPTCHA_NEEDED(responseObject);
+        if (Captcha) {
+            [EEAppManager sharedAppManager].captchaSid = [[responseObject objectForKey:@"error"] objectForKey:@"captcha_sid"];
+            [EEAppManager sharedAppManager].captchaImageLink = [[responseObject objectForKey:@"error"] objectForKey:@"captcha_img"];
+            PRESENT_VIEW_CONTROLLER(@"CaptchaVC");
+        }
+
+        NSLog(@"%@",responseObject);
         success(responseObject);
     } failure:^ (NSURLSessionDataTask *task, NSError *error ) {
         failure(error);
     }];
 
 }
+
 
 @end
