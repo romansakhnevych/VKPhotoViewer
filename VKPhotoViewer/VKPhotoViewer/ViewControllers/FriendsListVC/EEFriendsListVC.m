@@ -55,12 +55,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         return [_searchResult count];
     } else {
          return [_friendsList count];
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,7 +91,7 @@
     }
     lCell.photo.image = [UIImage imageNamed:@"Placeholder"];
     EEFriends *lUser;
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         lUser = [_searchResult objectAtIndex:indexPath.row];
     } else {
     lUser = [_friendsList objectAtIndex:indexPath.row];
@@ -105,7 +104,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
     } else {
     [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
@@ -118,7 +117,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
     } else {
     [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];

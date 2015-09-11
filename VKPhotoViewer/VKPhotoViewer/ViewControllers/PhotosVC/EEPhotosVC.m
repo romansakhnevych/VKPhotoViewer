@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     _album = [[EEAppManager sharedAppManager] currentAlbum];
     self.navigationItem.title = _album.albumTitle;
     [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
-        }
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,8 +61,12 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 //    lCell.layer.rasterizationScale = [UIScreen mainScreen].scale;
 //    lCell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
     EEPhoto *lPhoto = [_photosList objectAtIndex:indexPath.row];
-    
-    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"placeholder"]];
+    [self setGrayImage:lCell];
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"placeholder"] success:^(UIImage *image) {
+        lCell.imageView.image = image;
+    } failure:^(NSError *error) {
+        
+    }];
     
 //    [[EEAppManager sharedAppManager] getPhotoByLink:lPhoto.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
 //        
@@ -84,6 +88,17 @@ static NSString * const reuseIdentifier = @"PhotoCell";
         return lCell;
 }
 
+- (void)setGrayImage:(EEPhotoCell*)cell {
+    UIColor* color = [UIColor grayColor];
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    }
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
@@ -93,9 +108,15 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     [EEAppManager sharedAppManager].currentPhoto = [_photosList objectAtIndex:indexPath.row];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(self.view.frame.size.width / 3, self.view.frame.size.width / 3);
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(15, 5, 20, 5); /*top, left, bottom, right*/
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger cellWidth = (self.view.bounds.size.width - 20) / 3 ;
+    CGSize retval = CGSizeMake(cellWidth, cellWidth);
+    return retval;
 }
 
 #pragma mark - Private Methods
