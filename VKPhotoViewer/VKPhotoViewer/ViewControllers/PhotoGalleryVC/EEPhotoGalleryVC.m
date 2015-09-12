@@ -163,7 +163,8 @@ static NSString *CelID = @"GalleryCell";
 }
 - (IBAction)likeBtnTaped:(id)sender {
     if ([[EEAppManager sharedAppManager].currentPhoto isLiked]) {
-        [[EEAppManager sharedAppManager] deleteLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
+        [[EEAppManager sharedAppManager] deleteLikeForCurrentFriendPhotoWithCaptcha:nil
+         CompletionSuccess:^(id responseObject) {
             NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
             _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
             _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
@@ -173,7 +174,8 @@ static NSString *CelID = @"GalleryCell";
             
         }];
     } else {
-    [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
+        [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCaptcha:nil
+     CompletionSuccess:^(id responseObject) {
         NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
         _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];

@@ -159,7 +159,7 @@
 
 #pragma mark - Private methods
 
-- (void)Logout {
+- (void)logout {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
     
@@ -210,6 +210,6 @@
 #pragma mark - IBActions
 
 - (IBAction)logoutTap:(id)sender {
-    [self Logout];
+    [self logout];
 }
 @end

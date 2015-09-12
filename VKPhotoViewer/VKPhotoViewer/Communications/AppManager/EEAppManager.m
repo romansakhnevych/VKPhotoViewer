@@ -117,9 +117,12 @@
     }];
 }
 
-- (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure
-                                                  captcha:(NSDictionary *)captcha{
+- (void)addLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                              CompletionSuccess:(void (^)(id responseObject))success
+                              completionFailure:(void (^)(NSError * error))failure{
+    if (captcha) {
+        
+    }
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests addLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
@@ -135,9 +138,12 @@
     }];
 }
 
-- (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                           completionFailure:(void (^)(NSError * error))failure
-                                                     captcha:(NSDictionary *)captcha{
+- (void)deleteLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                                 CompletionSuccess:(void (^)(id responseObject))success
+                                 completionFailure:(void (^)(NSError * error))failure{
+    if (captcha) {
+        
+    }
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests deleteLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
         BOOL Captcha = CAPTCHA_NEEDED(responseObject);
