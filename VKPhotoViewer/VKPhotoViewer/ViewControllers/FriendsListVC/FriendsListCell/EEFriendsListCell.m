@@ -11,8 +11,9 @@
 @implementation EEFriendsListCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     
-    [_photo.layer setCornerRadius:_photo.frame.size.width/2];
+    [_photo.layer setCornerRadius:_photo.frame.size.width / 2];
     _photo.layer.masksToBounds = YES;
 }
 

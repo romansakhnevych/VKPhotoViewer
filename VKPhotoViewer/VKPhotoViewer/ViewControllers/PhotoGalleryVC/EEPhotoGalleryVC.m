@@ -65,9 +65,13 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
     _newIndex = indexPath.row;
-        [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]]];
+    UIImage* placeholderImg = [[UIImage alloc] init];
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
         [lCell.spinner stopAnimating];
-
+        lCell.imageView.image = image;
+    } failure:^(NSError *error) {
+        
+    }];
     return lCell;
 }
 
