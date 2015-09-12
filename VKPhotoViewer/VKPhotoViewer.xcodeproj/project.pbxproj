@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092A5F4A1BA439AE0003E55B /* EEFriendsCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F491BA439AE0003E55B /* EEFriendsCountCell.m */; settings = {ASSET_TAGS = (); }; };
-		092A5F4C1BA43A640003E55B /* EEFriendsCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F4B1BA43A640003E55B /* EEFriendsCountCell.xib */; settings = {ASSET_TAGS = (); }; };
+		092A5F4A1BA439AE0003E55B /* EEFriendsCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F491BA439AE0003E55B /* EEFriendsCountCell.m */; };
+		092A5F4C1BA43A640003E55B /* EEFriendsCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F4B1BA43A640003E55B /* EEFriendsCountCell.xib */; };
 		57783C54B59AD86E9EF415E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C16900F5D27E4D51B8CB6DF4 /* libPods.a */; };
 		847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29471BA04CD300612D6A /* EENetworkManager.m */; };
 		847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29601BA04D2600612D6A /* EGOCache.m */; };
@@ -52,6 +52,8 @@
 		84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */; };
 		84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */; };
 		84C1C3D71B4BCF3E00959DF2 /* VKPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3D61B4BCF3E00959DF2 /* VKPhotoViewerTests.m */; };
+		84F9353D1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9353C1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m */; };
+		84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9353F1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,10 @@
 		84C1C3D01B4BCF3E00959DF2 /* VKPhotoViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKPhotoViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3D51B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C1C3D61B4BCF3E00959DF2 /* VKPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKPhotoViewerTests.m; sourceTree = "<group>"; };
+		84F9353B1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EETransitionFromPhotosVCToPhotoGalleryVC.h; path = Transitions/EETransitionFromPhotosVCToPhotoGalleryVC/EETransitionFromPhotosVCToPhotoGalleryVC.h; sourceTree = "<group>"; };
+		84F9353C1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EETransitionFromPhotosVCToPhotoGalleryVC.m; path = Transitions/EETransitionFromPhotosVCToPhotoGalleryVC/EETransitionFromPhotosVCToPhotoGalleryVC.m; sourceTree = "<group>"; };
+		84F9353E1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EETransitionFromPhotoGalleryVCToPhotosVC.h; path = Transitions/EETransitionFromPhotoGalleryVCToPhotosVC/EETransitionFromPhotoGalleryVCToPhotosVC.h; sourceTree = "<group>"; };
+		84F9353F1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EETransitionFromPhotoGalleryVCToPhotosVC.m; path = Transitions/EETransitionFromPhotoGalleryVCToPhotosVC/EETransitionFromPhotoGalleryVCToPhotosVC.m; sourceTree = "<group>"; };
 		C16900F5D27E4D51B8CB6DF4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -496,6 +502,7 @@
 				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				84F9353A1BA465C9000D95E9 /* Transitions */,
 				847D29761BA04D2600612D6A /* Models */,
 				847D29801BA04D2600612D6A /* Requests */,
 				847D29831BA04D2600612D6A /* ResponseBilder */,
@@ -534,6 +541,33 @@
 				84C1C3D51B4BCF3E00959DF2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84F935351BA46569000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC */ = {
+			isa = PBXGroup;
+			children = (
+				84F9353B1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.h */,
+				84F9353C1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m */,
+			);
+			name = EETransitionFromPhotosVCToPhotoGalleryVC;
+			sourceTree = "<group>";
+		};
+		84F935391BA4659D000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC */ = {
+			isa = PBXGroup;
+			children = (
+				84F9353E1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.h */,
+				84F9353F1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m */,
+			);
+			name = EETransitionFromPhotoGalleryVCToPhotosVC;
+			sourceTree = "<group>";
+		};
+		84F9353A1BA465C9000D95E9 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				84F935391BA4659D000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC */,
+				84F935351BA46569000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC */,
+			);
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 		873C82098AA3995BD7B603C3 /* Pods */ = {
@@ -700,6 +734,7 @@
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,
+				84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */,
 				847D29BD1BA04D2600612D6A /* HNKDiskCache.m in Sources */,
 				847D29C51BA04D2600612D6A /* EEAlbum.m in Sources */,
 				847D29D81BA04D2600612D6A /* EEPhotoCell.m in Sources */,
@@ -711,6 +746,7 @@
 				847D29C81BA04D2600612D6A /* EERequests.m in Sources */,
 				847D29D21BA04D2600612D6A /* EEMainVC.m in Sources */,
 				847D29D51BA04D2600612D6A /* EEGalleryCell.m in Sources */,
+				84F9353D1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m in Sources */,
 				092A5F4A1BA439AE0003E55B /* EEFriendsCountCell.m in Sources */,
 				847D29CD1BA04D2600612D6A /* EEFriendsListVC.m in Sources */,
 				847D29BC1BA04D2600612D6A /* HNKCache.m in Sources */,

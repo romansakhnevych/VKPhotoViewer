@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EEAlbum.h"
 #import "EEPhoto.h"
+#import "EEGalleryCell.h"
 
 @protocol BaseAlbumDelegate <NSObject>
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
+@interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic) NSInteger newIndex;
@@ -31,6 +32,6 @@
 
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;
-
+- (EEGalleryCell*) visableCell;
 
 @end

@@ -12,7 +12,8 @@
 #import "EEPhoto.h"
 #import "UIImageView+Haneke.h"
 #import "EEPhotoGalleryVC.h"
-
+#import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
+#import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
 
 
 @interface EEPhotosVC () <BaseAlbumDelegate>
@@ -33,6 +34,23 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     self.navigationItem.title = _album.albumTitle;
     [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
     }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Set outself as the navigation controller's delegate so we're asked for a transitioning object
+    self.navigationController.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Stop being the navigation controller's delegate
+    if (self.navigationController.delegate == self) {
+        self.navigationController.delegate = nil;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -118,6 +136,23 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 
 - (void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData {
     [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:updateData];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    // Check if we're transitioning from this view controller to a DSLSecondViewController
+    if (fromVC == self && [toVC isKindOfClass:[EEPhotoGalleryVC class]]) {
+        return [[EETransitionFromPhotosVCToPhotoGalleryVC alloc] init];
+    }
+    else {
+        return nil;
+    }
+}
+
+- (EEPhotoCell*)cellWithIndex: (NSInteger) index {
+    return (EEPhotoCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
 
 @end

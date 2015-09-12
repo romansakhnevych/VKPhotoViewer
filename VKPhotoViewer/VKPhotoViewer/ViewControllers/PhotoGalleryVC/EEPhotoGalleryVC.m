@@ -11,8 +11,9 @@
 #import "EEAppManager.h"
 #import "EEGalleryCell.h"
 #import "UIImageView+Haneke.h"
-
-
+#import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
+#import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
+#import "EEPhotosVC.h"
 
 @interface EEPhotoGalleryVC ()
 
@@ -37,6 +38,22 @@ static NSString *CelID = @"GalleryCell";
         _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
     }
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Set outself as the navigation controller's delegate so we're asked for a transitioning object
+    self.navigationController.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Stop being the navigation controller's delegate
+    if (self.navigationController.delegate == self) {
+        self.navigationController.delegate = nil;
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -186,4 +203,20 @@ static NSString *CelID = @"GalleryCell";
   
     }
 }
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    // Check if we're transitioning from this view controller to a DSLFirstViewController
+    if (fromVC == self && [toVC isKindOfClass:[EEPhotosVC class]]) {
+        return [[EETransitionFromPhotoGalleryVCToPhotosVC alloc] init];
+    }
+    else {
+        return nil;
+    }
+}
+-(EEGalleryCell*) visableCell {
+    return (EEGalleryCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
+}
+
 @end
