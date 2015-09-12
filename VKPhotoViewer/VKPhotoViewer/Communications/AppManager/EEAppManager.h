@@ -60,13 +60,15 @@
          completionSuccess:(void (^)(id responseObject))success
          completionFailure:(void (^)(NSError * error))failure;
 
-- (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure
-                                                  captcha:(NSDictionary *)captcha;
+- (void)addLikeForCurrentFriendPhotoWithCaptha:(NSDictionary *)captcha
+                             CompletionSuccess:(void (^)(id responseObject))success
+                             completionFailure:(void (^)(NSError * error))failure;
 
-- (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                           completionFailure:(void (^)(NSError * error))failure
-                                                     captcha:(NSDictionary *)captcha;
+
+- (void)deleteLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                                 CompletionSuccess:(void (^)(id responseObject))success
+                                 completionFailure:(void (^)(NSError * error))failure;
+
 - (void)showAlertWithError : (NSError*)error;
 - (void)showAlertAboutTokenExpired;
 

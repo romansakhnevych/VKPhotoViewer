@@ -137,9 +137,10 @@
     }
 }
 
-- (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure
-                                                  captcha:(NSDictionary *)captcha{
+- (void)addLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                              CompletionSuccess:(void (^)(id responseObject))success
+                              completionFailure:(void (^)(NSError * error))failure{
+
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];
     }
@@ -160,9 +161,10 @@
     }
 }
 
-- (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                           completionFailure:(void (^)(NSError * error))failure
-                                                     captcha:(NSDictionary *)captcha{
+- (void)deleteLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                                 CompletionSuccess:(void (^)(id responseObject))success
+                                 completionFailure:(void (^)(NSError * error))failure{
+
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];
     }

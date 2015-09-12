@@ -169,7 +169,8 @@ static NSString *CelID = @"GalleryCell";
 }
 - (IBAction)likeBtnTaped:(id)sender {
     if ([[EEAppManager sharedAppManager].currentPhoto isLiked]) {
-        [[EEAppManager sharedAppManager] deleteLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
+        [[EEAppManager sharedAppManager] deleteLikeForCurrentFriendPhotoWithCaptcha:nil
+         CompletionSuccess:^(id responseObject) {
             NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
             _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
             _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
@@ -177,18 +178,21 @@ static NSString *CelID = @"GalleryCell";
             [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
         } completionFailure:^(NSError *error) {
             
-        }captcha:nil];
+        }];
     } else {
-    [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
-        NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
-        _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
-        _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
-        [EEAppManager sharedAppManager].currentPhoto.Liked = [NSNumber numberWithInt:1];
-        [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
+ 
+        [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCaptha:nil CompletionSuccess:^(id responseObject) {
+                    NSInteger lLikesCount = [(NSNumber *)[[responseObject objectForKey:@"response"] objectForKey:@"likes"] integerValue];
+                    _likesCountLbl.text = [NSString stringWithFormat:@"%li",(long)lLikesCount];
+                    _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
+                    [EEAppManager sharedAppManager].currentPhoto.Liked = [NSNumber numberWithInt:1];
+                    [EEAppManager sharedAppManager].currentPhoto.likesCount = [NSNumber numberWithInteger:lLikesCount];
+        } completionFailure:^(NSError *error) {
+            
+        }];
 
-    } completionFailure:^(NSError *error) {
-        
-    }captcha:nil];
+
+  
     }
 }
 @end
