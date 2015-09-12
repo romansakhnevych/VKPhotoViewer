@@ -40,12 +40,11 @@
     NSString *captchaKey = _textField.text;
     NSDictionary *captcha = @{@"captcha_sid":[EEAppManager sharedAppManager].captchaSid, @"captcha_key":captchaKey};
     
-   [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCaptcha:captcha CompletionSuccess:^(id responseObject) {
+   [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCaptha:captcha CompletionSuccess:^(id responseObject) {
        
    } completionFailure:^(NSError *error) {
        
    }];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

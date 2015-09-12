@@ -24,12 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [EEAppManager sharedAppManager].delegate =self;
     _friendsList = [[NSMutableArray alloc] init];
     _searchResult = [[NSMutableArray alloc] init];
-    _count = 30;
-    _offset = 0;
-    [self updateDataWithCount:_count Offset:_offset];
     [_tableView setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
@@ -40,7 +37,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    if(!_friendsList ||! _friendsList.count) {
+        [self updateTableView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,12 +56,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         return [_searchResult count];
     } else {
          return [_friendsList count];
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,7 +92,7 @@
     }
     lCell.photo.image = [UIImage imageNamed:@"Placeholder"];
     EEFriends *lUser;
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         lUser = [_searchResult objectAtIndex:indexPath.row];
     } else {
     lUser = [_friendsList objectAtIndex:indexPath.row];
@@ -105,7 +105,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
     } else {
     [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
@@ -118,7 +118,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (_searchController.active) {
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
     } else {
     [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
@@ -158,10 +158,24 @@
 
 
 #pragma mark - Private methods
+- (void)updateTableView {
+    
+    _count = 30;
+    _offset = 0;
+    [self updateDataWithCount:_count Offset:_offset];
+    
+}
 
-- (void)logout {
+- (void)Logout {
+    if([self.searchController isActive]) {
+        self.searchController.active = NO;
+    }
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+    
+    [self.friendsList removeAllObjects];
+    [self.searchResult removeAllObjects];
+    [self.tableView reloadData];
     
     [self.navigationController pushViewController:lViewController animated:YES];
     NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
@@ -173,6 +187,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:ACCESS_TOKEN_KEY ];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_ID_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -190,7 +205,8 @@
             [self.tableView reloadData];
         });
     } completionFailure:^(NSError *error) {
-        NSLog(@"error - %@",error);
+        [[EEAppManager sharedAppManager] showAlertWithError:error];
+        //NSLog(@"error - %@",error);
     }];
     
 }
@@ -207,9 +223,17 @@
     [_tableView reloadData];
 }
 
+
 #pragma mark - IBActions
 
 - (IBAction)logoutTap:(id)sender {
-    [self logout];
+    [self Logout];
+}
+
+#pragma mark - EEAppManagerDelegateMethods
+
+-(void)tokenDidExpired {
+    [self Logout];
+    [[EEAppManager sharedAppManager] showAlertAboutTokenExpired];
 }
 @end

@@ -10,7 +10,7 @@
 #import "EEFriends.h"
 #import "EEAlbum.h"
 
-
+//PHOTOS IN ALBUM
 @interface EEPhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,retain)NSMutableArray *photosList;

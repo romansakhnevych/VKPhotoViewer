@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,16 +14,30 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bZb-XZ-RzL" id="xxM-Ft-DS9">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-MM-kio">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-MM-kio">
                         <rect key="frame" x="19" y="3" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="k4B-hV-DmD"/>
+                            <constraint firstAttribute="width" secondItem="d2T-MM-kio" secondAttribute="height" multiplier="1:1" id="nt9-3I-WJo"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irl-qB-NiE">
-                        <rect key="frame" x="102" y="24" width="216" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irl-qB-NiE">
+                        <rect key="frame" x="102" y="24" width="84" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="K36-e2-3QI"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="d2T-MM-kio" firstAttribute="top" secondItem="xxM-Ft-DS9" secondAttribute="topMargin" constant="-5" id="6eB-ty-4Z2"/>
+                    <constraint firstItem="d2T-MM-kio" firstAttribute="leading" secondItem="xxM-Ft-DS9" secondAttribute="leadingMargin" constant="11" id="Cth-Ow-Kof"/>
+                    <constraint firstAttribute="centerY" secondItem="Irl-qB-NiE" secondAttribute="centerY" id="fCq-7y-exx"/>
+                    <constraint firstItem="Irl-qB-NiE" firstAttribute="leading" secondItem="d2T-MM-kio" secondAttribute="trailing" constant="19" id="su8-VB-qjG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="d2T-MM-kio" secondAttribute="bottom" constant="-5" id="wON-RU-XqW"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="fullName" destination="Irl-qB-NiE" id="bB9-pn-iKe"/>

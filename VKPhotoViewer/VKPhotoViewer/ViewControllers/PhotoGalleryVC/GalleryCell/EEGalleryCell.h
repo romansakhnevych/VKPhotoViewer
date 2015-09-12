@@ -20,5 +20,4 @@
 
 - (IBAction)doubleTapHandle:(UITapGestureRecognizer *)sender;
 
-
 @end

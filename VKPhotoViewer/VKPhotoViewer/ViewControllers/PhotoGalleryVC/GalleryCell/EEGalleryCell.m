@@ -14,19 +14,15 @@
 
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    
     self = [super initWithFrame:frame];
     if (self){
         NSArray *lArrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"GalleryCell" owner:self options:nil];
-        
         if ([lArrayOfViews count] < 1) {
             return nil;
         }
-        
         if (![[lArrayOfViews objectAtIndex:0] isKindOfClass:[UICollectionViewCell class]]) {
             return nil;
         }
-        
         self = [lArrayOfViews objectAtIndex:0];
         
     }
@@ -34,25 +30,15 @@
     _zoomScrollView.minimumZoomScale = 1.0f;
     _zoomScrollView.maximumZoomScale = 10.0f;
     [_zoomScrollView setClipsToBounds:YES];
-    
-    
-    
-    
-    
-    
     return  self;
 }
 
-
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-    
     return _imageView;
-    
 }
 
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    
     _photo = [EEAppManager sharedAppManager].currentPhoto;
 }
 
@@ -62,12 +48,9 @@
     CGFloat maxY = 0.0f;
     
    if (!isZooming) {
-        
     NSLog(@"===================================================================");
-    
     CGPoint lScrollViewOffset =  _zoomScrollView.contentOffset;
     NSLog(@"lScrollViewOffset - %@", NSStringFromCGPoint(lScrollViewOffset));
-    
     CGSize lContentSize = _zoomScrollView.contentSize;
     
     NSLog(@"lContentSize - %@", NSStringFromCGSize(lContentSize));
@@ -93,25 +76,20 @@
     if (_zoomScrollView.contentOffset.y <= minY && lScale > 1 && minY > 0) {
         _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, minY);
     }
-
     if (_zoomScrollView.contentOffset.y >= maxY && lScale > 1 && maxY > 0) {
         _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, maxY);
     }
-       
     if (_zoomScrollView.contentOffset.x <= minX && lScale > 1 && minX > 0) {
            _zoomScrollView.contentOffset = CGPointMake(minX, _zoomScrollView.contentOffset.y);
-       }
-       
+    }
     if (_zoomScrollView.contentOffset.x >= maxX && lScale > 1 && maxX > 0) {
            _zoomScrollView.contentOffset = CGPointMake(maxX, _zoomScrollView.contentOffset.y);
        }
   }
-    
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view{
     isZooming = YES;
-    
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
@@ -126,13 +104,9 @@
 
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{
-    
     //    UIView *subView = [scrollView.subviews objectAtIndex:0];
     //    CGFloat offsetX;
     //    CGFloat offsetY;
-    //
-    //
-    //
     //    if (scrollView.bounds.size.width > scrollView.contentSize.width) {
     //        offsetX = (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5;
     //    }
@@ -146,16 +120,11 @@
     //    else{
     //        offsetY = 0.0f;
     //    }
-    //
-    //
-    //
     //        subView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
     //                                     scrollView.contentSize.height * 0.5 + offsetY);
 }
 
 - (CGSize) sizeOfPhoto:(EEPhoto *)photo inAspectFitImageView:(UIImageView *)imageView{
-    
-    
     CGFloat lImageViewHeight = imageView.bounds.size.height;
     CGFloat lImageViewWidth = imageView.bounds.size.width;
     
@@ -168,7 +137,6 @@
     CGFloat lNewHeight = [photo.photoHeight floatValue] * lScaleFactor;
     
     return CGSizeMake(lNewWidth, lNewHeight);
-    
 }
 
 - (IBAction)doubleTapHandle:(UITapGestureRecognizer *)sender {

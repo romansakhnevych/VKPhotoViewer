@@ -41,7 +41,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
             endingLineNumber = "124"
-            landmarkName = "-addLikeForCurrentFriendPhotoWithCaptcha:CompletionSuccess:completionFailure:"
+            landmarkName = "-getPhotosWithCount:offset:fromAlbum:forUser:completionSuccess:completionFailure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
