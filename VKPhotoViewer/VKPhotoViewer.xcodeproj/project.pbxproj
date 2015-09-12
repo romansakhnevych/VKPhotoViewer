@@ -478,14 +478,16 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				847D29491BA04D2600612D6A /* Frameworks */,
+				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
+				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
+				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
 				847D29761BA04D2600612D6A /* Models */,
 				847D29801BA04D2600612D6A /* Requests */,
 				847D29831BA04D2600612D6A /* ResponseBilder */,
 				847D29861BA04D2600612D6A /* ViewControllers */,
 				847D29411BA04BD500612D6A /* Communications */,
+				847D29491BA04D2600612D6A /* Frameworks */,
 				84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */,
-				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
 			);
 			path = VKPhotoViewer;
 			sourceTree = "<group>";
@@ -493,8 +495,6 @@
 		84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
-				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
 				84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */,
 				84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */,
 				84C1C3BB1B4BCF3E00959DF2 /* Info.plist */,
@@ -822,7 +822,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";
+				PROVISIONING_PROFILE = "84034f20-53f0-49b0-a349-4a91a0b40877";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -837,7 +837,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f1e1696e-6176-494a-8685-4c9ede0b58f6";
+				PROVISIONING_PROFILE = "84034f20-53f0-49b0-a349-4a91a0b40877";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
