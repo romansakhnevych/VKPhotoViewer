@@ -76,7 +76,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     EEPhotoCell *lCell = (EEPhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     EEPhoto *lPhoto = [_photosList objectAtIndex:indexPath.row];
     lCell.imageView.image = [UIImage imageNamed:@"PlaceholderIcon"];
-    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"PlaceholderIcon"] success:^(UIImage *image) {
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.mPhotoLink ] placeholder:[UIImage imageNamed:@"PlaceholderIcon"] success:^(UIImage *image) {
         lCell.imageView.image = image;
     } failure:^(NSError *error) {
         

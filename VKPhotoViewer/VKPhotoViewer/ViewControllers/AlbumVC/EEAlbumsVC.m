@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title = @"Albums";
     _albumsList = [[NSMutableArray alloc] init];
     _count = 4;
@@ -28,6 +29,8 @@
     _user = [EEAppManager sharedAppManager].currentFriend;
     [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EELoadingTVCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass([EELoadingTVCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,7 +106,4 @@
     }];
     
 }
-
-
-
 @end

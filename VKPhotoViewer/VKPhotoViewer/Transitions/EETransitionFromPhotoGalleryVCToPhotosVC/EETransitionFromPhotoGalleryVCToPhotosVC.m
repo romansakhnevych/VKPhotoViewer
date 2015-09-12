@@ -14,9 +14,10 @@
 
 @implementation EETransitionFromPhotoGalleryVCToPhotosVC
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.5;
+    return 0.3;
 }
--(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     
     EEPhotoGalleryVC* fromViewController = (EEPhotoGalleryVC*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     EEPhotosVC* toViewController = (EEPhotosVC*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
