@@ -53,13 +53,19 @@ static NSString *CelID = @"GalleryCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_allPhotos count];
+    return [[EEAppManager sharedAppManager].allPhotos count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%i %@",[EEAppManager sharedAppManager].allPhotos.count, [[EEAppManager sharedAppManager].currentAlbum getAlbumSize]);
+    NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)[EEAppManager sharedAppManager].allPhotos.count];
+    if (indexPath.row == [EEAppManager sharedAppManager].allPhotos.count - 1
+        && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]]) {
+        [_baseAlbumDelegate BaseAlbumDelegateUploadPhotos: ^{
+            [_collectionView reloadData];
+        }];
+    }
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
-    
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
@@ -73,23 +79,6 @@ static NSString *CelID = @"GalleryCell";
     }];
     return lCell;
 }
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
-
-//    *targetContentOffset = scrollView.contentOffset;
-//    float pageWidth = (float)self.collectionView.bounds.size.width;
-//    int minSpace = 20;
-//
-//    int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5;
-//    if (cellToSwipe < 0) {
-//        cellToSwipe = 0;
-//    } else if (cellToSwipe >= self.allPhotos.count) {
-//        cellToSwipe = (int)self.allPhotos.count - 1;
-//    }
-//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-}
-
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != _newIndex) {
@@ -108,7 +97,6 @@ static NSString *CelID = @"GalleryCell";
         }
         
         _likesCountLbl.text = [lPhoto getLikesCount];
-        
     }
 }
 
@@ -117,11 +105,8 @@ static NSString *CelID = @"GalleryCell";
     return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
 
-
-- (void)setupCollectionView{
-    
+- (void)setupCollectionView {
     [self.collectionView registerClass:[EEGalleryCell class] forCellWithReuseIdentifier:CelID];
-    
     UICollectionViewFlowLayout *lFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     [lFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     lFlowLayout.minimumInteritemSpacing = 0;
@@ -152,7 +137,6 @@ static NSString *CelID = @"GalleryCell";
         
     }else if (lPhoto.xsPhotoLink){
         lLink = lPhoto.xsPhotoLink;
-        
     }else{
         lNoPhoto = YES;
     }
@@ -160,6 +144,7 @@ static NSString *CelID = @"GalleryCell";
     return lLink;
 }
 
+#pragma mark - button realization
 
 - (IBAction)shareBtnTaped:(id)sender {
     NSArray *sharedItems = [[NSArray alloc] initWithObjects:_image, nil];

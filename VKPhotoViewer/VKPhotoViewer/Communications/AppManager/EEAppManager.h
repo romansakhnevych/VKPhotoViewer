@@ -23,7 +23,6 @@
 
 @interface EEAppManager : NSObject
 
-
 @property (nonatomic,retain)EEFriends *currentFriend;
 @property (nonatomic,retain)EEAlbum *currentAlbum;
 @property (nonatomic,retain)EEPhoto *currentPhoto;

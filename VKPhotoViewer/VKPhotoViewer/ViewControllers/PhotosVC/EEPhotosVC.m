@@ -11,10 +11,11 @@
 #import "EEAppManager.h"
 #import "EEPhoto.h"
 #import "UIImageView+Haneke.h"
+#import "EEPhotoGalleryVC.h"
 
 
 
-@interface EEPhotosVC ()
+@interface EEPhotosVC () <BaseAlbumDelegate>
 
 @end
 
@@ -30,7 +31,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     _user = [[EEAppManager sharedAppManager] currentFriend];
     _album = [[EEAppManager sharedAppManager] currentAlbum];
     self.navigationItem.title = _album.albumTitle;
-    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
+    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
     }
 
 - (void)didReceiveMemoryWarning {
@@ -44,16 +45,14 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
     return [_photosList count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == [collectionView numberOfItemsInSection:0]-1 && _loadedPhotosCount == _count){
-        [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId];
+    if (indexPath.row == [collectionView numberOfItemsInSection:0] - 1 && _loadedPhotosCount == _count){
+        [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
     }
     
     EEPhotoCell *lCell = (EEPhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
@@ -64,14 +63,13 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     } failure:^(NSError *error) {
         
     }];
-
-    
         return lCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+    EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+    lViewController.baseAlbumDelegate = self;
     [[self navigationController] pushViewController:lViewController animated:YES];
     [EEAppManager sharedAppManager].currentPhotoIndex = indexPath.row;
     [EEAppManager sharedAppManager].allPhotos = _photosList;
@@ -94,7 +92,8 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 - (void)updateDataWithCount:(NSInteger)count
                      Offset:(NSInteger)offset
                     AlbumId:(NSString *)albumId
-                     UserId:(NSString *)userId{
+                     UserId:(NSString *)userId
+                 completion:(void (^)())updateData{
     
     [[EEAppManager sharedAppManager] getPhotosWithCount:count offset:offset fromAlbum:albumId forUser:userId completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]){
@@ -104,6 +103,9 @@ static NSString * const reuseIdentifier = @"PhotoCell";
         }else{
             NSLog(@"error");
         }
+        if (updateData) {
+            updateData();
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
         });
@@ -112,7 +114,10 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     }];
 }
 
+#pragma mark - BaseAlbumDelegate implementation
 
-
+- (void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData {
+    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:updateData];
+}
 
 @end

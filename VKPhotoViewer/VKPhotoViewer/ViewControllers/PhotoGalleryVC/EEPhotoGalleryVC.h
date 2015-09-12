@@ -10,6 +10,12 @@
 #import "EEAlbum.h"
 #import "EEPhoto.h"
 
+@protocol BaseAlbumDelegate <NSObject>
+
+@required
+-(void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData;
+
+@end
 
 @interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
@@ -20,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *likesCountLbl;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (nonatomic, retain)UIImage *image;
+
+@property (nonatomic,weak) id <BaseAlbumDelegate> baseAlbumDelegate;
 
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;
