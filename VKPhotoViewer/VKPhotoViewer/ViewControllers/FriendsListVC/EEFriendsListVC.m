@@ -167,6 +167,9 @@
 }
 
 - (void)Logout {
+    if([self.searchController isActive]) {
+        self.searchController.active = NO;
+    }
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
     
