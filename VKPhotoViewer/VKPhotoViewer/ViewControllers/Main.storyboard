@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gZN-AA-Lif">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -51,6 +51,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Friends" id="YTh-Zi-GFK">
+                                        <barButtonItem key="leftBarButtonItem" title="menu" id="Bio-yd-B1D">
+                                            <connections>
+                                                <action selector="menuTap:" destination="dQH-E3-2Km" id="mCi-j6-HiG"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="R3T-VA-Ygq">
                                             <connections>
                                                 <action selector="logoutTap:" destination="dQH-E3-2Km" id="D7P-WS-H8e"/>
@@ -662,22 +667,52 @@
             </objects>
             <point key="canvasLocation" x="1441.5" y="345.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="FdB-Z8-Tcs">
+        <!--Main View Controller-->
+        <scene sceneID="u8t-HB-24L">
             <objects>
-                <viewController id="bvE-os-U8z" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="gZN-AA-Lif" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WZl-Zr-o8Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="ifA-Jg-kKu"/>
+                        <viewControllerLayoutGuide type="top" id="8Pp-rL-8dG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gal-fI-bJj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Bt0-3p-z0m">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="Isv-7V-8Kq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="msZ-p7-hzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMQ-TH-Eo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1038.5" y="-412.5"/>
+        </scene>
+        <!--Left View Controller-->
+        <scene sceneID="xru-0C-WnJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4e-di-JGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="LeftViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GcT-NZ-UjP" customClass="LeftViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iyr-t2-Czp">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="668"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ltk-HK-e9e" customClass="LeftViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltk-HK-e9e" id="yl0-A7-4Wi">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GcT-NZ-UjP" id="X2q-56-m81"/>
+                            <outlet property="delegate" destination="GcT-NZ-UjP" id="Msv-9h-WG2"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="668"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-515" y="-200"/>
         </scene>
     </scenes>
     <resources>

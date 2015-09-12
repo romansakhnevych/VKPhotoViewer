@@ -15,6 +15,8 @@
 #import "EEFriendsListCell.h"
 #import "AFHTTPRequestOperation.h"
 #import "UIImageView+Haneke.h"
+#import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface EEFriendsListVC ()
 @property (nonatomic)CGFloat lastOffset;
@@ -228,6 +230,10 @@
 
 - (IBAction)logoutTap:(id)sender {
     [self Logout];
+}
+
+- (IBAction)menuTap:(id)sender {
+    [kMainViewController showLeftViewAnimated:YES completionHandler:nil];
 }
 
 #pragma mark - EEAppManagerDelegateMethods
