@@ -43,7 +43,7 @@
                 <outlet property="fullName" destination="Irl-qB-NiE" id="bB9-pn-iKe"/>
                 <outlet property="photo" destination="d2T-MM-kio" id="qmq-JC-DVM"/>
             </connections>
-            <point key="canvasLocation" x="806.5" y="665.5"/>
+            <point key="canvasLocation" x="512.5" y="318.5"/>
         </tableViewCell>
     </objects>
 </document>

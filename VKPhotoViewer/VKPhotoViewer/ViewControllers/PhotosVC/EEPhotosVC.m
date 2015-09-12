@@ -57,47 +57,17 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     }
     
     EEPhotoCell *lCell = (EEPhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-//    lCell.layer.shouldRasterize = YES;
-//    lCell.layer.rasterizationScale = [UIScreen mainScreen].scale;
-//    lCell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
     EEPhoto *lPhoto = [_photosList objectAtIndex:indexPath.row];
-    [self setGrayImage:lCell];
-    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"placeholder"] success:^(UIImage *image) {
+    lCell.imageView.image = [UIImage imageNamed:@"PlaceholderIcon"];
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.sPhotoLink ] placeholder:[UIImage imageNamed:@"PlaceholderIcon"] success:^(UIImage *image) {
         lCell.imageView.image = image;
     } failure:^(NSError *error) {
         
     }];
-    
-//    [[EEAppManager sharedAppManager] getPhotoByLink:lPhoto.smallPhotoLink withCompletion:^(UIImage *image, BOOL animated) {
-//        
-//        
-//        if (animated){
-//            [UIView transitionWithView:lCell.imageView duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-//                
-//                lCell.imageView.image = image;
-//                
-//            } completion:nil];
-//            
-//        }
-//        else{
-//            lCell.imageView.image = image;
-//        }
-//
-//    }];
+
     
         return lCell;
 }
-
-- (void)setGrayImage:(EEPhotoCell*)cell {
-    UIColor* color = [UIColor grayColor];
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

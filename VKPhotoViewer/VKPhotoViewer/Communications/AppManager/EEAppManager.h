@@ -13,6 +13,14 @@
 #import "EGOCache.h"
 #import "EEPhoto.h"
 
+@protocol EEAppManagerDelegate <NSObject>
+@optional
+
+-(void)tokenDidExpired;
+
+@end
+
+
 @interface EEAppManager : NSObject
 
 
@@ -24,6 +32,8 @@
 @property (nonatomic,retain)NSMutableArray *allPhotos;
 @property (nonatomic)NSInteger currentPhotoIndex;
 @property (nonatomic,retain)EGOCache *cache;
+@property (nonatomic, weak)id <EEAppManagerDelegate> delegate;
+
 
 + (EEAppManager *)sharedAppManager;
  
@@ -50,12 +60,16 @@
          completionSuccess:(void (^)(id responseObject))success
          completionFailure:(void (^)(NSError * error))failure;
 
-- (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                        completionFailure:(void (^)(NSError * error))failure
-                                                  captcha:(NSDictionary *)captcha;
+- (void)addLikeForCurrentFriendPhotoWithCaptha:(NSDictionary *)captcha
+                             CompletionSuccess:(void (^)(id responseObject))success
+                             completionFailure:(void (^)(NSError * error))failure;
 
-- (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
-                                           completionFailure:(void (^)(NSError * error))failure
-                                                     captcha:(NSDictionary *)captcha;
+
+- (void)deleteLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
+                                 CompletionSuccess:(void (^)(id responseObject))success
+                                 completionFailure:(void (^)(NSError * error))failure;
+
+- (void)showAlertWithError : (NSError*)error;
+- (void)showAlertAboutTokenExpired;
 
 @end

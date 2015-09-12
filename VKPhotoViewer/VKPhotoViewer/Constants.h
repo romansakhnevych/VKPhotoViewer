@@ -18,6 +18,8 @@
 #define USER_ID_KEY @"user_id"
 #define TOKEN_LIFE_TIME_KEY @"expires_in"
 #define ACCESS_TOKEN_KEY @"access_token"
+#define CREATED @"created"
+#define TEMPORAL_ERROR 3
 #define AUTH_COMPLITED_KEY @"authComplited"
 #define BASE_URL @"https://api.vk.com/method/"
 

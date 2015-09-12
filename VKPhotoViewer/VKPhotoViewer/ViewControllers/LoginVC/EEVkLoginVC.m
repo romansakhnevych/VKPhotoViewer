@@ -48,6 +48,7 @@
     NSURLComponents *lUrlCmponets = [NSURLComponents componentsWithURL:requestUrlString resolvingAgainstBaseURL:NO];
     if ([lUrlCmponets.path isEqualToString:@"/blank.html"]) {
         lResult = YES;
+        [self saveLoginObject:[NSDate new] forKey:CREATED];
         lUrlCmponets.query = lUrlCmponets.fragment;
         NSArray *lQueryItems = lUrlCmponets.queryItems;
         [self dismissViewControllerAnimated:YES completion:^{

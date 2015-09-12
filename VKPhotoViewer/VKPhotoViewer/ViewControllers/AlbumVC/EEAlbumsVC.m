@@ -104,7 +104,8 @@
             [self.tableView reloadData];
         });
     } completionFailure:^(NSError *error) {
-        NSLog(@"error - %@",error);
+        [[EEAppManager sharedAppManager] showAlertWithError:error];
+        //NSLog(@"error - %@",error);
     }];
     
 }
