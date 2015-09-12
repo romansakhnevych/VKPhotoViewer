@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "EEAlbum.h"
 #import "EEPhoto.h"
+#import "EEGalleryCell.h"
 
+@protocol BaseAlbumDelegate <NSObject>
 
-@interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
+@required
+-(void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData;
+
+@end
+
+@interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic) NSInteger newIndex;
@@ -21,8 +28,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (nonatomic, retain)UIImage *image;
 
+@property (nonatomic,weak) id <BaseAlbumDelegate> baseAlbumDelegate;
+
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;
-
+- (EEGalleryCell*) visableCell;
 
 @end
