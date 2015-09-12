@@ -50,8 +50,10 @@
         //toViewController.cellImageSnapshot.frame = frame;
 
     } completion:^(BOOL finished) {
-        [toViewController.view addSubview:toViewController.cellImageSnapshot];
+        //[toViewController.view addSubview:toViewController.cellImageSnapshot];
         toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
+        [toViewController.view addSubview:toViewController.cellImageSnapshot];
+
         toViewController.collectionView.hidden = NO;
         cell.imageView.hidden = NO;
         [cellImageSnapshot removeFromSuperview];
