@@ -6,13 +6,13 @@
 //  Copyright © 2015 Admin. All rights reserved.
 //
 
-#import "EEFriendsCountCell.h"
+#import "EEFriendsCountTVCell.h"
 
-@interface EEFriendsCountCell ()
+@interface EEFriendsCountTVCell ()
 @property(nonatomic, strong) IBOutlet UILabel *countLabel;
 @end
 
-@implementation EEFriendsCountCell
+@implementation EEFriendsCountTVCell
 
 - (void)setCount:(NSInteger)count {
     _count = count;

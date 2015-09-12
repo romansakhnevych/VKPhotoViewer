@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092A5F4A1BA439AE0003E55B /* EEFriendsCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F491BA439AE0003E55B /* EEFriendsCountCell.m */; };
-		092A5F4C1BA43A640003E55B /* EEFriendsCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F4B1BA43A640003E55B /* EEFriendsCountCell.xib */; };
+		092A5F511BA46FD30003E55B /* EEFriendsListTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F4F1BA46FD30003E55B /* EEFriendsListTVCell.m */; settings = {ASSET_TAGS = (); }; };
+		092A5F521BA46FD30003E55B /* EEFriendsListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F501BA46FD30003E55B /* EEFriendsListTVCell.xib */; settings = {ASSET_TAGS = (); }; };
+		092A5F561BA46FE00003E55B /* EEFriendsCountTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F541BA46FE00003E55B /* EEFriendsCountTVCell.m */; settings = {ASSET_TAGS = (); }; };
+		092A5F571BA46FE00003E55B /* EEFriendsCountTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F551BA46FE00003E55B /* EEFriendsCountTVCell.xib */; settings = {ASSET_TAGS = (); }; };
+		092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */; settings = {ASSET_TAGS = (); }; };
+		092A5F5C1BA46FEC0003E55B /* EELoadingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */; settings = {ASSET_TAGS = (); }; };
 		57783C54B59AD86E9EF415E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C16900F5D27E4D51B8CB6DF4 /* libPods.a */; };
 		847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29471BA04CD300612D6A /* EENetworkManager.m */; };
 		847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29601BA04D2600612D6A /* EGOCache.m */; };
@@ -30,10 +34,6 @@
 		847D29CB1BA04D2600612D6A /* EEAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D298B1BA04D2600612D6A /* EEAlbumCell.m */; };
 		847D29CC1BA04D2600612D6A /* EEAlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D298D1BA04D2600612D6A /* EEAlbumsVC.m */; };
 		847D29CD1BA04D2600612D6A /* EEFriendsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29901BA04D2600612D6A /* EEFriendsListVC.m */; };
-		847D29CE1BA04D2600612D6A /* EEFriendsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29931BA04D2600612D6A /* EEFriendsListCell.m */; };
-		847D29CF1BA04D2600612D6A /* FriendsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29941BA04D2600612D6A /* FriendsListCell.xib */; };
-		847D29D01BA04D2600612D6A /* EELoadingCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29971BA04D2600612D6A /* EELoadingCellTableViewCell.m */; };
-		847D29D11BA04D2600612D6A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29981BA04D2600612D6A /* LoadingCell.xib */; };
 		847D29D21BA04D2600612D6A /* EEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D299B1BA04D2600612D6A /* EEMainVC.m */; };
 		847D29D31BA04D2600612D6A /* EEVkLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D299D1BA04D2600612D6A /* EEVkLoginVC.m */; };
 		847D29D41BA04D2600612D6A /* EEPhotoGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29A01BA04D2600612D6A /* EEPhotoGalleryVC.m */; };
@@ -67,9 +67,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		092A5F481BA439AE0003E55B /* EEFriendsCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsCountCell.h; path = FriendsCountCell/EEFriendsCountCell.h; sourceTree = "<group>"; };
-		092A5F491BA439AE0003E55B /* EEFriendsCountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriendsCountCell.m; path = FriendsCountCell/EEFriendsCountCell.m; sourceTree = "<group>"; };
-		092A5F4B1BA43A640003E55B /* EEFriendsCountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EEFriendsCountCell.xib; path = FriendsCountCell/EEFriendsCountCell.xib; sourceTree = "<group>"; };
+		092A5F4E1BA46FD30003E55B /* EEFriendsListTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFriendsListTVCell.h; sourceTree = "<group>"; };
+		092A5F4F1BA46FD30003E55B /* EEFriendsListTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFriendsListTVCell.m; sourceTree = "<group>"; };
+		092A5F501BA46FD30003E55B /* EEFriendsListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEFriendsListTVCell.xib; sourceTree = "<group>"; };
+		092A5F531BA46FE00003E55B /* EEFriendsCountTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFriendsCountTVCell.h; path = FriendsCountCell/EEFriendsCountTVCell.h; sourceTree = "<group>"; };
+		092A5F541BA46FE00003E55B /* EEFriendsCountTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFriendsCountTVCell.m; path = FriendsCountCell/EEFriendsCountTVCell.m; sourceTree = "<group>"; };
+		092A5F551BA46FE00003E55B /* EEFriendsCountTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EEFriendsCountTVCell.xib; path = FriendsCountCell/EEFriendsCountTVCell.xib; sourceTree = "<group>"; };
+		092A5F581BA46FEC0003E55B /* EELoadingTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EELoadingTVCell.h; sourceTree = "<group>"; };
+		092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EELoadingTVCell.m; sourceTree = "<group>"; };
+		092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EELoadingTVCell.xib; sourceTree = "<group>"; };
 		0A93F51068735526F40768D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4F029252C5389E17067EAEBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		847D29461BA04CD300612D6A /* EENetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENetworkManager.h; sourceTree = "<group>"; };
@@ -112,12 +118,6 @@
 		847D298D1BA04D2600612D6A /* EEAlbumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEAlbumsVC.m; sourceTree = "<group>"; };
 		847D298F1BA04D2600612D6A /* EEFriendsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFriendsListVC.h; sourceTree = "<group>"; };
 		847D29901BA04D2600612D6A /* EEFriendsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFriendsListVC.m; sourceTree = "<group>"; };
-		847D29921BA04D2600612D6A /* EEFriendsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFriendsListCell.h; sourceTree = "<group>"; };
-		847D29931BA04D2600612D6A /* EEFriendsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFriendsListCell.m; sourceTree = "<group>"; };
-		847D29941BA04D2600612D6A /* FriendsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsListCell.xib; sourceTree = "<group>"; };
-		847D29961BA04D2600612D6A /* EELoadingCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EELoadingCellTableViewCell.h; sourceTree = "<group>"; };
-		847D29971BA04D2600612D6A /* EELoadingCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EELoadingCellTableViewCell.m; sourceTree = "<group>"; };
-		847D29981BA04D2600612D6A /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		847D299A1BA04D2600612D6A /* EEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMainVC.h; sourceTree = "<group>"; };
 		847D299B1BA04D2600612D6A /* EEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEMainVC.m; sourceTree = "<group>"; };
 		847D299C1BA04D2600612D6A /* EEVkLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEVkLoginVC.h; sourceTree = "<group>"; };
@@ -181,9 +181,9 @@
 		092A5F471BA4394E0003E55B /* FriendsCountCell */ = {
 			isa = PBXGroup;
 			children = (
-				092A5F481BA439AE0003E55B /* EEFriendsCountCell.h */,
-				092A5F491BA439AE0003E55B /* EEFriendsCountCell.m */,
-				092A5F4B1BA43A640003E55B /* EEFriendsCountCell.xib */,
+				092A5F531BA46FE00003E55B /* EEFriendsCountTVCell.h */,
+				092A5F541BA46FE00003E55B /* EEFriendsCountTVCell.m */,
+				092A5F551BA46FE00003E55B /* EEFriendsCountTVCell.xib */,
 			);
 			name = FriendsCountCell;
 			sourceTree = "<group>";
@@ -380,9 +380,9 @@
 		847D29911BA04D2600612D6A /* FriendsListCell */ = {
 			isa = PBXGroup;
 			children = (
-				847D29921BA04D2600612D6A /* EEFriendsListCell.h */,
-				847D29931BA04D2600612D6A /* EEFriendsListCell.m */,
-				847D29941BA04D2600612D6A /* FriendsListCell.xib */,
+				092A5F4E1BA46FD30003E55B /* EEFriendsListTVCell.h */,
+				092A5F4F1BA46FD30003E55B /* EEFriendsListTVCell.m */,
+				092A5F501BA46FD30003E55B /* EEFriendsListTVCell.xib */,
 			);
 			path = FriendsListCell;
 			sourceTree = "<group>";
@@ -390,9 +390,9 @@
 		847D29951BA04D2600612D6A /* LoadingCell */ = {
 			isa = PBXGroup;
 			children = (
-				847D29961BA04D2600612D6A /* EELoadingCellTableViewCell.h */,
-				847D29971BA04D2600612D6A /* EELoadingCellTableViewCell.m */,
-				847D29981BA04D2600612D6A /* LoadingCell.xib */,
+				092A5F581BA46FEC0003E55B /* EELoadingTVCell.h */,
+				092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */,
+				092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */,
 			);
 			path = LoadingCell;
 			sourceTree = "<group>";
@@ -662,14 +662,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */,
+				092A5F5C1BA46FEC0003E55B /* EELoadingTVCell.xib in Resources */,
 				847D29CA1BA04D2600612D6A /* AlbumCell.xib in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
 				847D29DD1BA04D3400612D6A /* Main.storyboard in Resources */,
-				847D29D11BA04D2600612D6A /* LoadingCell.xib in Resources */,
+				092A5F571BA46FE00003E55B /* EEFriendsCountTVCell.xib in Resources */,
 				847D29D61BA04D2600612D6A /* GalleryCell.xib in Resources */,
 				847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */,
-				092A5F4C1BA43A640003E55B /* EEFriendsCountCell.xib in Resources */,
-				847D29CF1BA04D2600612D6A /* FriendsListCell.xib in Resources */,
+				092A5F521BA46FD30003E55B /* EEFriendsListTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,11 +723,9 @@
 				847D29CC1BA04D2600612D6A /* EEAlbumsVC.m in Sources */,
 				847D29DA1BA04D2600612D6A /* EEUserDetailCell.m in Sources */,
 				847D29D41BA04D2600612D6A /* EEPhotoGalleryVC.m in Sources */,
-				847D29D01BA04D2600612D6A /* EELoadingCellTableViewCell.m in Sources */,
 				847D29C31BA04D2600612D6A /* UIView+Haneke.m in Sources */,
 				847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */,
 				847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */,
-				847D29CE1BA04D2600612D6A /* EEFriendsListCell.m in Sources */,
 				847D29CB1BA04D2600612D6A /* EEAlbumCell.m in Sources */,
 				847D29C11BA04D2600612D6A /* UIButton+Haneke.m in Sources */,
 				847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */,
@@ -739,6 +737,7 @@
 				847D29C51BA04D2600612D6A /* EEAlbum.m in Sources */,
 				847D29D81BA04D2600612D6A /* EEPhotoCell.m in Sources */,
 				847D29C01BA04D2600612D6A /* HNKSimpleFetcher.m in Sources */,
+				092A5F511BA46FD30003E55B /* EEFriendsListTVCell.m in Sources */,
 				847D29C91BA04D2600612D6A /* EEResponseBilder.m in Sources */,
 				847D29D71BA04D2600612D6A /* EEPhotosVC.m in Sources */,
 				847D29BE1BA04D2600612D6A /* HNKDiskFetcher.m in Sources */,
@@ -747,14 +746,15 @@
 				847D29D21BA04D2600612D6A /* EEMainVC.m in Sources */,
 				847D29D51BA04D2600612D6A /* EEGalleryCell.m in Sources */,
 				84F9353D1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m in Sources */,
-				092A5F4A1BA439AE0003E55B /* EEFriendsCountCell.m in Sources */,
 				847D29CD1BA04D2600612D6A /* EEFriendsListVC.m in Sources */,
 				847D29BC1BA04D2600612D6A /* HNKCache.m in Sources */,
+				092A5F561BA46FE00003E55B /* EEFriendsCountTVCell.m in Sources */,
 				847D29C61BA04D2600612D6A /* EEFriends.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				847D29C71BA04D2600612D6A /* EEPhoto.m in Sources */,
 				847D29D31BA04D2600612D6A /* EEVkLoginVC.m in Sources */,
 				847D29C21BA04D2600612D6A /* UIImageView+Haneke.m in Sources */,
+				092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

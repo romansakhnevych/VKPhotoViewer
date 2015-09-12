@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EELoadingCellTableViewCell : UITableViewCell
+@interface EELoadingTVCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
