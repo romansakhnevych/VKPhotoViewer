@@ -129,7 +129,7 @@
 		847D29AF1BA04D2600612D6A /* EEUserDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEUserDetailCell.h; sourceTree = "<group>"; };
 		847D29B01BA04D2600612D6A /* EEUserDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEUserDetailCell.m; sourceTree = "<group>"; };
 		847D29B11BA04D2600612D6A /* UserDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailCell.xib; sourceTree = "<group>"; };
-		847D29DC1BA04D3400612D6A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		847D29DC1BA04D3400612D6A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ViewControllers/Main.storyboard; sourceTree = "<group>"; };
 		847D29DE1BA04D5F00612D6A /* EEAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAppManager.h; path = Communications/AppManager/EEAppManager.h; sourceTree = "<group>"; };
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
 		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
@@ -314,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				847D29E11BA07B2900612D6A /* CaptchaVC */,
-				847D29DC1BA04D3400612D6A /* Main.storyboard */,
 				847D29871BA04D2600612D6A /* AlbumVC */,
 				847D298E1BA04D2600612D6A /* FriendsListVC */,
 				847D29991BA04D2600612D6A /* LoginVC */,
@@ -485,6 +484,7 @@
 				847D29801BA04D2600612D6A /* Requests */,
 				847D29831BA04D2600612D6A /* ResponseBilder */,
 				847D29861BA04D2600612D6A /* ViewControllers */,
+				847D29DC1BA04D3400612D6A /* Main.storyboard */,
 				847D29411BA04BD500612D6A /* Communications */,
 				847D29491BA04D2600612D6A /* Frameworks */,
 				84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */,
