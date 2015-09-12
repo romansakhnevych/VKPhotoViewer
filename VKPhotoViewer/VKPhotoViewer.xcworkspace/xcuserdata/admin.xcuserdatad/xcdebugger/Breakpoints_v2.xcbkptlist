@@ -10,13 +10,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
-            timestampString = "463759745.702553"
+            timestampString = "463760905.015354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-likeBtnTaped:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
+            timestampString = "463760992.284089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EEPhotoGalleryVC collectionView:cellForItemAtIndexPath:]"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/programs/objectiv%20c/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
+                  timestampString = "463761101.869365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "1557">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[EEPhotoGalleryVC collectionView:cellForItemAtIndexPath:]_block_invoke94"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Desktop/programs/objectiv%20c/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
+                  timestampString = "463761101.869707"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
