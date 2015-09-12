@@ -24,10 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [EEAppManager sharedAppManager].delegate =self;
-    _friendsList = [[NSMutableArray alloc] init];
-    _searchResult = [[NSMutableArray alloc] init];
-    [_tableView setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
+    
+    [EEAppManager sharedAppManager].delegate = self;
+    
+    _friendsList = [NSMutableArray new];
+    _searchResult = [NSMutableArray new];
+    
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
     _searchController.dimsBackgroundDuringPresentation = NO;
@@ -49,7 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -130,40 +132,16 @@
     [[self navigationController] pushViewController:lViewController animated:YES];
 }
 
-#pragma mark - UIScrollView delegat
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    
-//    if (isBeginning) {
-//        
-//       if (self.lastOffset > scrollView.contentOffset.y){
-//        _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y + 8, _searchBar.frame.size.width, _searchBar.frame.size.height);
-//        if (_searchBar.frame.origin.y > _navigationBar.frame.size.height) {
-//            _searchBar.frame = CGRectMake(_searchBar.frame.origin.x, _navigationBar.frame.size.height, _searchBar.frame.size.width, _searchBar.frame.size.height);
-//        }
-//    } else if(self.lastOffset < scrollView.contentOffset.y){
-//        _searchBar.frame = CGRectMake(0, _searchBar.frame.origin.y - 8, _searchBar.frame.size.width, _searchBar.frame.size.height);
-//        if (_searchBar.frame.origin.y < _navigationBar.frame.origin.y) {
-//            _searchBar.frame = CGRectMake(_searchBar.frame.origin.x, _navigationBar.frame.origin.y, _searchBar.frame.size.width, _searchBar.frame.size.height);
-//        }
-//        
-//    }
-//     self.lastOffset = scrollView.contentOffset.y;
-//    }
-}
-
-
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     [self filterFriendsForTerm:_searchController.searchBar.text];
 }
 
-
 #pragma mark - Private methods
+
 - (void)updateTableView {
-    
     _count = 30;
     _offset = 0;
     [self updateDataWithCount:_count Offset:_offset];
-    
 }
 
 - (void)Logout {
@@ -191,13 +169,13 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)updateDataWithCount:(NSInteger)count Offset:(NSInteger)offset{
+- (void)updateDataWithCount:(NSInteger)count Offset:(NSInteger)offset {
     
     [[EEAppManager sharedAppManager] getFriendsWithCount:count offset:offset completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]) {
             [_friendsList addObjectsFromArray:responseObject];
             _loadedFriendsCount = [responseObject count];
-            _offset+=30;
+            _offset += 30;
         } else {
             NSLog(@"error");
         }
@@ -206,14 +184,10 @@
         });
     } completionFailure:^(NSError *error) {
         [[EEAppManager sharedAppManager] showAlertWithError:error];
-        //NSLog(@"error - %@",error);
     }];
-    
 }
 
-
-
-- (void)filterFriendsForTerm:(NSString *)term{
+- (void)filterFriendsForTerm:(NSString *)term {
     [_searchResult removeAllObjects];
     NSPredicate *lFirstNamePredicate = [NSPredicate predicateWithFormat:@"self.firstName beginswith[cd]%@",term];
     NSPredicate *lLastNamePredicate = [NSPredicate predicateWithFormat:@"self.lastName beginswith[cd]%@",term];
@@ -222,7 +196,6 @@
     
     [_tableView reloadData];
 }
-
 
 #pragma mark - IBActions
 
@@ -236,4 +209,5 @@
     [self Logout];
     [[EEAppManager sharedAppManager] showAlertAboutTokenExpired];
 }
+
 @end
