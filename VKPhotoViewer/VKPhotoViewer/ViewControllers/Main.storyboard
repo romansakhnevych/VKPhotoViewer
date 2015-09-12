@@ -201,18 +201,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrv-si-D98">
                                 <rect key="frame" x="0.0" y="20" width="375" height="270"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-h2-GKN">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ark-ti-S4b">
                                         <rect key="frame" x="87" y="34" width="201" height="202"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="cOo-h2-GKN" secondAttribute="height" multiplier="1:1" id="mbO-0c-d0f"/>
+                                            <constraint firstAttribute="width" secondItem="Ark-ti-S4b" secondAttribute="height" multiplier="1:1" id="FEa-zY-2ae"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="avatarCkicked:" destination="W2B-Pc-yZN" eventType="touchUpInside" id="fnT-BO-cCb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="cOo-h2-GKN" secondAttribute="centerY" id="80J-VX-pDE"/>
-                                    <constraint firstAttribute="height" secondItem="cOo-h2-GKN" secondAttribute="height" multiplier="4:3" id="SPQ-Zz-sPF"/>
-                                    <constraint firstAttribute="centerX" secondItem="cOo-h2-GKN" secondAttribute="centerX" id="kQ0-Jl-R9G"/>
+                                    <constraint firstItem="Ark-ti-S4b" firstAttribute="height" secondItem="zrv-si-D98" secondAttribute="height" multiplier="3:4" id="CjU-FH-V5F"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ark-ti-S4b" secondAttribute="centerY" id="Ilc-Uc-vgN"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ark-ti-S4b" secondAttribute="centerX" id="TnN-89-y6Q"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -240,9 +246,9 @@
                     <connections>
                         <outlet property="albumsCountLabel" destination="FmO-4a-5p1" id="wzZ-Ai-mxj"/>
                         <outlet property="backgroundPhoto" destination="J1n-Xx-FNX" id="mQl-5S-BFT"/>
+                        <outlet property="buttonWithAvatar" destination="Ark-ti-S4b" id="mWT-md-bk5"/>
                         <outlet property="city" destination="b1X-0w-pcx" id="3et-sG-Gwv"/>
                         <outlet property="fullName" destination="pyV-As-0Qp" id="gzk-sh-HMb"/>
-                        <outlet property="mainPhoto" destination="cOo-h2-GKN" id="g2n-oK-FOn"/>
                         <outlet property="photosCountLabel" destination="ymj-F4-xmO" id="aW4-mw-E4a"/>
                         <outlet property="tableView" destination="NUD-ar-XtV" id="hdk-kw-JrJ"/>
                     </connections>
