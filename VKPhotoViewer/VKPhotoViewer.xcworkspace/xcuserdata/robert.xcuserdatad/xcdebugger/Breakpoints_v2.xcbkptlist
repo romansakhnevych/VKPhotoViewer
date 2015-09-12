@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
-            timestampString = "463676384.767131"
+            timestampString = "463766009.187019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,14 +25,24 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VKPhotoViewer/ViewControllers/PhotoGalleryVC/EEPhotoGalleryVC.m"
-            timestampString = "463745746.039514"
+            filePath = "VKPhotoViewer/ViewControllers/UserDetail/EEUserDetailVC.m"
+            timestampString = "463766980.330798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-avatarCkicked:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

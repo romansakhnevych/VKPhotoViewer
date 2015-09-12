@@ -11,8 +11,9 @@
 #import "EEAppManager.h"
 #import "EEGalleryCell.h"
 #import "UIImageView+Haneke.h"
-
-
+#import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
+#import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
+#import "EEPhotosVC.h"
 
 @interface EEPhotoGalleryVC ()
 
@@ -24,6 +25,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _cellImageSnapshot = [UIView new];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -37,6 +39,22 @@ static NSString *CelID = @"GalleryCell";
         _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
     }
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    // Set outself as the navigation controller's delegate so we're asked for a transitioning object
+    self.navigationController.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Stop being the navigation controller's delegate
+    if (self.navigationController.delegate == self) {
+        self.navigationController.delegate = nil;
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -54,43 +72,37 @@ static NSString *CelID = @"GalleryCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_allPhotos count];
+    return [[EEAppManager sharedAppManager].allPhotos count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)[EEAppManager sharedAppManager].allPhotos.count];
+    if (indexPath.row == [EEAppManager sharedAppManager].allPhotos.count - 1
+        && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]]) {
+        [_baseAlbumDelegate BaseAlbumDelegateUploadPhotos: ^{
+            [_collectionView reloadData];
+        }];
+    }
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
-    
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
     [lCell.spinner setHidesWhenStopped:YES];
     _newIndex = indexPath.row;
     UIImage* placeholderImg = [[UIImage alloc] init];
+    //NSString* linkForSmallPhoto =
+    //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
+        self.cellImageSnapshot.hidden = YES;
+        [self.cellImageSnapshot removeFromSuperview];
+        //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
+        _image = image;
     } failure:^(NSError *error) {
         
     }];
     return lCell;
 }
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
-
-//    *targetContentOffset = scrollView.contentOffset;
-//    float pageWidth = (float)self.collectionView.bounds.size.width;
-//    int minSpace = 20;
-//
-//    int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5;
-//    if (cellToSwipe < 0) {
-//        cellToSwipe = 0;
-//    } else if (cellToSwipe >= self.allPhotos.count) {
-//        cellToSwipe = (int)self.allPhotos.count - 1;
-//    }
-//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-}
-
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != _newIndex) {
@@ -109,7 +121,6 @@ static NSString *CelID = @"GalleryCell";
         }
         
         _likesCountLbl.text = [lPhoto getLikesCount];
-        
     }
 }
 
@@ -118,11 +129,8 @@ static NSString *CelID = @"GalleryCell";
     return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
 
-
-- (void)setupCollectionView{
-    
+- (void)setupCollectionView {
     [self.collectionView registerClass:[EEGalleryCell class] forCellWithReuseIdentifier:CelID];
-    
     UICollectionViewFlowLayout *lFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     [lFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     lFlowLayout.minimumInteritemSpacing = 0;
@@ -153,7 +161,6 @@ static NSString *CelID = @"GalleryCell";
         
     }else if (lPhoto.xsPhotoLink){
         lLink = lPhoto.xsPhotoLink;
-        
     }else{
         lNoPhoto = YES;
     }
@@ -161,6 +168,7 @@ static NSString *CelID = @"GalleryCell";
     return lLink;
 }
 
+#pragma mark - button realization
 
 - (IBAction)shareBtnTaped:(id)sender {
     
@@ -201,4 +209,20 @@ static NSString *CelID = @"GalleryCell";
   
     }
 }
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    // Check if we're transitioning from this view controller to a DSLFirstViewController
+    if (fromVC == self && [toVC isKindOfClass:[EEPhotosVC class]]) {
+        return [[EETransitionFromPhotoGalleryVCToPhotosVC alloc] init];
+    }
+    else {
+        return nil;
+    }
+}
+-(EEGalleryCell*) visableCell {
+    return (EEGalleryCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
+}
+
 @end
