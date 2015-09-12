@@ -15,9 +15,9 @@
 @property (nonatomic,retain) NSMutableArray *friendsList;
 @property (strong, nonatomic)NSMutableArray *searchResult;
 
-@property (nonatomic) NSInteger offset;
-@property (nonatomic) NSInteger count;
-@property (nonatomic) NSInteger loadedFriendsCount;
+@property (nonatomic, assign) NSInteger offset;
+@property (nonatomic, assign) NSInteger count;
+@property (nonatomic, assign) NSInteger loadedFriendsCount;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

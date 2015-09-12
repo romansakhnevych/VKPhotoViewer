@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEFriendsCountCell : UITableViewCell
+@interface EEFriendsCountTVCell : UITableViewCell
 @property (nonatomic, assign) NSInteger count;
 @end

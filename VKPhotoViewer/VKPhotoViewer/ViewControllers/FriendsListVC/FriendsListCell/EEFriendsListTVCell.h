@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEFriendsListCell : UITableViewCell
+@interface EEFriendsListTVCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *fullName;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 @property (weak, nonatomic) IBOutlet UIButton *detailButton;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import "EEFriendsListCell.h"
+#import "EEFriendsListTVCell.h"
 
-@implementation EEFriendsListCell
+@implementation EEFriendsListTVCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -17,9 +17,5 @@
     _photo.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
 
 @end
