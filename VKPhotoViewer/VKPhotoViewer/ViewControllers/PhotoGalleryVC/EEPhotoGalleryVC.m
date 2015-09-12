@@ -27,6 +27,7 @@ static NSString *CelID = @"GalleryCell";
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
+    _image = [UIImage new];
     [self setupCollectionView];
     self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_currentIndex+1,[_album getAlbumSize]];
     
@@ -147,6 +148,7 @@ static NSString *CelID = @"GalleryCell";
 #pragma mark - button realization
 
 - (IBAction)shareBtnTaped:(id)sender {
+    
     NSArray *sharedItems = [[NSArray alloc] initWithObjects:_image, nil];
     UIActivityViewController *lActivityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharedItems applicationActivities:nil];
     
