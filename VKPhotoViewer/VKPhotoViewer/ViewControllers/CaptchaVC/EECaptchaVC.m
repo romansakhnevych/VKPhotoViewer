@@ -43,7 +43,7 @@
     [[EEAppManager sharedAppManager] addLikeForCurrentFriendPhotoWithCompletionSuccess:^(id responseObject) {
         
     } completionFailure:^(NSError *error) {
-        
+        [[EEAppManager sharedAppManager] showAlertWithError:error];
     } captcha:captcha];
 }
 @end

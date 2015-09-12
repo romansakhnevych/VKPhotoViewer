@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [EEAppManager sharedAppManager].delegate =self;
     _friendsList = [[NSMutableArray alloc] init];
     _searchResult = [[NSMutableArray alloc] init];
     [_tableView setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
@@ -184,6 +184,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:ACCESS_TOKEN_KEY ];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_ID_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -201,7 +202,8 @@
             [self.tableView reloadData];
         });
     } completionFailure:^(NSError *error) {
-        NSLog(@"error - %@",error);
+        [[EEAppManager sharedAppManager] showAlertWithError:error];
+        //NSLog(@"error - %@",error);
     }];
     
 }
@@ -218,9 +220,17 @@
     [_tableView reloadData];
 }
 
+
 #pragma mark - IBActions
 
 - (IBAction)logoutTap:(id)sender {
     [self Logout];
+}
+
+#pragma mark - EEAppManagerDelegateMethods
+
+-(void)tokenDidExpired {
+    [self Logout];
+    [[EEAppManager sharedAppManager] showAlertAboutTokenExpired];
 }
 @end

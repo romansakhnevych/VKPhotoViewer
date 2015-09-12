@@ -32,7 +32,10 @@
                      offset:(NSUInteger)offset
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure {
-    
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests friendsGetRequestWithOffset:offset count:count] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
         DLog(@"DEBUG - %@",responseObject);
@@ -43,11 +46,15 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
+    }
 }
 
 - (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
                             completionFailure:(void (^)(NSError * error))failure {
-    
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests getUserInfoRequestWithId:_currentFriend.userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
         NSArray *lUserDetailResponse = [responseObject objectForKey:@"response"];
@@ -56,11 +63,15 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
+    }
 }
 
 - (void)getPhotoByLink:(NSString *)photoLink
         withCompletion:(void (^)(UIImage *image, BOOL animated))setImage {
-    
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     _cache = [[EGOCache alloc] init];
     if([_cache imageForKey:photoLink] != nil) {
         setImage([_cache imageForKey:photoLink],NO);
@@ -82,6 +93,7 @@
         }];
         [lOperation start];
     }
+    }
 }
 
 - (void)getAlbumsWithCount:(NSUInteger)count
@@ -89,7 +101,10 @@
                         Id:(NSString *)userId
          completionSuccess:(void (^)(id))success
          completionFailure:(void (^)(NSError *))failure {
-    
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests getAlbumsRequestWithOffset:offset count:count byId:userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
         NSArray *lArray = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
@@ -98,6 +113,7 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
+    }
 }
 
 - (void)getPhotosWithCount:(NSUInteger)count
@@ -106,7 +122,10 @@
                    forUser:(NSString *)userId
          completionSuccess:(void (^)(id responseObject))success
          completionFailure:(void (^)(NSError * error))failure{
-    
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests getPhotosRequestWithOffset:offset count:count fromAlbum:albumId forUser:userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
         NSArray *lArray = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
@@ -115,11 +134,16 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
+    }
 }
 
 - (void)addLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
                                         completionFailure:(void (^)(NSError * error))failure
                                                   captcha:(NSDictionary *)captcha{
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests addLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
@@ -133,11 +157,16 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error ) {
         failure(error);
     }];
+    }
 }
 
 - (void)deleteLikeForCurrentFriendPhotoWithCompletionSuccess:(void (^)(id responseObject))success
                                            completionFailure:(void (^)(NSError * error))failure
                                                      captcha:(NSDictionary *)captcha{
+    if ([self isTokenExpired]) {
+        [self.delegate tokenDidExpired];
+    }
+    else {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests deleteLikeWithOwnerId:_currentFriend.userId itemId:_currentPhoto.photoId] parameters:captcha success:^ (NSURLSessionDataTask *task, id responseObject) {
         BOOL Captcha = CAPTCHA_NEEDED(responseObject);
@@ -152,8 +181,27 @@
     } failure:^ (NSURLSessionDataTask *task, NSError *error ) {
         failure(error);
     }];
-
+    }
 }
 
+#pragma mark - Alert view methods
+- (void)showAlertAboutTokenExpired {
+    UIAlertView* message;
+    message = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat: @"Please Log-Out again"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [message show];
+}
+
+- (void)showAlertWithError : (NSError*)error {
+    UIAlertView* message;
+    message = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat: @"There is a problem with internet connection"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [message show];
+}
+#pragma mark - Private methods
+- (bool)isTokenExpired {
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY] isEqual: nil]) {
+        return YES;
+    }
+    return ([[[NSUserDefaults standardUserDefaults] objectForKey:CREATED]timeIntervalSince1970] + [[[NSUserDefaults standardUserDefaults]objectForKey:TOKEN_LIFE_TIME_KEY] doubleValue] - TEMPORAL_ERROR) < [[NSDate new]  timeIntervalSince1970];
+}
 
 @end
