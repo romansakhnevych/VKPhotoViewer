@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *likesCountLbl;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (nonatomic, retain)UIImage *image;
-
+@property (nonatomic, strong)UIView *cellImageSnapshot;
 @property (nonatomic,weak) id <BaseAlbumDelegate> baseAlbumDelegate;
 
 - (IBAction)likeBtnTaped:(id)sender;

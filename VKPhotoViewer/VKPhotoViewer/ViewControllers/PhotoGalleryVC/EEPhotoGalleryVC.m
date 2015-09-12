@@ -25,6 +25,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _cellImageSnapshot = [UIView new];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -42,7 +43,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    [self.navigationController setNavigationBarHidden:YES];
     // Set outself as the navigation controller's delegate so we're asked for a transitioning object
     self.navigationController.delegate = self;
 }
@@ -92,6 +93,9 @@ static NSString *CelID = @"GalleryCell";
     //NSString* linkForSmallPhoto =
     //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
+        self.cellImageSnapshot.hidden = YES;
+        [self.cellImageSnapshot removeFromSuperview];
+        //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
     } failure:^(NSError *error) {
