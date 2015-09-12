@@ -14,6 +14,12 @@
 #import "Constants.h"
 #import "EENetworkManager.h"
 #import "AppDelegate.h"
+#import "EEPhotoGalleryVC.h"
+
+@interface EEAppManager () <BaseAlbumDelegate>
+
+@end
+
 
 @implementation EEAppManager
 
@@ -204,6 +210,12 @@
         return YES;
     }
     return ([[[NSUserDefaults standardUserDefaults] objectForKey:CREATED]timeIntervalSince1970] + [[[NSUserDefaults standardUserDefaults]objectForKey:TOKEN_LIFE_TIME_KEY] doubleValue] - TEMPORAL_ERROR) < [[NSDate new]  timeIntervalSince1970];
+}
+
+#pragma mark - BaseAlbumDelegate realization
+
+-(void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData {
+    
 }
 
 @end

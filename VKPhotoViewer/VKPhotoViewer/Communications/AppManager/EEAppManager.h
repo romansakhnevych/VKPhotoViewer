@@ -21,7 +21,7 @@
 @end
 
 
-@interface EEAppManager : NSObject
+@interface EEAppManager : NSObject 
 
 @property (nonatomic,retain)EEFriends *currentFriend;
 @property (nonatomic,retain)EEAlbum *currentAlbum;

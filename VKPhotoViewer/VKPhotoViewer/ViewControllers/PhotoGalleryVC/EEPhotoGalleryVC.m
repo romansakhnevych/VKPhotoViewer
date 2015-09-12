@@ -77,7 +77,6 @@ static NSString *CelID = @"GalleryCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i %@",[EEAppManager sharedAppManager].allPhotos.count, [[EEAppManager sharedAppManager].currentAlbum getAlbumSize]);
     NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)[EEAppManager sharedAppManager].allPhotos.count];
     if (indexPath.row == [EEAppManager sharedAppManager].allPhotos.count - 1
         && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]]) {
@@ -98,6 +97,7 @@ static NSString *CelID = @"GalleryCell";
         //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
+        _image = image;
     } failure:^(NSError *error) {
         
     }];

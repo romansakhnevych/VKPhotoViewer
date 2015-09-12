@@ -19,9 +19,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumsCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *photosCountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonWithAvatar;
 
 @property (nonatomic, retain)NSDictionary *details;
 @property (nonatomic, retain)NSArray *keys;
 
+-(IBAction)avatarCkicked:(id)sender;
 
 @end
