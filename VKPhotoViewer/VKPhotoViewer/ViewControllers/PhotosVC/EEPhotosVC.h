@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "EEFriends.h"
 #import "EEAlbum.h"
+#import "EEPhotoCell.h"
 
 //PHOTOS IN ALBUM
-@interface EEPhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface EEPhotosVC : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate>
 
 @property (nonatomic,retain)NSMutableArray *photosList;
 @property (nonatomic)NSInteger count;
@@ -20,4 +21,5 @@
 @property (nonatomic,retain)EEFriends *user;
 @property (nonatomic,retain)EEAlbum *album;
 
+- (EEPhotoCell*)cellWithIndex: (NSInteger) index;
 @end

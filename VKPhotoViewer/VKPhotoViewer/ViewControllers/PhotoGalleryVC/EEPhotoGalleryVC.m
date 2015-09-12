@@ -11,8 +11,9 @@
 #import "EEAppManager.h"
 #import "EEGalleryCell.h"
 #import "UIImageView+Haneke.h"
-
-
+#import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
+#import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
+#import "EEPhotosVC.h"
 
 @interface EEPhotoGalleryVC ()
 
@@ -24,6 +25,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _cellImageSnapshot = [UIView new];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -37,6 +39,22 @@ static NSString *CelID = @"GalleryCell";
         _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
     }
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    // Set outself as the navigation controller's delegate so we're asked for a transitioning object
+    self.navigationController.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Stop being the navigation controller's delegate
+    if (self.navigationController.delegate == self) {
+        self.navigationController.delegate = nil;
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -71,7 +89,12 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner setHidesWhenStopped:YES];
     _newIndex = indexPath.row;
     UIImage* placeholderImg = [[UIImage alloc] init];
+    //NSString* linkForSmallPhoto =
+    //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
+        self.cellImageSnapshot.hidden = YES;
+        [self.cellImageSnapshot removeFromSuperview];
+        //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
         _image = image;
@@ -186,4 +209,20 @@ static NSString *CelID = @"GalleryCell";
   
     }
 }
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC {
+    // Check if we're transitioning from this view controller to a DSLFirstViewController
+    if (fromVC == self && [toVC isKindOfClass:[EEPhotosVC class]]) {
+        return [[EETransitionFromPhotoGalleryVCToPhotosVC alloc] init];
+    }
+    else {
+        return nil;
+    }
+}
+-(EEGalleryCell*) visableCell {
+    return (EEGalleryCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
+}
+
 @end

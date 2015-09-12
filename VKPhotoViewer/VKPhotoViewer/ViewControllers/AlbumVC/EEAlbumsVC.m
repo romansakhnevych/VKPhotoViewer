@@ -8,7 +8,7 @@
 
 #import "EEAlbumsVC.h"
 #import "EEAppManager.h"
-#import "EELoadingCellTableViewCell.h"
+#import "EELoadingTVCell.h"
 #import "EEAlbumCell.h"
 #import "EEAlbum.h"
 #import "UIImageView+Haneke.h"
@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title = @"Albums";
     _albumsList = [[NSMutableArray alloc] init];
     _count = 4;
@@ -28,6 +29,8 @@
     _user = [EEAppManager sharedAppManager].currentFriend;
     [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EELoadingTVCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass([EELoadingTVCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,17 +52,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *lNib;
-    if (indexPath.row == [tableView numberOfRowsInSection:0]-1 && _loadedAlbumsCount == _count){
+    if (indexPath.row == [tableView numberOfRowsInSection:0] - 1 && _loadedAlbumsCount == _count){
         
         [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
         
-        static NSString *CellId = @"LoaingCell";
-        EELoadingCellTableViewCell *lLastCell = (EELoadingCellTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellId];
-        
-        if (lLastCell == nil){
-            lNib = [[NSBundle mainBundle] loadNibNamed:@"LoadingCell" owner:self options:nil];
-            lLastCell = [lNib objectAtIndex:0];
-        }
+        EELoadingTVCell *lLastCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EELoadingTVCell class])];
         [lLastCell.spinner startAnimating];
         
         return lLastCell;
@@ -109,7 +106,4 @@
     }];
     
 }
-
-
-
 @end
