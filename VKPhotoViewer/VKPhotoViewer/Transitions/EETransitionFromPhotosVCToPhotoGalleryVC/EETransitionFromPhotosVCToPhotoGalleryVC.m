@@ -40,7 +40,9 @@
     toViewController.collectionView.hidden = YES;
     [containerView addSubview:toViewController.view];
     [containerView addSubview:cellImageSnapshot];
-    
+    [fromViewController.navigationController setNavigationBarHidden:YES];
+    toViewController.view.frame = [UIScreen mainScreen].bounds;
+
     [UIView animateWithDuration:duration animations:^{
         
         toViewController.view.alpha = 1.0;
@@ -48,8 +50,10 @@
         CGRect frame = CGRectMake((fromViewController.view.frame.size.width - cell.imageView.image.size.width*toMakePhotoBigger)/2, (fromViewController.view.frame.size.height - cell.imageView.image.size.height*toMakePhotoBigger)/2, cell.imageView.image.size.width*toMakePhotoBigger, cell.imageView.image.size.height*toMakePhotoBigger);
         cellImageSnapshot.frame = frame;
         //toViewController.cellImageSnapshot.frame = frame;
-
+        //[toViewController.navigationController setNavigationBarHidden:YES];
     } completion:^(BOOL finished) {
+        
+        [toViewController.uperView setHidden:NO];
         //[toViewController.view addSubview:toViewController.cellImageSnapshot];
         toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
         [toViewController.view addSubview:toViewController.cellImageSnapshot];

@@ -26,6 +26,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _photosList = [[NSMutableArray alloc] init];
     _count = 60;
     _offset = 0;

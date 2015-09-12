@@ -43,14 +43,15 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.uperView.hidden  = NO;
     // Set outself as the navigation controller's delegate so we're asked for a transitioning object
     self.navigationController.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+    [self.navigationController setNavigationBarHidden:NO];
     // Stop being the navigation controller's delegate
     if (self.navigationController.delegate == self) {
         self.navigationController.delegate = nil;
@@ -93,7 +94,6 @@ static NSString *CelID = @"GalleryCell";
     //NSString* linkForSmallPhoto =
     //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
-        self.cellImageSnapshot.hidden = YES;
         [self.cellImageSnapshot removeFromSuperview];
         //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
@@ -180,6 +180,9 @@ static NSString *CelID = @"GalleryCell";
     [self presentViewController:lActivityViewController animated:YES completion:nil];
     
     
+}
+- (IBAction)closeBtnTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)likeBtnTaped:(id)sender {
     if ([[EEAppManager sharedAppManager].currentPhoto isLiked]) {

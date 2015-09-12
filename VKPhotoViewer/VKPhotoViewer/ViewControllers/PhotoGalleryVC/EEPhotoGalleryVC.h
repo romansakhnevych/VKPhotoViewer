@@ -29,6 +29,7 @@
 @property (nonatomic, retain)UIImage *image;
 @property (nonatomic, strong)UIView *cellImageSnapshot;
 @property (nonatomic,weak) id <BaseAlbumDelegate> baseAlbumDelegate;
+@property (weak, nonatomic) IBOutlet UIView *uperView;
 
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;
