@@ -55,9 +55,11 @@
         
         [toViewController.uperView setHidden:NO];
         //[toViewController.view addSubview:toViewController.cellImageSnapshot];
+        toViewController.cellImageSnapshot = [[UIView alloc]init];
         toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
+        //[toViewController.cellImageSnapshot.
         [toViewController.view addSubview:toViewController.cellImageSnapshot];
-
+        toViewController.collectionView.pagingEnabled = YES;
         toViewController.collectionView.hidden = NO;
         cell.imageView.hidden = NO;
         [cellImageSnapshot removeFromSuperview];

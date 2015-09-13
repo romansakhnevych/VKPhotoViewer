@@ -25,7 +25,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _cellImageSnapshot = [UIView new];
+    //_cellImageSnapshot = [UIView new];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -90,11 +90,12 @@ static NSString *CelID = @"GalleryCell";
     [lCell.spinner setHidesWhenStopped:YES];
     _newIndex = indexPath.row;
     UIImage* placeholderImg = [[UIImage alloc] init];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
+    [lCell.imageView addGestureRecognizer:tap];
     //NSString* linkForSmallPhoto =
     //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
         [self.cellImageSnapshot removeFromSuperview];
-        //self.cellImageSnapshot.hidden = YES;
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
         _image = image;
@@ -228,4 +229,17 @@ static NSString *CelID = @"GalleryCell";
     return (EEGalleryCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
 }
 
+-(void)tapped {
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.uperView.hidden == YES) {
+            self.uperView.hidden = NO;
+            self.bottomView.hidden = NO;
+        }
+        else {
+            self.uperView.hidden = YES;
+            self.bottomView.hidden = YES;
+        }
+    }];
+    
+}
 @end
