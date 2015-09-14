@@ -95,7 +95,8 @@ static NSString *CelID = @"GalleryCell";
     //NSString* linkForSmallPhoto =
     //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
-        [self.cellImageSnapshot removeFromSuperview];
+        self.cellImageSnapshot.hidden = YES;
+        //[self.cellImageSnapshot removeFromSuperview];
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
         _image = image;

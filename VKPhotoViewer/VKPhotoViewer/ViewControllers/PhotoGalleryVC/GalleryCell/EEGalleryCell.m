@@ -26,6 +26,7 @@
         self = [lArrayOfViews objectAtIndex:0];
         
     }
+    isZooming = NO;
     _zoomScrollView.delegate = self;
     _zoomScrollView.minimumZoomScale = 1.0f;
     _zoomScrollView.maximumZoomScale = 10.0f;
@@ -149,4 +150,5 @@
     }
     [scrollView setZoomScale:scale animated:YES];
 }
+
 @end
