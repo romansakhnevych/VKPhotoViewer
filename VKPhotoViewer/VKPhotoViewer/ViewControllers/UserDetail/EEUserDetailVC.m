@@ -11,6 +11,7 @@
 #import "UIImage+StackBlur.h"
 #import "EEUserDetailCell.h"
 #import "EEPhotoGalleryVC.h"
+#import "MBProgressHUD.h"
 #import "Constants.h"
 
 @interface EEUserDetailVC ()
@@ -26,12 +27,16 @@
     [_spinner startAnimating];
     [_loadingView setHidden:NO];
     
+    
     [_buttonWithAvatar.imageView.layer setCornerRadius:_buttonWithAvatar.frame.size.width/2];
     _buttonWithAvatar.imageView.layer.masksToBounds = YES;
     _buttonWithAvatar.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     _buttonWithAvatar.imageView.layer.borderWidth = 2;
     [self.navigationController setNavigationBarHidden:NO];
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+       
     [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -46,6 +51,10 @@
     } completionFailure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
     
     EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
     
@@ -57,9 +66,11 @@
         _buttonWithAvatar.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
         [_buttonWithAvatar setImage:image forState:UIControlStateNormal];
         [_buttonWithAvatar setImage:image forState:UIControlStateHighlighted];
-//        [_buttonWithAvatar setImage:image forState:UIControlStateDisabled];
+        [_buttonWithAvatar setImage:image forState:UIControlStateDisabled];
         _backgroundPhoto.image = [image stackBlur:6];
     }];
+  
+        
     [_spinner stopAnimating];
     [_spinner setHidden:YES];
     [_loadingView setHidden:YES];
@@ -126,7 +137,13 @@
             NSLog(@"error - %@",error);
         }];
     } completionFailure:^(NSError *error){
+
         NSLog(@"error - %@",error);
     }];
 }
+
+- (void)setAlbum {
+    
+}
+
 @end

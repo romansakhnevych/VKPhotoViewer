@@ -683,11 +683,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="56a-po-NVm" firstAttribute="leading" secondItem="y9U-ll-6i3" secondAttribute="leading" constant="19" id="HKw-Ju-MNT"/>
+                                    <constraint firstAttribute="centerX" secondItem="8Gm-0i-Oa2" secondAttribute="centerX" id="NaD-x1-moT"/>
+                                    <constraint firstAttribute="centerY" secondItem="8Gm-0i-Oa2" secondAttribute="centerY" id="Npp-7z-i1z"/>
                                     <constraint firstAttribute="height" constant="64" id="ZOE-Qo-21u"/>
-                                    <constraint firstAttribute="centerY" secondItem="56a-po-NVm" secondAttribute="centerY" id="aow-Na-T5U"/>
-                                    <constraint firstAttribute="centerY" secondItem="8Gm-0i-Oa2" secondAttribute="centerY" id="bHh-HN-oVH"/>
-                                    <constraint firstAttribute="centerX" secondItem="8Gm-0i-Oa2" secondAttribute="centerX" id="gWG-6q-apc"/>
+                                    <constraint firstItem="56a-po-NVm" firstAttribute="leading" secondItem="y9U-ll-6i3" secondAttribute="leading" constant="19" id="ZXd-VA-JfK"/>
+                                    <constraint firstAttribute="centerY" secondItem="56a-po-NVm" secondAttribute="centerY" id="kgA-bx-tRQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -722,7 +722,7 @@
                         <outlet property="collectionView" destination="OYu-LX-71O" id="tEf-Be-FGF"/>
                         <outlet property="likeBtn" destination="HFa-dH-dh2" id="S3W-h0-zPf"/>
                         <outlet property="likesCountLbl" destination="H6d-Tc-082" id="bVa-Eh-Iqp"/>
-                        <outlet property="topLabel" destination="8Gm-0i-Oa2" id="2xg-8c-rN5"/>
+                        <outlet property="topLabel" destination="8Gm-0i-Oa2" id="OFd-S9-9vs"/>
                         <outlet property="uperView" destination="y9U-ll-6i3" id="zWs-QL-mD8"/>
                     </connections>
                 </viewController>

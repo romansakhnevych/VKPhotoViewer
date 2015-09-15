@@ -11,6 +11,7 @@
 #import "EEPhoto.h"
 #import "EEGalleryCell.h"
 
+
 @protocol BaseAlbumDelegate <NSObject>
 
 @required
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIView *uperView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property BOOL isImageLoaded;
 
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;

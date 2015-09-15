@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEPhotoGalleryVC.h"
 
 @interface EETransitionFromPhotosVCToPhotoGalleryVC : NSObject<UIViewControllerAnimatedTransitioning>
 

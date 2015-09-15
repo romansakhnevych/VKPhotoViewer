@@ -27,7 +27,7 @@
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     EEPhotoCell* cell = (EEPhotoCell*)[fromViewController.collectionView cellForItemAtIndexPath:[[fromViewController.collectionView indexPathsForSelectedItems] firstObject]];
-    //toViewController.cellImageSnapshot = [UIView new];
+    
     toViewController.cellImageSnapshot = [cell.imageView snapshotViewAfterScreenUpdates:NO];
     UIView* cellImageSnapshot = [cell.imageView snapshotViewAfterScreenUpdates:NO];
     cellImageSnapshot.frame = [containerView convertRect:cell.imageView.frame fromView:cell.imageView.superview];
@@ -49,20 +49,22 @@
         
         CGRect frame = CGRectMake((fromViewController.view.frame.size.width - cell.imageView.image.size.width*toMakePhotoBigger)/2, (fromViewController.view.frame.size.height - cell.imageView.image.size.height*toMakePhotoBigger)/2, cell.imageView.image.size.width*toMakePhotoBigger, cell.imageView.image.size.height*toMakePhotoBigger);
         cellImageSnapshot.frame = frame;
-        //toViewController.cellImageSnapshot.frame = frame;
-        //[toViewController.navigationController setNavigationBarHidden:YES];
+        
     } completion:^(BOOL finished) {
         
         [toViewController.uperView setHidden:NO];
-        //[toViewController.view addSubview:toViewController.cellImageSnapshot];
+        
         toViewController.cellImageSnapshot = [[UIView alloc]init];
         toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
-        //[toViewController.cellImageSnapshot.
+        
         [toViewController.view addSubview:toViewController.cellImageSnapshot];
         toViewController.collectionView.pagingEnabled = YES;
         toViewController.collectionView.hidden = NO;
         cell.imageView.hidden = NO;
         [cellImageSnapshot removeFromSuperview];
+        if(toViewController.isImageLoaded) {
+            [toViewController.cellImageSnapshot removeFromSuperview];
+        }
         
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];

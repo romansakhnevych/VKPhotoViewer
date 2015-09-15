@@ -25,15 +25,13 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_cellImageSnapshot = [UIView new];
     [self.navigationController setNavigationBarHidden:YES];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
-    _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
-    
+    _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];    
     if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {
@@ -85,6 +83,7 @@ static NSString *CelID = @"GalleryCell";
             [_collectionView reloadData];
         }];
     }
+    
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
@@ -93,9 +92,12 @@ static NSString *CelID = @"GalleryCell";
     UIImage* placeholderImg = [[UIImage alloc] init];
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
     [lCell.imageView addGestureRecognizer:tap];
+    
+    _isImageLoaded = NO;
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
-        self.cellImageSnapshot.hidden = YES;
-        //[self.cellImageSnapshot removeFromSuperview];
+        
+        _isImageLoaded = YES;
+        [self.cellImageSnapshot removeFromSuperview];
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
         _image = image;
@@ -114,7 +116,7 @@ static NSString *CelID = @"GalleryCell";
         }
         EEPhoto *lPhoto = [_allPhotos objectAtIndex:_currentIndex];
         [EEAppManager sharedAppManager].currentPhoto = lPhoto;
-        _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[_album getAlbumSize]];
+        _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
         if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
             _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
         } else {
