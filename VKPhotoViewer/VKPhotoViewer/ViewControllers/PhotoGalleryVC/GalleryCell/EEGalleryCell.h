@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *zoomScrollView;
 @property (nonatomic, retain) EEPhoto *photo;
 
+
 - (IBAction)doubleTapHandle:(UITapGestureRecognizer *)sender;
 
 @end

@@ -46,6 +46,10 @@
 
 - (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image,BOOL animated))setImage;
 
+- (void)getAlbumWithId:(NSString*)albId
+     completionSuccess:(void (^)(id responseObject))success
+     completionFailure:(void (^)(NSError * error))failure;
+
 - (void)getAlbumsWithCount:(NSUInteger)count
                      offset:(NSUInteger)offset
                          Id:(NSString *)userId
@@ -70,5 +74,5 @@
 
 - (void)showAlertWithError : (NSError*)error;
 - (void)showAlertAboutTokenExpired;
-
+- (void)UploadPhotos:(void (^)())updateData;
 @end

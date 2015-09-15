@@ -19,8 +19,7 @@
 
 @implementation MainViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     
     self.view.backgroundColor = [UIColor whiteColor];

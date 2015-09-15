@@ -14,6 +14,10 @@
 #import "EELoadingTVCell.h"
 #import "EEFriendsListTVCell.h"
 #import "EEFriendsCountTVCell.h"
+#import "MainViewController.h"
+#import "AppDelegate.h"
+
+#define kMainViewController (MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
 
 @interface EEFriendsListVC ()
 @property (nonatomic)CGFloat lastOffset;
@@ -204,6 +208,10 @@
 
 - (IBAction)logoutTap:(id)sender {
     [self logout];
+}
+
+- (IBAction)menuTap:(id)sender {
+    [((MainViewController *)kMainViewController) showLeftViewAnimated:YES completionHandler:nil];
 }
 
 #pragma mark - EEAppManagerDelegateMethods

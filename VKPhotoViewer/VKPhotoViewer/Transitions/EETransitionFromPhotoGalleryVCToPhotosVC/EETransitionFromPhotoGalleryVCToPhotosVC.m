@@ -28,8 +28,8 @@
     
     EEGalleryCell* cellGallery = [fromViewController visableCell];
     EEPhotoCell* cellSmallPhoto = [toViewController cellWithIndex:fromViewController.currentIndex];
-    toViewController.view.alpha = 0;
-    
+    toViewController.collectionView.alpha = 0.0;
+    [toViewController.view setBackgroundColor:[UIColor blackColor]];
     
     UIView *imageSnapshot = [cellGallery.imageView snapshotViewAfterScreenUpdates:NO];
     imageSnapshot.frame = [containerView convertRect:cellGallery.imageView.frame fromView:cellGallery.imageView.superview];
@@ -48,11 +48,11 @@
     double toMakePhotoBiggerHeight = cellGallery.imageView.image.size.height/frameInSuperView.size.height;
     
     
-    CGRect finalFrame = CGRectMake(frameInSuperView.origin.x - ((cellGallery.imageView.frame.size.width - cellGallery.imageView.image.size.width)/2)/toMakePhotoBiggerWidth, frameInSuperView.origin.y - ((cellGallery.imageView.frame.size.height - cellGallery.imageView.image.size.height)/2)/toMakePhotoBiggerHeight, (cellGallery.imageView.frame.size.width/cellGallery.imageView.image.size.width)*frameInSuperView.size.width, (cellGallery.imageView.frame.size.height/cellGallery.imageView.image.size.height)*frameInSuperView.size.height);
+    CGRect finalFrame = CGRectMake(frameInSuperView.origin.x - (([UIScreen mainScreen].bounds.size.width - cellGallery.imageView.image.size.width)/2)/toMakePhotoBiggerWidth, frameInSuperView.origin.y - (([UIScreen mainScreen].bounds.size.height - cellGallery.imageView.image.size.height)/2)/toMakePhotoBiggerHeight, ([UIScreen mainScreen].bounds.size.width/cellGallery.imageView.image.size.width)*frameInSuperView.size.width, ([UIScreen mainScreen].bounds.size.height/cellGallery.imageView.image.size.height)*frameInSuperView.size.height);
     fromViewController.view.alpha = 0.0;
     [UIView animateWithDuration:duration animations:^{
         
-        toViewController.view.alpha = 1;
+        toViewController.collectionView.alpha = 1;
         
         
         if (!cellSmallPhoto) {
