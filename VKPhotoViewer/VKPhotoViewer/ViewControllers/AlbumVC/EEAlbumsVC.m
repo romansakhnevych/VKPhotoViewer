@@ -12,7 +12,7 @@
 #import "EEAlbumCell.h"
 #import "EEAlbum.h"
 #import "UIImageView+Haneke.h"
-
+#import "MBProgressHUD.h"
 @interface EEAlbumsVC ()
 
 @end
@@ -26,11 +26,19 @@
     _albumsList = [[NSMutableArray alloc] init];
     _count = 4;
     _offset = 0;
+    [self.navigationController setNavigationBarHidden:NO];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+      
     _user = [EEAppManager sharedAppManager].currentFriend;
     [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
-    [self.navigationController setNavigationBarHidden:NO];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EELoadingTVCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass([EELoadingTVCell class])];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +56,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_albumsList count];
    }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *lNib;

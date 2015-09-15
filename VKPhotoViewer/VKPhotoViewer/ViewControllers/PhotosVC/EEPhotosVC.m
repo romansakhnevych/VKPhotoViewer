@@ -14,6 +14,7 @@
 #import "EEPhotoGalleryVC.h"
 #import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
 #import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
+#import "MBProgressHUD.h"
 
 
 @interface EEPhotosVC () <BaseAlbumDelegate>
@@ -32,9 +33,17 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     _offset = 0;
     _user = [[EEAppManager sharedAppManager] currentFriend];
     _album = [[EEAppManager sharedAppManager] currentAlbum];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+      
     self.navigationItem.title = _album.albumTitle;
     [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
-    }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

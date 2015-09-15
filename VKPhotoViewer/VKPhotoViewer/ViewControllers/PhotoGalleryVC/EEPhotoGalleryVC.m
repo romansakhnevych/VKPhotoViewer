@@ -84,6 +84,7 @@ static NSString *CelID = @"GalleryCell";
             [_collectionView reloadData];
         }];
     }
+    
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
