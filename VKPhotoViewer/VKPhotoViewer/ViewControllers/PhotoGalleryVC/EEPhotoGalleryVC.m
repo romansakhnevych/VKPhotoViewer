@@ -25,7 +25,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_cellImageSnapshot = [UIView new];
+    
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -92,11 +92,12 @@ static NSString *CelID = @"GalleryCell";
     UIImage* placeholderImg = [[UIImage alloc] init];
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
     [lCell.imageView addGestureRecognizer:tap];
-    //NSString* linkForSmallPhoto =
-    //[lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:((EEPhoto*)self.allPhotos[indexPath.row]).sPhotoLink]];
+    
+    _isImageLoaded = NO;
     [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
-        self.cellImageSnapshot.hidden = YES;
-        //[self.cellImageSnapshot removeFromSuperview];
+        
+        _isImageLoaded = YES;
+        [self.cellImageSnapshot removeFromSuperview];
         [lCell.spinner stopAnimating];
         lCell.imageView.image = image;
         _image = image;
