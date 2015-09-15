@@ -56,7 +56,16 @@
 #pragma mark - TableView data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) ? [_searchResult count] : [_friendsList count];
+    NSInteger count;
+    
+
+    if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]){
+        count = (_searchResult.count>0) ? _searchResult.count+1 : _searchResult.count;
+    } else {
+        count = (_friendsList.count>0) ? _friendsList.count+1 : _friendsList.count;
+    }
+    
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +79,12 @@
         return lLastCell;
     } else if ([indexPath row] == [tableView numberOfRowsInSection:0] - 1) {
         EEFriendsCountTVCell *lLastCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EEFriendsCountTVCell class])];
-        [lLastCell setCount:_friendsList.count];
+        if (_searchController.active) {
+            [lLastCell setCount:_searchResult.count];
+        } else {
+            [lLastCell setCount:_friendsList.count];
+        }
+        [lLastCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return lLastCell;
     }
     
@@ -108,7 +122,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if ([indexPath row] == [tableView numberOfRowsInSection:0] - 1){
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    } else {
     if (_searchController.active && ![_searchController.searchBar.text isEqualToString:@""]) {
         [[EEAppManager sharedAppManager] setCurrentFriend:[_searchResult objectAtIndex:indexPath.row]];
     } else {
@@ -120,6 +136,7 @@
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self navigationController] pushViewController:lViewController animated:YES];
+    }
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
