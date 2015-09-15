@@ -7,7 +7,11 @@
 //
 
 #import "EEFiltredVC.h"
+#import "Haneke.h"
 
 @implementation EEFiltredVC
 
+-(void)viewDidLoad {
+    [self.imageView hnk_setImageFromURL:[NSURL URLWithString:self.linkForPhoto]];
+}
 @end

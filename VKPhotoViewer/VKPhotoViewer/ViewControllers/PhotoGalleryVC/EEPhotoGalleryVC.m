@@ -14,6 +14,7 @@
 #import "EETransitionFromPhotoGalleryVCToPhotosVC.h"
 #import "EETransitionFromPhotosVCToPhotoGalleryVC.h"
 #import "EEPhotosVC.h"
+#import "EEFiltredVC.h"
 
 @interface EEPhotoGalleryVC ()
 
@@ -213,6 +214,12 @@ static NSString *CelID = @"GalleryCell";
 
 
   
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"pushFiltredVCSegueIdentfier"]) {
+        ((EEFiltredVC*)segue.destinationViewController).linkForPhoto = [self setPhotoAtIndex:self.currentIndex];
     }
 }
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController

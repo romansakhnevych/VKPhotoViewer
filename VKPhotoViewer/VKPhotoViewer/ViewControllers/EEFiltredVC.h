@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Admin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface EEFiltredVC : NSObject
+@interface EEFiltredVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) NSString* linkForPhoto;
 @end
