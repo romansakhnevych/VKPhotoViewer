@@ -13,6 +13,7 @@
 		092A5F571BA46FE00003E55B /* EEFriendsCountTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F551BA46FE00003E55B /* EEFriendsCountTVCell.xib */; };
 		092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */; };
 		092A5F5C1BA46FEC0003E55B /* EELoadingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */; };
+		30C909F21BA850460067847D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C909F11BA850460067847D /* MBProgressHUD.m */; };
 		57783C54B59AD86E9EF415E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C16900F5D27E4D51B8CB6DF4 /* libPods.a */; };
 		847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29471BA04CD300612D6A /* EENetworkManager.m */; };
 		847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29601BA04D2600612D6A /* EGOCache.m */; };
@@ -81,6 +82,8 @@
 		092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EELoadingTVCell.m; sourceTree = "<group>"; };
 		092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EELoadingTVCell.xib; sourceTree = "<group>"; };
 		0A93F51068735526F40768D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		30C909F01BA850370067847D /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		30C909F11BA850460067847D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4F029252C5389E17067EAEBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		847D29461BA04CD300612D6A /* EENetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENetworkManager.h; sourceTree = "<group>"; };
 		847D29471BA04CD300612D6A /* EENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EENetworkManager.m; sourceTree = "<group>"; };
@@ -200,6 +203,15 @@
 			name = FriendsCountCell;
 			sourceTree = "<group>";
 		};
+		30C909F31BA8505C0067847D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				30C909F01BA850370067847D /* MBProgressHUD.h */,
+				30C909F11BA850460067847D /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		7E2657507420A609F7660ED8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +251,7 @@
 		847D29491BA04D2600612D6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30C909F31BA8505C0067847D /* MBProgressHUD */,
 				84A3DC0E1BA48B0500910A41 /* LGSideMenuController */,
 				847D295E1BA04D2600612D6A /* EGOCache */,
 				847D29611BA04D2600612D6A /* Haneke */,
@@ -816,6 +829,7 @@
 				847D29C61BA04D2600612D6A /* EEFriends.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				847D29C71BA04D2600612D6A /* EEPhoto.m in Sources */,
+				30C909F21BA850460067847D /* MBProgressHUD.m in Sources */,
 				847D29D31BA04D2600612D6A /* EEVkLoginVC.m in Sources */,
 				847D29C21BA04D2600612D6A /* UIImageView+Haneke.m in Sources */,
 				092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */,

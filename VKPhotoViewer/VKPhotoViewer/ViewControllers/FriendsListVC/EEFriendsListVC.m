@@ -16,6 +16,7 @@
 #import "EEFriendsCountTVCell.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
 #define kMainViewController (MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
 
@@ -33,9 +34,16 @@
     _friendsList = [NSMutableArray new];
     _searchResult = [NSMutableArray new];
     
-    [self configureSearchController];
-    [self setUpTableView];
-
+   
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self configureSearchController];
+        [self setUpTableView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+       });
+    });
+    
     [EEAppManager sharedAppManager].delegate = self;
 }
 
@@ -69,6 +77,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if ([indexPath row] == [tableView numberOfRowsInSection:0] - 1 && _loadedFriendsCount == _count) {
         
         [self updateDataWithCount:_count offset:_offset];
