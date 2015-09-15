@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIView *uperView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property BOOL isImageLoaded;
 
 - (IBAction)likeBtnTaped:(id)sender;

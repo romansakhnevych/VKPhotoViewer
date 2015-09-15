@@ -681,15 +681,33 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b94-cE-9mx">
+                                        <rect key="frame" x="326" y="17" width="30" height="30"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="QLt-We-pw3" kind="show" identifier="pushFiltredVCSegueIdentfier" id="6Hm-8E-ccJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="8Gm-0i-Oa2" secondAttribute="centerX" id="Lts-4N-Pbt"/>
+                                    <constraint firstItem="b94-cE-9mx" firstAttribute="leading" secondItem="8Gm-0i-Oa2" secondAttribute="trailing" constant="97" id="Vb5-l0-zuB"/>
                                     <constraint firstItem="56a-po-NVm" firstAttribute="leading" secondItem="y9U-ll-6i3" secondAttribute="leading" constant="19" id="Vc1-bk-V3D"/>
                                     <constraint firstAttribute="height" constant="64" id="ZOE-Qo-21u"/>
                                     <constraint firstAttribute="centerY" secondItem="8Gm-0i-Oa2" secondAttribute="centerY" id="Zbm-Ad-Wsv"/>
+                                    <constraint firstItem="b94-cE-9mx" firstAttribute="baseline" secondItem="8Gm-0i-Oa2" secondAttribute="baseline" id="hFG-2Q-khe"/>
                                     <constraint firstAttribute="centerY" secondItem="56a-po-NVm" secondAttribute="centerY" id="rNG-B3-tcK"/>
+                                    <constraint firstAttribute="trailing" secondItem="b94-cE-9mx" secondAttribute="trailing" constant="19" id="z2q-7O-H2m"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vb5-l0-zuB"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -721,6 +739,7 @@
                     <connections>
                         <outlet property="bottomView" destination="XiQ-Wt-Kw0" id="Wgi-cB-Npt"/>
                         <outlet property="collectionView" destination="OYu-LX-71O" id="tEf-Be-FGF"/>
+                        <outlet property="editButton" destination="b94-cE-9mx" id="D0e-Mi-CvX"/>
                         <outlet property="likeBtn" destination="HFa-dH-dh2" id="S3W-h0-zPf"/>
                         <outlet property="likesCountLbl" destination="H6d-Tc-082" id="bVa-Eh-Iqp"/>
                         <outlet property="topLabel" destination="8Gm-0i-Oa2" id="1v4-21-GuQ"/>
@@ -730,6 +749,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yb-Ju-Ua8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1441.5" y="345.5"/>
+        </scene>
+        <!--FiltredVC-->
+        <scene sceneID="Etu-NK-l7D">
+            <objects>
+                <viewController id="QLt-We-pw3" customClass="EEFiltredVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J1g-Ex-n4h"/>
+                        <viewControllerLayoutGuide type="bottom" id="SoU-OH-mMJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pvO-SD-JPO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1f-Gb-KIx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y1f-Gb-KIx" firstAttribute="height" secondItem="pvO-SD-JPO" secondAttribute="height" id="LCm-NA-ZEj"/>
+                            <constraint firstItem="Y1f-Gb-KIx" firstAttribute="width" secondItem="pvO-SD-JPO" secondAttribute="width" id="aai-1z-NNN"/>
+                            <constraint firstAttribute="centerX" secondItem="Y1f-Gb-KIx" secondAttribute="centerX" id="gCe-Zf-yBu"/>
+                            <constraint firstAttribute="centerY" secondItem="Y1f-Gb-KIx" secondAttribute="centerY" id="tlv-2r-O6a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Y1f-Gb-KIx" id="qJP-ha-9vd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LlK-rY-bQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984" y="307"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="FdB-Z8-Tcs">
