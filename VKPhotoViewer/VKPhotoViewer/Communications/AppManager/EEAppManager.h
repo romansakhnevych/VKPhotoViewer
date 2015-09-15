@@ -24,6 +24,7 @@
 @interface EEAppManager : NSObject 
 
 @property (nonatomic,retain)EEFriends *currentFriend;
+@property (nonatomic,retain)EEFriends *loggedUser;
 @property (nonatomic,retain)EEAlbum *currentAlbum;
 @property (nonatomic,retain)EEPhoto *currentPhoto;
 @property (nonatomic,copy)NSString *captchaSid;
@@ -41,8 +42,9 @@
           completionSuccess:(void (^)(id responseObject))success
           completionFailure:(void (^)(NSError * error))failure;
 
-- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
-                            completionFailure:(void (^)(NSError * error))failure;
+- (void)getDetailByUserId:(NSString *)userId
+        completionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
+        completionFailure:(void (^)(NSError * error))failure;
 
 - (void)getPhotoByLink:(NSString *)photoLink withCompletion:(void (^)(UIImage *image,BOOL animated))setImage;
 

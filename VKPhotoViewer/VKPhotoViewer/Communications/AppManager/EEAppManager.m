@@ -55,14 +55,15 @@
     }
 }
 
-- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
-                            completionFailure:(void (^)(NSError * error))failure {
+- (void)getDetailByUserId:(NSString *)userId
+        completionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
+        completionFailure:(void (^)(NSError * error))failure {
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];
     }
     else {
         EENetworkManager *lManager = [EENetworkManager sharedManager];
-        [lManager GET:[EERequests getUserInfoRequestWithId:_currentFriend.userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+        [lManager GET:[EERequests getUserInfoRequestWithId:userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
             NSArray *lUserDetailResponse = [responseObject objectForKey:@"response"];
             _currentFriend = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:_currentFriend];
             success(YES, _currentFriend);

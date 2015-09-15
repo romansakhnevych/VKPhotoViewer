@@ -19,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navItem.title = @"Recently added";
-    [[EEAppManager sharedAppManager] getNewsfeedStartFrom:@"" CompletionSuccess:^(id responseObject) {
-        
-    } completionFailure:^(NSError *error) {
-        
-    }];
+//    [[EEAppManager sharedAppManager] getNewsfeedStartFrom:@"" CompletionSuccess:^(id responseObject) {
+//        
+//    } completionFailure:^(NSError *error) {
+//        
+//    }];
     
 }
 

@@ -17,5 +17,6 @@
 + (EEFriends *)getDetailFromArray:(NSArray *)array forUser:(EEFriends *)user;
 + (NSMutableArray *)getAlbumsFromArray:(NSArray *)array;
 + (NSMutableArray *)getPhotosFromArray:(NSArray *)array;
++ (NSMutableArray *)getNewsfeedWithItems:(NSArray *)items profiles:(NSArray *)profiles;
 
 @end
