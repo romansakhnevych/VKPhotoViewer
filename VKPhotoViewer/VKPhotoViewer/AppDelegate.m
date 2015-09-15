@@ -19,17 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    NSObject *lToken = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
-//    
-//    if (lToken == nil){
-//        
-//        UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
-//        UINavigationController *lNavigation = (UINavigationController *)self.window.rootViewController;
-//        [lNavigation pushViewController:lViewController animated:NO];
-//        
-//        
-//    }
+    NSObject *lToken = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
+    
+    if (lToken != nil){
+        
+        UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEFriendsListVC"];
+        UINavigationController *lNavigation = (UINavigationController *)self.window.rootViewController;
+        [lNavigation pushViewController:lViewController animated:NO];
+        
+        
+    }
     
     return YES;
 }
