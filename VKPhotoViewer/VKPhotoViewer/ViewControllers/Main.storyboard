@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -665,7 +665,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9U-ll-6i3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56a-po-NVm">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56a-po-NVm">
                                         <rect key="frame" x="19" y="17" width="40" height="30"/>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -675,7 +675,7 @@
                                             <action selector="closeBtnTapped:" destination="7bx-uV-2xQ" eventType="touchUpInside" id="CaT-7P-py0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gm-0i-Oa2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gm-0i-Oa2">
                                         <rect key="frame" x="166" y="21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -684,7 +684,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="8Gm-0i-Oa2" secondAttribute="centerX" id="Lts-4N-Pbt"/>
+                                    <constraint firstItem="56a-po-NVm" firstAttribute="leading" secondItem="y9U-ll-6i3" secondAttribute="leading" constant="19" id="Vc1-bk-V3D"/>
                                     <constraint firstAttribute="height" constant="64" id="ZOE-Qo-21u"/>
+                                    <constraint firstAttribute="centerY" secondItem="8Gm-0i-Oa2" secondAttribute="centerY" id="Zbm-Ad-Wsv"/>
+                                    <constraint firstAttribute="centerY" secondItem="56a-po-NVm" secondAttribute="centerY" id="rNG-B3-tcK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -719,6 +723,7 @@
                         <outlet property="collectionView" destination="OYu-LX-71O" id="tEf-Be-FGF"/>
                         <outlet property="likeBtn" destination="HFa-dH-dh2" id="S3W-h0-zPf"/>
                         <outlet property="likesCountLbl" destination="H6d-Tc-082" id="bVa-Eh-Iqp"/>
+                        <outlet property="topLabel" destination="8Gm-0i-Oa2" id="1v4-21-GuQ"/>
                         <outlet property="uperView" destination="y9U-ll-6i3" id="zWs-QL-mD8"/>
                     </connections>
                 </viewController>
