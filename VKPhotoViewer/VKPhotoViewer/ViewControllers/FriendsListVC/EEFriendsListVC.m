@@ -180,14 +180,11 @@
     if ([self.searchController isActive]) {
         self.searchController.active = NO;
     }
-    UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
-    
     [self.friendsList removeAllObjects];
     [self.searchResult removeAllObjects];
     [self.tableView reloadData];
     
-    [self.navigationController pushViewController:lViewController animated:YES];
+    
     NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     
     for (NSHTTPCookie *cookie in [lStorage cookies]) {
@@ -199,6 +196,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)updateDataWithCount:(NSInteger)count offset:(NSInteger)offset {

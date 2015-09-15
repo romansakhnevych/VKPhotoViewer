@@ -7,6 +7,9 @@
 //
 
 #import "EEMainVC.h"
+#import "AppDelegate.h"
+#import "Constants.h"
+#import "MainViewController.h"
 
 @interface EEMainVC ()
 
@@ -28,9 +31,9 @@
 }
 
 - (void)popToTableView{
+    UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+    [self.navigationController pushViewController:lViewController animated:YES];
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 

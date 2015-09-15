@@ -33,6 +33,8 @@
 
 #define safeModulo(x,y) ((y + x % y) % y)
 
+#define VIEW_CONTROLLER_WITH_ID(identifier) (UIViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+
 #define CAPTCHA_NEEDED(responseObject) (([[[responseObject objectForKey:@"error"] objectForKey:@"error_msg"] isEqualToString:@"Captcha needed"]) ? YES : NO);
 
 #ifdef DEBUG

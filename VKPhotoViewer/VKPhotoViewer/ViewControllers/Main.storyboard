@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bvE-os-U8z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dQH-E3-2Km" kind="relationship" relationship="rootViewController" id="Aqi-yZ-AQq"/>
+                        <segue destination="uiY-un-2BE" kind="relationship" relationship="rootViewController" id="WGB-6Y-PJd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zg7-B5-j9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838.5" y="345.5"/>
+            <point key="canvasLocation" x="-918.5" y="345.5"/>
         </scene>
         <!--Friends ListVC-->
         <scene sceneID="tjX-e7-E5o">
             <objects>
-                <viewController id="dQH-E3-2Km" customClass="EEFriendsListVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EEFriendsListVC" id="dQH-E3-2Km" customClass="EEFriendsListVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FXV-xA-fva"/>
                         <viewControllerLayoutGuide type="bottom" id="RDc-2L-8Ct"/>
@@ -77,6 +77,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9GV-A9-BKQ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navigationBar" destination="k4P-jM-GmV" id="iKu-g9-ZzG"/>
                         <outlet property="tableView" destination="SEH-x2-4f1" id="Rm3-7d-nZd"/>
@@ -84,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-jq-2gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838.5" y="1179.5"/>
+            <point key="canvasLocation" x="-918.5" y="1174.5"/>
         </scene>
         <!--User DetailVC-->
         <scene sceneID="LOm-Xr-VFv">
@@ -438,7 +439,7 @@
         <!--Vk LoginVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="EEVkLoginVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EEVkLoginVC" id="vXZ-lx-hvc" customClass="EEVkLoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
