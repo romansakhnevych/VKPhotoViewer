@@ -127,8 +127,6 @@
                 [EEAppManager sharedAppManager].allPhotos = lArray;
                 [EEAppManager sharedAppManager].currentPhotoIndex = 0;
                 [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
-                
-                lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
                 [[self navigationController] pushViewController:lViewController animated:YES];
             }else{
                 NSLog(@"error");
