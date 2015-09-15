@@ -31,7 +31,7 @@
 }
 
 - (void)popToTableView{
-    UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+    UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"MainViewController");
     [self.navigationController pushViewController:lViewController animated:YES];
     
 }

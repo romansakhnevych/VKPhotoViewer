@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
-#define kMainViewController (MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
+
 
 @interface EEFriendsListVC ()
 @property (nonatomic)CGFloat lastOffset;
