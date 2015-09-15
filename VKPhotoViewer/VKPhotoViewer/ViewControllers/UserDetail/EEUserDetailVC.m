@@ -12,7 +12,7 @@
 #import "EEUserDetailCell.h"
 #import "EEPhotoGalleryVC.h"
 #import "MBProgressHUD.h"
-
+#import "Constants.h"
 
 @interface EEUserDetailVC ()
 
@@ -116,22 +116,28 @@
 #pragma mark - Button Loading Methods
 
 - (void)avatarCkicked:(id)sender {
-    [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:@"-6" forUser:[EEAppManager sharedAppManager].currentFriend.userId completionSuccess:^(id responseObject) {
-        if ([responseObject isKindOfClass:[NSMutableArray class]]){
-            UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
-            NSMutableArray *lArray = [NSMutableArray array];
-            [lArray addObjectsFromArray:responseObject];
-            [EEAppManager sharedAppManager].allPhotos = lArray;
-            [EEAppManager sharedAppManager].currentPhotoIndex = 0;
-            [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
-            
-            lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
-            [[self navigationController] pushViewController:lViewController animated:YES];
-        }else{
-            NSLog(@"error");
-        }
-    } completionFailure:^(NSError *error) {
+    [[EEAppManager sharedAppManager] getAlbumWithId:ALBUM_WITH_AVATARS_ID completionSuccess:^(id responseObject){
+        [EEAppManager sharedAppManager].currentAlbum = responseObject[0];
+        [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:ALBUM_WITH_AVATARS_ID forUser:[EEAppManager sharedAppManager].currentFriend.userId completionSuccess:^(id responseObject) {
+            if ([responseObject isKindOfClass:[NSMutableArray class]]){
+                UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+                NSMutableArray *lArray = [NSMutableArray array];
+                [lArray addObjectsFromArray:responseObject];
+                [EEAppManager sharedAppManager].allPhotos = lArray;
+                [EEAppManager sharedAppManager].currentPhotoIndex = 0;
+                [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
+                
+                lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
+                [[self navigationController] pushViewController:lViewController animated:YES];
+            }else{
+                NSLog(@"error");
+            }
+        } completionFailure:^(NSError *error) {
+            NSLog(@"error - %@",error);
+        }];
+    } completionFailure:^(NSError *error){
+
         NSLog(@"error - %@",error);
     }];
 }

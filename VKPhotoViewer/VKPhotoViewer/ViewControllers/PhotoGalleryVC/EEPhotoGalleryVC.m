@@ -25,14 +25,13 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.navigationController setNavigationBarHidden:YES];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_currentIndex+1,[_album getAlbumSize]];
-    
+    _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];    
     if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {
@@ -80,7 +79,7 @@ static NSString *CelID = @"GalleryCell";
     NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)[EEAppManager sharedAppManager].allPhotos.count];
     if (indexPath.row == [EEAppManager sharedAppManager].allPhotos.count - 1
         && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]]) {
-        [_baseAlbumDelegate BaseAlbumDelegateUploadPhotos: ^{
+        [[EEAppManager sharedAppManager] UploadPhotos: ^{
             [_collectionView reloadData];
         }];
     }
@@ -117,7 +116,7 @@ static NSString *CelID = @"GalleryCell";
         }
         EEPhoto *lPhoto = [_allPhotos objectAtIndex:_currentIndex];
         [EEAppManager sharedAppManager].currentPhoto = lPhoto;
-        self.navigationItem.title = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[_album getAlbumSize]];
+        _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
         if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
             _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
         } else {

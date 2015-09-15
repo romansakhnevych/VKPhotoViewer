@@ -27,6 +27,8 @@
 #define FIELDS @"nickname,photo_100,photo_200_orig,bdate"
 #define NAME_CASE @"nom"
 
+#define ALBUM_WITH_AVATARS_ID @"-6"
+
 #define FIELDS_FOR_USER @"sex,bdate,city,country,photo_50,photo_100,photo_200_orig,photo_200,photo_400_orig,photo_max,photo_max_orig,photo_id,online,online_mobile,domain,has_mobile,contacts,connections,site,education,universities,schools,can_post,can_see_all_posts,can_see_audio,can_write_private_message,status,last_seen,relation,relatives,counters,screen_name,maiden_name,timezone,occupation,activities,interests,music,movies,tv,books,games,about,quotes,personal,friend_status,military,career"
 
 #define PRESENT_VIEW_CONTROLLER(identifier) AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate]; UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:identifier]; UINavigationController *lNavigation = (UINavigationController *)appDelegate.window.rootViewController; [lNavigation presentViewController:lViewController animated:YES completion:nil];
