@@ -36,6 +36,11 @@
     return [NSString stringWithFormat:@"https://api.vk.com/method/users.get?user_id=%@&fields=%@&name_case=%@&access_token=%@&v=5.8",ID,FIELDS_FOR_USER,NAME_CASE,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
 }
 
++ (NSString *)getAlbumWithId:(NSString* )albumId
+                     forUser:(NSString *)userId{
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.getAlbums?owner_id=%@&album_ids=%@&access_token=%@&v=%@",userId, albumId,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
+
 + (NSString *)getAlbumsRequestWithOffset:(NSInteger)offset
                                    count:(NSInteger)count
                                     byId:(NSString *)userId{

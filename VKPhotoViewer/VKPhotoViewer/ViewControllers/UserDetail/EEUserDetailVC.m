@@ -11,7 +11,8 @@
 #import "UIImage+StackBlur.h"
 #import "EEUserDetailCell.h"
 #import "EEPhotoGalleryVC.h"
-
+#import "MBProgressHUD.h"
+#import "Constants.h"
 
 @interface EEUserDetailVC ()
 
@@ -26,12 +27,16 @@
     [_spinner startAnimating];
     [_loadingView setHidden:NO];
     
+    
     [_buttonWithAvatar.imageView.layer setCornerRadius:_buttonWithAvatar.frame.size.width/2];
     _buttonWithAvatar.imageView.layer.masksToBounds = YES;
     _buttonWithAvatar.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     _buttonWithAvatar.imageView.layer.borderWidth = 2;
     [self.navigationController setNavigationBarHidden:NO];
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+       
     [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -46,6 +51,10 @@
     } completionFailure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
     
     EEFriends *lUser = [EEAppManager sharedAppManager].currentFriend;
     
@@ -57,9 +66,11 @@
         _buttonWithAvatar.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
         [_buttonWithAvatar setImage:image forState:UIControlStateNormal];
         [_buttonWithAvatar setImage:image forState:UIControlStateHighlighted];
-//        [_buttonWithAvatar setImage:image forState:UIControlStateDisabled];
+        [_buttonWithAvatar setImage:image forState:UIControlStateDisabled];
         _backgroundPhoto.image = [image stackBlur:6];
     }];
+  
+        
     [_spinner stopAnimating];
     [_spinner setHidden:YES];
     [_loadingView setHidden:YES];
@@ -105,22 +116,28 @@
 #pragma mark - Button Loading Methods
 
 - (void)avatarCkicked:(id)sender {
-    [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:@"-6" forUser:[EEAppManager sharedAppManager].currentFriend.userId completionSuccess:^(id responseObject) {
-        if ([responseObject isKindOfClass:[NSMutableArray class]]){
-            UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
-            NSMutableArray *lArray = [NSMutableArray array];
-            [lArray addObjectsFromArray:responseObject];
-            [EEAppManager sharedAppManager].allPhotos = lArray;
-            [EEAppManager sharedAppManager].currentPhotoIndex = 0;
-            [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
-            
-            lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
-            [[self navigationController] pushViewController:lViewController animated:YES];
-        }else{
-            NSLog(@"error");
-        }
-    } completionFailure:^(NSError *error) {
+    [[EEAppManager sharedAppManager] getAlbumWithId:ALBUM_WITH_AVATARS_ID completionSuccess:^(id responseObject){
+        [EEAppManager sharedAppManager].currentAlbum = responseObject[0];
+        [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:ALBUM_WITH_AVATARS_ID forUser:[EEAppManager sharedAppManager].currentFriend.userId completionSuccess:^(id responseObject) {
+            if ([responseObject isKindOfClass:[NSMutableArray class]]){
+                UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+                NSMutableArray *lArray = [NSMutableArray array];
+                [lArray addObjectsFromArray:responseObject];
+                [EEAppManager sharedAppManager].allPhotos = lArray;
+                [EEAppManager sharedAppManager].currentPhotoIndex = 0;
+                [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
+                
+                lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
+                [[self navigationController] pushViewController:lViewController animated:YES];
+            }else{
+                NSLog(@"error");
+            }
+        } completionFailure:^(NSError *error) {
+            NSLog(@"error - %@",error);
+        }];
+    } completionFailure:^(NSError *error){
+
         NSLog(@"error - %@",error);
     }];
 }
