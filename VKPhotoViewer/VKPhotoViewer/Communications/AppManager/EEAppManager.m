@@ -14,9 +14,8 @@
 #import "Constants.h"
 #import "EENetworkManager.h"
 #import "AppDelegate.h"
-#import "EEPhotoGalleryVC.h"
 
-@interface EEAppManager () <BaseAlbumDelegate>
+@interface EEAppManager ()
 
 @end
 
@@ -55,14 +54,15 @@
     }
 }
 
-- (void)getDetailForUserWithCompletionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
-                            completionFailure:(void (^)(NSError * error))failure {
+- (void)getDetailByUserId:(NSString *)userId
+        completionSuccess:(void (^)(BOOL successLoad, EEFriends *friendModel))success
+        completionFailure:(void (^)(NSError * error))failure {
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];
     }
     else {
         EENetworkManager *lManager = [EENetworkManager sharedManager];
-        [lManager GET:[EERequests getUserInfoRequestWithId:_currentFriend.userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+        [lManager GET:[EERequests getUserInfoRequestWithId:userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
             NSArray *lUserDetailResponse = [responseObject objectForKey:@"response"];
             _currentFriend = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:_currentFriend];
             success(YES, _currentFriend);
@@ -159,9 +159,9 @@
     }
 }
 
-- (void)addLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
-                              CompletionSuccess:(void (^)(id responseObject))success
-                              completionFailure:(void (^)(NSError * error))failure{
+- (void)addLikeForCurrentFriendPhotoWithCaptha:(NSDictionary *)captcha
+                             CompletionSuccess:(void (^)(id responseObject))success
+                             completionFailure:(void (^)(NSError * error))failure{
     
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];
@@ -228,7 +228,7 @@
     return ([[[NSUserDefaults standardUserDefaults] objectForKey:CREATED]timeIntervalSince1970] + [[[NSUserDefaults standardUserDefaults]objectForKey:TOKEN_LIFE_TIME_KEY] doubleValue] - TEMPORAL_ERROR) < [[NSDate new]  timeIntervalSince1970];
 }
 
-#pragma mark - BaseAlbumDelegate realization
+#pragma mark - Uploading photos for Gallery
 
 -(void)UploadPhotos:(void (^)())updateData {
     [self getPhotosWithCount:60.0 offset:_allPhotos.count fromAlbum:_currentAlbum.albumID forUser:_currentFriend.userId completionSuccess:^(id responseObject) {

@@ -11,14 +11,6 @@
 #import "EEPhoto.h"
 #import "EEGalleryCell.h"
 
-
-@protocol BaseAlbumDelegate <NSObject>
-
-@required
--(void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData;
-
-@end
-
 @interface EEPhotoGalleryVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic, retain) NSMutableArray *allPhotos;
 @property (nonatomic) NSInteger currentIndex;
@@ -29,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (nonatomic, retain)UIImage *image;
 @property (nonatomic, strong)UIView *cellImageSnapshot;
-@property (nonatomic,weak) id <BaseAlbumDelegate> baseAlbumDelegate;
 @property (weak, nonatomic) IBOutlet UIView *uperView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;

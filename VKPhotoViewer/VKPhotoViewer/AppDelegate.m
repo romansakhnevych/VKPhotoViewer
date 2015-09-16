@@ -24,7 +24,7 @@
     if (lToken != nil){
         
         UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEFriendsListVC"];
+        UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"MainViewController"];
         UINavigationController *lNavigation = (UINavigationController *)self.window.rootViewController;
         [lNavigation pushViewController:lViewController animated:NO];
         

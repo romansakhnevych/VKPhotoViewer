@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
-#define kMainViewController (MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
+
 
 @interface EEFriendsListVC ()
 @property (nonatomic)CGFloat lastOffset;
@@ -33,24 +33,15 @@
     
     _friendsList = [NSMutableArray new];
     _searchResult = [NSMutableArray new];
-    
-   
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [self configureSearchController];
-        [self setUpTableView];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-       });
-    });
-    
+    [self configureSearchController];
+    [self setUpTableView];
     [EEAppManager sharedAppManager].delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO];
     if(!_friendsList ||! _friendsList.count) {
         [self updateTableView];
     }
@@ -200,7 +191,7 @@
 }
 
 - (void)updateDataWithCount:(NSInteger)count offset:(NSInteger)offset {
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
     [[EEAppManager sharedAppManager] getFriendsWithCount:count offset:offset completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]) {
             [_friendsList addObjectsFromArray:responseObject];
@@ -211,6 +202,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     } completionFailure:^(NSError *error) {
         [[EEAppManager sharedAppManager] showAlertWithError:error];

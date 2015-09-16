@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  VKPhotoViewer
+
+  Created by MykolaSobko on 16.09.15.
+  Copyright (c) 2015 Admin. All rights reserved.
+*/
+
+"DetailKey" = "Детально";
+"SettingsKey" = "Налаштування";
+"AlbumsKey" = "Альбоми";
+"SexKey" = "Стать:";
+"BirthDayKey" = "Дата народження:";
+"LocationKey" = "Місцезнаходження:";
+"DomainKey" = "Домен:";
+"StatusKey" = "Статус:";
+"OccupationKey" = "Місце навчання:";
+"SiteKey" = "Сайт:";
+"MaleKey" = "Чоловік";
+"FemaleKey" = "Жінка";
