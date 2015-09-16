@@ -22,11 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Detail";
+    NSString *localizedDetailString = NSLocalizedString(@"DetailKey", @"");
+
+    //self.navigationItem.title = @"Detail";
+    self.navigationItem.title = localizedDetailString;
     [_spinner setHidden:NO];
     [_spinner startAnimating];
     [_loadingView setHidden:NO];
-    
     
     [_buttonWithAvatar.imageView.layer setCornerRadius:_buttonWithAvatar.frame.size.width/2];
     _buttonWithAvatar.imageView.layer.masksToBounds = YES;
@@ -128,8 +130,6 @@
                 [EEAppManager sharedAppManager].allPhotos = lArray;
                 [EEAppManager sharedAppManager].currentPhotoIndex = 0;
                 [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
-                
-                lViewController.baseAlbumDelegate = [[EEAppManager alloc] init];
                 [[self navigationController] pushViewController:lViewController animated:YES];
             }else{
                 NSLog(@"error");

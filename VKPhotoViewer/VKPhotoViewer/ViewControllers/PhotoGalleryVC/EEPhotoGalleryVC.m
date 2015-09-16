@@ -211,9 +211,6 @@ static NSString *CelID = @"GalleryCell";
         } completionFailure:^(NSError *error) {
             
         }];
-
-
-  
     }
 }
 

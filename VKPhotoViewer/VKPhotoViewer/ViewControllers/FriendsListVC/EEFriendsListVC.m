@@ -33,15 +33,8 @@
     
     _friendsList = [NSMutableArray new];
     _searchResult = [NSMutableArray new];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [self configureSearchController];
-        [self setUpTableView];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-       });
-    });
-    
+    [self configureSearchController];
+    [self setUpTableView];
     [EEAppManager sharedAppManager].delegate = self;
 }
 
@@ -140,7 +133,7 @@
     [_searchController setActive:NO];
     
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self navigationController] pushViewController:lViewController animated:YES];
     }
@@ -198,7 +191,7 @@
 }
 
 - (void)updateDataWithCount:(NSInteger)count offset:(NSInteger)offset {
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
     [[EEAppManager sharedAppManager] getFriendsWithCount:count offset:offset completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]) {
             [_friendsList addObjectsFromArray:responseObject];
@@ -209,6 +202,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     } completionFailure:^(NSError *error) {
         [[EEAppManager sharedAppManager] showAlertWithError:error];
@@ -225,7 +219,6 @@
     
     [_tableView reloadData];
 }
-
 
 #pragma mark - IBActions methods
 

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  VKPhotoViewer
+
+  Created by MykolaSobko on 16.09.15.
+  Copyright (c) 2015 Admin. All rights reserved.
+*/
+
+"DetailKey" = "Подробно";
+"SettingsKey" = "Настройка";
+"AlbumsKey" = "Альбомы";

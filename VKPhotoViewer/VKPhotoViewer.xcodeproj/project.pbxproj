@@ -14,6 +14,9 @@
 		092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */; };
 		092A5F5C1BA46FEC0003E55B /* EELoadingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */; };
 		30C909F21BA850460067847D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C909F11BA850460067847D /* MBProgressHUD.m */; };
+		30D4D8DC1BA97F6E00261B2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D4D8DE1BA97F6E00261B2B /* Main.storyboard */; };
+		30D4D8E11BA9804C00261B2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D4D8DE1BA97F6E00261B2B /* Main.storyboard */; };
+		30D4D8E81BA9863F00261B2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30D4D8EA1BA9863F00261B2B /* Localizable.strings */; };
 		57783C54B59AD86E9EF415E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C16900F5D27E4D51B8CB6DF4 /* libPods.a */; };
 		845CFAA71BA879C500916956 /* EEFiltredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CFAA61BA879C500916956 /* EEFiltredVC.m */; };
 		847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29471BA04CD300612D6A /* EENetworkManager.m */; };
@@ -46,7 +49,6 @@
 		847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29AD1BA04D2600612D6A /* EEUserDetailVC.m */; };
 		847D29DA1BA04D2600612D6A /* EEUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29B01BA04D2600612D6A /* EEUserDetailCell.m */; };
 		847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29B11BA04D2600612D6A /* UserDetailCell.xib */; };
-		847D29DD1BA04D3400612D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D29DC1BA04D3400612D6A /* Main.storyboard */; };
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
 		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
 		84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC101BA48B0500910A41 /* LGSideMenuController.m */; };
@@ -90,8 +92,16 @@
 		092A5F591BA46FEC0003E55B /* EELoadingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EELoadingTVCell.m; sourceTree = "<group>"; };
 		092A5F5A1BA46FEC0003E55B /* EELoadingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EELoadingTVCell.xib; sourceTree = "<group>"; };
 		0A93F51068735526F40768D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		30BFB68A1BA9884D001CBB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30BFB68B1BA98857001CBB26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30C909F01BA850370067847D /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		30C909F11BA850460067847D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		30D4D8DD1BA97F6E00261B2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30D4D8E21BA9808D00261B2B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		30D4D8E31BA9808D00261B2B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		30D4D8E41BA9809A00261B2B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		30D4D8E51BA9809A00261B2B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		30D4D8E91BA9863F00261B2B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F029252C5389E17067EAEBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		845CFAA51BA879C500916956 /* EEFiltredVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFiltredVC.h; sourceTree = "<group>"; };
 		845CFAA61BA879C500916956 /* EEFiltredVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFiltredVC.m; sourceTree = "<group>"; };
@@ -153,7 +163,6 @@
 		847D29AF1BA04D2600612D6A /* EEUserDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEUserDetailCell.h; sourceTree = "<group>"; };
 		847D29B01BA04D2600612D6A /* EEUserDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEUserDetailCell.m; sourceTree = "<group>"; };
 		847D29B11BA04D2600612D6A /* UserDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailCell.xib; sourceTree = "<group>"; };
-		847D29DC1BA04D3400612D6A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ViewControllers/Main.storyboard; sourceTree = "<group>"; };
 		847D29DE1BA04D5F00612D6A /* EEAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEAppManager.h; path = Communications/AppManager/EEAppManager.h; sourceTree = "<group>"; };
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
 		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
@@ -682,7 +691,8 @@
 				847D29801BA04D2600612D6A /* Requests */,
 				847D29831BA04D2600612D6A /* ResponseBilder */,
 				847D29861BA04D2600612D6A /* ViewControllers */,
-				847D29DC1BA04D3400612D6A /* Main.storyboard */,
+				30D4D8DE1BA97F6E00261B2B /* Main.storyboard */,
+				30D4D8EA1BA9863F00261B2B /* Localizable.strings */,
 				847D29411BA04BD500612D6A /* Communications */,
 				847D29491BA04D2600612D6A /* Frameworks */,
 				84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */,
@@ -819,6 +829,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 84C1C3AE1B4BCF3E00959DF2;
 			productRefGroup = 84C1C3B81B4BCF3E00959DF2 /* Products */;
@@ -838,9 +849,10 @@
 			files = (
 				84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */,
 				092A5F5C1BA46FEC0003E55B /* EELoadingTVCell.xib in Resources */,
+				30D4D8E81BA9863F00261B2B /* Localizable.strings in Resources */,
 				847D29CA1BA04D2600612D6A /* AlbumCell.xib in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
-				847D29DD1BA04D3400612D6A /* Main.storyboard in Resources */,
+				30D4D8DC1BA97F6E00261B2B /* Main.storyboard in Resources */,
 				092A5F571BA46FE00003E55B /* EEFriendsCountTVCell.xib in Resources */,
 				847D29D61BA04D2600612D6A /* GalleryCell.xib in Resources */,
 				847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */,
@@ -853,6 +865,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D4D8E11BA9804C00261B2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,10 +979,34 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		30D4D8DE1BA97F6E00261B2B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30D4D8DD1BA97F6E00261B2B /* Base */,
+				30D4D8E21BA9808D00261B2B /* ru */,
+				30D4D8E41BA9809A00261B2B /* uk */,
+			);
+			name = Main.storyboard;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30D4D8EA1BA9863F00261B2B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30D4D8E91BA9863F00261B2B /* uk */,
+				30BFB68A1BA9884D001CBB26 /* Base */,
+				30BFB68B1BA98857001CBB26 /* ru */,
+			);
+			name = Localizable.strings;
+			path = ViewControllers/UserDetail;
+			sourceTree = "<group>";
+		};
 		84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				84C1C3CA1B4BCF3E00959DF2 /* Base */,
+				30D4D8E31BA9808D00261B2B /* ru */,
+				30D4D8E51BA9809A00261B2B /* uk */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
