@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "photos"; ObjectID = "3qu-eb-poL"; */
+"3qu-eb-poL.text" = "Фото";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "56a-po-NVm"; */
+"56a-po-NVm.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8Gm-0i-Oa2"; */
+"8Gm-0i-Oa2.text" = "Label";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "FmO-4a-5p1"; */
+"FmO-4a-5p1.text" = "10";
+
+/* Class = "UILabel"; text = "25"; ObjectID = "H6d-Tc-082"; */
+"H6d-Tc-082.text" = "25";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "HqC-8c-T3L"; */
+"HqC-8c-T3L.title" = "Меню";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "R3T-VA-Ygq"; */
+"R3T-VA-Ygq.title" = "Вийти";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "SJZ-vJ-oGu"; */
+"SJZ-vJ-oGu.title" = "Меню";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "VbQ-ob-Wvw"; */
+"VbQ-ob-Wvw.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Friends"; ObjectID = "YTh-Zi-GFK"; */
+"YTh-Zi-GFK.title" = "Друзі";
+
+/* Class = "UILabel"; text = "from"; ObjectID = "b1X-0w-pcx"; */
+"b1X-0w-pcx.text" = "from";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "b94-cE-9mx"; */
+"b94-cE-9mx.normalTitle" = "Edit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dbC-1S-Tdd"; */
+"dbC-1S-Tdd.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "f7T-Nn-CaG"; */
+"f7T-Nn-CaG.title" = "Меню";
+
+/* Class = "UILabel"; text = "albums"; ObjectID = "igN-ic-TRn"; */
+"igN-ic-TRn.text" = "Альбоми";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "lbr-rZ-t5o"; */
+"lbr-rZ-t5o.title" = "Меню";
+
+/* Class = "UILabel"; text = "Name Surname"; ObjectID = "pyV-As-0Qp"; */
+"pyV-As-0Qp.text" = "Name Surname";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "vAS-N6-HII"; */
+"vAS-N6-HII.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "VK Login"; ObjectID = "vAl-lp-8qz"; */
+"vAl-lp-8qz.normalTitle" = "VK Вхід";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "xpQ-T3-gF5"; */
+"xpQ-T3-gF5.title" = "Title";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "ymj-F4-xmO"; */
+"ymj-F4-xmO.text" = "3";
