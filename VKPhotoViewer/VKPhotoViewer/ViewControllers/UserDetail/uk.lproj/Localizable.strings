@@ -9,3 +9,12 @@
 "DetailKey" = "Детально";
 "SettingsKey" = "Налаштування";
 "AlbumsKey" = "Альбоми";
+"SexKey" = "Стать:";
+"BirthDayKey" = "Дата народження:";
+"LocationKey" = "Місцезнаходження:";
+"DomainKey" = "Домен:";
+"StatusKey" = "Статус:";
+"OccupationKey" = "Місце навчання:";
+"SiteKey" = "Сайт:";
+"MaleKey" = "Чоловік";
+"FemaleKey" = "Жінка";
