@@ -17,7 +17,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface EEPhotosVC () <BaseAlbumDelegate>
+@interface EEPhotosVC ()
 
 @end
 
@@ -35,10 +35,8 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     _album = [[EEAppManager sharedAppManager] currentAlbum];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-      
-    self.navigationItem.title = _album.albumTitle;
-    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
-        
+        self.navigationItem.title = _album.albumTitle;
+        [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
@@ -47,14 +45,12 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     // Set outself as the navigation controller's delegate so we're asked for a transitioning object
     self.navigationController.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
     // Stop being the navigation controller's delegate
     if (self.navigationController.delegate == self) {
         self.navigationController.delegate = nil;
@@ -64,7 +60,7 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-   }
+}
 
 
 #pragma mark <UICollectionViewDataSource>
@@ -78,11 +74,9 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.row == [collectionView numberOfItemsInSection:0] - 1 && _loadedPhotosCount == _count){
         [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:nil];
     }
-    
     EEPhotoCell *lCell = (EEPhotoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     EEPhoto *lPhoto = [_photosList objectAtIndex:indexPath.row];
     lCell.imageView.image = [UIImage imageNamed:@"PlaceholderIcon"];
@@ -91,13 +85,12 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     } failure:^(NSError *error) {
         
     }];
-        return lCell;
+    return lCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
-    lViewController.baseAlbumDelegate = self;
     [[self navigationController] pushViewController:lViewController animated:YES];
     [EEAppManager sharedAppManager].currentPhotoIndex = indexPath.row;
     [EEAppManager sharedAppManager].allPhotos = _photosList;
@@ -142,11 +135,11 @@ static NSString * const reuseIdentifier = @"PhotoCell";
     }];
 }
 
-#pragma mark - BaseAlbumDelegate implementation
-
-- (void)BaseAlbumDelegateUploadPhotos:(void (^)())updateData {
-    [self updateDataWithCount:_count Offset:_offset AlbumId:_album.albumID UserId:_user.userId completion:updateData];
+- (EEPhotoCell*)cellWithIndex: (NSInteger) index {
+    return (EEPhotoCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
+
+#pragma mark - UIViewControllerAnimatedTransitioning implementation
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
@@ -160,9 +153,4 @@ static NSString * const reuseIdentifier = @"PhotoCell";
         return nil;
     }
 }
-
-- (EEPhotoCell*)cellWithIndex: (NSInteger) index {
-    return (EEPhotoCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-}
-
 @end

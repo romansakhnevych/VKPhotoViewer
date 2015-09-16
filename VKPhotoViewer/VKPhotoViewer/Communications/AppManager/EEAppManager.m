@@ -14,9 +14,8 @@
 #import "Constants.h"
 #import "EENetworkManager.h"
 #import "AppDelegate.h"
-#import "EEPhotoGalleryVC.h"
 
-@interface EEAppManager () <BaseAlbumDelegate>
+@interface EEAppManager ()
 
 @end
 
@@ -229,7 +228,7 @@
     return ([[[NSUserDefaults standardUserDefaults] objectForKey:CREATED]timeIntervalSince1970] + [[[NSUserDefaults standardUserDefaults]objectForKey:TOKEN_LIFE_TIME_KEY] doubleValue] - TEMPORAL_ERROR) < [[NSDate new]  timeIntervalSince1970];
 }
 
-#pragma mark - BaseAlbumDelegate realization
+#pragma mark - Uploading photos for Gallery
 
 -(void)UploadPhotos:(void (^)())updateData {
     [self getPhotosWithCount:60.0 offset:_allPhotos.count fromAlbum:_currentAlbum.albumID forUser:_currentFriend.userId completionSuccess:^(id responseObject) {
