@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navItem.title = @"Settings";
+     NSString *localizedSetingsString = NSLocalizedString(@"SettingsKey", @"");
+    self.navItem.title = localizedSetingsString;
 }
 
 - (void)didReceiveMemoryWarning {

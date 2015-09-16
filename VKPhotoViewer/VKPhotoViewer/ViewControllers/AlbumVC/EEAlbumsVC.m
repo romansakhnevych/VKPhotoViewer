@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.title = @"Albums";
+     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
+    self.navigationItem.title = localizedAlbumsString;
     _albumsList = [[NSMutableArray alloc] init];
     _count = 4;
     _offset = 0;
