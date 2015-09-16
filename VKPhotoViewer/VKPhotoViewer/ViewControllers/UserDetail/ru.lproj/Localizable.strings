@@ -18,3 +18,10 @@
 "SiteKey" = "Сайт:";
 "MaleKey" = "Мужской";
 "FemaleKey" = "Женщина";
+
+"MenuKey" = "Меню";
+"LogOutKey" = "Выход";
+
+"FriendsKey" = "Друзья";
+"RecentlyAddedKey" = "Недавно добавленные фото";
+"AddPhotoKey" = "Добавить фото";
