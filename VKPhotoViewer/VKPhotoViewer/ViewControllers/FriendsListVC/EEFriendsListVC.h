@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic)UISearchController *searchController;
 
+
 - (IBAction)logoutTap:(id)sender;
 - (IBAction)menuTap:(id)sender;
 

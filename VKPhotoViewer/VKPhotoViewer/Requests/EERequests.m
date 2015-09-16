@@ -65,5 +65,15 @@
     return [NSString stringWithFormat:@"https://api.vk.com/method/likes.delete?type=photo&owner_id=%@&item_id=%@&access_token=%@&v=%@",ownerId,itemId,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
 }
 
++ (NSString*) urlServiceForPhotoOn {
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.getWallUploadServer?access_token=%@&v=%@", [[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
 
++ (NSString*) savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server {
+    return [NSString stringWithFormat:@"https://api.vk.com/method/photos.saveWallPhoto?owner_id=%@&server=%@&photo=%@&hash=%@&access_token=%@&v=%@", userId, server, photo, hash, [[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
+
++(NSString*) postPhoto: (NSString*)photoId OnWall: (NSString*)idOfUser {
+    return [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&attachment=%@access_token=%@&v=%@", idOfUser, photoId, [[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
+}
 @end

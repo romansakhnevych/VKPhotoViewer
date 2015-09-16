@@ -245,4 +245,44 @@
     }];
 }
 
+- (void)recieveLnkForPhotoCompletionSuccess:(void (^)(id responseObject))success
+                          completionFailure:(void (^)(NSError * error))failure  {
+    EENetworkManager *lManager = [EENetworkManager sharedManager];
+    [lManager GET:[EERequests urlServiceForPhotoOn] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure( error);
+    }];
+}
+- (void)postPhotoWithData:(NSData*)data onUrl:(NSString*)url CompletionSuccess:(void (^)(id responseObject))success
+        completionFailure:(void (^)(NSError * error))failure {
+    
+    EENetworkManager *lManager = [EENetworkManager sharedManager];
+    [lManager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFormData:data name:@"data"];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        success (responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure (error);
+    }];
+}
+- (void)savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server CompletionSuccess:(void (^)(id responseObject))success CompletitionFailure:(void (^)(NSError *error))failure {
+    EENetworkManager *lManager = [EENetworkManager sharedManager];
+    [lManager GET:[EERequests savePhoto:photo InServiceWithUserId:userId AndHash:hash AndServer:server] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(success);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
+-(void)postPhoto:(NSString *)photoId OnWall:(NSString *)idOfUser CompletionSuccess:(void (^)(id))success CompletionFailure:(void (^)(NSError *))failure {
+    EENetworkManager *lManager = [EENetworkManager sharedManager];
+    [lManager GET:[EERequests postPhoto:photoId OnWall:idOfUser] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
+
 @end
