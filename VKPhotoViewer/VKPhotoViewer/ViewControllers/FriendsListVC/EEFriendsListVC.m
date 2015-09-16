@@ -33,8 +33,6 @@
     
     _friendsList = [NSMutableArray new];
     _searchResult = [NSMutableArray new];
-    
-   
     [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [self configureSearchController];
@@ -50,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO];
     if(!_friendsList ||! _friendsList.count) {
         [self updateTableView];
     }
@@ -142,7 +140,7 @@
     [_searchController setActive:NO];
     
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self navigationController] pushViewController:lViewController animated:YES];
     }
@@ -227,6 +225,7 @@
     
     [_tableView reloadData];
 }
+
 
 #pragma mark - IBActions methods
 

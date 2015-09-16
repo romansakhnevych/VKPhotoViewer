@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EESettingsVC : UIViewController
-@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
-- (IBAction)menuBtnTap:(id)sender;
 
 @end

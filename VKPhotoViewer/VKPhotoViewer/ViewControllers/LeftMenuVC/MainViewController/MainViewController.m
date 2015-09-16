@@ -34,7 +34,10 @@
         _leftViewController.tintColor = [UIColor whiteColor];
         [_leftViewController.tableView reloadData];
         [self.leftView addSubview:_leftViewController.tableView];
+    
 }
+
+
 
 - (void)leftViewWillLayoutSubviewsWithSize:(CGSize)size
 {

@@ -50,6 +50,7 @@
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
 		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
 		84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC101BA48B0500910A41 /* LGSideMenuController.m */; };
+		84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B259601BA985FF00EDC25D /* EEContainerVC.m */; };
 		84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */; };
 		84B829321BA882E5002BB0E6 /* EECustomTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829201BA882E5002BB0E6 /* EECustomTableHeaderView.m */; };
 		84B829331BA882E5002BB0E6 /* EECustomTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B829211BA882E5002BB0E6 /* EECustomTableHeaderView.xib */; };
@@ -159,6 +160,8 @@
 		847D29E31BA07B6F00612D6A /* EECaptchaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECaptchaVC.m; path = CaptchaVC/EECaptchaVC.m; sourceTree = "<group>"; };
 		84A3DC0F1BA48B0500910A41 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
 		84A3DC101BA48B0500910A41 /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
+		84B2595F1BA985FF00EDC25D /* EEContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEContainerVC.h; path = ContainerVC/EEContainerVC.h; sourceTree = "<group>"; };
+		84B259601BA985FF00EDC25D /* EEContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEContainerVC.m; path = ContainerVC/EEContainerVC.m; sourceTree = "<group>"; };
 		84B8291B1BA882E5002BB0E6 /* EEAddPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEAddPhotoVC.h; sourceTree = "<group>"; };
 		84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEAddPhotoVC.m; sourceTree = "<group>"; };
 		84B8291F1BA882E5002BB0E6 /* EECustomTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECustomTableHeaderView.h; sourceTree = "<group>"; };
@@ -389,6 +392,7 @@
 		847D29861BA04D2600612D6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84B2595E1BA984FE00EDC25D /* ContainerVC */,
 				84B8291A1BA882E5002BB0E6 /* AddPhotoVC */,
 				84B8291D1BA882E5002BB0E6 /* LeftMenuVC */,
 				84B8292B1BA882E5002BB0E6 /* RecentlyAddedVC */,
@@ -543,6 +547,15 @@
 				84A3DC101BA48B0500910A41 /* LGSideMenuController.m */,
 			);
 			path = LGSideMenuController;
+			sourceTree = "<group>";
+		};
+		84B2595E1BA984FE00EDC25D /* ContainerVC */ = {
+			isa = PBXGroup;
+			children = (
+				84B2595F1BA985FF00EDC25D /* EEContainerVC.h */,
+				84B259601BA985FF00EDC25D /* EEContainerVC.m */,
+			);
+			name = ContainerVC;
 			sourceTree = "<group>";
 		};
 		84B8291A1BA882E5002BB0E6 /* AddPhotoVC */ = {
@@ -899,6 +912,7 @@
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,
+				84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */,
 				84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */,
 				847D29BD1BA04D2600612D6A /* HNKDiskCache.m in Sources */,
 				847D29C51BA04D2600612D6A /* EEAlbum.m in Sources */,

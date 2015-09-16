@@ -160,9 +160,9 @@
     }
 }
 
-- (void)addLikeForCurrentFriendPhotoWithCaptcha:(NSDictionary *)captcha
-                              CompletionSuccess:(void (^)(id responseObject))success
-                              completionFailure:(void (^)(NSError * error))failure{
+- (void)addLikeForCurrentFriendPhotoWithCaptha:(NSDictionary *)captcha
+                             CompletionSuccess:(void (^)(id responseObject))success
+                             completionFailure:(void (^)(NSError * error))failure{
     
     if ([self isTokenExpired]) {
         [self.delegate tokenDidExpired];

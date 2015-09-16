@@ -15,6 +15,7 @@
 #import "Constants.h"
 #import "EEAppManager.h"
 #import "Haneke.h"
+#import "EEContainerVC.h"
 
 typedef NS_ENUM(NSInteger, EEMenuItems) {
     Friends,
@@ -109,35 +110,37 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 {
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
     UIViewController *lViewController;
+    EEContainerVC *lContainer = [[[kMainViewController rootViewController] childViewControllers] objectAtIndex:0];
     switch (indexPath.row) {
         case Friends:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
-            [kNavigationController popToRootViewControllerAnimated:NO];
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = @"Friends";
         }
             break;
         case Albums:{
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
-            [kNavigationController popToRootViewControllerAnimated:NO];
-            [kNavigationController pushViewController:lViewController animated:NO];
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = @"Albums";
         }
             break;
         case RecentlyAdded:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
-            [kNavigationController popToRootViewControllerAnimated:NO];
-            [kNavigationController pushViewController:lViewController animated:NO];
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = @"Recently added";
         }
             break;
         case Settings:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EESettingsVC");
-            [kNavigationController popToRootViewControllerAnimated:NO];
-            [kNavigationController pushViewController:lViewController animated:NO];
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = @"Settings";
         }
             break;
         case AddPhoto:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
-            [kNavigationController popToRootViewControllerAnimated:NO];
-            [kNavigationController pushViewController:lViewController animated:NO];
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = @"Add photo";
         }
     }
 }

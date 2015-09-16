@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kMainViewController (MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
-#define kNavigationController (UINavigationController *)[(MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController] rootViewController]
+#define kMainViewController [[(MainViewController *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController] childViewControllers] objectAtIndex:1]
+#define kNavigationController (UINavigationController *)[(MainViewController *)[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController]
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
