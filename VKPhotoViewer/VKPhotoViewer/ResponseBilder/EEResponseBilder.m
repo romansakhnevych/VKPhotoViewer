@@ -37,6 +37,8 @@
     
     [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
+        user.firstName = [obj objectForKey:@"first_name"];
+        user.lastName = [obj objectForKey:@"last_name"];
         user.photosCount = [[obj objectForKey:@"counters"] objectForKey:@"photos"];
         user.albumsCount = [[obj objectForKey:@"counters"] objectForKey:@"albums"];
         user.city = [[obj objectForKey:@"city"] objectForKey:@"title"];
@@ -47,7 +49,9 @@
         user.birthdayDate = [obj objectForKey:@"bdate"];
         user.status = [obj objectForKey:@"status"];
         user.occupation = [[obj objectForKey:@"occupation"] objectForKey:@"name"];
-        
+        user.userId = [obj objectForKey:@"id"];
+        user.smallPhotoLink = [obj objectForKey:@"photo_100"];
+        user.bigPhotoLink = [obj objectForKey:@"photo_200_orig"];
     }];
     
     return user;
@@ -98,6 +102,15 @@
     }];
     
     return lPhotosList;
+}
+
++ (NSMutableArray *)getNewsfeedWithItems:(NSArray *)items profiles:(NSArray *)profiles{
+    NSMutableArray *lNewsList = [NSMutableArray new];
+    
+    
+    
+    
+    return lNewsList;
 }
      
 @end

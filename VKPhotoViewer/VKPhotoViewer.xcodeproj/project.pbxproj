@@ -49,10 +49,16 @@
 		847D29DD1BA04D3400612D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D29DC1BA04D3400612D6A /* Main.storyboard */; };
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
 		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
-		84A3DC0B1BA48AFC00910A41 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC051BA48AFC00910A41 /* LeftViewCell.m */; };
-		84A3DC0C1BA48AFC00910A41 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC071BA48AFC00910A41 /* LeftViewController.m */; };
-		84A3DC0D1BA48AFC00910A41 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC0A1BA48AFC00910A41 /* MainViewController.m */; };
 		84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC101BA48B0500910A41 /* LGSideMenuController.m */; };
+		84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */; };
+		84B829321BA882E5002BB0E6 /* EECustomTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829201BA882E5002BB0E6 /* EECustomTableHeaderView.m */; };
+		84B829331BA882E5002BB0E6 /* EECustomTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B829211BA882E5002BB0E6 /* EECustomTableHeaderView.xib */; };
+		84B829341BA882E5002BB0E6 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829251BA882E5002BB0E6 /* LeftViewCell.m */; };
+		84B829351BA882E5002BB0E6 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829271BA882E5002BB0E6 /* LeftViewController.m */; };
+		84B829361BA882E5002BB0E6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8292A1BA882E5002BB0E6 /* MainViewController.m */; };
+		84B829371BA882E5002BB0E6 /* EERecentlyAddedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8292D1BA882E5002BB0E6 /* EERecentlyAddedVC.m */; };
+		84B829381BA882E5002BB0E6 /* EESettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829301BA882E5002BB0E6 /* EESettingsVC.m */; };
+		84B8293D1BA88431002BB0E6 /* UIView+EEViewCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8293C1BA88431002BB0E6 /* UIView+EEViewCreator.m */; };
 		84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BC1B4BCF3E00959DF2 /* main.m */; };
 		84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */; };
 		84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */; };
@@ -151,14 +157,25 @@
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
 		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
 		847D29E31BA07B6F00612D6A /* EECaptchaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECaptchaVC.m; path = CaptchaVC/EECaptchaVC.m; sourceTree = "<group>"; };
-		84A3DC041BA48AFC00910A41 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
-		84A3DC051BA48AFC00910A41 /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
-		84A3DC061BA48AFC00910A41 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
-		84A3DC071BA48AFC00910A41 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		84A3DC091BA48AFC00910A41 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		84A3DC0A1BA48AFC00910A41 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		84A3DC0F1BA48B0500910A41 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
 		84A3DC101BA48B0500910A41 /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
+		84B8291B1BA882E5002BB0E6 /* EEAddPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEAddPhotoVC.h; sourceTree = "<group>"; };
+		84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEAddPhotoVC.m; sourceTree = "<group>"; };
+		84B8291F1BA882E5002BB0E6 /* EECustomTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECustomTableHeaderView.h; sourceTree = "<group>"; };
+		84B829201BA882E5002BB0E6 /* EECustomTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EECustomTableHeaderView.m; sourceTree = "<group>"; };
+		84B829211BA882E5002BB0E6 /* EECustomTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EECustomTableHeaderView.xib; sourceTree = "<group>"; };
+		84B829241BA882E5002BB0E6 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
+		84B829251BA882E5002BB0E6 /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
+		84B829261BA882E5002BB0E6 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		84B829271BA882E5002BB0E6 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		84B829291BA882E5002BB0E6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		84B8292A1BA882E5002BB0E6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		84B8292C1BA882E5002BB0E6 /* EERecentlyAddedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EERecentlyAddedVC.h; sourceTree = "<group>"; };
+		84B8292D1BA882E5002BB0E6 /* EERecentlyAddedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EERecentlyAddedVC.m; sourceTree = "<group>"; };
+		84B8292F1BA882E5002BB0E6 /* EESettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EESettingsVC.h; sourceTree = "<group>"; };
+		84B829301BA882E5002BB0E6 /* EESettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EESettingsVC.m; sourceTree = "<group>"; };
+		84B8293B1BA88431002BB0E6 /* UIView+EEViewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EEViewCreator.h"; sourceTree = "<group>"; };
+		84B8293C1BA88431002BB0E6 /* UIView+EEViewCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EEViewCreator.m"; sourceTree = "<group>"; };
 		84C1A41A1B4BD3F700D5F5C0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84C1C3B71B4BCF3E00959DF2 /* VKPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3BB1B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -372,9 +389,11 @@
 		847D29861BA04D2600612D6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84B8291A1BA882E5002BB0E6 /* AddPhotoVC */,
+				84B8291D1BA882E5002BB0E6 /* LeftMenuVC */,
+				84B8292B1BA882E5002BB0E6 /* RecentlyAddedVC */,
+				84B8292E1BA882E5002BB0E6 /* SettingsVC */,
 				845CFAA81BA879CB00916956 /* EEFiltredVC */,
-				84A3DC031BA48AFC00910A41 /* LeftViewController */,
-				84A3DC081BA48AFC00910A41 /* MainViewController */,
 				847D29E11BA07B2900612D6A /* CaptchaVC */,
 				847D29871BA04D2600612D6A /* AlbumVC */,
 				847D298E1BA04D2600612D6A /* FriendsListVC */,
@@ -517,26 +536,6 @@
 			name = CaptchaVC;
 			sourceTree = "<group>";
 		};
-		84A3DC031BA48AFC00910A41 /* LeftViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84A3DC041BA48AFC00910A41 /* LeftViewCell.h */,
-				84A3DC051BA48AFC00910A41 /* LeftViewCell.m */,
-				84A3DC061BA48AFC00910A41 /* LeftViewController.h */,
-				84A3DC071BA48AFC00910A41 /* LeftViewController.m */,
-			);
-			path = LeftViewController;
-			sourceTree = "<group>";
-		};
-		84A3DC081BA48AFC00910A41 /* MainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84A3DC091BA48AFC00910A41 /* MainViewController.h */,
-				84A3DC0A1BA48AFC00910A41 /* MainViewController.m */,
-			);
-			path = MainViewController;
-			sourceTree = "<group>";
-		};
 		84A3DC0E1BA48B0500910A41 /* LGSideMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,17 +545,94 @@
 			path = LGSideMenuController;
 			sourceTree = "<group>";
 		};
-		84A3DC121BA48B0C00910A41 /* Categories */ = {
+		84B8291A1BA882E5002BB0E6 /* AddPhotoVC */ = {
 			isa = PBXGroup;
 			children = (
-				84A3DC131BA48B0C00910A41 /* UIView+EEViewCreator */,
+				84B8291B1BA882E5002BB0E6 /* EEAddPhotoVC.h */,
+				84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */,
+			);
+			path = AddPhotoVC;
+			sourceTree = "<group>";
+		};
+		84B8291D1BA882E5002BB0E6 /* LeftMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				84B8291E1BA882E5002BB0E6 /* CustomTableHeaderView */,
+				84B829221BA882E5002BB0E6 /* LeftViewController */,
+				84B829281BA882E5002BB0E6 /* MainViewController */,
+			);
+			path = LeftMenuVC;
+			sourceTree = "<group>";
+		};
+		84B8291E1BA882E5002BB0E6 /* CustomTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				84B8291F1BA882E5002BB0E6 /* EECustomTableHeaderView.h */,
+				84B829201BA882E5002BB0E6 /* EECustomTableHeaderView.m */,
+				84B829211BA882E5002BB0E6 /* EECustomTableHeaderView.xib */,
+			);
+			path = CustomTableHeaderView;
+			sourceTree = "<group>";
+		};
+		84B829221BA882E5002BB0E6 /* LeftViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84B829231BA882E5002BB0E6 /* LeftViewCell */,
+				84B829261BA882E5002BB0E6 /* LeftViewController.h */,
+				84B829271BA882E5002BB0E6 /* LeftViewController.m */,
+			);
+			path = LeftViewController;
+			sourceTree = "<group>";
+		};
+		84B829231BA882E5002BB0E6 /* LeftViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84B829241BA882E5002BB0E6 /* LeftViewCell.h */,
+				84B829251BA882E5002BB0E6 /* LeftViewCell.m */,
+			);
+			path = LeftViewCell;
+			sourceTree = "<group>";
+		};
+		84B829281BA882E5002BB0E6 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84B829291BA882E5002BB0E6 /* MainViewController.h */,
+				84B8292A1BA882E5002BB0E6 /* MainViewController.m */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		84B8292B1BA882E5002BB0E6 /* RecentlyAddedVC */ = {
+			isa = PBXGroup;
+			children = (
+				84B8292C1BA882E5002BB0E6 /* EERecentlyAddedVC.h */,
+				84B8292D1BA882E5002BB0E6 /* EERecentlyAddedVC.m */,
+			);
+			path = RecentlyAddedVC;
+			sourceTree = "<group>";
+		};
+		84B8292E1BA882E5002BB0E6 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				84B8292F1BA882E5002BB0E6 /* EESettingsVC.h */,
+				84B829301BA882E5002BB0E6 /* EESettingsVC.m */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		84B829391BA88431002BB0E6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				84B8293A1BA88431002BB0E6 /* UIView+EEViewCreator */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		84A3DC131BA48B0C00910A41 /* UIView+EEViewCreator */ = {
+		84B8293A1BA88431002BB0E6 /* UIView+EEViewCreator */ = {
 			isa = PBXGroup;
 			children = (
+				84B8293B1BA88431002BB0E6 /* UIView+EEViewCreator.h */,
+				84B8293C1BA88431002BB0E6 /* UIView+EEViewCreator.m */,
 			);
 			path = "UIView+EEViewCreator";
 			sourceTree = "<group>";
@@ -584,7 +660,7 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				84A3DC121BA48B0C00910A41 /* Categories */,
+				84B829391BA88431002BB0E6 /* Categories */,
 				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
@@ -756,6 +832,7 @@
 				847D29D61BA04D2600612D6A /* GalleryCell.xib in Resources */,
 				847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */,
 				092A5F521BA46FD30003E55B /* EEFriendsListTVCell.xib in Resources */,
+				84B829331BA882E5002BB0E6 /* EECustomTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,19 +887,22 @@
 				847D29DA1BA04D2600612D6A /* EEUserDetailCell.m in Sources */,
 				847D29D41BA04D2600612D6A /* EEPhotoGalleryVC.m in Sources */,
 				847D29C31BA04D2600612D6A /* UIView+Haneke.m in Sources */,
-				84A3DC0D1BA48AFC00910A41 /* MainViewController.m in Sources */,
 				847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */,
+				84B829321BA882E5002BB0E6 /* EECustomTableHeaderView.m in Sources */,
 				847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */,
+				84B829381BA882E5002BB0E6 /* EESettingsVC.m in Sources */,
+				84B829341BA882E5002BB0E6 /* LeftViewCell.m in Sources */,
 				847D29CB1BA04D2600612D6A /* EEAlbumCell.m in Sources */,
 				847D29C11BA04D2600612D6A /* UIButton+Haneke.m in Sources */,
 				847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */,
+				84B829361BA882E5002BB0E6 /* MainViewController.m in Sources */,
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
-				84A3DC0B1BA48AFC00910A41 /* LeftViewCell.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,
 				84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */,
 				847D29BD1BA04D2600612D6A /* HNKDiskCache.m in Sources */,
 				847D29C51BA04D2600612D6A /* EEAlbum.m in Sources */,
+				84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */,
 				847D29D81BA04D2600612D6A /* EEPhotoCell.m in Sources */,
 				847D29C01BA04D2600612D6A /* HNKSimpleFetcher.m in Sources */,
 				092A5F511BA46FD30003E55B /* EEFriendsListTVCell.m in Sources */,
@@ -831,20 +911,22 @@
 				847D29BE1BA04D2600612D6A /* HNKDiskFetcher.m in Sources */,
 				847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */,
 				847D29C81BA04D2600612D6A /* EERequests.m in Sources */,
+				84B8293D1BA88431002BB0E6 /* UIView+EEViewCreator.m in Sources */,
 				847D29D21BA04D2600612D6A /* EEMainVC.m in Sources */,
 				84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */,
 				847D29D51BA04D2600612D6A /* EEGalleryCell.m in Sources */,
 				84F9353D1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m in Sources */,
-				84A3DC0C1BA48AFC00910A41 /* LeftViewController.m in Sources */,
 				847D29CD1BA04D2600612D6A /* EEFriendsListVC.m in Sources */,
 				847D29BC1BA04D2600612D6A /* HNKCache.m in Sources */,
 				092A5F561BA46FE00003E55B /* EEFriendsCountTVCell.m in Sources */,
 				845CFAA71BA879C500916956 /* EEFiltredVC.m in Sources */,
 				847D29C61BA04D2600612D6A /* EEFriends.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
+				84B829371BA882E5002BB0E6 /* EERecentlyAddedVC.m in Sources */,
 				847D29C71BA04D2600612D6A /* EEPhoto.m in Sources */,
 				30C909F21BA850460067847D /* MBProgressHUD.m in Sources */,
 				847D29D31BA04D2600612D6A /* EEVkLoginVC.m in Sources */,
+				84B829351BA882E5002BB0E6 /* LeftViewController.m in Sources */,
 				847D29C21BA04D2600612D6A /* UIImageView+Haneke.m in Sources */,
 				092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,

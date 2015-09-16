@@ -36,21 +36,22 @@
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-       
-    [[EEAppManager sharedAppManager] getDetailForUserWithCompletionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            _city.text = [friendModel getLocation];
-            _albumsCountLabel.text = [friendModel getAlbumsCount];
-            _photosCountLabel.text = [friendModel getPhotosCount];
-            _details = [friendModel getDetails];
-            _keys = [_details allKeys];
-            [self.tableView reloadData];
-        });
         
-    } completionFailure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+        [[EEAppManager sharedAppManager] getDetailByUserId:[EEAppManager sharedAppManager].currentFriend.userId
+                                         completionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 
+                                                 _city.text = [friendModel getLocation];
+                                                 _albumsCountLabel.text = [friendModel getAlbumsCount];
+                                                 _photosCountLabel.text = [friendModel getPhotosCount];
+                                                 _details = [friendModel getDetails];
+                                                 _keys = [_details allKeys];
+                                                 [self.tableView reloadData];
+                                             });
+                                             
+                                         } completionFailure:^(NSError *error) {
+                                             NSLog(@"%@",error);
+                                         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
@@ -69,8 +70,8 @@
         [_buttonWithAvatar setImage:image forState:UIControlStateDisabled];
         _backgroundPhoto.image = [image stackBlur:6];
     }];
-  
-        
+    
+    
     [_spinner stopAnimating];
     [_spinner setHidden:YES];
     [_loadingView setHidden:YES];
@@ -135,7 +136,7 @@
             NSLog(@"error - %@",error);
         }];
     } completionFailure:^(NSError *error){
-
+        
         NSLog(@"error - %@",error);
     }];
 }
