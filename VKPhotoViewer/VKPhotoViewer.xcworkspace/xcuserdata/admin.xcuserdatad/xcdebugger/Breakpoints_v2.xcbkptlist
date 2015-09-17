@@ -247,5 +247,132 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+            timestampString = "464182451.224535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[EERecentlyAddedVC viewDidLoad]"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+                  timestampString = "464187488.252534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[EERecentlyAddedVC viewDidLoad]_block_invoke"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+                  timestampString = "464187488.253055"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKPhotoViewer/Communications/AppManager/EEAppManager.m"
+            timestampString = "464186445.060701"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "-getNewsfeedStartFrom:CompletionSuccess:completionFailure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKPhotoViewer/Communications/AppManager/EEAppManager.m"
+            timestampString = "464187901.046721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "-getNewsfeedStartFrom:CompletionSuccess:completionFailure:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__73-[EEAppManager getNewsfeedStartFrom:CompletionSuccess:completionFailure:]_block_invoke"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/Communications/AppManager/EEAppManager.m"
+                  timestampString = "464191955.610227"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__73-[EEAppManager getNewsfeedStartFrom:CompletionSuccess:completionFailure:]_block_invoke"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/Communications/AppManager/EEAppManager.m"
+                  timestampString = "464191955.610579"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "426">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__73-[EEAppManager getNewsfeedStartFrom:CompletionSuccess:completionFailure:]_block_invoke_2"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/Communications/AppManager/EEAppManager.m"
+                  timestampString = "464191955.610896"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "75">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

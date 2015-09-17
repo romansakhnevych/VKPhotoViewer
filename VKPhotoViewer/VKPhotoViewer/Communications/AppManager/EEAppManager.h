@@ -78,8 +78,26 @@
 - (void)UploadPhotos:(void (^)())updateData;
 - (void)recieveLnkForPhotoCompletionSuccess:(void (^)(id responseObject))success
                           completionFailure:(void (^)(NSError * error))failure;
-- (void)postPhotoWithData:(NSData*)data onUrl:(NSString*)url CompletionSuccess:(void (^)(id responseObject))success
+
+- (void)postPhotoWithData:(NSData*)data
+                    onUrl:(NSString*)url
+        CompletionSuccess:(void (^)(id responseObject))success
         completionFailure:(void (^)(NSError * error))failure;
-- (void)savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server CompletionSuccess:(void (^)(id responseObject))success CompletitionFailure:(void (^)(NSError *error))failure;
--(void)postPhoto:(NSString*)photoId OnWall: (NSString*)idOfUser CompletionSuccess:(void(^)(id responseObject))success CompletionFailure:(void (^)(NSError* error)) failure;
+
+- (void)savePhoto:(NSString*)photo
+    InServiceWithUserId:(NSString*)userId
+                AndHash:(NSString*)hash
+                AndServer:(NSString*)server
+        CompletionSuccess:(void (^)(id responseObject))success
+    CompletitionFailure:(void (^)(NSError *error))failure;
+
+-(void)postPhoto:(NSString*)photoId
+          OnWall:(NSString*)idOfUser
+CompletionSuccess:(void(^)(id responseObject))success
+CompletionFailure:(void (^)(NSError* error)) failure;
+
+- (void)getNewsfeedStartFrom:(NSString *)startFrom
+           CompletionSuccess:(void (^)(id responseObject))success
+           completionFailure:(void (^)(NSError * error))failure;
+
 @end

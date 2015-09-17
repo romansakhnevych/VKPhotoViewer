@@ -51,6 +51,7 @@
 		847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29B11BA04D2600612D6A /* UserDetailCell.xib */; };
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
 		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
+		84A03F481BAADDBE008E9B36 /* EENews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A03F471BAADDBE008E9B36 /* EENews.m */; };
 		84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC101BA48B0500910A41 /* LGSideMenuController.m */; };
 		84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B259601BA985FF00EDC25D /* EEContainerVC.m */; };
 		84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */; };
@@ -167,6 +168,8 @@
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
 		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
 		847D29E31BA07B6F00612D6A /* EECaptchaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECaptchaVC.m; path = CaptchaVC/EECaptchaVC.m; sourceTree = "<group>"; };
+		84A03F461BAADDBE008E9B36 /* EENews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EENews.h; path = News/EENews.h; sourceTree = "<group>"; };
+		84A03F471BAADDBE008E9B36 /* EENews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EENews.m; path = News/EENews.m; sourceTree = "<group>"; };
 		84A3DC0F1BA48B0500910A41 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
 		84A3DC101BA48B0500910A41 /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
 		84B2595F1BA985FF00EDC25D /* EEContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEContainerVC.h; path = ContainerVC/EEContainerVC.h; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 		847D29761BA04D2600612D6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84A03F421BAADD66008E9B36 /* News */,
 				847D29771BA04D2600612D6A /* Album */,
 				847D297A1BA04D2600612D6A /* Friends */,
 				847D297D1BA04D2600612D6A /* Photo */,
@@ -547,6 +551,15 @@
 				847D29E31BA07B6F00612D6A /* EECaptchaVC.m */,
 			);
 			name = CaptchaVC;
+			sourceTree = "<group>";
+		};
+		84A03F421BAADD66008E9B36 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				84A03F461BAADDBE008E9B36 /* EENews.h */,
+				84A03F471BAADDBE008E9B36 /* EENews.m */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		84A3DC0E1BA48B0500910A41 /* LGSideMenuController */ = {
@@ -924,6 +937,7 @@
 				84B829361BA882E5002BB0E6 /* MainViewController.m in Sources */,
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
+				84A03F481BAADDBE008E9B36 /* EENews.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,
 				84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */,
 				84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */,

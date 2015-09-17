@@ -18,7 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[EEAppManager sharedAppManager] getNewsfeedStartFrom:@"" CompletionSuccess:^(id responseObject) {
+        
+    } completionFailure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

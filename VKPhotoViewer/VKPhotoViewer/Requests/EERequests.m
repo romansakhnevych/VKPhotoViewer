@@ -76,4 +76,8 @@
 +(NSString*) postPhoto: (NSString*)photoId OnWall: (NSString*)idOfUser {
     return [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&attachment=%@access_token=%@&v=%@", idOfUser, photoId, [[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY],API_VERSION];
 }
+
++ (NSString *)newsfeedWithStartFrom:(NSString *)startsFrom{
+    return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&count=6&start_from=%@&v=%@&access_token=%@",startsFrom,API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
+}
 @end

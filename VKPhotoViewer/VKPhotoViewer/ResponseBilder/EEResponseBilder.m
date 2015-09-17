@@ -9,6 +9,7 @@
 #import "EEResponseBilder.h"
 #import "EEAlbum.h"
 #import "EEPhoto.h"
+#import "EENews.h"
 
 
 @implementation EEResponseBilder
@@ -107,8 +108,48 @@
 + (NSMutableArray *)getNewsfeedWithItems:(NSArray *)items profiles:(NSArray *)profiles{
     NSMutableArray *lNewsList = [NSMutableArray new];
     
+    EENews *lNew;
     
+    for (int i = 0; i < profiles.count; i++) {
+        for (int j = 0; j < profiles.count; j++) {
+            if ([[profiles objectAtIndex:i] objectForKey:@"id"] == [[items objectAtIndex:j] objectForKey:@"source_id"]) {
+                
+                NSDictionary *lProfile = [profiles objectAtIndex:i];
+                NSDictionary *lItem = [items objectAtIndex:j];
+                NSArray *lPhotosResponse = [[lItem objectForKey:@"photos"] objectForKey:@"items"];
+                NSMutableArray *lPhotos = [NSMutableArray new];
     
+                [lPhotosResponse enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    EEPhoto *lNewPhoto = [EEPhoto new];
+                    
+                    lNewPhoto.albumId = [obj objectForKey:@"album_id"];
+                    lNewPhoto.photoWidth = [obj objectForKey:@"width"];
+                    lNewPhoto.photoHeight = [obj objectForKey:@"height"];
+                    lNewPhoto.photoId = [obj objectForKey:@"id"];
+                    lNewPhoto.xsPhotoLink = [obj objectForKey:@"photo_75"];
+                    lNewPhoto.sPhotoLink = [obj objectForKey:@"photo_130"];
+                    lNewPhoto.mPhotoLink = [obj objectForKey:@"photo_604"];
+                    lNewPhoto.lPhotoLink = [obj objectForKey:@"photo_807"];
+                    lNewPhoto.xlPhotoLink = [obj objectForKey:@"photo_1280"];
+                    lNewPhoto.xxlPhotoLink = [obj objectForKey:@"photo_2560"];
+                    
+                    [lPhotos addObject:lNewPhoto];
+                }];
+
+                lNew = [EENews new];
+                lNew.photos = [[NSMutableArray alloc] initWithArray:lPhotos];
+                lNew.firstName = [lProfile objectForKey:@"first_name"];
+                lNew.lastName = [lProfile objectForKey:@"last_name"];
+                lNew.userId = [lProfile objectForKey:@"id"];
+                lNew.date = [lItem objectForKey:@"date"];
+                lNew.userPhotoLink = [lProfile objectForKey:@"photo_100"];
+                
+                
+            }
+            
+        }
+        [lNewsList addObject:lNew];
+    }
     
     return lNewsList;
 }
