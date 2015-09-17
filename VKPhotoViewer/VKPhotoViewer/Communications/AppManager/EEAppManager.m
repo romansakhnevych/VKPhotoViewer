@@ -295,7 +295,7 @@
         NSArray *lProfiles = [[responseObject objectForKey:@"response"] objectForKey:@"profiles"];
         
         NSMutableArray *lNews = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getNewsfeedWithItems:lItems profiles:lProfiles]];
-        
+        success(lNews);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
