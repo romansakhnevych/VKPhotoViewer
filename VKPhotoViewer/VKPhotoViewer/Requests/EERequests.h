@@ -20,4 +20,8 @@ static NSMutableURLRequest* _request;
 + (NSString *)getPhotosRequestWithOffset:(NSInteger)offset count:(NSInteger)count fromAlbum:(NSString *)albumId forUser:(NSString *)userId;
 + (NSString *)addLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId;
 + (NSString *)deleteLikeWithOwnerId:(NSString *)ownerId itemId:(NSString *)itemId;
++ (NSString *)postPhotoWithOwnerId:(NSString *)ownerId PhotoId:(NSString*)photoId FriendId: (NSString*)friendId;
++ (NSString*) urlServiceForPhotoOn;
++ (NSString*) savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server;
++(NSString*) postPhoto: (NSString*)photoId OnWall: (NSString*)idOfUser;
 @end

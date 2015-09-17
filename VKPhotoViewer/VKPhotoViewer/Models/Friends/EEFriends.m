@@ -32,12 +32,14 @@
 - (NSString *)getSex{
     NSString *lSex;
     NSInteger lSexId = _sex.intValue;
+    NSString *localizedMaleString = NSLocalizedString(@"MaleKey", @"");
+     NSString *localizedFemaleString = NSLocalizedString(@"FemaleKey", @"");
     switch (lSexId) {
         case 1:
-            lSex = @"female";
+            lSex = localizedFemaleString;
             break;
         case 2:
-            lSex = @"male";
+            lSex = localizedMaleString;
             
         default:
             break;
@@ -65,28 +67,37 @@
     return lLocation;
 }
 
-- (NSDictionary *)getDetails{
+- (NSDictionary *)getDetails {
+    
+    NSString *localizedSexString = NSLocalizedString(@"SexKey", @"");
+    NSString *localizedBirthDayString = NSLocalizedString(@"BirthDayKey", @"");
+    NSString *localizedLocationString = NSLocalizedString(@"LocationKey", @"");
+    NSString *localizedDomainString = NSLocalizedString(@"DomainKey", @"");
+    NSString *localizedStatusString = NSLocalizedString(@"StatusKey", @"");
+    NSString *localizedOccupationString = NSLocalizedString(@"OccupationKey", @"");
+    NSString *localizedSiteString = NSLocalizedString(@"SiteKey", @"");
+    
     NSMutableDictionary *lDictionary = [[NSMutableDictionary alloc] init];
     if (_sex != nil){
-        [lDictionary setObject:[self getSex] forKey:@"sex:"];
+        [lDictionary setObject:[self getSex] forKey:localizedSexString];
     }
     if (_birthdayDate){
-        [lDictionary setObject:[self getBirthDay] forKey:@"birthday:"];
+        [lDictionary setObject:[self getBirthDay] forKey:localizedBirthDayString];
     }
     if ([self getLocation] && ![[self getLocation]  isEqual: @""]){
-        [lDictionary setObject:[self getLocation] forKey:@"location:"];
+        [lDictionary setObject:[self getLocation] forKey:localizedLocationString];
     }
     if (_domain){
-        [lDictionary setObject:_domain forKey:@"domain:"];
+        [lDictionary setObject:_domain forKey:localizedDomainString];
     }
     if (_status && ![_status isEqual:@""]){
-        [lDictionary setObject:_status forKey:@"status:"];
+        [lDictionary setObject:_status forKey:localizedStatusString];
     }
     if (_occupation){
-        [lDictionary setObject:_occupation forKey:@"occupation:"];
+        [lDictionary setObject:_occupation forKey:localizedOccupationString];
     }
     if (_site && ![_site isEqual:@""]){
-        [lDictionary setObject:_site forKey:@"site:"];
+        [lDictionary setObject:_site forKey:localizedSiteString];
     }
     return lDictionary;
 }

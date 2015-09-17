@@ -9,3 +9,19 @@
 "DetailKey" = "Подробно";
 "SettingsKey" = "Настройка";
 "AlbumsKey" = "Альбомы";
+"SexKey" = "Пол:";
+"BirthDayKey" = "Дата рождения:";
+"LocationKey" = "Местоположение:";
+"DomainKey" = "Домен:";
+"StatusKey" = "Статус по жизни:";
+"OccupationKey" = "Место учебы:";
+"SiteKey" = "Сайт:";
+"MaleKey" = "Мужской";
+"FemaleKey" = "Женщина";
+
+"MenuKey" = "Меню";
+"LogOutKey" = "Выход";
+
+"FriendsKey" = "Друзья";
+"RecentlyAddedKey" = "Недавно добавленные фото";
+"AddPhotoKey" = "Добавить фото";
