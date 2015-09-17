@@ -14,8 +14,10 @@
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *lastName;
 @property (nonatomic, retain) NSMutableArray *photos;
-@property (nonatomic, retain) NSDate *date;
-@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, retain) NSNumber *date;
+@property (nonatomic, retain) NSNumber *userId;
 @property (nonatomic, copy) NSString *userPhotoLink;
 
+- (NSString *)getDate;
+- (NSString *)getUserId;
 @end

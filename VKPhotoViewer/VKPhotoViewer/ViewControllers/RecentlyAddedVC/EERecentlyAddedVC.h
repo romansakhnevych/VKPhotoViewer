@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EERecentlyAddedVC : UIViewController 
+@interface EERecentlyAddedVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 

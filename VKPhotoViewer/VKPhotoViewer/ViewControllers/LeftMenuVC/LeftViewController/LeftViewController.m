@@ -106,9 +106,8 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44.f;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,9 +121,14 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
     UIViewController *lViewController;
     EEContainerVC *lContainer = [[[kMainViewController rootViewController] childViewControllers] objectAtIndex:0];
+    CGRect lViewRect = lContainer.view.frame;
+    lViewRect.size.height = lViewRect.size.height - 64;
+    lViewRect.origin.y = lViewRect.origin.y + 64;
+    NSLog(@"lContainer frame - %@", NSStringFromCGRect(lContainer.view.frame));
     switch (indexPath.row) {
         case Friends:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedFriendsString;
         }
@@ -132,24 +136,28 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
         case Albums:{
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedAlbumsString;
         }
             break;
         case RecentlyAdded:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedRecentlyAddedString;
         }
             break;
         case Settings:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EESettingsVC");
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedSettingsString;
         }
             break;
         case AddPhoto:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedAddPhotoString;
         }

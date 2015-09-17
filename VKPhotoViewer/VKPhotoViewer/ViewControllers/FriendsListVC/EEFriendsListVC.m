@@ -43,6 +43,7 @@
     
     //[self.navigationController setNavigationBarHidden:NO];
     if(!_friendsList ||! _friendsList.count) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
         [self updateTableView];
     }
 }
@@ -191,7 +192,7 @@
 }
 
 - (void)updateDataWithCount:(NSInteger)count offset:(NSInteger)offset {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
+    
     [[EEAppManager sharedAppManager] getFriendsWithCount:count offset:offset completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]) {
             [_friendsList addObjectsFromArray:responseObject];
