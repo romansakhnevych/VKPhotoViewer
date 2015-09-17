@@ -11,7 +11,8 @@
 @implementation EERecentlyAddedCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [_userPhotoImgView.layer setCornerRadius:_userPhotoImgView.frame.size.width / 2];
+    _userPhotoImgView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

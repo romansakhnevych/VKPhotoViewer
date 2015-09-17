@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EERecentlyAddedCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *userPhotoImgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLable;
+@property (weak, nonatomic) IBOutlet UILabel *dateLable;
+@property (weak, nonatomic) IBOutlet UIImageView *mainPhotoImgView;
+
 
 @end
