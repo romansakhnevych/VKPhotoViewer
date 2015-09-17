@@ -9,6 +9,7 @@
 "DetailKey" = "Detail";
 "SettingsKey" = "Settings";
 "AlbumsKey" = "Albums";
+
 "SexKey" = "Sex:";
 "BirthDayKey" = "Birthday:";
 "LocationKey" = "Location:";
@@ -16,5 +17,12 @@
 "StatusKey" = "Status";
 "OccupationKey" = "Place of studying";
 "SiteKey" = "Site";
+
 "MaleKey" = "Male";
 "FemaleKey" = "Female";
+
+"MenuKey" = "Menu";
+"LogOutKey" = "Log Out";
+"FriendsKey" = "Friends";
+"RecentlyAddedKey" = "Recently added photos";
+"AddPhotoKey" = "Add photo";

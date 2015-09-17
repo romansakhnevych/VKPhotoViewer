@@ -58,11 +58,15 @@
 
 - (void)setupNavigationBar{
     [self.navigationController setNavigationBarHidden:NO];
-    UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menu"
+    
+    NSString *localizedMenuString = NSLocalizedString(@"MenuKey", @"");
+    NSString *localizedLogOutString = NSLocalizedString(@"LogOutKey", @"");
+    
+    UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithTitle:localizedMenuString
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(menuBtnTap)];
-    UIBarButtonItem *LogoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"logout"
+    UIBarButtonItem *LogoutBtn = [[UIBarButtonItem alloc] initWithTitle:localizedLogOutString
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
                                                                  action:@selector(logout)];

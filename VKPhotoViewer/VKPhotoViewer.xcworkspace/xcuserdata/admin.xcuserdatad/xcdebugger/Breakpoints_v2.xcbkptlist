@@ -247,5 +247,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+            timestampString = "464193600.529864"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[EERecentlyAddedVC viewDidLoad]_block_invoke"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+                  timestampString = "464195039.202381"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[EERecentlyAddedVC viewDidLoad]_block_invoke_2"
+                  moduleName = "VKPhotoViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/04/projects/VKPhotoViewer/VKPhotoViewer/VKPhotoViewer/ViewControllers/RecentlyAddedVC/EERecentlyAddedVC.m"
+                  timestampString = "464195039.202596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

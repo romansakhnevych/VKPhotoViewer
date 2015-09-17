@@ -21,6 +21,7 @@
 @property (nonatomic,retain)NSNumber *commentsCount;
 @property (nonatomic,copy)NSString *photoWidth;
 @property (nonatomic,copy)NSString *photoHeight;
+@property (nonatomic,copy)NSString *albumId;
 @property (nonatomic,retain)NSNumber *Liked;
 
 

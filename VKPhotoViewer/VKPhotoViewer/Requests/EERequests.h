@@ -24,4 +24,6 @@ static NSMutableURLRequest* _request;
 + (NSString*) urlServiceForPhotoOn;
 + (NSString*) savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server;
 +(NSString*) postPhoto: (NSString*)photoId OnWall: (NSString*)idOfUser;
++ (NSString *)newsfeedWithStartFrom:(NSString *)startsFrom;
+
 @end

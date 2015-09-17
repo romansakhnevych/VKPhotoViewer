@@ -63,9 +63,10 @@
     else {
         EENetworkManager *lManager = [EENetworkManager sharedManager];
         [lManager GET:[EERequests getUserInfoRequestWithId:userId] parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+            EEFriends *lUser = [EEFriends new];
             NSArray *lUserDetailResponse = [responseObject objectForKey:@"response"];
-            _currentFriend = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:_currentFriend];
-            success(YES, _currentFriend);
+            lUser = [EEResponseBilder getDetailFromArray:lUserDetailResponse forUser:lUser];
+            success(YES, lUser);
         } failure:^ (NSURLSessionDataTask *task, NSError *error) {
             failure(error);
         }];
@@ -284,5 +285,19 @@
     }];
 }
 
-
+- (void)getNewsfeedStartFrom:(NSString *)startFrom
+           CompletionSuccess:(void (^)(id responseObject))success
+           completionFailure:(void (^)(NSError * error))failure{
+    EENetworkManager *lManager = [EENetworkManager sharedManager];
+    [lManager GET:[EERequests newsfeedWithStartFrom:startFrom] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *lItems = [[responseObject objectForKey:@"response"] objectForKey:@"items"];
+        NSArray *lProfiles = [[responseObject objectForKey:@"response"] objectForKey:@"profiles"];
+        
+        NSMutableArray *lNews = [[NSMutableArray alloc] initWithArray:[EEResponseBilder getNewsfeedWithItems:lItems profiles:lProfiles]];
+        success(lNews);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 @end

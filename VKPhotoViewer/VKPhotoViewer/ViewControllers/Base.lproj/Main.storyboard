@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xd-38-3Es">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -40,8 +40,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="5Oj-Wf-x2S"/>
-                                    <constraint firstAttribute="height" constant="667" id="egq-bv-hHJ"/>
+                                    <constraint firstAttribute="height" constant="667" id="GgO-p0-xuL"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="dQH-E3-2Km" id="xjM-9Z-ySq"/>
@@ -51,8 +50,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="SEH-x2-4f1" secondAttribute="centerX" id="FdR-8i-9Z7"/>
-                            <constraint firstAttribute="centerY" secondItem="SEH-x2-4f1" secondAttribute="centerY" id="YRL-tX-ZxN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SEH-x2-4f1" secondAttribute="trailing" constant="-16" id="1Bw-9M-CbO"/>
+                            <constraint firstItem="SEH-x2-4f1" firstAttribute="top" secondItem="FXV-xA-fva" secondAttribute="bottom" constant="-20" id="IQq-ZP-qu4"/>
+                            <constraint firstItem="SEH-x2-4f1" firstAttribute="leading" secondItem="fgZ-Aw-I3A" secondAttribute="leadingMargin" constant="-16" id="hW0-9d-DRL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9GV-A9-BKQ"/>

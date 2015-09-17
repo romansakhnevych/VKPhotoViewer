@@ -51,6 +51,7 @@
 		847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D29B11BA04D2600612D6A /* UserDetailCell.xib */; };
 		847D29E01BA04D5F00612D6A /* EEAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29DF1BA04D5F00612D6A /* EEAppManager.m */; };
 		847D29E41BA07B6F00612D6A /* EECaptchaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29E31BA07B6F00612D6A /* EECaptchaVC.m */; };
+		84A03F481BAADDBE008E9B36 /* EENews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A03F471BAADDBE008E9B36 /* EENews.m */; };
 		84A3DC111BA48B0500910A41 /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3DC101BA48B0500910A41 /* LGSideMenuController.m */; };
 		84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B259601BA985FF00EDC25D /* EEContainerVC.m */; };
 		84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8291C1BA882E5002BB0E6 /* EEAddPhotoVC.m */; };
@@ -67,6 +68,8 @@
 		84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C71B4BCF3E00959DF2 /* Images.xcassets */; };
 		84C1C3CB1B4BCF3E00959DF2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C3C91B4BCF3E00959DF2 /* LaunchScreen.xib */; };
 		84C1C3D71B4BCF3E00959DF2 /* VKPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C3D61B4BCF3E00959DF2 /* VKPhotoViewerTests.m */; };
+		84F46D831BAB09A500C08DB9 /* EERecentlyAddedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F46D811BAB09A500C08DB9 /* EERecentlyAddedCell.m */; };
+		84F46D841BAB09A500C08DB9 /* EERecentlyAddedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F46D821BAB09A500C08DB9 /* EERecentlyAddedCell.xib */; };
 		84F9353D1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9353C1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m */; };
 		84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9353F1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m */; };
 /* End PBXBuildFile section */
@@ -167,6 +170,8 @@
 		847D29DF1BA04D5F00612D6A /* EEAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEAppManager.m; path = Communications/AppManager/EEAppManager.m; sourceTree = "<group>"; };
 		847D29E21BA07B6F00612D6A /* EECaptchaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EECaptchaVC.h; path = CaptchaVC/EECaptchaVC.h; sourceTree = "<group>"; };
 		847D29E31BA07B6F00612D6A /* EECaptchaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EECaptchaVC.m; path = CaptchaVC/EECaptchaVC.m; sourceTree = "<group>"; };
+		84A03F461BAADDBE008E9B36 /* EENews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EENews.h; path = News/EENews.h; sourceTree = "<group>"; };
+		84A03F471BAADDBE008E9B36 /* EENews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EENews.m; path = News/EENews.m; sourceTree = "<group>"; };
 		84A3DC0F1BA48B0500910A41 /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
 		84A3DC101BA48B0500910A41 /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
 		84B2595F1BA985FF00EDC25D /* EEContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEContainerVC.h; path = ContainerVC/EEContainerVC.h; sourceTree = "<group>"; };
@@ -199,6 +204,9 @@
 		84C1C3D01B4BCF3E00959DF2 /* VKPhotoViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKPhotoViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C3D51B4BCF3E00959DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C1C3D61B4BCF3E00959DF2 /* VKPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKPhotoViewerTests.m; sourceTree = "<group>"; };
+		84F46D801BAB09A500C08DB9 /* EERecentlyAddedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EERecentlyAddedCell.h; path = RecentlyAddedCell/EERecentlyAddedCell.h; sourceTree = "<group>"; };
+		84F46D811BAB09A500C08DB9 /* EERecentlyAddedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EERecentlyAddedCell.m; path = RecentlyAddedCell/EERecentlyAddedCell.m; sourceTree = "<group>"; };
+		84F46D821BAB09A500C08DB9 /* EERecentlyAddedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EERecentlyAddedCell.xib; path = RecentlyAddedCell/EERecentlyAddedCell.xib; sourceTree = "<group>"; };
 		84F9353B1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EETransitionFromPhotosVCToPhotoGalleryVC.h; path = Transitions/EETransitionFromPhotosVCToPhotoGalleryVC/EETransitionFromPhotosVCToPhotoGalleryVC.h; sourceTree = "<group>"; };
 		84F9353C1BA46B00000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EETransitionFromPhotosVCToPhotoGalleryVC.m; path = Transitions/EETransitionFromPhotosVCToPhotoGalleryVC/EETransitionFromPhotosVCToPhotoGalleryVC.m; sourceTree = "<group>"; };
 		84F9353E1BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EETransitionFromPhotoGalleryVCToPhotosVC.h; path = Transitions/EETransitionFromPhotoGalleryVCToPhotosVC/EETransitionFromPhotoGalleryVCToPhotosVC.h; sourceTree = "<group>"; };
@@ -346,6 +354,7 @@
 		847D29761BA04D2600612D6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84A03F421BAADD66008E9B36 /* News */,
 				847D29771BA04D2600612D6A /* Album */,
 				847D297A1BA04D2600612D6A /* Friends */,
 				847D297D1BA04D2600612D6A /* Photo */,
@@ -549,6 +558,15 @@
 			name = CaptchaVC;
 			sourceTree = "<group>";
 		};
+		84A03F421BAADD66008E9B36 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				84A03F461BAADDBE008E9B36 /* EENews.h */,
+				84A03F471BAADDBE008E9B36 /* EENews.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		84A3DC0E1BA48B0500910A41 /* LGSideMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +645,7 @@
 		84B8292B1BA882E5002BB0E6 /* RecentlyAddedVC */ = {
 			isa = PBXGroup;
 			children = (
+				84F46D7F1BAB095E00C08DB9 /* RecentyAddedCell */,
 				84B8292C1BA882E5002BB0E6 /* EERecentlyAddedVC.h */,
 				84B8292D1BA882E5002BB0E6 /* EERecentlyAddedVC.m */,
 			);
@@ -726,6 +745,16 @@
 				84C1C3D51B4BCF3E00959DF2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84F46D7F1BAB095E00C08DB9 /* RecentyAddedCell */ = {
+			isa = PBXGroup;
+			children = (
+				84F46D801BAB09A500C08DB9 /* EERecentlyAddedCell.h */,
+				84F46D811BAB09A500C08DB9 /* EERecentlyAddedCell.m */,
+				84F46D821BAB09A500C08DB9 /* EERecentlyAddedCell.xib */,
+			);
+			name = RecentyAddedCell;
 			sourceTree = "<group>";
 		};
 		84F935351BA46569000D95E9 /* EETransitionFromPhotosVCToPhotoGalleryVC */ = {
@@ -853,6 +882,7 @@
 				847D29CA1BA04D2600612D6A /* AlbumCell.xib in Resources */,
 				84C1C3C81B4BCF3E00959DF2 /* Images.xcassets in Resources */,
 				30D4D8DC1BA97F6E00261B2B /* Main.storyboard in Resources */,
+				84F46D841BAB09A500C08DB9 /* EERecentlyAddedCell.xib in Resources */,
 				092A5F571BA46FE00003E55B /* EEFriendsCountTVCell.xib in Resources */,
 				847D29D61BA04D2600612D6A /* GalleryCell.xib in Resources */,
 				847D29DB1BA04D2600612D6A /* UserDetailCell.xib in Resources */,
@@ -924,10 +954,12 @@
 				84B829361BA882E5002BB0E6 /* MainViewController.m in Sources */,
 				847D29D91BA04D2600612D6A /* EEUserDetailVC.m in Sources */,
 				847D29C41BA04D2600612D6A /* UIImage+StackBlur.m in Sources */,
+				84A03F481BAADDBE008E9B36 /* EENews.m in Sources */,
 				847D29BF1BA04D2600612D6A /* HNKNetworkFetcher.m in Sources */,
 				84B259611BA985FF00EDC25D /* EEContainerVC.m in Sources */,
 				84F935401BA46B14000D95E9 /* EETransitionFromPhotoGalleryVCToPhotosVC.m in Sources */,
 				847D29BD1BA04D2600612D6A /* HNKDiskCache.m in Sources */,
+				84F46D831BAB09A500C08DB9 /* EERecentlyAddedCell.m in Sources */,
 				847D29C51BA04D2600612D6A /* EEAlbum.m in Sources */,
 				84B829311BA882E5002BB0E6 /* EEAddPhotoVC.m in Sources */,
 				847D29D81BA04D2600612D6A /* EEPhotoCell.m in Sources */,

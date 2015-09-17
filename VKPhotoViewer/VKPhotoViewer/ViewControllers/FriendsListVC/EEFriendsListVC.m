@@ -41,7 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:NO];
+    //[self.navigationController setNavigationBarHidden:NO];
     if(!_friendsList ||! _friendsList.count) {
         [self updateTableView];
     }
@@ -133,7 +133,7 @@
     [_searchController setActive:NO];
     
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"albumsTableView"];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self navigationController] pushViewController:lViewController animated:YES];
     }

@@ -37,12 +37,17 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
-    _titlesArray = @[@"Friends",
-                     @"Albums",
-                     @"Recently added",
-                     @"Settings",
-                     @"Add photo"];
+    NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
+    NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
+    NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
+    NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
+    NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
+
+    _titlesArray = @[localizedFriendsString,
+                     localizedAlbumsString,
+                     localizedRecentlyAddedString,
+                     localizedSettingsString,
+                     localizedAddPhotoString];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 20.f, 0.f);
@@ -108,6 +113,12 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
+    NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
+    NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
+    NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
+    NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
+    
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
     UIViewController *lViewController;
     EEContainerVC *lContainer = [[[kMainViewController rootViewController] childViewControllers] objectAtIndex:0];
@@ -115,32 +126,32 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
         case Friends:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
             [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = @"Friends";
+            lContainer.navigationItem.title = localizedFriendsString;
         }
             break;
         case Albums:{
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
             [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = @"Albums";
+            lContainer.navigationItem.title = localizedAlbumsString;
         }
             break;
         case RecentlyAdded:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
             [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = @"Recently added";
+            lContainer.navigationItem.title = localizedRecentlyAddedString;
         }
             break;
         case Settings:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EESettingsVC");
             [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = @"Settings";
+            lContainer.navigationItem.title = localizedSettingsString;
         }
             break;
         case AddPhoto:{
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
             [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = @"Add photo";
+            lContainer.navigationItem.title = localizedAddPhotoString;
         }
     }
 }
