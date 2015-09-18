@@ -130,7 +130,8 @@
                 [EEAppManager sharedAppManager].allPhotos = lArray;
                 [EEAppManager sharedAppManager].currentPhotoIndex = 0;
                 [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
-                [[self navigationController] pushViewController:lViewController animated:YES];
+                lViewController.isDetailed = YES;
+                [[self navigationController] presentViewController:lViewController animated:YES completion:nil];
             }else{
                 NSLog(@"error");
             }

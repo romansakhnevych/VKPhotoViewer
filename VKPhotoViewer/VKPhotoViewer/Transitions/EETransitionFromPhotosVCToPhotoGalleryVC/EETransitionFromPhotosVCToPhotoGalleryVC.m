@@ -23,6 +23,8 @@
     
     EEPhotosVC* fromViewController = (EEPhotosVC*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     EEPhotoGalleryVC* toViewController = (EEPhotoGalleryVC*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    
+    toViewController.isDetailed = NO;
     UIView* containerView = [transitionContext containerView];
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -66,7 +68,7 @@
     [UIView animateWithDuration:5.0 animations:^{
         
         toViewController.view.alpha = 1.0;
-        CGRect frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - cell.frame.size.width*lScaleFactor)/2, ([UIScreen mainScreen].bounds.size.height - cell.frame.size.height)/2, cell.frame.size.width*lScaleFactor, cell.frame.size.height);
+        CGRect frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - cell.frame.size.width)/2, ([UIScreen mainScreen].bounds.size.height - cell.frame.size.height)/2, cell.frame.size.width, cell.frame.size.height);
         //CGRect frame = CGRectMake((fromViewController.view.frame.size.width - cell.imageView.image.size.width*toMakePhotoBigger)/2, (fromViewController.view.frame.size.height - cell.imageView.image.size.height*toMakePhotoBigger)/2, cell.imageView.image.size.width*toMakePhotoBigger, cell.imageView.image.size.height*toMakePhotoBigger);
         cellImageSnapshot.frame = frame;
         

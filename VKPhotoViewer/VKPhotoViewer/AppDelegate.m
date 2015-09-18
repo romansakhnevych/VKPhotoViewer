@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [self setUpCustomDesign];
+    [self setUpCustomDesign];
     NSObject *lToken = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
     
     if (lToken != nil){
@@ -63,9 +63,14 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                            NSForegroundColorAttributeName:[UIColor whiteColor]
                                                            }];
+    [[UINavigationBar appearance] setBarTintColor: NAVIGATION_BAR_TINT_COLOR];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   // [UIStatusBar ]
+    
+    //[[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:1.0f]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
 }
 

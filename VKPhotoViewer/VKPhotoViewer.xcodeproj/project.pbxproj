@@ -19,6 +19,7 @@
 		30D4D8E81BA9863F00261B2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30D4D8EA1BA9863F00261B2B /* Localizable.strings */; };
 		57783C54B59AD86E9EF415E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C16900F5D27E4D51B8CB6DF4 /* libPods.a */; };
 		845CFAA71BA879C500916956 /* EEFiltredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CFAA61BA879C500916956 /* EEFiltredVC.m */; };
+		845CFAAA1BAC87CD00916956 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CFAA91BAC87CD00916956 /* LeftViewController.m */; };
 		847D29481BA04CD300612D6A /* EENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29471BA04CD300612D6A /* EENetworkManager.m */; };
 		847D29BB1BA04D2600612D6A /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29601BA04D2600612D6A /* EGOCache.m */; };
 		847D29BC1BA04D2600612D6A /* HNKCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D29641BA04D2600612D6A /* HNKCache.m */; };
@@ -58,7 +59,6 @@
 		84B829321BA882E5002BB0E6 /* EECustomTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829201BA882E5002BB0E6 /* EECustomTableHeaderView.m */; };
 		84B829331BA882E5002BB0E6 /* EECustomTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B829211BA882E5002BB0E6 /* EECustomTableHeaderView.xib */; };
 		84B829341BA882E5002BB0E6 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829251BA882E5002BB0E6 /* LeftViewCell.m */; };
-		84B829351BA882E5002BB0E6 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829271BA882E5002BB0E6 /* LeftViewController.m */; };
 		84B829361BA882E5002BB0E6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8292A1BA882E5002BB0E6 /* MainViewController.m */; };
 		84B829371BA882E5002BB0E6 /* EERecentlyAddedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8292D1BA882E5002BB0E6 /* EERecentlyAddedVC.m */; };
 		84B829381BA882E5002BB0E6 /* EESettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B829301BA882E5002BB0E6 /* EESettingsVC.m */; };
@@ -108,6 +108,7 @@
 		4F029252C5389E17067EAEBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		845CFAA51BA879C500916956 /* EEFiltredVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFiltredVC.h; sourceTree = "<group>"; };
 		845CFAA61BA879C500916956 /* EEFiltredVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFiltredVC.m; sourceTree = "<group>"; };
+		845CFAA91BAC87CD00916956 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		847D29461BA04CD300612D6A /* EENetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENetworkManager.h; sourceTree = "<group>"; };
 		847D29471BA04CD300612D6A /* EENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EENetworkManager.m; sourceTree = "<group>"; };
 		847D295F1BA04D2600612D6A /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
@@ -184,7 +185,6 @@
 		84B829241BA882E5002BB0E6 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
 		84B829251BA882E5002BB0E6 /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
 		84B829261BA882E5002BB0E6 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
-		84B829271BA882E5002BB0E6 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		84B829291BA882E5002BB0E6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		84B8292A1BA882E5002BB0E6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		84B8292C1BA882E5002BB0E6 /* EERecentlyAddedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EERecentlyAddedVC.h; sourceTree = "<group>"; };
@@ -619,7 +619,7 @@
 			children = (
 				84B829231BA882E5002BB0E6 /* LeftViewCell */,
 				84B829261BA882E5002BB0E6 /* LeftViewController.h */,
-				84B829271BA882E5002BB0E6 /* LeftViewController.m */,
+				845CFAA91BAC87CD00916956 /* LeftViewController.m */,
 			);
 			path = LeftViewController;
 			sourceTree = "<group>";
@@ -710,8 +710,8 @@
 				847D29801BA04D2600612D6A /* Requests */,
 				847D29831BA04D2600612D6A /* ResponseBilder */,
 				847D29861BA04D2600612D6A /* ViewControllers */,
-				30D4D8DE1BA97F6E00261B2B /* Main.storyboard */,
 				30D4D8EA1BA9863F00261B2B /* Localizable.strings */,
+				30D4D8DE1BA97F6E00261B2B /* Main.storyboard */,
 				847D29411BA04BD500612D6A /* Communications */,
 				847D29491BA04D2600612D6A /* Frameworks */,
 				84C1C3BA1B4BCF3E00959DF2 /* Supporting Files */,
@@ -980,12 +980,12 @@
 				092A5F561BA46FE00003E55B /* EEFriendsCountTVCell.m in Sources */,
 				845CFAA71BA879C500916956 /* EEFiltredVC.m in Sources */,
 				847D29C61BA04D2600612D6A /* EEFriends.m in Sources */,
+				845CFAAA1BAC87CD00916956 /* LeftViewController.m in Sources */,
 				84C1C3C01B4BCF3E00959DF2 /* AppDelegate.m in Sources */,
 				84B829371BA882E5002BB0E6 /* EERecentlyAddedVC.m in Sources */,
 				847D29C71BA04D2600612D6A /* EEPhoto.m in Sources */,
 				30C909F21BA850460067847D /* MBProgressHUD.m in Sources */,
 				847D29D31BA04D2600612D6A /* EEVkLoginVC.m in Sources */,
-				84B829351BA882E5002BB0E6 /* LeftViewController.m in Sources */,
 				847D29C21BA04D2600612D6A /* UIImageView+Haneke.m in Sources */,
 				092A5F5B1BA46FEC0003E55B /* EELoadingTVCell.m in Sources */,
 				84C1C3BD1B4BCF3E00959DF2 /* main.m in Sources */,

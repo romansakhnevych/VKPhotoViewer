@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "LeftViewController.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface MainViewController ()
 
@@ -30,7 +31,7 @@
         [self setLeftViewEnabledWithWidth:250.f
                         presentationStyle:LGSideMenuPresentationStyleSlideBelow
                      alwaysVisibleOptions:0];
-    _leftViewController.tableView.backgroundColor = [UIColor clearColor];
+    _leftViewController.tableView.backgroundColor = NAVIGATION_BAR_TINT_COLOR;
         _leftViewController.tintColor = [UIColor whiteColor];
         [_leftViewController.tableView reloadData];
         [self.leftView addSubview:_leftViewController.tableView];

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property BOOL isImageLoaded;
+@property BOOL isDetailed;
 
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;

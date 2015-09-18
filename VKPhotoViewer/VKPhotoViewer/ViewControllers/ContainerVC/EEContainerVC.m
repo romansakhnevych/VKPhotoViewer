@@ -36,7 +36,8 @@
     [viewController didMoveToParentViewController:self];
 }
 
-- (void)menuBtnTap{
+- (void)menuBtnTap: (id)btn{
+    
     [kMainViewController showLeftViewAnimated:YES completionHandler:nil];
     
 }
@@ -62,13 +63,19 @@
 - (void)setupNavigationBar{
     [self.navigationController setNavigationBarHidden:NO];
     
-    NSString *localizedMenuString = NSLocalizedString(@"MenuKey", @"");
+    //NSString *localizedMenuString = NSLocalizedString(@"MenuKey", @"");
     //NSString *localizedLogOutString = NSLocalizedString(@"LogOutKey", @"");
+    UIButton* customBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    customBtn.frame = CGRectMake(0, 0, 40, 40);
+    [customBtn setImage:[UIImage imageNamed: @"menuButtonWhite"] forState:UIControlStateNormal];
+    [customBtn setImage:[UIImage imageNamed:@"menuButtonYellow"] forState:UIControlStateSelected];
+    [customBtn addTarget:self action:@selector(menuBtnTap:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithCustomView:customBtn];
     
-    UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithTitle:localizedMenuString
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(menuBtnTap)];
+//    //UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithTitle:localizedMenuString
+//                                                                 style:UIBarButtonItemStylePlain
+//                                                                target:self
+//                                                                action:@selector(menuBtnTap)];
 //    //UIBarButtonItem *LogoutBtn = [[UIBarButtonItem alloc] initWithTitle:localizedLogOutString
 //                                                                  style:UIBarButtonItemStylePlain
 //                                                                 target:self

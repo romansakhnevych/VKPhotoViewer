@@ -27,8 +27,8 @@ static NSString *CelID = @"GalleryCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-    [_uperView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.5]];
-    [ _bottomView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.5]];
+    [_uperView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
+    [ _bottomView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -189,7 +189,12 @@ static NSString *CelID = @"GalleryCell";
     
 }
 - (IBAction)closeBtnTapped:(id)sender {
+    if(self.isDetailed) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 - (IBAction)likeBtnTaped:(id)sender {
     if ([[EEAppManager sharedAppManager].currentPhoto isLiked]) {

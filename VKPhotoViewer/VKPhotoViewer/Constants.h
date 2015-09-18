@@ -27,7 +27,8 @@
 #define FIELDS @"nickname,photo_100,photo_200_orig,bdate"
 #define NAME_CASE @"nom"
 
-#define NAVIGATION_BAR_TINT_COLOR [UIColor colorWithRed:74.0/255.0f green:164.0/255.0f blue:199.0/255.0f alpha:1.0f];
+#define NAVIGATION_BAR_TINT_COLOR [UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:1.0f]
+#define CUSTOM_YELLOW_COLOR [UIColor colorWithRed:243.0/255.0f green:166.0/255.0f blue:51.0/255.0f alpha:1.0f]
 
 #define ALBUM_WITH_AVATARS_ID @"-6"
 
