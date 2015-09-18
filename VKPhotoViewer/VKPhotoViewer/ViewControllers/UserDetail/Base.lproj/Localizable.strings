@@ -13,10 +13,10 @@
 "SexKey" = "Sex:";
 "BirthDayKey" = "Birthday:";
 "LocationKey" = "Location:";
-"DomainKey" = "Domain";
-"StatusKey" = "Status";
-"OccupationKey" = "Place of studying";
-"SiteKey" = "Site";
+"DomainKey" = "Domain:";
+"StatusKey" = "Status:";
+"OccupationKey" = "Place of studying:";
+"SiteKey" = "Site:";
 
 "MaleKey" = "Male";
 "FemaleKey" = "Female";
