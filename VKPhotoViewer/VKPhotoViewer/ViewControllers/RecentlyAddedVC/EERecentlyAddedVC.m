@@ -51,6 +51,7 @@
     EERecentlyAddedCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EERecentlyAddedCell class])];
     EENews *lNew = [_newsList objectAtIndex:indexPath.row];
     EEPhoto *lPhoto = [lNew.photos objectAtIndex:0];
+    
     cell.nameLable.text = [NSString stringWithFormat:@"%@ %@", lNew.firstName, lNew.lastName];
     cell.dateLable.text = [lNew getDate];
     [cell.userPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lNew.userPhotoLink]];

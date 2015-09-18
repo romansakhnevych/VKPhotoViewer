@@ -148,7 +148,7 @@
     EENews *lNew;
     
     for (int i = 0; i < profiles.count; i++) {
-        for (int j = 0; j < profiles.count; j++) {
+        for (int j = 0; j < items.count; j++) {
             if ([[profiles objectAtIndex:i] objectForKey:@"id"] == [[items objectAtIndex:j] objectForKey:@"source_id"]) {
                 
                 NSDictionary *lProfile = [profiles objectAtIndex:i];
@@ -185,7 +185,10 @@
             }
             
         }
-        [lNewsList addObject:lNew];
+        if (![lNewsList containsObject:lNew]) {
+            [lNewsList addObject:lNew];
+        }
+        
     }
     
     return lNewsList;
