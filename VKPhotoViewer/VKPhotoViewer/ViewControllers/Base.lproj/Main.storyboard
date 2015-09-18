@@ -802,7 +802,7 @@
         <!--Main View Controller-->
         <scene sceneID="FdB-Z8-Tcs">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="bvE-os-U8z" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bvE-os-U8z" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZl-Zr-o8Q"/>
                         <viewControllerLayoutGuide type="bottom" id="ifA-Jg-kKu"/>
