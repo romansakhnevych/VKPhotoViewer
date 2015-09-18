@@ -162,6 +162,7 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
             lContainer.navigationItem.title = localizedAddPhotoString;
         }
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
