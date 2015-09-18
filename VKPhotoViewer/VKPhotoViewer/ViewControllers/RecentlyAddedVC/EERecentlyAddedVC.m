@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EERecentlyAddedCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass([EERecentlyAddedCell class])];
-    [[EEAppManager sharedAppManager] getNewsfeedStartFrom:@"" CompletionSuccess:^(id responseObject) {
+    [[EEAppManager sharedAppManager] getNewsfeedStartFrom:nil CompletionSuccess:^(id responseObject) {
         _newsList = [[NSArray alloc] initWithArray:responseObject];
         [_tableView reloadData];
     } completionFailure:^(NSError *error) {

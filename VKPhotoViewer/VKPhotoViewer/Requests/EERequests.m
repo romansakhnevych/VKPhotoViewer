@@ -78,6 +78,12 @@
 }
 
 + (NSString *)newsfeedWithStartFrom:(NSString *)startsFrom{
-    return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&count=6&start_from=%@&v=%@&access_token=%@",startsFrom,API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
+    if (startsFrom) {
+        return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&count=50&start_from=%@&v=%@&access_token=%@",startsFrom,API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
+    }
+    else{
+        return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&count=50&v=%@&access_token=%@",API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
+    }
+    
 }
 @end

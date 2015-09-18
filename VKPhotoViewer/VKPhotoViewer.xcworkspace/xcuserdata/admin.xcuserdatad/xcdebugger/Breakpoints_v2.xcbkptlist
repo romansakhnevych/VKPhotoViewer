@@ -269,7 +269,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "+getNewsfeedWithItems:profiles:"
+            landmarkName = "+getPhotosFromArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
