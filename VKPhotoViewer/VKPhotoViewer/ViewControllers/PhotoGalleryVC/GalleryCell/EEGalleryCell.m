@@ -38,55 +38,54 @@
     return _imageView;
 }
 
-
--(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    _photo = [EEAppManager sharedAppManager].currentPhoto;
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat minY = 0.0f;
     CGFloat maxY = 0.0f;
     
-   if (!isZooming) {
-    NSLog(@"===================================================================");
-    CGPoint lScrollViewOffset =  _zoomScrollView.contentOffset;
-    NSLog(@"lScrollViewOffset - %@", NSStringFromCGPoint(lScrollViewOffset));
-    CGSize lContentSize = _zoomScrollView.contentSize;
-    
-    NSLog(@"lContentSize - %@", NSStringFromCGSize(lContentSize));
-    
-    NSLog(@"imageView - %@ ", NSStringFromCGRect(_imageView.frame));
-    NSLog(@"scale - %f", _zoomScrollView.zoomScale);
-    
-    CGFloat lScale = _zoomScrollView.zoomScale;
-    CGSize lPhotoSize = [self sizeOfPhoto:_photo inAspectFitImageView:_imageView];
-    CGSize lScaledSize = CGSizeMake(lPhotoSize.width * lScale, lPhotoSize.height * lScale);
-    NSLog(@"photo size ----%@",NSStringFromCGSize(lPhotoSize));
-    NSLog(@"scaled size --- %@",NSStringFromCGSize(lScaledSize));
-   
-     minY = (lContentSize.height - lScaledSize.height) / 2;
-     maxY = (_zoomScrollView.contentSize.height - _zoomScrollView.frame.size.height) - minY;
-    CGFloat minX = (lContentSize.width - lScaledSize.width) / 2;
-    CGFloat maxX = (_zoomScrollView.contentSize.width - _zoomScrollView.frame.size.width) - minX;
-
-    NSLog(@"min y ----%f",minY);
-    NSLog(@"max y -----%f",maxY);
-    NSLog(@"===================================================================");
-   
-    if (_zoomScrollView.contentOffset.y <= minY && lScale > 1 && minY > 0) {
-        _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, minY);
+    if (!isZooming) {
+        NSLog(@"===================================================================");
+        CGPoint lScrollViewOffset =  _zoomScrollView.contentOffset;
+        NSLog(@"lScrollViewOffset - %@", NSStringFromCGPoint(lScrollViewOffset));
+        CGSize lContentSize = _zoomScrollView.contentSize;
+        
+        NSLog(@"lContentSize - %@", NSStringFromCGSize(lContentSize));
+        
+        NSLog(@"imageView - %@ ", NSStringFromCGRect(_imageView.frame));
+        NSLog(@"scale - %f", _zoomScrollView.zoomScale);
+        
+        CGFloat lScale = _zoomScrollView.zoomScale;
+        CGSize lPhotoSize = [self sizeOfPhoto:[EEAppManager sharedAppManager].currentPhoto inAspectFitImageView:_imageView];
+        CGSize lScaledSize = CGSizeMake(lPhotoSize.width * lScale, lPhotoSize.height * lScale);
+        NSLog(@"photo size ----%@",NSStringFromCGSize(lPhotoSize));
+        NSLog(@"scaled size --- %@",NSStringFromCGSize(lScaledSize));
+        
+        minY = (lContentSize.height - lScaledSize.height) / 2;
+        maxY = (_zoomScrollView.contentSize.height - _zoomScrollView.frame.size.height) - minY;
+//        CGFloat minX = (lContentSize.width - lScaledSize.width) / 2;
+//        CGFloat maxX = (_zoomScrollView.contentSize.width - _zoomScrollView.frame.size.width) - minX;
+        
+        NSLog(@"min y ----%f",minY);
+        NSLog(@"max y -----%f",maxY);
+        NSLog(@"===================================================================");
+        if (maxY > minY) {
+            //if photo is bigger, than screen
+            if (_zoomScrollView.contentOffset.y <= minY && lScale > 1 && minY > 0) {
+                _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, minY);
+            }else if (_zoomScrollView.contentOffset.y >= maxY && lScale > 1 && maxY > 0) {
+                _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, maxY);
+            }
+        } else {
+            //if photo still smaller than screen - let it stay in the middle (Y)
+            _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, (minY + maxY)/2);
+        }
+//        if (_zoomScrollView.contentOffset.x <= minX && lScale > 1 && minX > 0) {
+//            _zoomScrollView.contentOffset = CGPointMake(minX, _zoomScrollView.contentOffset.y);
+//        }
+//        if (_zoomScrollView.contentOffset.x >= maxX && lScale > 1 && maxX > 0) {
+//            _zoomScrollView.contentOffset = CGPointMake(maxX, _zoomScrollView.contentOffset.y);
+//        }
     }
-    if (_zoomScrollView.contentOffset.y >= maxY && lScale > 1 && maxY > 0) {
-        _zoomScrollView.contentOffset = CGPointMake(_zoomScrollView.contentOffset.x, maxY);
-    }
-    if (_zoomScrollView.contentOffset.x <= minX && lScale > 1 && minX > 0) {
-           _zoomScrollView.contentOffset = CGPointMake(minX, _zoomScrollView.contentOffset.y);
-    }
-    if (_zoomScrollView.contentOffset.x >= maxX && lScale > 1 && maxX > 0) {
-           _zoomScrollView.contentOffset = CGPointMake(maxX, _zoomScrollView.contentOffset.y);
-       }
-  }
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view{
