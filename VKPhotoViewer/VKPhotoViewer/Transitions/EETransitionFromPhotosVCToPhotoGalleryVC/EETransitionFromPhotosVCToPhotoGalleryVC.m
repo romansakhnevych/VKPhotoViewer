@@ -12,7 +12,7 @@
 #import "EEGalleryCell.h"
 #import "EEPhotoCell.h"
 #import "EEGalleryCell.h"
-
+#import "EEAppManager.h"
 
 
 @implementation EETransitionFromPhotosVCToPhotoGalleryVC
@@ -42,31 +42,90 @@
     [containerView addSubview:cellImageSnapshot];
     [fromViewController.navigationController setNavigationBarHidden:YES];
     toViewController.view.frame = [UIScreen mainScreen].bounds;
+    
+    
+    
+    
+    
+    CGFloat lImageViewHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat lImageViewWidth = [UIScreen mainScreen].bounds.size.width;
+    
+    CGFloat lImageHeight = [[EEAppManager sharedAppManager].currentPhoto.photoHeight floatValue];
+    CGFloat lImageWidth = [[EEAppManager sharedAppManager].currentPhoto.photoWidth floatValue];
+    
+    CGFloat lScaleFactor = MIN(lImageViewWidth / lImageWidth, lImageViewHeight / lImageHeight);
+    
+    CGFloat lNewWidth = [[EEAppManager sharedAppManager].currentPhoto.photoWidth floatValue] * lScaleFactor;
+    CGFloat lNewHeight = [[EEAppManager sharedAppManager].currentPhoto.photoHeight floatValue] * lScaleFactor;
 
-    [UIView animateWithDuration:duration animations:^{
+    
+    
+    
+    
+    
+    [UIView animateWithDuration:5.0 animations:^{
         
         toViewController.view.alpha = 1.0;
-        
-        CGRect frame = CGRectMake((fromViewController.view.frame.size.width - cell.imageView.image.size.width*toMakePhotoBigger)/2, (fromViewController.view.frame.size.height - cell.imageView.image.size.height*toMakePhotoBigger)/2, cell.imageView.image.size.width*toMakePhotoBigger, cell.imageView.image.size.height*toMakePhotoBigger);
+        CGRect frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - cell.frame.size.width*lScaleFactor)/2, ([UIScreen mainScreen].bounds.size.height - cell.frame.size.height)/2, cell.frame.size.width*lScaleFactor, cell.frame.size.height);
+        //CGRect frame = CGRectMake((fromViewController.view.frame.size.width - cell.imageView.image.size.width*toMakePhotoBigger)/2, (fromViewController.view.frame.size.height - cell.imageView.image.size.height*toMakePhotoBigger)/2, cell.imageView.image.size.width*toMakePhotoBigger, cell.imageView.image.size.height*toMakePhotoBigger);
         cellImageSnapshot.frame = frame;
         
     } completion:^(BOOL finished) {
-        
-        [toViewController.uperView setHidden:NO];
-        
-        toViewController.cellImageSnapshot = [[UIView alloc]init];
-        toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
-        
-        [toViewController.view addSubview:toViewController.cellImageSnapshot];
-        toViewController.collectionView.pagingEnabled = YES;
-        toViewController.collectionView.hidden = NO;
-        cell.imageView.hidden = NO;
+            UIImageView* copy = [[UIImageView alloc] initWithImage:cell.imageView.image];
+        [copy setBackgroundColor:[UIColor greenColor]];
+        copy.frame = cellImageSnapshot.frame;
+        copy.contentMode = UIViewContentModeCenter;
         [cellImageSnapshot removeFromSuperview];
-        if(toViewController.isImageLoaded) {
-            [toViewController.cellImageSnapshot removeFromSuperview];
-        }
+
+        [containerView addSubview:copy];
         
-        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+        
+        
+        
+        
+
+        
+        
+        
+        //copy.contentMode = UIViewContentModeCenter;
+        [UIView animateWithDuration:3.0 animations:^{
+            copy.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - lNewWidth)/2, ([UIScreen mainScreen].bounds.size.height - lNewHeight)/2, lNewWidth, lNewHeight);
+            
+        //    copy.contentMode = UIViewContentModeScaleAspectFit;
+        } completion:^(BOOL finished) {
+            [toViewController.uperView setHidden:NO];
+            
+                    toViewController.cellImageSnapshot = [[UIView alloc]init];
+                    toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:copy]];
+            
+                    [toViewController.view addSubview:toViewController.cellImageSnapshot];
+                    toViewController.collectionView.pagingEnabled = YES;
+                    toViewController.collectionView.hidden = NO;
+                    cell.imageView.hidden = NO;
+                    [copy removeFromSuperview];
+                    if(toViewController.isImageLoaded) {
+                        [toViewController.cellImageSnapshot removeFromSuperview];
+                    }
+
+            [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+        }];
+        
+//        
+//        [toViewController.uperView setHidden:NO];
+//        
+//        toViewController.cellImageSnapshot = [[UIView alloc]init];
+//        toViewController.cellImageSnapshot = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cellImageSnapshot]];
+//        
+//        [toViewController.view addSubview:toViewController.cellImageSnapshot];
+//        toViewController.collectionView.pagingEnabled = YES;
+//        toViewController.collectionView.hidden = NO;
+//        cell.imageView.hidden = NO;
+//        [cellImageSnapshot removeFromSuperview];
+//        if(toViewController.isImageLoaded) {
+//            [toViewController.cellImageSnapshot removeFromSuperview];
+//        }
+        
+//        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
 

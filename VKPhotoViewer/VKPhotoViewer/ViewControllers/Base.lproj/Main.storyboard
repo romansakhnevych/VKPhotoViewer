@@ -281,7 +281,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="93" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-3f-L6d">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-3f-L6d">
                                             <rect key="frame" x="0.0" y="0.0" width="93" height="93"/>
                                         </imageView>
                                     </subviews>
@@ -354,7 +354,7 @@
         <!--MainVC-->
         <scene sceneID="ust-zA-7KV">
             <objects>
-                <viewController storyboardIdentifier="login" id="uiY-un-2BE" customClass="EEMainVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uiY-un-2BE" customClass="EEMainVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Au-nQ-cZp"/>
                         <viewControllerLayoutGuide type="bottom" id="0OU-Ul-mMM"/>
@@ -410,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xb-GJ-jDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-382.5" y="333.5"/>
+            <point key="canvasLocation" x="-322.5" y="345.5"/>
         </scene>
         <!--Vk LoginVC-->
         <scene sceneID="ufC-wZ-h7g">
@@ -657,7 +657,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b94-cE-9mx">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b94-cE-9mx">
                                         <rect key="frame" x="326" y="17" width="30" height="30"/>
                                         <state key="normal" title="Edit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -887,9 +887,34 @@
                     <view key="view" contentMode="scaleToFill" id="cRE-CD-Zmf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdN-By-vcf">
+                                <rect key="frame" x="157" y="319" width="61" height="30"/>
+                                <state key="normal" title="LogOut">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonTapped:" destination="Apw-36-ETr" eventType="touchUpInside" id="Q0U-jm-xne"/>
+                                    <segue destination="uiY-un-2BE" kind="show" id="L32-B7-42l"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="pdN-By-vcf" secondAttribute="centerY" constant="-0.5" id="AA6-3F-Xa4"/>
+                            <constraint firstItem="pdN-By-vcf" firstAttribute="top" secondItem="f81-qC-9yA" secondAttribute="bottom" constant="299" id="mbI-YQ-Z8o"/>
+                            <constraint firstItem="pdN-By-vcf" firstAttribute="centerX" secondItem="cRE-CD-Zmf" secondAttribute="centerX" id="v67-LL-lDP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mbI-YQ-Z8o"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="pdN-By-vcf" id="4r1-i0-rJX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVN-LI-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -945,4 +970,7 @@
         <image name="Like" width="25" height="25"/>
         <image name="Share" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WGB-6Y-PJd"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -27,8 +27,8 @@ static NSString *CelID = @"GalleryCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-    [_uperView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.5]];
-    [ _bottomView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.5]];
+    [_uperView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.5]];
+    [ _bottomView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.5]];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;

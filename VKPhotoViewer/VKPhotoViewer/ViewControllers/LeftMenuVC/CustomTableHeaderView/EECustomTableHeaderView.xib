@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -23,18 +23,28 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-to-j3S">
+                    <rect key="frame" x="8" y="221" width="234" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="EyR-m1-4vZ" firstAttribute="leading" secondItem="N2I-He-crB" secondAttribute="leading" constant="8" id="AxB-pA-sUy"/>
+                <constraint firstAttribute="trailing" secondItem="R7r-to-j3S" secondAttribute="trailing" constant="8" id="Dnl-hN-dJ5"/>
                 <constraint firstAttribute="trailing" secondItem="EyR-m1-4vZ" secondAttribute="trailing" constant="8" id="QB2-vQ-3iq"/>
                 <constraint firstAttribute="centerY" secondItem="3OO-s2-h0p" secondAttribute="centerY" constant="0.5" id="SlA-D6-Ji6"/>
+                <constraint firstItem="R7r-to-j3S" firstAttribute="leading" secondItem="N2I-He-crB" secondAttribute="leading" constant="8" id="SqH-tp-fBd"/>
+                <constraint firstAttribute="centerY" secondItem="R7r-to-j3S" secondAttribute="centerY" constant="-106.5" id="lDU-0O-ZAp"/>
                 <constraint firstItem="EyR-m1-4vZ" firstAttribute="top" secondItem="3OO-s2-h0p" secondAttribute="bottom" constant="8" id="pNR-k1-aHe"/>
                 <constraint firstAttribute="centerX" secondItem="3OO-s2-h0p" secondAttribute="centerX" id="qPC-mL-Ctk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageView" destination="3OO-s2-h0p" id="Cn1-pr-LbP"/>
+                <outlet property="lastNameLabel" destination="R7r-to-j3S" id="mVG-8h-Phm"/>
                 <outlet property="nameLable" destination="EyR-m1-4vZ" id="j7X-cn-fri"/>
             </connections>
             <point key="canvasLocation" x="331" y="205"/>

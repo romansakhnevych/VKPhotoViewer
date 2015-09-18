@@ -22,7 +22,6 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     Albums,
     RecentlyAdded,
     Settings,
-    AddPhoto
 };
 
 
@@ -34,20 +33,57 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 
 @implementation LeftViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [self update];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self update];
+//    [self update];
+//    [self awakeFromNib];
+//    [EEAppManager sharedAppManager].delegate = self;
+//    NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
+//    NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
+//    NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
+//    NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
+//    //NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
+//    
+//    _titlesArray = @[localizedFriendsString,
+//                     localizedAlbumsString,
+//                     localizedRecentlyAddedString,
+//                     localizedSettingsString];
+//    
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 20.f, 0.f);
+//    self.tableView.showsVerticalScrollIndicator = NO;
+//    EECustomTableHeaderView *view = [EECustomTableHeaderView createView];
+//    self.tableView.tableHeaderView = view;
+//    
+//    NSString *lLoggedUserId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
+//    [[EEAppManager sharedAppManager] getDetailByUserId:lLoggedUserId completionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
+//        [EEAppManager sharedAppManager].loggedUser = friendModel;
+//        view.nameLable.text = friendModel.firstName;
+//        view.lastNameLabel.text = friendModel.lastName;
+//        [view.imageView hnk_setImageFromURL:[NSURL URLWithString:friendModel.bigPhotoLink]];
+//    } completionFailure:^(NSError *error) {
+//        
+//    }];
+}
+
+-(void)update {
+    [EEAppManager sharedAppManager].delegate = self;
     NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
     NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
     NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
-    NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
-
+    //NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
+    
     _titlesArray = @[localizedFriendsString,
                      localizedAlbumsString,
                      localizedRecentlyAddedString,
-                     localizedSettingsString,
-                     localizedAddPhotoString];
+                     localizedSettingsString];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 20.f, 0.f);
@@ -59,14 +95,22 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     [[EEAppManager sharedAppManager] getDetailByUserId:lLoggedUserId completionSuccess:^(BOOL successLoad, EEFriends *friendModel) {
         [EEAppManager sharedAppManager].loggedUser = friendModel;
         view.nameLable.text = friendModel.firstName;
+        view.lastNameLabel.text = friendModel.lastName;
         [view.imageView hnk_setImageFromURL:[NSURL URLWithString:friendModel.bigPhotoLink]];
+        [self.tableView reloadData];
     } completionFailure:^(NSError *error) {
         
     }];
-    
-    
 
 }
+//- (void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    
+//    
+//    [self update];
+//
+//}
 
 #pragma mark -
 
@@ -109,6 +153,16 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44.0f;
 }
+//-(void)tokenDidExpired {
+//    [self logOut];
+//}
+//
+//-(void)logOut {
+//    
+//        
+//    
+//
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -116,7 +170,7 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
     NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
     NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
-    NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
+//    NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
     
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
     UIViewController *lViewController;
@@ -155,12 +209,12 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
             lContainer.navigationItem.title = localizedSettingsString;
         }
             break;
-        case AddPhoto:{
-            lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
-            lViewController.view.frame = lViewRect;
-            [lContainer addSubviewAsChildVC:lViewController];
-            lContainer.navigationItem.title = localizedAddPhotoString;
-        }
+//        case AddPhoto:{
+//            lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
+//            lViewController.view.frame = lViewRect;
+//            [lContainer addSubviewAsChildVC:lViewController];
+//            lContainer.navigationItem.title = localizedAddPhotoString;
+//        }
     }
 }
 

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EEAppManager.h"
 #import "EGOCache.h"
+#import "EESettingsVC.h"
 
-
-@interface EEFriendsListVC : UIViewController <UITableViewDelegate,UITableViewDataSource, UIScrollViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, EEAppManagerDelegate, UISearchBarDelegate>
+@interface EEFriendsListVC : UIViewController <UITableViewDelegate,UITableViewDataSource, UIScrollViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, EEAppManagerDelegate, UISearchBarDelegate, EESettingsVCDelegate>
 
 @property (nonatomic,retain) NSMutableArray *friendsList;
 @property (strong, nonatomic)NSMutableArray *searchResult;

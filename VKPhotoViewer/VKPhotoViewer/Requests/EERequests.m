@@ -78,6 +78,6 @@
 }
 
 + (NSString *)newsfeedWithStartFrom:(NSString *)startsFrom{
-    return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&count=6&start_from=%@&v=%@&access_token=%@",startsFrom,API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
+    return [NSString stringWithFormat:@"https://api.vk.com/method/newsfeed.get?filters=photo&start_from=%@&v=%@&access_token=%@",startsFrom,API_VERSION,[[NSUserDefaults standardUserDefaults]objectForKey:ACCESS_TOKEN_KEY]];
 }
 @end

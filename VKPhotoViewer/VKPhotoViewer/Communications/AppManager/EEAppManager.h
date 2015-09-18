@@ -12,6 +12,7 @@
 #import "EEAlbum.h"
 #import "EGOCache.h"
 #import "EEPhoto.h"
+#import "EESettingsVC.h"
 
 @protocol EEAppManagerDelegate <NSObject>
 @optional
@@ -21,7 +22,7 @@
 @end
 
 
-@interface EEAppManager : NSObject 
+@interface EEAppManager : NSObject <EESettingsVCDelegate>
 
 @property (nonatomic,retain)EEFriends *currentFriend;
 @property (nonatomic,retain)EEFriends *loggedUser;

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEAppManager.h"
 
-@interface LeftViewController : UITableViewController
+@interface LeftViewController : UITableViewController <EEAppManagerDelegate>
 
 @property (strong, nonatomic) UIColor *tintColor;
 

@@ -35,7 +35,7 @@
     _searchResult = [NSMutableArray new];
     [self configureSearchController];
     [self setUpTableView];
-    [EEAppManager sharedAppManager].delegate = self;
+    //[EEAppManager sharedAppManager].delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -169,9 +169,9 @@
 }
 
 - (void)logout {
-    if ([self.searchController isActive]) {
-        self.searchController.active = NO;
-    }
+//    if ([self.searchController isActive]) {
+//        self.searchController.active = NO;
+//    }
     [self.friendsList removeAllObjects];
     [self.searchResult removeAllObjects];
     [self.tableView reloadData];
@@ -238,4 +238,7 @@
     [[EEAppManager sharedAppManager] showAlertAboutTokenExpired];
 }
 
+-(void)EESettingsVCDelegateLogOutButtonTapped {
+    [self logout];
+}
 @end

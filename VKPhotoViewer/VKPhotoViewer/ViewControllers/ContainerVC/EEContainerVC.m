@@ -53,24 +53,27 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    
+//    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+//    [self.navigationController popToViewController: lViewController  animated:YES];
 }
 
 - (void)setupNavigationBar{
     [self.navigationController setNavigationBarHidden:NO];
     
     NSString *localizedMenuString = NSLocalizedString(@"MenuKey", @"");
-    NSString *localizedLogOutString = NSLocalizedString(@"LogOutKey", @"");
+    //NSString *localizedLogOutString = NSLocalizedString(@"LogOutKey", @"");
     
     UIBarButtonItem *lMenuBtn = [[UIBarButtonItem alloc] initWithTitle:localizedMenuString
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(menuBtnTap)];
-    UIBarButtonItem *LogoutBtn = [[UIBarButtonItem alloc] initWithTitle:localizedLogOutString
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action:@selector(logout)];
-    [self.navigationItem setRightBarButtonItem:LogoutBtn];
+//    //UIBarButtonItem *LogoutBtn = [[UIBarButtonItem alloc] initWithTitle:localizedLogOutString
+//                                                                  style:UIBarButtonItemStylePlain
+//                                                                 target:self
+//                                                                 action:@selector(logout)];
+//    [//self.navigationItem setRightBarButtonItem:LogoutBtn];
     
     [self.navigationItem setLeftBarButtonItem:lMenuBtn];
 }

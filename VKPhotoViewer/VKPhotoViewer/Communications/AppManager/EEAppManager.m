@@ -300,4 +300,8 @@
         
     }];
 }
+
+- (void)EESettingsVCDelegateLogOutButtonTapped {
+    [self.delegate tokenDidExpired];
+}
 @end
