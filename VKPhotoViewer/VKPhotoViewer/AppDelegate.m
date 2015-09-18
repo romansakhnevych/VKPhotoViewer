@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+//    [self setUpCustomDesign];
     NSObject *lToken = [[NSUserDefaults standardUserDefaults] objectForKey:ACCESS_TOKEN_KEY];
     
     if (lToken != nil){
@@ -55,6 +55,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
+}
+
+#pragma mark - Private methods
+
+- (void)setUpCustomDesign {
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                           }];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
 }
 
 @end

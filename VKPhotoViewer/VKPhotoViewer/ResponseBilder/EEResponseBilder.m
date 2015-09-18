@@ -187,9 +187,9 @@
         }
         if (![lNewsList containsObject:lNew]) {
             [lNewsList addObject:lNew];
-
         }
-            }
+        
+    }
     
     return lNewsList;
 }
