@@ -10,6 +10,8 @@
 #import "EEAlbum.h"
 #import "EEPhoto.h"
 #import "EENews.h"
+#import <UIKit/UIKit.h>
+#import "UIImageView+Haneke.h"
 
 
 @implementation EEResponseBilder
@@ -97,6 +99,41 @@
         lPhoto.commentsCount = [[obj objectForKey:@"comments"] objectForKey:@"count"];
         lPhoto.photoHeight = [obj objectForKey:@"height"];
         lPhoto.photoWidth = [obj objectForKey:@"width"];
+        if ([obj objectForKey:@"height"] && ![[obj objectForKey:@"height"]  isEqual: @""]) {
+            lPhoto.photoHeight = [obj objectForKey:@"height"];
+            lPhoto.photoWidth = [obj objectForKey:@"width"];
+        } else {
+            NSString* photoURL;
+            if (lPhoto.xxlPhotoLink){
+                photoURL = lPhoto.xxlPhotoLink;
+            }else if (lPhoto.xlPhotoLink){
+                photoURL = lPhoto.xlPhotoLink;
+                
+            }else if (lPhoto.lPhotoLink){
+                photoURL = lPhoto.lPhotoLink;
+                
+            }else if (lPhoto.mPhotoLink){
+                photoURL = lPhoto.mPhotoLink;
+                
+            }else if (lPhoto.sPhotoLink){
+                photoURL = lPhoto.sPhotoLink;
+                
+            }else if (lPhoto.xsPhotoLink){
+                photoURL = lPhoto.xsPhotoLink;
+            }
+            
+            UIImageView *imgView = [[UIImageView alloc] init];
+            imgView.contentMode = UIViewContentModeScaleToFill;
+            
+            CGRect frame = CGRectMake(15, 14, 14, 13);
+            imgView.frame = frame;
+            [imgView hnk_setImageFromURL:[NSURL URLWithString:photoURL]  placeholder:nil success:^(UIImage *image) {
+                lPhoto.photoHeight = [NSString stringWithFormat:@"%f",image.size.height];
+                lPhoto.photoWidth = [NSString stringWithFormat:@"%f",image.size.width];
+            } failure:^(NSError *error) {
+                
+            }];
+        }
         
         
         [lPhotosList addObject:lPhoto];

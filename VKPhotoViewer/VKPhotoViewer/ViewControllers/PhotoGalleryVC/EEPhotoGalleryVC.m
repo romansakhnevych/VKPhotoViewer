@@ -27,6 +27,8 @@ static NSString *CelID = @"GalleryCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    [_uperView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.5]];
+    [ _bottomView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.5]];
     _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
     _allPhotos = [EEAppManager sharedAppManager].allPhotos;
     _album = [EEAppManager sharedAppManager].currentAlbum;
@@ -84,7 +86,6 @@ static NSString *CelID = @"GalleryCell";
             [_collectionView reloadData];
         }];
     }
-    
     EEGalleryCell *lCell = (EEGalleryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CelID forIndexPath:indexPath];
     lCell.imageView.image = nil;
     [lCell.spinner startAnimating];
@@ -109,6 +110,7 @@ static NSString *CelID = @"GalleryCell";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    //for case, when cell changes
     if (indexPath.row != _newIndex) {
         if (_newIndex > _currentIndex) {
             _currentIndex++;
@@ -117,6 +119,7 @@ static NSString *CelID = @"GalleryCell";
         }
         EEPhoto *lPhoto = [_allPhotos objectAtIndex:_currentIndex];
         [EEAppManager sharedAppManager].currentPhoto = lPhoto;
+        ((EEGalleryCell*)cell).photo = lPhoto;
         _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
         if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
             _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
