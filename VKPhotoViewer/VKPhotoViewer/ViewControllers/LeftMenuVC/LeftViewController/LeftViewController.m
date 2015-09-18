@@ -134,6 +134,7 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
         }
             break;
         case Albums:{
+            
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
             lViewController.view.frame = lViewRect;
