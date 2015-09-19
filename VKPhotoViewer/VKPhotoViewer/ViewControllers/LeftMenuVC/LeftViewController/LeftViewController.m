@@ -38,10 +38,13 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 @implementation LeftViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-//    UIButton* logOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 675, 50, 50)];
+//    
+//    UIButton* logOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height - 50, self.tableView.frame.size.width, 50)];
 //    logOutBtn.titleLabel.text = @"LogOut";
+//    [logOutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    //[logOutBtn setTitleColor: forState:<#(UIControlState)#>]
 //    [logOutBtn addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
+//    //[[[UIApplication sharedApplication] windows] objectsAtIndexes:0]
 //    [self.view addSubview:logOutBtn];
     
     selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -55,11 +58,12 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     
     _titlesArray = @[localizedFriendsString,
                      localizedAlbumsString,
-                     localizedRecentlyAddedString];
+                     localizedRecentlyAddedString,];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.tableView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 20.f, 0.f);
     self.tableView.showsVerticalScrollIndicator = NO;
     EECustomTableHeaderView *view = [EECustomTableHeaderView createView];
+    view.delegate = self;
     self.tableView.tableHeaderView = view;
     
     NSString *lLoggedUserId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
@@ -121,9 +125,9 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     switch (indexPath.row) {
         case Friends:{
             cell.imageView.image = [UIImage imageNamed:@"FriendsWhite"];
-            cell.selected = YES;
+//            cell.selected = YES;
             [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-            [self tableView:tableView didSelectRowAtIndexPath:indexPath];
+            //[self tableView:tableView didSelectRowAtIndexPath:indexPath];
             [cell setBackgroundColor:[UIColor whiteColor]];
             [cell.textLabel setTextColor:CUSTOM_YELLOW_COLOR];
         }
@@ -155,6 +159,8 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     LeftViewCell* cell = (LeftViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor whiteColor]];
     [cell.textLabel setTextColor:CUSTOM_YELLOW_COLOR];
+    
+        
     NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
     NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
@@ -210,7 +216,7 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
 //            lContainer.navigationItem.title = localizedAddPhotoString;
 //        }
     }
-    
+   
 }
 
 -(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -254,6 +260,17 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.navigationController performSegueWithIdentifier:@"logOutSegueIdentifier" sender:self];
+//    [self ]
+    [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
+    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"login"];
+    [kNavigationController popToRootViewControllerAnimated:YES];
+    //[kMainViewController pushViewController:lViewController animated:YES];
+    //[kMainViewController rootViewController]
+    //[kMainViewController po
+    //[kMainViewController popToViewController:lViewController animated:YES];
+    //[self.navigationController pushViewController:lViewController  animated:YES];
+//    [self.navigationController performSegueWithIdentifier:@"logOutSegueIdentifier" sender:self];
+    //[kMainViewController]
 }
 @end

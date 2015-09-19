@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -29,14 +30,26 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gQ-0l-g1c">
+                    <rect key="frame" x="8" y="8" width="49" height="30"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logOutButtonTapped:" destination="N2I-He-crB" eventType="touchUpInside" id="lne-a9-5JQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="1gQ-0l-g1c" firstAttribute="top" secondItem="N2I-He-crB" secondAttribute="topMargin" id="603-2i-lh0"/>
                 <constraint firstItem="EyR-m1-4vZ" firstAttribute="leading" secondItem="N2I-He-crB" secondAttribute="leading" constant="8" id="AxB-pA-sUy"/>
                 <constraint firstAttribute="trailing" secondItem="R7r-to-j3S" secondAttribute="trailing" constant="8" id="Dnl-hN-dJ5"/>
                 <constraint firstAttribute="trailing" secondItem="EyR-m1-4vZ" secondAttribute="trailing" constant="8" id="QB2-vQ-3iq"/>
                 <constraint firstAttribute="centerY" secondItem="3OO-s2-h0p" secondAttribute="centerY" constant="0.5" id="SlA-D6-Ji6"/>
                 <constraint firstItem="R7r-to-j3S" firstAttribute="leading" secondItem="N2I-He-crB" secondAttribute="leading" constant="8" id="SqH-tp-fBd"/>
+                <constraint firstItem="1gQ-0l-g1c" firstAttribute="leading" secondItem="EyR-m1-4vZ" secondAttribute="leading" id="X2I-lx-CeQ"/>
                 <constraint firstAttribute="centerY" secondItem="R7r-to-j3S" secondAttribute="centerY" constant="-106.5" id="lDU-0O-ZAp"/>
                 <constraint firstItem="EyR-m1-4vZ" firstAttribute="top" secondItem="3OO-s2-h0p" secondAttribute="bottom" constant="8" id="pNR-k1-aHe"/>
                 <constraint firstAttribute="centerX" secondItem="3OO-s2-h0p" secondAttribute="centerX" id="qPC-mL-Ctk"/>
@@ -47,7 +60,7 @@
                 <outlet property="lastNameLabel" destination="R7r-to-j3S" id="mVG-8h-Phm"/>
                 <outlet property="nameLable" destination="EyR-m1-4vZ" id="j7X-cn-fri"/>
             </connections>
-            <point key="canvasLocation" x="331" y="205"/>
+            <point key="canvasLocation" x="319" y="180"/>
         </view>
     </objects>
 </document>

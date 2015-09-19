@@ -9,6 +9,9 @@
 #import "EECustomTableHeaderView.h"
 
 @implementation EECustomTableHeaderView
+- (IBAction)logOutButtonTapped:(id)sender {
+    [self.delegate logOut];
+}
 
 - (void)awakeFromNib{
     [super awakeFromNib];

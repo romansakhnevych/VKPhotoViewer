@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "EEAppManager.h"
+#import "EECustomTableHeaderView.h"
 
-@interface LeftViewController : UITableViewController <EEAppManagerDelegate>
+@interface LeftViewController : UITableViewController <EEAppManagerDelegate, EECustomTableHeaderViewDelegate>
 
 @property (strong, nonatomic) UIColor *tintColor;
 
