@@ -121,6 +121,11 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     switch (indexPath.row) {
         case Friends:{
             cell.imageView.image = [UIImage imageNamed:@"FriendsWhite"];
+            cell.selected = YES;
+            [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            [self tableView:tableView didSelectRowAtIndexPath:indexPath];
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            [cell.textLabel setTextColor:CUSTOM_YELLOW_COLOR];
         }
             break;
         case Albums:{
@@ -214,7 +219,9 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     cell.backgroundColor = NAVIGATION_BAR_TINT_COLOR;
     switch (indexPath.row) {
         case Friends:{
+            
             cell.imageView.image = [UIImage imageNamed:@"FriendsWhite"];
+            
         }
             break;
         case Albums:{
