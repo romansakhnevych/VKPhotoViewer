@@ -31,6 +31,8 @@
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
       
     _user = [EEAppManager sharedAppManager].currentFriend;
+        
+        
     [self updateDataWithCount:_count Offset:_offset Id:_user.userId];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([EELoadingTVCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NSStringFromClass([EELoadingTVCell class])];
@@ -99,6 +101,9 @@
     [[EEAppManager sharedAppManager] getAlbumsWithCount:count offset:offset Id:userId completionSuccess:^(id responseObject) {
         if([responseObject isKindOfClass:[NSMutableArray class]]){
             [_albumsList addObjectsFromArray:responseObject];
+            if (_albumsList.count == 0) {
+                
+                            }
             _loadedAlbumsCount = [responseObject count];
             _offset+=4;
         }else{

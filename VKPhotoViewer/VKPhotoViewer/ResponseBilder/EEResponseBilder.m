@@ -28,6 +28,7 @@
         lUser.userId = [NSString stringWithFormat:@"%@",[obj objectForKey:@"user_id"]];
         lUser.smallPhotoLink = [NSString stringWithFormat:@"%@",[obj objectForKey:@"photo_100"]];
         lUser.bigPhotoLink = [NSString stringWithFormat:@"%@",[obj objectForKey:@"photo_200_orig"]];
+        lUser.deactivated = [obj objectForKey:@"deactivated"];
         
         [lArrayFriends addObject:lUser];
             

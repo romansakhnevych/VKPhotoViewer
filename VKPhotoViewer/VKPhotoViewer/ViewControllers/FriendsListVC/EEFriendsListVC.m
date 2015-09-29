@@ -123,9 +123,17 @@
     
     [_searchController setActive:NO];
     
+   if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
+        UIAlertView *lAlert;
+        lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This friend deleted his account or has been banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [lAlert show];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } else {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"userDetail"];
     [[self navigationController] pushViewController:lViewController animated:YES];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,11 +146,18 @@
         [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
     }
     [_searchController setActive:NO];
-    
+        if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
+            UIAlertView *lAlert;
+            lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This friend deleted his account or has been banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+            [lAlert show];
+            [self.navigationController popViewControllerAnimated:YES];
+
+        } else {
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[self navigationController] pushViewController:lViewController animated:YES];
+            [[self navigationController] pushViewController:lViewController animated:YES];
+        }
     }
 }
 
