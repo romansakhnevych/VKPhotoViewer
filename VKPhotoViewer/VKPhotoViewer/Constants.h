@@ -48,4 +48,12 @@
 #define DLog(s, ...)
 #endif
 
+#define QUALITY_VALUE @"QUALITY_VALUE"
+
+#define GET_DEFAULT_VALUE(_key_) [[NSUserDefaults standardUserDefaults] objectForKey:_key_]
+
+#define SAVE_DEFAULT_VALUE(_value_, _key_)\
+[[NSUserDefaults standardUserDefaults] setObject:_value_ forKey:_key_];\
+[[NSUserDefaults standardUserDefaults] synchronize]
+
 #endif

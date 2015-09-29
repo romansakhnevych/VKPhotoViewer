@@ -1005,6 +1005,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logOutAction:" destination="Apw-36-ETr" eventType="touchUpInside" id="AN4-Nx-IoT"/>
+                                        </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3lv-KK-DEU">
                                         <rect key="frame" x="302" y="30" width="51" height="31"/>
@@ -1053,6 +1056,17 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="ChangeImageQuality" destination="3lv-KK-DEU" id="5Rg-u4-CJ4"/>
+                        <outlet property="LogOutButton" destination="MtR-k7-77T" id="5Ie-7E-D9d"/>
+                        <outlet property="albumsCountLabel" destination="2RB-7J-LNC" id="aZI-hB-NZL"/>
+                        <outlet property="backgroundPhoto" destination="sDr-5S-Za8" id="tvu-F8-Bmx"/>
+                        <outlet property="city" destination="fJL-Py-8RI" id="X37-3U-nTd"/>
+                        <outlet property="fullName" destination="BF9-qo-stH" id="GhD-4L-4am"/>
+                        <outlet property="label_imageQuality" destination="whY-S3-tOQ" id="0DH-WX-Rhn"/>
+                        <outlet property="photosCountLabel" destination="3Xx-sh-xmX" id="gax-lC-Wak"/>
+                        <outlet property="userPhoto" destination="XHh-N4-ChE" id="Ifb-I2-af0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVN-LI-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
