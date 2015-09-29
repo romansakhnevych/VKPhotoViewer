@@ -38,7 +38,7 @@
 
 - (void)removeChildVC{
     [[self.childViewControllers lastObject] willMoveToParentViewController:nil];
-    [[self.childViewControllers lastObject].view removeFromSuperview];
+    //[[self.childViewControllers lastObject].view removeFromSuperview];
     [[self.childViewControllers lastObject] removeFromParentViewController];
     
 }
