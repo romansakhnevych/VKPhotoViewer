@@ -125,7 +125,7 @@
     
    if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
         UIAlertView *lAlert;
-        lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This friend deleted his account or has been banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [lAlert show];
         [self.navigationController popViewControllerAnimated:YES];
         
@@ -148,7 +148,7 @@
     [_searchController setActive:NO];
         if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
             UIAlertView *lAlert;
-            lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This friend deleted his account or has been banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+            lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
             [lAlert show];
             [self.navigationController popViewControllerAnimated:YES];
 

@@ -15,7 +15,10 @@
 #import "Constants.h"
 #import "EEAppManager.h"
 #import "Haneke.h"
+#import "EEFriendsListVC.h"
 #import "EEContainerVC.h"
+#import "EEAlbumsVC.h"
+#import "EERecentlyAddedVC.h"
 
 typedef NS_ENUM(NSInteger, EEMenuItems) {
     Friends,
@@ -176,16 +179,20 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     switch (indexPath.row) {
         case Friends:{
             UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EEFriendsListVC class]]) {
             [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+           
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedFriendsString;
             cell.imageView.image = [UIImage imageNamed:@"FriendsYellow"];
+            }
 
         }
             break;
         case Albums:{
             UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EEAlbumsVC class]]) {
             [lContainer removeChildVC];
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
@@ -193,16 +200,19 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedAlbumsString;
             cell.imageView.image = [UIImage imageNamed:@"albumsYellow"];
+            }
         }
             break;
         case RecentlyAdded:{
             UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EERecentlyAddedVC class]]) {
             [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
             lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedRecentlyAddedString;
             cell.imageView.image = [UIImage imageNamed:@"recentlyAddedYellow"];
+            }
         }
             break;
 //        case Settings:{
