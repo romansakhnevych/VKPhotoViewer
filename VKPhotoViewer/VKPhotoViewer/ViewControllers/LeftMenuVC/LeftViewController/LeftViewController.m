@@ -168,7 +168,6 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     //NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
     
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
-    UIViewController *lViewController;
     EEContainerVC *lContainer = [[[kMainViewController rootViewController] childViewControllers] objectAtIndex:0];
     CGRect lViewRect = lContainer.view.frame;
     lViewRect.size.height = lViewRect.size.height - 64;
@@ -176,8 +175,9 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     NSLog(@"lContainer frame - %@", NSStringFromCGRect(lContainer.view.frame));
     switch (indexPath.row) {
         case Friends:{
+            UIViewController *lViewController;
+            [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
-            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedFriendsString;
             cell.imageView.image = [UIImage imageNamed:@"FriendsYellow"];
@@ -185,6 +185,8 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
         }
             break;
         case Albums:{
+            UIViewController *lViewController;
+            [lContainer removeChildVC];
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
             lViewController.view.frame = lViewRect;
@@ -194,6 +196,8 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
         }
             break;
         case RecentlyAdded:{
+            UIViewController *lViewController;
+            [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
             lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];

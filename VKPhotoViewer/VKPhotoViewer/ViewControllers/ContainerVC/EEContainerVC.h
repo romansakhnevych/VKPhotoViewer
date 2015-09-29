@@ -10,4 +10,5 @@
 
 @interface EEContainerVC : UIViewController
 - (void)addSubviewAsChildVC:(UIViewController *)viewController;
+- (void)removeChildVC;
 @end

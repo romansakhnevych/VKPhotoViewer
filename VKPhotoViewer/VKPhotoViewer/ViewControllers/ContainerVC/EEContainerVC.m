@@ -36,6 +36,13 @@
     [viewController didMoveToParentViewController:self];
 }
 
+- (void)removeChildVC{
+    [[self.childViewControllers lastObject] willMoveToParentViewController:nil];
+    [[self.childViewControllers lastObject].view removeFromSuperview];
+    [[self.childViewControllers lastObject] removeFromParentViewController];
+    
+}
+
 - (void)menuBtnTap: (id)btn{
     
     [kMainViewController showLeftViewAnimated:YES completionHandler:nil];

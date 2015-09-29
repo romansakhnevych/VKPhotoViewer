@@ -36,6 +36,11 @@
     [self configureSearchController];
     [self setUpTableView];
     //[EEAppManager sharedAppManager].delegate = self;
+    CGRect lViewRect = self.view.frame;
+    lViewRect.size.height = lViewRect.size.height - 64;
+    lViewRect.origin.y = lViewRect.origin.y + 64;
+    self.view.frame = lViewRect;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,6 +51,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
         [self updateTableView];
     }
+
 }
 
 - (void)didReceiveMemoryWarning {
