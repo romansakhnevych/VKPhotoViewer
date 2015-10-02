@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *label_imageQuality;
 @property (weak, nonatomic) IBOutlet UISwitch *ChangeImageQuality;
 @property (nonatomic, retain)NSString *strSwitcher;
+@property (weak, nonatomic) IBOutlet UIButton *deleteCashBtn;
+- (IBAction)deleteCashAction:(id)sender;
 @property (weak, nonatomic) id <EESettingsVCDelegate> delegate;
 
 @end

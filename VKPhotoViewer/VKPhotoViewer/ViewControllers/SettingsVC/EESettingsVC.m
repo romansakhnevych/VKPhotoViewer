@@ -120,7 +120,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)logOutButtonTapped:(id)sender {
+/*- (IBAction)logOutButtonTapped:(id)sender {
     //[self.delegate EESettingsVCDelegateLogOutButtonTapped];
     NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     
@@ -134,7 +134,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
+}*/
 
 - (void)changeSwitch:(id)sender {
     if ([sender isOn]) {
@@ -174,4 +174,14 @@
 }
 
 
+- (IBAction)deleteCashAction:(id)sender {
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
+    NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    
+    for (NSHTTPCookie *cookie in [lStorage cookies]) {
+        [lStorage deleteCookie:cookie];
+    }
+}
 @end
