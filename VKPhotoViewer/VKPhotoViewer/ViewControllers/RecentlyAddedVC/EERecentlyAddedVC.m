@@ -68,35 +68,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         EEPhotoGalleryVC *lViewController = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
-    
+    [EEAppManager sharedAppManager].allPhotos = nil;
+    //[EEAppManager sharedAppManager].currentAlbum = nil;
     EENews *lNews = [_newsList objectAtIndex:indexPath.row];
     EEPhoto *lPhoto = [lNews.photos objectAtIndex:0];
-    [EEAppManager sharedAppManager].allPhotos = [[NSMutableArray alloc] initWithObjects:lPhoto, nil];
     [EEAppManager sharedAppManager].currentPhotoIndex = 0;
-    [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:lPhoto.albumId forUser:[lNews getUserId] completionSuccess:^(id responseObject) {
-        NSArray *lPhotos = [[NSArray alloc] initWithArray:responseObject];
-        for (int i = 0; i < lPhotos.count; i++) {
-            NSInteger photo_id = lPhoto.photoId.integerValue;
-            NSString *lPhotoId = [NSString stringWithFormat:@"%li",photo_id];
-            if ([[[lPhotos objectAtIndex:i] photoId] isEqualToString:lPhotoId]) {
-                [EEAppManager sharedAppManager].currentPhotoIndex = i;
-            }
-        }
-        [[EEAppManager sharedAppManager].allPhotos addObjectsFromArray:lPhotos];
-        
-    } completionFailure:^(NSError *error) {
-        
-    }];
-    
-    
-//    [EEAppManager sharedAppManager].currentPhoto = lPhoto;
-
+    [EEAppManager sharedAppManager].allPhotos = [NSMutableArray arrayWithObject:lPhoto];
+   
     [self.navigationController pushViewController:lViewController animated:YES];
     
-    
-    
- 
-}
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
