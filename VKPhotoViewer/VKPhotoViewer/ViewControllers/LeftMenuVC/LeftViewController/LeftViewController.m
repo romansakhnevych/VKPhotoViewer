@@ -183,7 +183,7 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
             if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EEFriendsListVC class]]) {
             [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
-           
+            lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedFriendsString;
             cell.imageView.image = [UIImage imageNamed:@"FriendsYellow"];

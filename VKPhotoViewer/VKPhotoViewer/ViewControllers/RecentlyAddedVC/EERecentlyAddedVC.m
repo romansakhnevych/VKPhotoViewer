@@ -14,9 +14,12 @@
 #import "EERecentlyAddedCell.h"
 #import "UIImageView+Haneke.h"
 #import "EEPhoto.h"
+#import "Constants.h"
+#import "EEPhotoGalleryVC.h"
 
 @interface EERecentlyAddedVC (){
     NSArray *_newsList;
+    
 }
 
 @end
@@ -52,16 +55,48 @@
     EENews *lNew = [_newsList objectAtIndex:indexPath.row];
     EEPhoto *lPhoto = [lNew.photos objectAtIndex:0];
     
+   [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     cell.nameLable.text = [NSString stringWithFormat:@"%@ %@", lNew.firstName, lNew.lastName];
     cell.dateLable.text = [lNew getDate];
+    cell.userPhotoImgView.image = [UIImage imageNamed:@"Placeholder"];
+    cell.mainPhotoImgView.image = [UIImage imageNamed:@"Placeholder"];
     [cell.userPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lNew.userPhotoLink]];
     [cell.mainPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.mPhotoLink]];
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 309.0f;
-//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+        EEPhotoGalleryVC *lViewController = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
+    
+    EENews *lNews = [_newsList objectAtIndex:indexPath.row];
+    EEPhoto *lPhoto = [lNews.photos objectAtIndex:0];
+    [EEAppManager sharedAppManager].allPhotos = [[NSMutableArray alloc] initWithObjects:lPhoto, nil];
+    [EEAppManager sharedAppManager].currentPhotoIndex = 0;
+    [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:lPhoto.albumId forUser:[lNews getUserId] completionSuccess:^(id responseObject) {
+        NSArray *lPhotos = [[NSArray alloc] initWithArray:responseObject];
+        for (int i = 0; i < lPhotos.count; i++) {
+            NSInteger photo_id = lPhoto.photoId.integerValue;
+            NSString *lPhotoId = [NSString stringWithFormat:@"%li",photo_id];
+            if ([[[lPhotos objectAtIndex:i] photoId] isEqualToString:lPhotoId]) {
+                [EEAppManager sharedAppManager].currentPhotoIndex = i;
+            }
+        }
+        [[EEAppManager sharedAppManager].allPhotos addObjectsFromArray:lPhotos];
+        
+    } completionFailure:^(NSError *error) {
+        
+    }];
+    
+    
+//    [EEAppManager sharedAppManager].currentPhoto = lPhoto;
+
+    [self.navigationController pushViewController:lViewController animated:YES];
+    
+    
+    
+ 
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

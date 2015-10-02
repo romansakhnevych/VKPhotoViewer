@@ -34,7 +34,11 @@ static NSString *CelID = @"GalleryCell";
     _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
-    _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];    
+    if ([EEAppManager sharedAppManager].currentAlbum) {
+        _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
+    } else {
+        _topLabel.text = @"";
+    }
     if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {

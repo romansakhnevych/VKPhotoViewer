@@ -35,11 +35,12 @@
     _searchResult = [NSMutableArray new];
     [self configureSearchController];
     [self setUpTableView];
-    //[EEAppManager sharedAppManager].delegate = self;
-    CGRect lViewRect = self.view.frame;
-    lViewRect.size.height = lViewRect.size.height - 64;
-    lViewRect.origin.y = lViewRect.origin.y + 64;
-    self.view.frame = lViewRect;
+    [EEAppManager sharedAppManager].delegate = self;
+//    CGRect lViewRect = self.view.frame;
+//    lViewRect.size.height = lViewRect.size.height - 64;
+//    lViewRect.origin.y = lViewRect.origin.y + 64;
+//    self.view.frame = lViewRect;
+    
 
 }
 
@@ -127,7 +128,6 @@
         UIAlertView *lAlert;
         lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [lAlert show];
-        [self.navigationController popViewControllerAnimated:YES];
         
     } else {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -137,6 +137,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([indexPath row] == [tableView numberOfRowsInSection:0] - 1){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
     } else {
@@ -150,12 +151,12 @@
             UIAlertView *lAlert;
             lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
             [lAlert show];
-            [self.navigationController popViewControllerAnimated:YES];
+           
 
         } else {
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
             [[self navigationController] pushViewController:lViewController animated:YES];
         }
     }

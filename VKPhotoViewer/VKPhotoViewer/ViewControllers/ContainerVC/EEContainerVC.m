@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+    self.navigationItem.title = @"Friends";
     [self addSubviewAsChildVC:lViewController];
     [self setupNavigationBar];
 }
