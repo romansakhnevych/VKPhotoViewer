@@ -20,6 +20,7 @@
 #import "MBProgressHUD.h"
 #import "EEContainerVC.h"
 #import "HNKCache.h"
+#import "RFRateMe.h"
 
 @interface EESettingsVC ()
 
@@ -30,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = [EEAppManager sharedAppManager];
-    
     
     NSString *localizedDetailString = NSLocalizedString(@"LogOutKey", @"");
     NSString *localizedChangeQualityString = NSLocalizedString(@"ChangeQualityKey", @"");
@@ -97,6 +97,8 @@
             [_ChangeImageQuality setOn:NO animated:YES];
         }
     }
+    
+    [RFRateMe showRateAlertAfterTimesOpened:3];
 }
 
 - (void) tapDetected {
@@ -120,27 +122,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*- (IBAction)logOutButtonTapped:(id)sender {
-    //[self.delegate EESettingsVCDelegateLogOutButtonTapped];
-    NSHTTPCookieStorage *lStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    
-    for (NSHTTPCookie *cookie in [lStorage cookies]) {
-        [lStorage deleteCookie:cookie];
-    }
-    [EEAppManager sharedAppManager].loggedUser = nil;
-    
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ACCESS_TOKEN_KEY];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_ID_KEY];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:TOKEN_LIFE_TIME_KEY];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:CREATED];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}*/
+
 
 - (void)changeSwitch:(id)sender {
     if ([sender isOn]) {
         NSLog(@"On");
-        //HNKCache *hnk = [HNKCache new];
-        //hnk.compressionQuality = 1.0;
         _strSwitcher = @"1";
         SAVE_DEFAULT_VALUE(self.strSwitcher, QUALITY_VALUE);
     } else
