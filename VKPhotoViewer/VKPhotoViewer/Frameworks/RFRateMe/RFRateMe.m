@@ -46,13 +46,17 @@
         if ((long)[components day] <= kNumberOfDaysUntilShowAgain) return;
         
     }
+    NSString *localizedRateTextString = NSLocalizedString(@"RateText", @"");
+    NSString *localizedNeverAskME = NSLocalizedString(@"NeverAsk", @"");
+    NSString *localizedRateNow = NSLocalizedString(@"RateNow", @"");
+    NSString *localizedremindLater = NSLocalizedString(@"RemindLater", @"");
     
     //Show rate alert
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(kAppName, @"")
-                                                        message:[NSString stringWithFormat:@"If you enjoy %@, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!",kAppName]
+                                                        message:[NSString stringWithFormat:localizedRateTextString,kAppName]
                                                        delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"Never ask me again", @"")
-                                              otherButtonTitles:NSLocalizedString(@"Rate it now", @""),NSLocalizedString(@"Remind me later",@""), nil];
+                                              cancelButtonTitle:localizedRateNow
+                                              otherButtonTitles:localizedNeverAskME,localizedremindLater, nil];
     
     [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
         
