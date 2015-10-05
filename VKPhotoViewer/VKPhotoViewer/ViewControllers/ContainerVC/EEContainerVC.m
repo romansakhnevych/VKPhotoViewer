@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"Friends"];
     UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
     [self addSubviewAsChildVC:lViewController];
     [self setupNavigationBar];

@@ -56,6 +56,7 @@
     cell.dateLable.text = [lNew getDate];
     [cell.userPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lNew.userPhotoLink]];
     [cell.mainPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.mPhotoLink]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
