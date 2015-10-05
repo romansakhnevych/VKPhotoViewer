@@ -67,13 +67,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        EEPhotoGalleryVC *lViewController = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
-    [EEAppManager sharedAppManager].allPhotos = nil;
-    //[EEAppManager sharedAppManager].currentAlbum = nil;
+    
+   
     EENews *lNews = [_newsList objectAtIndex:indexPath.row];
     EEPhoto *lPhoto = [lNews.photos objectAtIndex:0];
-    [EEAppManager sharedAppManager].currentPhotoIndex = 0;
-    [EEAppManager sharedAppManager].allPhotos = [NSMutableArray arrayWithObject:lPhoto];
+    EEPhotoGalleryVC *lViewController = [[EEPhotoGalleryVC alloc] initWithPhoto:lPhoto index:0];
+    //[EEAppManager sharedAppManager].allPhotos = [NSMutableArray arrayWithObjects:lPhoto, nil];
+    
    
     [self.navigationController pushViewController:lViewController animated:YES];
     

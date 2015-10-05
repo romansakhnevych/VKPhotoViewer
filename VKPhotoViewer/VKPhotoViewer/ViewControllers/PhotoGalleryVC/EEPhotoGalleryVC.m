@@ -29,23 +29,47 @@ static NSString *CelID = @"GalleryCell";
     [self.navigationController setNavigationBarHidden:YES];
     [_uperView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
     [ _bottomView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
-    _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
-    _allPhotos = nil;
-    _allPhotos = [NSMutableArray arrayWithArray:[EEAppManager sharedAppManager].allPhotos];
-    _album = [EEAppManager sharedAppManager].currentAlbum;
+   // _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
+   // _allPhotos = nil;
+  //  _allPhotos = [NSMutableArray arrayWithArray:[EEAppManager sharedAppManager].allPhotos];
+  //  _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
-    if ([EEAppManager sharedAppManager].currentAlbum) {
-        _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
-    } else {
-        _topLabel.text = @"";
-    }
+   
     if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {
         _likeBtn.imageView.image = [UIImage imageNamed:@"Like"];
     }
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
+}
+
+- (instancetype)initWithStoryboard{
+    self = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
+    if (self) {
+         _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
+    }
+    return self;
+}
+
+- (instancetype)initWithPhoto:(EEPhoto *)photo
+                               index:(NSInteger)index{
+    self = [self initWithStoryboard];
+    if (self) {
+    _allPhotos = [NSMutableArray arrayWithObjects:photo, nil];
+    _currentIndex = index;
+    self.navigationItem.title = @"rec";
+    }
+    return self;
+}
+
+- (instancetype)initWithAllPhotos:(NSMutableArray *)allPhotos currentIndex:(NSInteger)index{
+    self = [self initWithStoryboard];
+    if (self) {
+        _allPhotos = allPhotos;
+        _currentIndex = index;
+    }
+    return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
