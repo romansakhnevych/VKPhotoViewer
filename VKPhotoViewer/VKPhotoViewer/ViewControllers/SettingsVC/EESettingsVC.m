@@ -45,6 +45,10 @@
     
     [self.navigationController setNavigationBarHidden:NO];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alertWillAppear:)];
+    [_label_imageQuality addGestureRecognizer:tap];
+    _label_imageQuality.userInteractionEnabled = YES;
+    
     NSString *lLoggedUserId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -135,6 +139,19 @@
         _strSwitcher = @"0";
         SAVE_DEFAULT_VALUE(self.strSwitcher, QUALITY_VALUE);
     }
+}
+
+- (void)alertWillAppear:(id)sender {
+    NSString *localizedTipTitle = NSLocalizedString(@"AlertTipText", @"");
+    NSString *localizedAboutQualityText = NSLocalizedString(@"AboutQualityText", @"");
+    NSString *localizedOkBtnText = NSLocalizedString(@"OkBtnText", @"");
+    
+    UIAlertView *cashDeletedAlertView = [[UIAlertView alloc] initWithTitle:localizedTipTitle
+                                                                   message:localizedAboutQualityText
+                                                                  delegate:nil
+                                                         cancelButtonTitle:localizedOkBtnText
+                                                         otherButtonTitles:nil];
+    [cashDeletedAlertView show];
 }
 
 - (IBAction)logOutAction:(id)sender {
