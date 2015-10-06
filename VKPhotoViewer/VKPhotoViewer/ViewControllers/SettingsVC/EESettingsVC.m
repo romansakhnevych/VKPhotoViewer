@@ -169,5 +169,16 @@
     for (NSHTTPCookie *cookie in [lStorage cookies]) {
         [lStorage deleteCookie:cookie];
     }
+    
+    NSString *localizedTitle = NSLocalizedString(@"AlertTitleText", @"");
+    NSString *localizedDeletedCashText = NSLocalizedString(@"DeletedCashText", @"");
+    NSString *localizedOkBtnText = NSLocalizedString(@"OkBtnText", @"");
+    
+    UIAlertView *cashDeletedAlertView = [[UIAlertView alloc] initWithTitle:localizedTitle
+                                                        message:localizedDeletedCashText
+                                                       delegate:nil
+                                              cancelButtonTitle:localizedOkBtnText
+                                              otherButtonTitles:nil];
+    [cashDeletedAlertView show];
 }
 @end

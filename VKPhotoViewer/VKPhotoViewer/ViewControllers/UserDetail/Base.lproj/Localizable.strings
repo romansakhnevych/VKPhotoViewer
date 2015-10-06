@@ -28,6 +28,9 @@
 "AddPhotoKey" = "Add photo";
 
 "ChangeQualityKey" = "Maximum photo quality";
+"AlertTitleText" = "Cash";
+"DeletedCashText" = "Whole image cash was deleted!";
+"OkBtnText" = "OK";
 
 "RateText" = "If you enjoy %@, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
 "NeverAsk" = "Never ask me again";

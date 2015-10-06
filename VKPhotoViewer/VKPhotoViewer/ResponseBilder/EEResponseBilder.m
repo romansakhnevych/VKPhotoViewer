@@ -123,12 +123,12 @@
             }else if (lPhoto.xsPhotoLink){
                 photoURL = lPhoto.xsPhotoLink;
             }
-            //change image quality
+            /*//change image quality
             NSString *imageQuality = GET_DEFAULT_VALUE(QUALITY_VALUE);
             if ([imageQuality  isEqual: @"0"]) {
                 photoURL = lPhoto.lPhotoLink;
                 NSLog(@"middle image quality!!!");
-            }
+            }*/
             
             UIImageView *imgView = [[UIImageView alloc] init];
             imgView.contentMode = UIViewContentModeScaleToFill;
