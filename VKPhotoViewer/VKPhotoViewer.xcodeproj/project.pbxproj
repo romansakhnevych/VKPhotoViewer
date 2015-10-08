@@ -719,10 +719,10 @@
 		84C1C3B91B4BCF3E00959DF2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				84B829391BA88431002BB0E6 /* Categories */,
 				84C1A41A1B4BD3F700D5F5C0 /* Constants.h */,
 				84C1C3BE1B4BCF3E00959DF2 /* AppDelegate.h */,
 				84C1C3BF1B4BCF3E00959DF2 /* AppDelegate.m */,
+				84B829391BA88431002BB0E6 /* Categories */,
 				84F9353A1BA465C9000D95E9 /* Transitions */,
 				847D29761BA04D2600612D6A /* Models */,
 				847D29801BA04D2600612D6A /* Requests */,
