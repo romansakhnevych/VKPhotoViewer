@@ -45,6 +45,10 @@
     
     [self.navigationController setNavigationBarHidden:NO];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alertWillAppear:)];
+    [_label_imageQuality addGestureRecognizer:tap];
+    _label_imageQuality.userInteractionEnabled = YES;
+    
     NSString *lLoggedUserId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -137,6 +141,19 @@
     }
 }
 
+- (void)alertWillAppear:(id)sender {
+    NSString *localizedTipTitle = NSLocalizedString(@"AlertTipText", @"");
+    NSString *localizedAboutQualityText = NSLocalizedString(@"AboutQualityText", @"");
+    NSString *localizedOkBtnText = NSLocalizedString(@"OkBtnText", @"");
+    
+    UIAlertView *cashDeletedAlertView = [[UIAlertView alloc] initWithTitle:localizedTipTitle
+                                                                   message:localizedAboutQualityText
+                                                                  delegate:nil
+                                                         cancelButtonTitle:localizedOkBtnText
+                                                         otherButtonTitles:nil];
+    [cashDeletedAlertView show];
+}
+
 - (IBAction)logOutAction:(id)sender {
     [self logout];
 }
@@ -169,5 +186,16 @@
     for (NSHTTPCookie *cookie in [lStorage cookies]) {
         [lStorage deleteCookie:cookie];
     }
+    
+    NSString *localizedTitle = NSLocalizedString(@"AlertTitleText", @"");
+    NSString *localizedDeletedCashText = NSLocalizedString(@"DeletedCashText", @"");
+    NSString *localizedOkBtnText = NSLocalizedString(@"OkBtnText", @"");
+    
+    UIAlertView *cashDeletedAlertView = [[UIAlertView alloc] initWithTitle:localizedTitle
+                                                        message:localizedDeletedCashText
+                                                       delegate:nil
+                                              cancelButtonTitle:localizedOkBtnText
+                                              otherButtonTitles:nil];
+    [cashDeletedAlertView show];
 }
 @end

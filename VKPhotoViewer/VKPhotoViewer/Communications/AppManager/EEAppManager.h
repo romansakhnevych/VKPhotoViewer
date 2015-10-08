@@ -30,7 +30,6 @@
 @property (nonatomic,retain)EEPhoto *currentPhoto;
 @property (nonatomic,copy)NSString *captchaSid;
 @property (nonatomic,copy)NSString *captchaImageLink;
-@property (nonatomic,retain)NSMutableArray *allPhotos;
 @property (nonatomic)NSInteger currentPhotoIndex;
 @property (nonatomic,retain)EGOCache *cache;
 @property (nonatomic, weak)id <EEAppManagerDelegate> delegate;
@@ -76,7 +75,7 @@
 
 - (void)showAlertWithError : (NSError*)error;
 - (void)showAlertAboutTokenExpired;
-- (void)UploadPhotos:(void (^)())updateData;
+-(void)UploadPhotos:(NSMutableArray *)allPhotos withCompletion:(void (^)())updateData;
 - (void)recieveLnkForPhotoCompletionSuccess:(void (^)(id responseObject))success
                           completionFailure:(void (^)(NSError * error))failure;
 

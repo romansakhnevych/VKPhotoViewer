@@ -27,12 +27,9 @@ static NSString *CelID = @"GalleryCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    [_topLabel setText:_titleString];
     [_uperView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
     [ _bottomView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
-   // _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
-   // _allPhotos = nil;
-  //  _allPhotos = [NSMutableArray arrayWithArray:[EEAppManager sharedAppManager].allPhotos];
-  //  _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
    
@@ -47,7 +44,8 @@ static NSString *CelID = @"GalleryCell";
 - (instancetype)initWithStoryboard{
     self = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
     if (self) {
-         _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
+        
+         _titleString = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
     }
     return self;
 }
@@ -56,9 +54,10 @@ static NSString *CelID = @"GalleryCell";
                                index:(NSInteger)index{
     self = [self initWithStoryboard];
     if (self) {
+    _allPhotos = nil;
     _allPhotos = [NSMutableArray arrayWithObjects:photo, nil];
     _currentIndex = index;
-    self.navigationItem.title = @"rec";
+    _titleString = @"";
     }
     return self;
 }
@@ -66,7 +65,8 @@ static NSString *CelID = @"GalleryCell";
 - (instancetype)initWithAllPhotos:(NSMutableArray *)allPhotos currentIndex:(NSInteger)index{
     self = [self initWithStoryboard];
     if (self) {
-        _allPhotos = allPhotos;
+        _allPhotos = nil;
+        _allPhotos = [NSMutableArray arrayWithArray:allPhotos];
         _currentIndex = index;
     }
     return self;
@@ -110,10 +110,9 @@ static NSString *CelID = @"GalleryCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)[EEAppManager sharedAppManager].allPhotos.count];
-    if (indexPath.row == [EEAppManager sharedAppManager].allPhotos.count - 1
-        && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]]) {
-        [[EEAppManager sharedAppManager] UploadPhotos: ^{
+    NSString* albumSizeToString = [NSString stringWithFormat:@"%lu",(unsigned long)_allPhotos.count];
+    if (indexPath.row == _allPhotos.count - 1 && ![albumSizeToString isEqualToString:[[EEAppManager sharedAppManager].currentAlbum getAlbumSize]] && _allPhotos.count != 1) {
+        [[EEAppManager sharedAppManager] UploadPhotos:_allPhotos withCompletion:^{
             [_collectionView reloadData];
         }];
     }
@@ -203,7 +202,22 @@ static NSString *CelID = @"GalleryCell";
     }else{
         lNoPhoto = YES;
     }
+
+    //change image quality
+    NSString *imageQuality = GET_DEFAULT_VALUE(QUALITY_VALUE);
+    if ([imageQuality  isEqual: @"0"]) {
+        
+        if (lPhoto.lPhotoLink){
+            lLink = lPhoto.lPhotoLink;
+        } else {
+            lLink = lPhoto.xlPhotoLink;
+        }
     
+        NSLog(@"middle image quality photo = %@ !!!", lLink);
+    }
+    else {
+        NSLog(@"best quality photo = %@ !!!", lLink);
+    }
     return lLink;
 }
 

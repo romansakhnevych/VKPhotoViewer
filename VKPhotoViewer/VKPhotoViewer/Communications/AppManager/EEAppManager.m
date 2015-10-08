@@ -231,10 +231,10 @@
 
 #pragma mark - Uploading photos for Gallery
 
--(void)UploadPhotos:(void (^)())updateData {
-    [self getPhotosWithCount:60.0 offset:_allPhotos.count fromAlbum:_currentAlbum.albumID forUser:_currentFriend.userId completionSuccess:^(id responseObject) {
+-(void)UploadPhotos:(NSMutableArray *)allPhotos withCompletion:(void (^)())updateData {
+    [self getPhotosWithCount:60.0 offset:allPhotos.count fromAlbum:_currentAlbum.albumID forUser:_currentFriend.userId completionSuccess:^(id responseObject) {
         if ([responseObject isKindOfClass:[NSMutableArray class]]){
-            [_allPhotos addObjectsFromArray:responseObject];
+            [allPhotos addObjectsFromArray:responseObject];
         }else{
             NSLog(@"error");
         }

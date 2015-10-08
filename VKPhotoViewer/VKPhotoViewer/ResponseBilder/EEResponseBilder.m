@@ -12,6 +12,7 @@
 #import "EENews.h"
 #import <UIKit/UIKit.h>
 #import "UIImageView+Haneke.h"
+#import "Constants.h"
 
 
 @implementation EEResponseBilder
@@ -122,6 +123,12 @@
             }else if (lPhoto.xsPhotoLink){
                 photoURL = lPhoto.xsPhotoLink;
             }
+            /*//change image quality
+            NSString *imageQuality = GET_DEFAULT_VALUE(QUALITY_VALUE);
+            if ([imageQuality  isEqual: @"0"]) {
+                photoURL = lPhoto.lPhotoLink;
+                NSLog(@"middle image quality!!!");
+            }*/
             
             UIImageView *imgView = [[UIImageView alloc] init];
             imgView.contentMode = UIViewContentModeScaleToFill;
@@ -170,7 +177,6 @@
                     lNewPhoto.lPhotoLink = [obj objectForKey:@"photo_807"];
                     lNewPhoto.xlPhotoLink = [obj objectForKey:@"photo_1280"];
                     lNewPhoto.xxlPhotoLink = [obj objectForKey:@"photo_2560"];
-                
                     
                     [lPhotos addObject:lNewPhoto];
                 }];
