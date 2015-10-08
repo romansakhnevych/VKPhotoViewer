@@ -203,7 +203,22 @@ static NSString *CelID = @"GalleryCell";
     }else{
         lNoPhoto = YES;
     }
+
+    //change image quality
+    NSString *imageQuality = GET_DEFAULT_VALUE(QUALITY_VALUE);
+    if ([imageQuality  isEqual: @"0"]) {
+        
+        if (lPhoto.lPhotoLink){
+            lLink = lPhoto.lPhotoLink;
+        } else {
+            lLink = lPhoto.xlPhotoLink;
+        }
     
+        NSLog(@"middle image quality photo = %@ !!!", lLink);
+    }
+    else {
+        NSLog(@"best quality photo = %@ !!!", lLink);
+    }
     return lLink;
 }
 
