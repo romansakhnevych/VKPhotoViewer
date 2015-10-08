@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (copy, nonatomic) NSString *titleString;
 @property BOOL isImageLoaded;
 @property BOOL isDetailed;
 

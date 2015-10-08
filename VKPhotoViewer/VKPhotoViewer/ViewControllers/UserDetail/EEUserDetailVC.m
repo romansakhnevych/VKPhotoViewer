@@ -127,7 +127,7 @@
                 
                 NSMutableArray *lArray = [NSMutableArray array];
                 [lArray addObjectsFromArray:responseObject];
-                [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
+                [EEAppManager sharedAppManager].currentPhoto = [lArray objectAtIndex:0];
                 EEPhotoGalleryVC *lViewController = [[EEPhotoGalleryVC alloc] initWithAllPhotos:lArray currentIndex:0];
                 lViewController.isDetailed = YES;
                 [[self navigationController] presentViewController:lViewController animated:YES completion:nil];
