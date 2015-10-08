@@ -10,7 +10,7 @@
 #import "EEFriends.h"
 #import "EEPhoto.h"
 
-@interface EEFiltredVC : UIViewController
+@interface EEFiltredVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSString* linkForPhoto;

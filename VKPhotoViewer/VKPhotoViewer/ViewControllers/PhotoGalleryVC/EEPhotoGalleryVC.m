@@ -41,6 +41,8 @@ static NSString *CelID = @"GalleryCell";
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
 }
 
+
+
 - (instancetype)initWithStoryboard{
     self = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
     if (self) {
