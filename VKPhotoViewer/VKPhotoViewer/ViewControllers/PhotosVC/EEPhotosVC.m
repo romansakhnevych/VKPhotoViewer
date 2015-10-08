@@ -89,12 +89,9 @@ static NSString * const reuseIdentifier = @"PhotoCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
-    [[self navigationController] pushViewController:lViewController animated:YES];
-    [EEAppManager sharedAppManager].currentPhotoIndex = indexPath.row;
-    [EEAppManager sharedAppManager].allPhotos = _photosList;
+    EEPhotoGalleryVC *lViewController = [[EEPhotoGalleryVC alloc] initWithAllPhotos:_photosList currentIndex:indexPath.row];
     [EEAppManager sharedAppManager].currentPhoto = [_photosList objectAtIndex:indexPath.row];
+    [[self navigationController] pushViewController:lViewController animated:YES];
 }
 
 - (UIEdgeInsets)collectionView:

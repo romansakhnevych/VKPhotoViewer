@@ -31,5 +31,10 @@
 - (IBAction)likeBtnTaped:(id)sender;
 - (IBAction)shareBtnTaped:(id)sender;
 - (EEGalleryCell*) visableCell;
+- (instancetype)initWithStoryboard;
+- (instancetype)initWithPhoto:(EEPhoto *)photo
+                               index:(NSInteger)index;
+- (instancetype)initWithAllPhotos:(NSMutableArray *)allPhotos
+                             currentIndex:(NSInteger)index;
 
 @end

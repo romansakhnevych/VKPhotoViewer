@@ -21,6 +21,7 @@
     [super viewDidLoad];
     [self setTitle:@"Friends"];
     UIViewController *lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
+    self.navigationItem.title = @"Friends";
     [self addSubviewAsChildVC:lViewController];
     [self setupNavigationBar];
 }
@@ -35,6 +36,13 @@
     [self addChildViewController:viewController];
     [self.view addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
+}
+
+- (void)removeChildVC{
+    [[self.childViewControllers lastObject] willMoveToParentViewController:nil];
+    //[[self.childViewControllers lastObject].view removeFromSuperview];
+    [[self.childViewControllers lastObject] removeFromParentViewController];
+    
 }
 
 - (void)menuBtnTap: (id)btn{

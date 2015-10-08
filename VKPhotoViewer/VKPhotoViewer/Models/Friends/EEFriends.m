@@ -131,4 +131,13 @@
     return lDate;
 }
 
+- (BOOL)isDeactivated{
+    BOOL deactive = NO;
+    if ([_deactivated isEqualToString:@"deleted"] || [_deactivated isEqualToString:@"banned"]) {
+        deactive = YES;
+    }
+    
+    return deactive;
+}
+
 @end

@@ -259,9 +259,10 @@
         completionFailure:(void (^)(NSError * error))failure {
     
     EENetworkManager *lManager = [EENetworkManager sharedManager];
-    [lManager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:data name:@"data"];
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary* parameters = @{ @"photo" : data};
+    [lManager POST:url parameters: parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
+        [formData appendPartWithFormData:data name:@"photo"];
+    }success:^(NSURLSessionDataTask *task, id responseObject) {
         success (responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure (error);
@@ -270,7 +271,7 @@
 - (void)savePhoto: (NSString*)photo InServiceWithUserId: (NSString*)userId AndHash: (NSString*)hash AndServer: (NSString*)server CompletionSuccess:(void (^)(id responseObject))success CompletitionFailure:(void (^)(NSError *error))failure {
     EENetworkManager *lManager = [EENetworkManager sharedManager];
     [lManager GET:[EERequests savePhoto:photo InServiceWithUserId:userId AndHash:hash AndServer:server] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        success(success);
+        success(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];

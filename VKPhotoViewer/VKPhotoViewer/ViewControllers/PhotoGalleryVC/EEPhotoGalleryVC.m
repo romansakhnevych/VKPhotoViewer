@@ -29,12 +29,13 @@ static NSString *CelID = @"GalleryCell";
     [self.navigationController setNavigationBarHidden:YES];
     [_uperView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
     [ _bottomView setBackgroundColor:[UIColor colorWithRed:89.0/255.0f green:179.0/255.0f blue:209.0/255.0f alpha:0.5f]];
-    _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
-    _allPhotos = [EEAppManager sharedAppManager].allPhotos;
-    _album = [EEAppManager sharedAppManager].currentAlbum;
+   // _currentIndex = [EEAppManager sharedAppManager].currentPhotoIndex;
+   // _allPhotos = nil;
+  //  _allPhotos = [NSMutableArray arrayWithArray:[EEAppManager sharedAppManager].allPhotos];
+  //  _album = [EEAppManager sharedAppManager].currentAlbum;
     _image = [UIImage new];
     [self setupCollectionView];
-    _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];    
+   
     if ([[_allPhotos objectAtIndex:_currentIndex] isLiked]) {
         _likeBtn.imageView.image = [UIImage imageNamed:@"LikeFilled"];
     } else {
@@ -43,12 +44,41 @@ static NSString *CelID = @"GalleryCell";
     _likesCountLbl.text = [[_allPhotos objectAtIndex:_currentIndex] getLikesCount];
 }
 
+- (instancetype)initWithStoryboard{
+    self = (EEPhotoGalleryVC *)VIEW_CONTROLLER_WITH_ID(@"PhotoView");
+    if (self) {
+         _topLabel.text = [NSString stringWithFormat:@"%ld of %@",_currentIndex + 1,[EEAppManager sharedAppManager].currentAlbum.size];
+    }
+    return self;
+}
+
+- (instancetype)initWithPhoto:(EEPhoto *)photo
+                               index:(NSInteger)index{
+    self = [self initWithStoryboard];
+    if (self) {
+    _allPhotos = [NSMutableArray arrayWithObjects:photo, nil];
+    _currentIndex = index;
+    self.navigationItem.title = @"rec";
+    }
+    return self;
+}
+
+- (instancetype)initWithAllPhotos:(NSMutableArray *)allPhotos currentIndex:(NSInteger)index{
+    self = [self initWithStoryboard];
+    if (self) {
+        _allPhotos = allPhotos;
+        _currentIndex = index;
+    }
+    return self;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     self.uperView.hidden  = NO;
     // Set outself as the navigation controller's delegate so we're asked for a transitioning object
     self.navigationController.delegate = self;
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -62,6 +92,7 @@ static NSString *CelID = @"GalleryCell";
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    
     NSIndexPath *lIndexPath = [NSIndexPath indexPathForItem:_currentIndex inSection:0];
     [_collectionView scrollToItemAtIndexPath:lIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
@@ -75,7 +106,7 @@ static NSString *CelID = @"GalleryCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [[EEAppManager sharedAppManager].allPhotos count];
+    return [_allPhotos count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,7 +127,8 @@ static NSString *CelID = @"GalleryCell";
     [lCell.imageView addGestureRecognizer:tap];
     
     _isImageLoaded = NO;
-    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:[self setPhotoAtIndex:indexPath.row]] placeholder:placeholderImg success:^(UIImage *image) {
+    NSString *lPhotoLink = [self setPhotoAtIndex:indexPath.row];
+    [lCell.imageView hnk_setImageFromURL:[NSURL URLWithString:lPhotoLink] placeholder:placeholderImg success:^(UIImage *image) {
         
         _isImageLoaded = YES;
         [self.cellImageSnapshot removeFromSuperview];

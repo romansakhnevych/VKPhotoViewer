@@ -123,13 +123,12 @@
         [EEAppManager sharedAppManager].currentAlbum = responseObject[0];
         [[EEAppManager sharedAppManager] getPhotosWithCount:60 offset:0 fromAlbum:ALBUM_WITH_AVATARS_ID forUser:[EEAppManager sharedAppManager].currentFriend.userId completionSuccess:^(id responseObject) {
             if ([responseObject isKindOfClass:[NSMutableArray class]]){
-                UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                EEPhotoGalleryVC *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"PhotoView"];
+            
+                
                 NSMutableArray *lArray = [NSMutableArray array];
                 [lArray addObjectsFromArray:responseObject];
-                [EEAppManager sharedAppManager].allPhotos = lArray;
-                [EEAppManager sharedAppManager].currentPhotoIndex = 0;
                 [EEAppManager sharedAppManager].currentPhoto = [[EEAppManager sharedAppManager].allPhotos objectAtIndex:0];
+                EEPhotoGalleryVC *lViewController = [[EEPhotoGalleryVC alloc] initWithAllPhotos:lArray currentIndex:0];
                 lViewController.isDetailed = YES;
                 [[self navigationController] presentViewController:lViewController animated:YES completion:nil];
             }else{

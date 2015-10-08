@@ -118,9 +118,11 @@
     EEPhotoCell* cell = (EEPhotoCell*)[fromViewController.collectionView cellForItemAtIndexPath:[[fromViewController.collectionView indexPathsForSelectedItems] firstObject]];
     
     toViewController.cellImageSnapshot = [cell.imageView snapshotViewAfterScreenUpdates:NO];
-    UIView* cellImageSnapshot = [cell.imageView snapshotViewAfterScreenUpdates:NO];
-    cellImageSnapshot.frame = [containerView convertRect:cell.imageView.frame fromView:cell.imageView.superview];
-    
+    UIImageView* cellImageSnapshot = [[UIImageView alloc] initWithImage:cell.imageView.image];
+    cellImageSnapshot.contentMode = UIViewContentModeCenter;
+    //UIView* cellImageSnapshot = [cell.imageView snapshotViewAfterScreenUpdates:NO];
+    //cellImageSnapshot.frame = CGRectMake(cell.imageView.frame.origin.x, cell.imageView.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+    cellImageSnapshot.frame = [containerView convertRect:cell.frame fromView:cell.superview];
     cell.imageView.hidden = YES;
         double toMakePhotoBigger = (toViewController.collectionView.frame.size.width/cell.imageView.image.size.width > toViewController.collectionView.frame.size.height/cell.imageView.image.size.height) ? toViewController.collectionView.frame.size.height/cell.imageView.image.size.height : toViewController.collectionView.frame.size.width/cell.imageView.image.size.width;
     
@@ -138,13 +140,13 @@
     CGFloat lImageViewHeight = [UIScreen mainScreen].bounds.size.height;
     CGFloat lImageViewWidth = [UIScreen mainScreen].bounds.size.width;
     
-    CGFloat lImageHeight = [photo.photoHeight floatValue];
-    CGFloat lImageWidth = [photo.photoWidth floatValue];
+    CGFloat lImageHeight = [[EEAppManager sharedAppManager].currentPhoto.photoHeight floatValue];
+    CGFloat lImageWidth = [[EEAppManager sharedAppManager].currentPhoto.photoWidth floatValue];
     
     CGFloat lScaleFactor = MIN(lImageViewWidth / lImageWidth, lImageViewHeight / lImageHeight);
     
-    CGFloat lNewWidth = [photo.photoWidth floatValue] * lScaleFactor;
-    CGFloat lNewHeight = [photo.photoHeight floatValue] * lScaleFactor;
+    CGFloat lNewWidth = [ [EEAppManager sharedAppManager].currentPhoto.photoWidth floatValue] * lScaleFactor;
+    CGFloat lNewHeight = [[EEAppManager sharedAppManager].currentPhoto.photoHeight floatValue] * lScaleFactor;
 
     
     
@@ -163,7 +165,7 @@
             UIImageView* copy = [[UIImageView alloc] initWithImage:cell.imageView.image];
         [copy setBackgroundColor:[UIColor greenColor]];
         copy.frame = cellImageSnapshot.frame;
-        copy.contentMode = UIViewContentModeCenter;
+        copy.contentMode = UIViewContentModeScaleAspectFill;
         [cellImageSnapshot removeFromSuperview];
 
         [containerView addSubview:copy];
@@ -177,11 +179,11 @@
         
         
         //copy.contentMode = UIViewContentModeCenter;
-        [UIView animateWithDuration:3.0 animations:^{
-            copy.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - lNewWidth)/2, ([UIScreen mainScreen].bounds.size.height - lNewHeight)/2, lNewWidth, lNewHeight);
-            
-        //    copy.contentMode = UIViewContentModeScaleAspectFit;
-        } completion:^(BOOL finished) {
+//        [UIView animateWithDuration:3.0 animations:^{
+//        copy.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - lNewWidth)/2, ([UIScreen mainScreen].bounds.size.height - lNewHeight)/2, lNewWidth, lNewHeight);
+//            
+//        //    copy.contentMode = UIViewContentModeScaleAspectFit;
+//        } completion:^(BOOL finished) {
             [toViewController.uperView setHidden:NO];
             
                     toViewController.cellImageSnapshot = [[UIView alloc]init];
@@ -215,7 +217,7 @@
 //        }
         
 //        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
-    }];
+//    }];
 }
 
 

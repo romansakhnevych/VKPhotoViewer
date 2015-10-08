@@ -14,9 +14,12 @@
 #import "EERecentlyAddedCell.h"
 #import "UIImageView+Haneke.h"
 #import "EEPhoto.h"
+#import "Constants.h"
+#import "EEPhotoGalleryVC.h"
 
 @interface EERecentlyAddedVC (){
     NSArray *_newsList;
+    
 }
 
 @end
@@ -52,17 +55,30 @@
     EENews *lNew = [_newsList objectAtIndex:indexPath.row];
     EEPhoto *lPhoto = [lNew.photos objectAtIndex:0];
     
+   [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     cell.nameLable.text = [NSString stringWithFormat:@"%@ %@", lNew.firstName, lNew.lastName];
     cell.dateLable.text = [lNew getDate];
+    cell.userPhotoImgView.image = [UIImage imageNamed:@"Placeholder"];
+    cell.mainPhotoImgView.image = [UIImage imageNamed:@"Placeholder"];
     [cell.userPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lNew.userPhotoLink]];
     [cell.mainPhotoImgView hnk_setImageFromURL:[NSURL URLWithString:lPhoto.mPhotoLink]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 309.0f;
-//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+   
+    EENews *lNews = [_newsList objectAtIndex:indexPath.row];
+    EEPhoto *lPhoto = [lNews.photos objectAtIndex:0];
+    EEPhotoGalleryVC *lViewController = [[EEPhotoGalleryVC alloc] initWithPhoto:lPhoto index:0];
+    //[EEAppManager sharedAppManager].allPhotos = [NSMutableArray arrayWithObjects:lPhoto, nil];
+    
+   
+    [self.navigationController pushViewController:lViewController animated:YES];
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

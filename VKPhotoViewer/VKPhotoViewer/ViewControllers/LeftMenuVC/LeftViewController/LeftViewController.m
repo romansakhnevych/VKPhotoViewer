@@ -15,7 +15,11 @@
 #import "Constants.h"
 #import "EEAppManager.h"
 #import "Haneke.h"
+#import "EEFriendsListVC.h"
 #import "EEContainerVC.h"
+#import "EEAlbumsVC.h"
+#import "EERecentlyAddedVC.h"
+#import "EESettingsVC.h"
 
 typedef NS_ENUM(NSInteger, EEMenuItems) {
     Friends,
@@ -53,12 +57,12 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
     NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
-    //NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
+    NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
     //NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
     
     _titlesArray = @[localizedFriendsString,
                      localizedAlbumsString,
-                     localizedRecentlyAddedString,];
+                     localizedRecentlyAddedString, localizedSettingsString,];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.tableView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 20.f, 0.f);
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -164,11 +168,10 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     NSString *localizedFriendsString = NSLocalizedString(@"FriendsKey", @"");
     NSString *localizedAlbumsString = NSLocalizedString(@"AlbumsKey", @"");
     NSString *localizedRecentlyAddedString = NSLocalizedString(@"RecentlyAddedKey", @"");
-    //NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
+    NSString *localizedSettingsString = NSLocalizedString(@"SettingsKey", @"");
     //NSString *localizedAddPhotoString = NSLocalizedString(@"AddPhotoKey", @"");
     
     [kMainViewController hideLeftViewAnimated:YES completionHandler:nil];
-    UIViewController *lViewController;
     EEContainerVC *lContainer = [[[kMainViewController rootViewController] childViewControllers] objectAtIndex:0];
     CGRect lViewRect = lContainer.view.frame;
     lViewRect.size.height = lViewRect.size.height - 64;
@@ -176,47 +179,63 @@ typedef NS_ENUM(NSInteger, EEMenuItems) {
     NSLog(@"lContainer frame - %@", NSStringFromCGRect(lContainer.view.frame));
     switch (indexPath.row) {
         case Friends:{
+            UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EEFriendsListVC class]]) {
+            [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEFriendsListVC");
             lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedFriendsString;
             cell.imageView.image = [UIImage imageNamed:@"FriendsYellow"];
+            }
 
         }
             break;
         case Albums:{
+            UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EEAlbumsVC class]]) {
+            [lContainer removeChildVC];
             [EEAppManager sharedAppManager].currentFriend = [EEAppManager sharedAppManager].loggedUser;
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAlbumsVC");
             lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedAlbumsString;
             cell.imageView.image = [UIImage imageNamed:@"albumsYellow"];
+            }
         }
             break;
         case RecentlyAdded:{
+            UIViewController *lViewController;
+            if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EERecentlyAddedVC class]]) {
+            [lContainer removeChildVC];
             lViewController = VIEW_CONTROLLER_WITH_ID(@"EERecentlyAddedVC");
             lViewController.view.frame = lViewRect;
             [lContainer addSubviewAsChildVC:lViewController];
             lContainer.navigationItem.title = localizedRecentlyAddedString;
             cell.imageView.image = [UIImage imageNamed:@"recentlyAddedYellow"];
+            }
         }
             break;
-//        case Settings:{
-//            lViewController = VIEW_CONTROLLER_WITH_ID(@"EESettingsVC");
-//            lViewController.view.frame = lViewRect;
-//            [lContainer addSubviewAsChildVC:lViewController];
-//            lContainer.navigationItem.title = localizedSettingsString;
-//            cell.imageView.image = [UIImage imageNamed:@"settingsYellow"];
-//        }
-//            break;
+      case Settings:{
+          UIViewController *lViewController;
+          if (![[lContainer.childViewControllers lastObject] isKindOfClass:[EERecentlyAddedVC class]]) {
+              [lContainer removeChildVC];
+            lViewController = VIEW_CONTROLLER_WITH_ID(@"EESettingsVC");
+            lViewController.view.frame = lViewRect;
+            [lContainer addSubviewAsChildVC:lViewController];
+            lContainer.navigationItem.title = localizedSettingsString;
+           cell.imageView.image = [UIImage imageNamed:@"settingsYellow"];
+        }
+      }
+            break;
 //        case AddPhoto:{
 //            lViewController = VIEW_CONTROLLER_WITH_ID(@"EEAddPhotoVC");
 //            lViewController.view.frame = lViewRect;
 //            [lContainer addSubviewAsChildVC:lViewController];
 //            lContainer.navigationItem.title = localizedAddPhotoString;
 //        }
+
     }
-   
 }
 
 -(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -35,7 +35,13 @@
     _searchResult = [NSMutableArray new];
     [self configureSearchController];
     [self setUpTableView];
-    //[EEAppManager sharedAppManager].delegate = self;
+    [EEAppManager sharedAppManager].delegate = self;
+//    CGRect lViewRect = self.view.frame;
+//    lViewRect.size.height = lViewRect.size.height - 64;
+//    lViewRect.origin.y = lViewRect.origin.y + 64;
+//    self.view.frame = lViewRect;
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,6 +52,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //load indicator
         [self updateTableView];
     }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,12 +124,20 @@
     
     [_searchController setActive:NO];
     
+   if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
+        UIAlertView *lAlert;
+        lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [lAlert show];
+        
+    } else {
     UIStoryboard * lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"userDetail"];
     [[self navigationController] pushViewController:lViewController animated:YES];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([indexPath row] == [tableView numberOfRowsInSection:0] - 1){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
     } else {
@@ -132,11 +147,18 @@
         [[EEAppManager sharedAppManager] setCurrentFriend:[_friendsList objectAtIndex:indexPath.row]];
     }
     [_searchController setActive:NO];
-    
+        if ([[EEAppManager sharedAppManager].currentFriend isDeactivated]) {
+            UIAlertView *lAlert;
+            lAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:[NSString stringWithFormat: @"This profile has been deleted or banned"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+            [lAlert show];
+           
+
+        } else {
     UIStoryboard *lStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *lViewController = [lStoryboard instantiateViewControllerWithIdentifier:@"EEAlbumsVC"];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[self navigationController] pushViewController:lViewController animated:YES];
+    
+            [[self navigationController] pushViewController:lViewController animated:YES];
+        }
     }
 }
 

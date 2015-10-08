@@ -22,13 +22,14 @@
         self.linkInService = [[responseObject objectForKey:@"response"] objectForKey:@"upload_url"];
         NSLog(@"%@",responseObject);
 
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.linkForPhoto]];
+        UIImage* imageD = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.linkForPhoto]]];
+        NSData* data = UIImagePNGRepresentation(imageD);
         
         //цей запит вертає помилку чомцсь
         [[EEAppManager sharedAppManager] postPhotoWithData:data onUrl:self.linkInService CompletionSuccess:^(id responseObject) {
-            self.hashServ = [[responseObject objectForKey:@"response"] objectForKey:@"hash"];
-            self.photoUrlId = [[responseObject objectForKey:@"response"] objectForKey:@"photo"];
-            self.server = [[responseObject objectForKey:@"response"] objectForKey:@"server"];
+            self.hashServ = [responseObject objectForKey:@"hash"];
+            self.photoUrlId = [responseObject objectForKey:@"photo"];
+            self.server = [responseObject objectForKey:@"server"];
             [[EEAppManager sharedAppManager] savePhoto:self.photoUrlId InServiceWithUserId: [EEAppManager sharedAppManager].currentFriend.userId AndHash:self.hashServ AndServer:self.server CompletionSuccess:^(id responseObject) {
                 self.filtredPhoto = [EEPhoto new];
                 self.filtredPhoto.photoId = [[responseObject valueForKey:@"response"] valueForKey:@"photoId"];

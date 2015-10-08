@@ -27,6 +27,7 @@
 @property (nonatomic, retain)NSString *status;
 @property (nonatomic, retain)NSString *site;
 @property (nonatomic, retain)NSString *birthdayDate;
+@property (nonatomic, strong)NSString *deactivated;
 
 - (NSString *)getFullName;
 - (NSString *)getPhotosCount;
@@ -35,5 +36,6 @@
 - (NSString *)getLocation;
 - (NSDictionary *)getDetails;
 - (NSString *)getBirthDay;
+- (BOOL)isDeactivated;
 
 @end
